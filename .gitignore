@@ -31,3 +31,6 @@ _site
 # helper folders
 **/docs
 **/test
+
+# draft post
+**/_draft_post
