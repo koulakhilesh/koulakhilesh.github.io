@@ -1,7 +1,7 @@
 ---
 permalink: /about/
 title: "About"
-excerpt: "Litte about me."
+excerpt: "Little about me."
 last_modified_at: 2021-10-27T20:00:00+01:00
 toc: true
 ---
