@@ -3,7 +3,10 @@ permalink: /resume/
 title: "Resume"
 excerpt: "What have I done."
 last_modified_at: 2021-10-28T12:21:00+01:00
+layout: resume
 toc: true
+pdf_link: "/assets/pdf/resume.pdf"
+
 ---
 # Akhilesh Koul
 
