@@ -22,15 +22,15 @@ Hello everyone! Today, I'm excited to share with you an in-depth look at the Ope
 
 ## Overview
 
-The OpenEnergy project is structured into several modules, each with its own specific role. We'll be focusing on five key modules: [`prices`](https://github.com/koulakhilesh/OpenEnergy/tree/main/scripts/prices), [`optimizer`](https://github.com/koulakhilesh/OpenEnergy/tree/main/scripts/optimizer), `market_simulator`, [`assets`](https://github.com/koulakhilesh/OpenEnergy/tree/main/scripts/assets), and `forecast`. These modules are all located under the [`scripts`](https://github.com/koulakhilesh/OpenEnergy/tree/main/scripts) directory.
+The OpenEnergy project is structured into several modules, each with its own specific role. We'll be focusing on five key modules: [`prices`](https://github.com/koulakhilesh/OpenEnergy/tree/master/scripts/prices), [`optimizer`](https://github.com/koulakhilesh/OpenEnergy/tree/master/scripts/optimizer), `market_simulator`, [`assets`](https://github.com/koulakhilesh/OpenEnergy/tree/master/scripts/assets), and `forecast`. These modules are all located under the [`scripts`](https://github.com/koulakhilesh/OpenEnergy/tree/main/scripts) directory.
 
 ### Prices
 
-The [`prices`](https://github.com/koulakhilesh/OpenEnergy/tree/main/scripts/prices) module is responsible for managing and manipulating price data. It includes classes and functions that allow us to fetch, process, and analyze energy price data. This data is crucial for our simulations and optimizations.
+The [`prices`](https://github.com/koulakhilesh/OpenEnergy/tree/master/scripts/prices) module is responsible for managing and manipulating price data. It includes classes and functions that allow us to fetch, process, and analyze energy price data. This data is crucial for our simulations and optimizations.
 
 ### Optimizer
 
-The [`optimizer`](https://github.com/koulakhilesh/OpenEnergy/tree/main/scripts/optimizer) module is where the magic happens. It uses the data from the `prices` module to determine the optimal strategy for energy storage and usage. This module uses advanced mathematical models to find the most cost-effective and efficient way to use energy.
+The [`optimizer`](https://github.com/koulakhilesh/OpenEnergy/tree/master/scripts/optimizer) module is where the magic happens. It uses the data from the `prices` module to determine the optimal strategy for energy storage and usage. This module uses advanced mathematical models to find the most cost-effective and efficient way to use energy.
 
 ### Market Simulator
 
@@ -38,7 +38,7 @@ The `market_simulator` module uses the strategies from the `optimizer` module to
 
 ### Assets
 
-The [`assets`](https://github.com/koulakhilesh/OpenEnergy/tree/main/scripts/assets) module represents the physical assets in our energy system, such as batteries. This module includes classes that model the behavior of these assets, including their capacity, efficiency, and lifespan.
+The [`assets`](https://github.com/koulakhilesh/OpenEnergy/tree/master/scripts/assets) module represents the physical assets in our energy system, such as batteries. This module includes classes that model the behavior of these assets, including their capacity, efficiency, and lifespan.
 
 ### Forecast
 
