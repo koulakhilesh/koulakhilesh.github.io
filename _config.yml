@@ -148,7 +148,7 @@ footer:
       # url:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      url: "https://www.instagram.com/akhilesh.koul/"
+      # url: "https://www.instagram.com/akhilesh.koul/"
 
 
 # Reading Files
