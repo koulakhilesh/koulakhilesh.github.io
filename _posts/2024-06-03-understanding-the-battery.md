@@ -11,7 +11,6 @@ tags:
   - State of Health
   - Charging
   - Discharging
-layout: posts
 toc: true
 last_modified_at: 2024-06-03T17:00:00+01:00
 ---
