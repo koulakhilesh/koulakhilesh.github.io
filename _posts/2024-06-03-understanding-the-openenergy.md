@@ -3,7 +3,6 @@ title: "Understanding the OpenEnergy Project"
 categories:
   - OpenEnergy
 tags:
-  - OpenEnergy
   - Energy Markets
   - Renewable Energy
   - Energy Simulation
