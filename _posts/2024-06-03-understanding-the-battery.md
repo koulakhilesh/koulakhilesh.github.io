@@ -11,7 +11,9 @@ tags:
   - State of Health
   - Charging
   - Discharging
-
+layout: posts
+toc: true
+last_modified_at: 2024-06-03T17:00:00+01:00
 ---
 
 Hello everyone! Today, we're going to dive into the `battery.py` module of our OpenEnergy project. This module is the heart of our energy storage system simulation, and it's where all the magic happens. You can find the complete code in our [GitHub repository](https://github.com/koulakhilesh/OpenEnergy/). This module is a great example of how to model a battery's behavior in Python.

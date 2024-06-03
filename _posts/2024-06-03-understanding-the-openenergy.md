@@ -12,6 +12,9 @@ tags:
   - GitHub Project
   - Community Project
   - Data Science
+layout: posts
+toc: true
+last_modified_at: 2024-06-03T17:00:00+01:00
 ---
 
 ![OpenEnergy Logo](https://raw.githubusercontent.com/koulakhilesh/OpenEnergy/master/images/logo_oe.png)
