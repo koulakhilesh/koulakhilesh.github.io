@@ -14,7 +14,6 @@ tags:
   - Community Project
   - Data Science
 ---
-# Understanding the OpenEnergy Project
 
 ![OpenEnergy Logo](https://github.com/koulakhilesh/OpenEnergy/blob/master/images/logo_oe.png)
 
