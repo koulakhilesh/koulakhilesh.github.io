@@ -12,7 +12,6 @@ tags:
   - Charging
   - Discharging
 toc: true
-last_modified_at: 2024-06-03T17:00:00+01:00
 ---
 
 Hello everyone! Today, we're going to dive into the `battery.py` module of our OpenEnergy project. This module is the heart of our energy storage system simulation, and it's where all the magic happens. You can find the complete code in our [GitHub repository](https://github.com/koulakhilesh/OpenEnergy/). This module is a great example of how to model a battery's behavior in Python.
@@ -38,6 +37,17 @@ def adjust_efficiency(
     charge_efficiency: float,
     discharge_efficiency: float,
 ):
+    """
+    Adjusts the charge and discharge efficiency of the battery based on the temperature.
+
+    Args:
+        temperature_c (float): The temperature in degrees Celsius.
+        charge_efficiency (float): The current charge efficiency of the battery.
+        discharge_efficiency (float): The current discharge efficiency of the battery.
+
+    Returns:
+        Tuple[float, float]: A tuple containing the adjusted charge efficiency and discharge efficiency.
+    """
     temp_effect = abs(temperature_c - 25) * 0.01
     new_charge_efficiency = max(0.5, min(charge_efficiency - temp_effect, 1.0))
     new_discharge_efficiency = max(
@@ -52,6 +62,18 @@ This class calculates the battery's State of Health (SOH) based on the energy cy
 
 ```python
 def calculate_soh(self, soh: float, energy_cycled_mwh: float, dod: float):
+    """
+    Calculates the State of Health (SOH) based on the given parameters.
+
+    Args:
+        soh (float): The initial State of Health.
+        energy_cycled_mwh (float): The amount of energy cycled in megawatt-hours.
+        dod (float): The depth of discharge as a fraction (0 to 1).
+
+    Returns:
+        float: The updated State of Health (SOH) after degradation.
+
+    """
     base_degradation = 0.000005
     dod_factor = 2 if dod > 0.5 else 1
     degradation_rate = base_degradation * energy_cycled_mwh * dod_factor
@@ -66,6 +88,12 @@ The `charge` and `discharge` methods first adjust the efficiencies based on the 
 
 ```python
 def charge(self, energy_mwh: float):
+    """
+    Charges the battery with the specified amount of energy.
+
+    Args:
+        energy_mwh (float): The amount of energy to be charged in megawatt-hours.
+    """
     self.adjust_efficiency_for_temperature()
     energy_mwh = min(energy_mwh, self.max_charge_rate_mw * self.duration_hours)
     actual_energy_mwh = energy_mwh * self.charge_efficiency
@@ -77,6 +105,12 @@ The `update_soh_and_cycles` method updates the SOH using the `BasicSOHCalculator
 
 ```python
 def update_soh_and_cycles(self, energy_mwh: float):
+    """
+    Updates the state of health (SOH) and cycle count of the battery based on the energy cycled.
+
+    Args:
+        energy_mwh (float): The amount of energy cycled in megawatt-hours.
+    """    
     self.energy_cycled_mwh += energy_mwh
     dod = 1.0 - self.soc
     self.soh = self.soh_calculator.calculate_soh(self.soh, energy_mwh, dod)
