@@ -10,14 +10,14 @@ source "https://rubygems.org"
 # Happy Jekylling!
 
 # uncomment for github-pages
-# gem "github-pages", group: :jekyll_plugins
-# gem "jekyll-include-cache", group: :jekyll_plugins
+gem "github-pages", group: :jekyll_plugins
+gem "jekyll-include-cache", group: :jekyll_plugins
 
 # To upgrade, run `bundle update`.
 # # uncomment for local serving
-gem "jekyll", "~> 4.2"
-gem "minimal-mistakes-jekyll"
-gem "jekyll-include-cache", group: :jekyll_plugins
+# gem "jekyll", "~> 4.2"
+# gem "minimal-mistakes-jekyll"
+# gem "jekyll-include-cache", group: :jekyll_plugins
 
 
 # The following plugins are automatically loaded by the theme-gem:
