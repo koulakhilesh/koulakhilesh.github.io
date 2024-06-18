@@ -261,8 +261,10 @@ class SimulatedPriceModel(IPriceData):
         return prices, prices_with_noise_and_spikes
 ```
 
+Below is the graph depicting the outcomes from the SimulatedPriceModel, showcasing the simulated prices:
+![Simulated Prices](https://raw.githubusercontent.com/koulakhilesh/OpenEnergy/master/images/notebook/prices/simulated_prices.png) 
 
-
+To explore the more on SimulatedPriceModel , check out the Jupyter notebook [here](https://github.com/koulakhilesh/OpenEnergy/blob/master/notebooks/prices/simulated_price.ipynb), where its functionality is demonstrated.
 
 ## Average Price
 
@@ -327,6 +329,13 @@ def get_average_prices_last_week(
         .tolist()
     )
 ```
+
+
+Below is the graph depicting the mean and standard deviation observed from the HistoricalAveragePriceModel, showcasing the simulated prices:
+![Mean and std](https://raw.githubusercontent.com/koulakhilesh/OpenEnergy/master/images/notebook/prices/Mean_and_Standard_Deviation_of_GB_GBN_price_day_ahead_by_Hour.png) 
+
+To explore the more on HistoricalAveragePriceModel , check out the Jupyter notebook [here](https://github.com/koulakhilesh/OpenEnergy/blob/master/notebooks/prices/average_price.ipynb), where its functionality is demonstrated.
+
 
 ## Forecasted Price
 
@@ -435,6 +444,10 @@ def load_model(file_path) -> IModel:
     # ... code omitted for brevity ...
 ```
 
+Below is the graph depicting the outcomes from the ForecastPriceModel, showcasing the simulated prices:
+![Forecasted Prices](https://raw.githubusercontent.com/koulakhilesh/OpenEnergy/master/images/notebook/prices/forecast_vs_actual.png) 
+
+To explore the more on ForecastPriceModel , check out the Jupyter notebook [here](https://github.com/koulakhilesh/OpenEnergy/blob/master/notebooks/prices/forecasted_price.ipynb), where its functionality is demonstrated.
 
 To use any of the pricing models, you need to create an instance of the model and call the appropriate methods as defined in the interface. The specific implementation details depend on the programming language and the design of your software.
 

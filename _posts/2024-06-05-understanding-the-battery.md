@@ -20,11 +20,39 @@ Hello everyone! Today, we're going to dive into the `battery.py` module of our O
 
 The `battery.py` module contains several classes that model different aspects of a battery's behavior:
 
-- `TemperatureEfficiencyAdjuster`: Adjusts the battery's charging and discharging efficiencies based on temperature.
 - `BasicSOHCalculator`: Calculates the battery's State of Health (SOH) based on the energy cycled and depth of discharge (DOD).
+- `TemperatureEfficiencyAdjuster`: Adjusts the battery's charging and discharging efficiencies based on temperature.
 - `Battery`: Represents a battery with various properties and methods for charging and discharging.
 
 Let's dive into each of these classes and understand how they work.
+
+## BasicSOHCalculator
+
+This class calculates the battery's State of Health (SOH) based on the energy cycled and depth of discharge (DOD). The `calculate_soh` method takes in the initial SOH, the amount of energy cycled, and the DOD, and calculates the new SOH based on a degradation rate.
+
+```python
+def calculate_soh(self, soh: float, energy_cycled_mwh: float, dod: float):
+    """
+    Calculates the State of Health (SOH) based on the given parameters.
+
+    Args:
+        soh (float): The initial State of Health.
+        energy_cycled_mwh (float): The amount of energy cycled in megawatt-hours.
+        dod (float): The depth of discharge as a fraction (0 to 1).
+
+    Returns:
+        float: The updated State of Health (SOH) after degradation.
+
+    """
+    base_degradation = 0.000005
+    dod_factor = 2 if dod > 0.5 else 1
+    degradation_rate = base_degradation * energy_cycled_mwh * dod_factor
+    return soh * (1 - degradation_rate)
+```
+
+In the accompanying graph, observe the progression of State of Charge (SOC) and State of Health (SOH) values over time, illustrating the dynamic behavior of the battery system.
+![SOC and SOH](https://raw.githubusercontent.com/koulakhilesh/OpenEnergy/master/images/notebook/assets/battery_simulation.png) 
+
 
 ## TemperatureEfficiencyAdjuster
 
@@ -55,30 +83,8 @@ def adjust_efficiency(
     )
     return new_charge_efficiency, new_discharge_efficiency
 ```
-
-## BasicSOHCalculator
-
-This class calculates the battery's State of Health (SOH) based on the energy cycled and depth of discharge (DOD). The `calculate_soh` method takes in the initial SOH, the amount of energy cycled, and the DOD, and calculates the new SOH based on a degradation rate.
-
-```python
-def calculate_soh(self, soh: float, energy_cycled_mwh: float, dod: float):
-    """
-    Calculates the State of Health (SOH) based on the given parameters.
-
-    Args:
-        soh (float): The initial State of Health.
-        energy_cycled_mwh (float): The amount of energy cycled in megawatt-hours.
-        dod (float): The depth of discharge as a fraction (0 to 1).
-
-    Returns:
-        float: The updated State of Health (SOH) after degradation.
-
-    """
-    base_degradation = 0.000005
-    dod_factor = 2 if dod > 0.5 else 1
-    degradation_rate = base_degradation * energy_cycled_mwh * dod_factor
-    return soh * (1 - degradation_rate)
-```
+In the accompanying graph, observe the progression of State of Charge (SOC) and State of Health (SOH) values over time for each temperature, illustrating the dynamic behavior of the battery system.
+![SOC and SOH](https://raw.githubusercontent.com/koulakhilesh/OpenEnergy/master/images/notebook/assets/battery_simulation_temperature.png) 
 
 ## Battery
 
@@ -116,6 +122,10 @@ def update_soh_and_cycles(self, energy_mwh: float):
     self.soh = self.soh_calculator.calculate_soh(self.soh, energy_mwh, dod)
     self.check_and_update_cycles()
 ```
+
+To explore the battery module in action, check out the Jupyter notebook [here](https://github.com/koulakhilesh/OpenEnergy/blob/master/notebooks/assets/battery.ipynb), where its functionality is demonstrated.
+
+
 
 
 ## Wrapping Up
