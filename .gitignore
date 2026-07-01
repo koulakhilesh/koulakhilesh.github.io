@@ -34,3 +34,6 @@ _site
 
 # draft post
 **/_draft_post
+
+# brainstorming visual companion
+.superpowers/

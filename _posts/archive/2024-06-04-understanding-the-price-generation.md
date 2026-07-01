@@ -1,5 +1,6 @@
 ---
 title: "Understanding the Price Generation in OpenEnergy"
+archived: true
 categories:
   - OpenEnergy
 tags:

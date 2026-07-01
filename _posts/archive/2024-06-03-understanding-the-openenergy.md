@@ -1,5 +1,6 @@
 ---
 title: "Understanding the OpenEnergy Project"
+archived: true
 categories:
   - OpenEnergy
 tags:
