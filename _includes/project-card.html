@@ -1,0 +1,5 @@
+<a class="proj" href="{{ include.project.url | relative_url }}">
+  <h3>{{ include.project.title }}</h3>
+  <p>{{ include.project.summary }}</p>
+  <div class="stack">{% for s in include.project.stack %}<span class="pill">{{ s }}</span>{% endfor %}</div>
+</a>

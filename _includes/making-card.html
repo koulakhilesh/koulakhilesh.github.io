@@ -1,0 +1,3 @@
+<a class="shot" href="{{ include.item.url | relative_url }}"{% if include.item.image %} style="background-image:url('{{ include.item.image | relative_url }}');background-size:cover;background-position:center"{% endif %}>
+  <span>{{ include.item.title }}</span>
+</a>

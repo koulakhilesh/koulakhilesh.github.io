@@ -1,28 +1,14 @@
-# main links
 main:
-  # - title: "Quick-Start Guide"
-  #   url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
+  - title: "Home"
+    url: "/"
   - title: "About"
-    url: /about/
-  - title: "Resume"
-    url: /resume/ 
-  # - title: "OpenEnergy"
-  #   url: /openenergy/  
-  # - title: "Sample Posts"
-  #   url: /year-archive/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
-  # - title: "Sitemap"
-  #   url: /sitemap/
-  # - title: "Posts"
-  #   url: /year-archive/
-  # - title: "Categories"
-  #   url: /categories/
-  # - title: "Tags"
-  #   url: /tags/
-  # - title: "Pages"
-  #   url: /page-archive/
-  # - title: "Collections"
-  #   url: /collection-archive/
-  # - title: "External Link"
-  #   url: https://google.com
+    url: "/about/"
+  - title: "Writing"
+    url: "/writing/"
+  - title: "Projects"
+    url: "/projects/"
+  - title: "Making"
+    url: "/making/"
+  - title: "Contact"
+    url: "/contact/"
+    cta: true

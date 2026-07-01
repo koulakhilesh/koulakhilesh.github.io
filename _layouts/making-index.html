@@ -1,0 +1,11 @@
+---
+layout: default
+---
+<section class="wrap section">
+  <div class="sec-head"><h2>Making</h2></div>
+  {% if site.making.size > 0 %}
+    <div class="gallery gallery-index">{% for item in site.making %}{% include making-card.html item=item %}{% endfor %}</div>
+  {% else %}
+    {% include empty-state.html message="No builds or creative work posted yet." %}
+  {% endif %}
+</section>

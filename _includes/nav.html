@@ -1,0 +1,16 @@
+<nav class="site-nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="{{ '/' | relative_url }}">~/akhilesh</a>
+    <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="nav-links">
+      {% for item in site.data.navigation.main %}
+        {% unless item.url == "/" %}
+        <a href="{{ item.url | relative_url }}"{% if item.cta %} class="nav-cta"{% endif %}>{{ item.title }}</a>
+        {% endunless %}
+      {% endfor %}
+      {% include theme-toggle.html %}
+    </div>
+  </div>
+</nav>

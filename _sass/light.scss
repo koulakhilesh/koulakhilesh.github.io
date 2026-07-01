@@ -1,0 +1,11 @@
+[data-theme="light"]{
+  --bg:#FBF8F1; --bg2:#F1ECE0; --card:#FFFFFF; --line:rgba(0,0,0,.10);
+  --ink:#211E1A; --muted:#6B6A64; --lime:#4D7C0F; --amber:#B45309;
+}
+[data-theme="light"] .site-nav{background:color-mix(in srgb,var(--bg) 80%,transparent)}
+[data-theme="light"] .nav-cta{color:#fff!important}
+[data-theme="light"] .btn-primary{color:#fff}
+[data-theme="light"] .hero-sub{color:#3B3833}
+[data-theme="light"] .about blockquote{color:#2C2A25}
+[data-theme="light"] .hero-glow{background:radial-gradient(circle,rgba(77,124,15,.12),transparent 62%)}
+[data-theme="light"] .shot span{color:var(--ink)}

@@ -1,0 +1,11 @@
+---
+layout: default
+---
+<section class="wrap section">
+  <div class="sec-head"><h2>Projects</h2></div>
+  {% if site.projects.size > 0 %}
+    <div class="projects">{% for project in site.projects %}{% include project-card.html project=project %}{% endfor %}</div>
+  {% else %}
+    {% include empty-state.html message="No projects published yet." %}
+  {% endif %}
+</section>
