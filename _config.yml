@@ -1,10 +1,11 @@
 # Site
 title: "Akhilesh Koul"
 tagline: "Tech, tinkering & tales."
-description: "Akhilesh Koul — data scientist, maker, and writer. Projects, writing, and DIY."
+description: "Akhilesh Koul, a data scientist and maker. Projects, writing, and DIY."
 url: "https://koulakhilesh.github.io"
 baseurl: ""
 lang: en-US
+logo: "/assets/images/logo.png"
 author:
   name: "Akhilesh Koul"
   role: "Data Scientist · Maker · London"

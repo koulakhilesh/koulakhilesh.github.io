@@ -1,2 +1,5 @@
 {% seo title=false %}
-<title>{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }} — {{ site.tagline }}{% endif %}</title>
+<title>{% if page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }} · {{ site.tagline }}{% endif %}</title>
+<meta property="og:image" content="{{ '/assets/images/logo.png' | absolute_url }}">
+<meta name="twitter:image" content="{{ '/assets/images/logo.png' | absolute_url }}">
+<meta name="twitter:card" content="summary">
