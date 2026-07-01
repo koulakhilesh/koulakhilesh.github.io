@@ -72,4 +72,3 @@ exclude:
   - vendor
   - .superpowers
   - docs
-  - _templates
