@@ -1,12 +1,14 @@
 <section class="wrap section">
   {% assign now = site.now %}
-  <div class="about{% unless now.size > 0 %} about--solo{% endunless %}">
+  <div class="about">
     <blockquote>I like <span class="accent">data, automation, and coding</span> — and I build things on the side. This is where I share what I make and learn.</blockquote>
-    {% if now.size > 0 %}
     <div class="now-card">
       <h4>// Now</h4>
+      {% if now.size > 0 %}
       <ul>{% for item in now %}<li>{{ item }}</li>{% endfor %}</ul>
+      {% else %}
+      <p class="now-empty">Nothing to report right now.</p>
+      {% endif %}
     </div>
-    {% endif %}
   </div>
 </section>
