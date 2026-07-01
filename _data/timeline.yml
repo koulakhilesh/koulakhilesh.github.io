@@ -1,0 +1,37 @@
+# Vertical proportional timeline shown on the About page.
+# - Axis shows every year from start_year to end_year, evenly spaced.
+# - Each entry is placed by its month, so month 7 (July) sits halfway between two year marks.
+# - per_year = pixels between year marks (increase for more spacing).
+# - Leave end_year blank for an ongoing entry (shows "Present").
+# - Drop logos in assets/images/logos/ and point `logo:` at them.
+
+start_year: 2016
+end_year: 2026
+per_year: 150
+
+entries:
+  - title: "Data Scientist"
+    org: "Company A"
+    logo: "/assets/images/logo.png"        # placeholder — replace with real logo
+    start_year: 2023
+    start_month: 6
+    end_year:                               # blank = Present
+    description: "Placeholder. What you work on here."
+
+  - title: "Data Analyst"
+    org: "Company B"
+    logo: "/assets/images/logo.png"
+    start_year: 2020
+    start_month: 9
+    end_year: 2023
+    end_month: 5
+    description: "Placeholder. What you did here."
+
+  - title: "MSc Data Science"
+    org: "University C"
+    logo: "/assets/images/logo.png"
+    start_year: 2016
+    start_month: 8
+    end_year: 2020
+    end_month: 6
+    description: "Placeholder. Degree and focus."
