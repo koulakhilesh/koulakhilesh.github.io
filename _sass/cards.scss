@@ -44,6 +44,8 @@
 /* About + Now */
 .about{display:grid;gap:32px;grid-template-columns:1fr}
 @media(min-width:800px){.about{grid-template-columns:1.4fr 1fr}}
+.about--solo{grid-template-columns:1fr!important}
+.about--solo blockquote{max-width:26ch}
 .about blockquote{font-family:var(--serif);font-size:1.45rem;line-height:1.5;margin:0;color:#DCDAD3}
 .about blockquote .accent{color:var(--lime)}
 .now-card{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:22px}

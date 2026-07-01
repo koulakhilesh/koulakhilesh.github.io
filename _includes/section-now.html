@@ -1,14 +1,12 @@
 <section class="wrap section">
-  <div class="about">
-    <blockquote>I like problems that sit where <span class="accent">data, hardware, and the outdoors</span> meet — and I use this site to share what I build and learn.</blockquote>
+  {% assign now = site.now %}
+  <div class="about{% unless now.size > 0 %} about--solo{% endunless %}">
+    <blockquote>I like <span class="accent">data, automation, and coding</span> — and I build things on the side. This is where I share what I make and learn.</blockquote>
+    {% if now.size > 0 %}
     <div class="now-card">
       <h4>// Now</h4>
-      <ul>
-        <li>Working on energy forecasting</li>
-        <li>Tinkering with a trail logger</li>
-        <li>Reading about systems thinking</li>
-        <li>Training for a half-marathon</li>
-      </ul>
+      <ul>{% for item in now %}<li>{{ item }}</li>{% endfor %}</ul>
     </div>
+    {% endif %}
   </div>
 </section>
