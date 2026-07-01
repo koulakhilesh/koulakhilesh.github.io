@@ -1,12 +1,10 @@
 {% assign feat = site.projects | where: "featured", true %}
 {% if feat.size == 0 %}{% assign feat = site.projects %}{% endif %}
+{% if feat.size > 0 %}
 <section class="wrap section">
   <div class="sec-head"><h2>Selected projects</h2><a href="{{ '/projects/' | relative_url }}">all projects →</a></div>
-  {% if feat.size > 0 %}
-    <div class="projects">
-      {% for project in feat limit: site.home.featured_projects %}{% include project-card.html project=project %}{% endfor %}
-    </div>
-  {% else %}
-    {% include empty-state.html message="No projects yet — they'll show up here." %}
-  {% endif %}
+  <div class="projects">
+    {% for project in feat limit: site.home.featured_projects %}{% include project-card.html project=project %}{% endfor %}
+  </div>
 </section>
+{% endif %}

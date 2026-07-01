@@ -3,17 +3,17 @@
 @media(min-width:800px){.facets{grid-template-columns:repeat(3,1fr)}}
 .facet{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 22px;
   transition:transform .15s,border-color .15s;display:block}
-.facet:hover{transform:translateY(-4px);border-color:rgba(163,230,53,.4)}
+.facet:hover{transform:translateY(-4px);border-color:rgba(192,132,252,.45)}
 .facet .ic{font-size:1.4rem;margin-bottom:14px}
 .facet h3{font-family:var(--disp);font-size:1.15rem;margin:0 0 8px}
 .facet p{color:var(--muted);font-size:.92rem;margin:0}
-.facet .lk{display:inline-block;margin-top:14px;font-family:var(--mono);font-size:.72rem;color:var(--lime)}
+.facet .lk{display:inline-block;margin-top:14px;font-family:var(--mono);font-size:.72rem;color:var(--accent)}
 
 /* Writing list */
 .posts{display:flex;flex-direction:column}
 .post{display:grid;grid-template-columns:88px 1fr;gap:22px;padding:20px 0;
   border-bottom:1px solid var(--line);align-items:baseline}
-.post:hover h3{color:var(--lime)}
+.post:hover h3{color:var(--accent)}
 .post .date{font-family:var(--mono);font-size:.72rem;color:var(--muted);padding-top:4px}
 .post h3{font-family:var(--serif);font-weight:600;font-size:1.3rem;margin:0 0 6px;transition:color .15s}
 .post p{color:var(--muted);font-size:.92rem;margin:0}
@@ -47,7 +47,7 @@
 .about--solo{grid-template-columns:1fr!important}
 .about--solo blockquote{max-width:26ch}
 .about blockquote{font-family:var(--serif);font-size:1.45rem;line-height:1.5;margin:0;color:#DCDAD3}
-.about blockquote .accent{color:var(--lime)}
+.about blockquote .accent{color:var(--accent)}
 .now-card{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:22px}
 .now-card h4{font-family:var(--mono);font-size:.72rem;color:var(--amber);text-transform:uppercase;
   letter-spacing:.08em;margin:0 0 12px}

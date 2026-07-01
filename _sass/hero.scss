@@ -1,12 +1,12 @@
 .hero{padding:96px 0 72px;position:relative;overflow:hidden}
 .hero-glow{position:absolute;top:-160px;right:-120px;width:520px;height:520px;border-radius:50%;
-  background:radial-gradient(circle,rgba(163,230,53,.14),transparent 62%);pointer-events:none}
+  background:radial-gradient(circle,rgba(192,132,252,.16),transparent 62%);pointer-events:none}
 .hero .kicker{margin-bottom:22px}
 .hero-h{font-family:var(--disp);font-weight:700;font-size:clamp(2.6rem,6vw,4.6rem);
   line-height:1.02;letter-spacing:-.02em;margin:0 0 20px}
-.hero-h .accent{color:var(--lime)}
+.hero-h .accent{color:var(--accent)}
 .hero-sub{font-family:var(--serif);font-size:clamp(1.15rem,2.2vw,1.5rem);color:#CFCDC6;
   max-width:36ch;margin:0 0 30px;line-height:1.45}
 .hero-btns{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
 .socials{margin-left:6px;display:flex;gap:14px;color:var(--muted);font-family:var(--mono);font-size:.8rem}
-.socials a:hover{color:var(--lime)}
+.socials a:hover{color:var(--accent)}

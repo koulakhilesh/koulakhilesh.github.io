@@ -1,10 +1,8 @@
+{% if site.making.size > 0 %}
 <section class="wrap section">
   <div class="sec-head"><h2>Making</h2><a href="{{ '/making/' | relative_url }}">making →</a></div>
-  {% if site.making.size > 0 %}
-    <div class="gallery">
-      {% for item in site.making limit: site.home.making_preview %}{% include making-card.html item=item %}{% endfor %}
-    </div>
-  {% else %}
-    {% include empty-state.html message="Nothing here yet — builds and creative work will appear here." %}
-  {% endif %}
+  <div class="gallery">
+    {% for item in site.making limit: site.home.making_preview %}{% include making-card.html item=item %}{% endfor %}
+  </div>
 </section>
+{% endif %}

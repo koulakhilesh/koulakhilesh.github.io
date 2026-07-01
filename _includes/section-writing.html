@@ -1,11 +1,9 @@
 {% assign posts = site.posts | where_exp: "p", "p.archived != true" %}
+{% if posts.size > 0 %}
 <section class="wrap section">
   <div class="sec-head"><h2>Latest writing</h2><a href="{{ '/writing/' | relative_url }}">all posts →</a></div>
-  {% if posts.size > 0 %}
-    <div class="posts">
-      {% for post in posts limit: site.home.featured_posts %}{% include post-card.html post=post %}{% endfor %}
-    </div>
-  {% else %}
-    {% include empty-state.html message="No posts yet — writing will appear here." %}
-  {% endif %}
+  <div class="posts">
+    {% for post in posts limit: site.home.featured_posts %}{% include post-card.html post=post %}{% endfor %}
+  </div>
 </section>
+{% endif %}
