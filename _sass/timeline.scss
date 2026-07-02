@@ -1,6 +1,6 @@
 .timeline{position:relative;left:50%;transform:translateX(-50%);width:min(880px,94vw);margin:1.5rem 0 .5rem}
-.timeline::before{content:"";position:absolute;left:50%;transform:translateX(-50%);
-  top:0;bottom:0;width:2px;background:var(--line)}
+.timeline .tl-spine{position:absolute;left:50%;transform:translateX(-50%);
+  width:6px;border-radius:6px;background:var(--accent);opacity:.9;z-index:0}
 
 .timeline .tl-year{position:absolute;right:calc(50% + 10px);transform:translateY(-50%);
   font-family:var(--mono);font-size:.68rem;color:var(--muted);z-index:5}
@@ -10,8 +10,6 @@
   padding:3px 10px;border-radius:999px;z-index:3}
 
 .timeline .tl-entry{position:absolute;left:0;right:0}
-.timeline .tl-bar{position:absolute;left:50%;transform:translateX(-50%);top:0;
-  width:6px;height:100%;min-height:16px;border-radius:6px;background:var(--accent);opacity:.9}
 
 .timeline .tl-card{position:absolute;top:0;
   background:var(--card);border:1px solid var(--line);border-radius:12px;
@@ -36,7 +34,7 @@
 
 @media(max-width:700px){
   .timeline{height:auto !important;width:auto;left:auto;transform:none;margin-top:1rem}
-  .timeline::before,.timeline .tl-year,.timeline .tl-bar,.timeline .tl-now{display:none}
+  .timeline .tl-spine,.timeline .tl-year,.timeline .tl-now{display:none}
   .timeline .tl-card::before{display:none}
   .timeline .tl-entry{position:static !important;height:auto !important;margin-bottom:14px}
   .timeline .tl-card{position:static !important;width:auto;left:auto;right:auto;border-left:4px solid var(--accent)}
