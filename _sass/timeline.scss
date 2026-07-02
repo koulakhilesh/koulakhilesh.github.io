@@ -8,19 +8,20 @@
 
 .timeline .tl-entry{position:absolute;left:0;right:0}
 .timeline .tl-bar{position:absolute;left:50%;transform:translateX(-50%);top:0;
-  width:6px;height:100%;border-radius:6px;opacity:.9}
-.timeline .tl-dot{position:absolute;left:50%;transform:translateX(-50%);top:-5px;
-  width:12px;height:12px;border-radius:50%;border:3px solid var(--bg);z-index:2}
-.timeline .tl-a .tl-bar,.timeline .tl-a .tl-dot{background:var(--accent)}
-.timeline .tl-b .tl-bar,.timeline .tl-b .tl-dot{background:var(--amber)}
+  width:6px;height:100%;border-radius:6px;background:var(--accent);opacity:.9}
+.timeline .tl-dot{position:absolute;left:50%;transform:translateX(-50%);top:11px;
+  width:12px;height:12px;border-radius:50%;background:var(--accent);border:3px solid var(--bg);z-index:2}
 
 .timeline .tl-card{position:absolute;top:0;width:calc(50% - 40px);
   background:var(--card);border:1px solid var(--line);border-radius:12px;
   padding:14px 16px;display:flex;gap:12px;align-items:flex-start}
 .timeline .tl-right .tl-card{left:calc(50% + 34px)}
 .timeline .tl-left .tl-card{left:0}
-.timeline .tl-a .tl-card{border-color:rgba(192,132,252,.35)}
-.timeline .tl-b .tl-card{border-color:rgba(245,184,65,.35)}
+
+/* horizontal connector from the axis to each card */
+.timeline .tl-card::before{content:"";position:absolute;top:16px;height:2px;background:var(--line)}
+.timeline .tl-right .tl-card::before{right:100%;width:34px}
+.timeline .tl-left .tl-card::before{left:100%;width:40px}
 
 .timeline .tl-logo{width:40px;height:40px;object-fit:contain;border-radius:8px;
   background:#fff;padding:4px;flex:none;margin:0}
@@ -32,7 +33,7 @@
 @media(max-width:700px){
   .timeline{height:auto !important;margin-top:1rem}
   .timeline::before,.timeline .tl-year,.timeline .tl-bar,.timeline .tl-dot{display:none}
+  .timeline .tl-card::before{display:none}
   .timeline .tl-entry{position:static !important;height:auto !important;margin-bottom:14px}
   .timeline .tl-card{position:static !important;width:auto;left:auto;border-left:4px solid var(--accent)}
-  .timeline .tl-b .tl-card{border-left-color:var(--amber)}
 }
