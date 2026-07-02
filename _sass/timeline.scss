@@ -22,10 +22,11 @@
 .timeline .tl-right .tl-card{left:calc(50% + 46px);right:12px}
 .timeline .tl-left .tl-card{left:12px;right:calc(50% + 46px)}
 
-/* horizontal connector at the top of each bar (end date); ends clear of the year labels */
-.timeline .tl-card::before{content:"";position:absolute;top:0;height:2px;width:16px;background:rgba(192,132,252,.55)}
-.timeline .tl-right .tl-card::before{right:100%}
-.timeline .tl-left .tl-card::before{left:100%}
+/* small pointer tab from each card toward the axis (always at the card, never near a year label) */
+.timeline .tl-card::before{content:"";position:absolute;top:15px;width:0;height:0;
+  border-top:8px solid transparent;border-bottom:8px solid transparent;z-index:1}
+.timeline .tl-right .tl-card::before{left:-8px;border-right:8px solid var(--card)}
+.timeline .tl-left .tl-card::before{right:-8px;border-left:8px solid var(--card)}
 
 .timeline .tl-logo{width:40px;height:40px;object-fit:contain;border-radius:8px;
   background:#fff;padding:4px;flex:none;margin:0}
