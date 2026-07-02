@@ -12,7 +12,7 @@
 
 .timeline .tl-entry{position:absolute;left:0;right:0}
 .timeline .tl-bar{position:absolute;left:50%;transform:translateX(-50%);top:0;
-  width:6px;height:100%;border-radius:6px;background:var(--accent);opacity:.9}
+  width:6px;height:100%;min-height:16px;border-radius:6px;background:var(--accent);opacity:.9}
 
 .timeline .tl-card{position:absolute;top:0;
   background:var(--card);border:1px solid var(--line);border-radius:12px;
@@ -23,7 +23,7 @@
 .timeline .tl-left .tl-card{left:12px;right:calc(50% + 46px)}
 
 /* small pointer tab from each card toward the axis (always at the card, never near a year label) */
-.timeline .tl-card::before{content:"";position:absolute;top:15px;width:0;height:0;
+.timeline .tl-card::before{content:"";position:absolute;top:26px;width:0;height:0;
   border-top:8px solid transparent;border-bottom:8px solid transparent;z-index:1}
 .timeline .tl-right .tl-card::before{left:-8px;border-right:8px solid var(--card)}
 .timeline .tl-left .tl-card::before{right:-8px;border-left:8px solid var(--card)}
