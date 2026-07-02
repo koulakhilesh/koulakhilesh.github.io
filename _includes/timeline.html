@@ -14,6 +14,10 @@
     {%- assign ytop = origin | minus: y | times: per -%}
     <div class="tl-year" style="top:{{ ytop }}px">{{ y }}</div>
   {%- endfor -%}
+  {%- assign nowfrac = nowm | minus: 1 | divided_by: 12.0 -%}
+  {%- assign nowdec = nowy | plus: nowfrac -%}
+  {%- assign nowtop = origin | minus: nowdec | times: per -%}
+  <div class="tl-now" style="top:{{ nowtop }}px">Now</div>
 
   {%- for e in t.entries -%}
     {%- assign sm = e.start_month | default: 1 -%}
@@ -34,13 +38,22 @@
     {%- assign hpx = edec | minus: sdec | times: per -%}
     {%- assign parity = forloop.index | modulo: 2 -%}
     {%- if parity == 1 -%}{%- assign side = "tl-right" -%}{%- assign acc = "tl-a" -%}{%- else -%}{%- assign side = "tl-left" -%}{%- assign acc = "tl-b" -%}{%- endif -%}
+    {%- assign dur = "" -%}
+    {%- if e.start_month -%}
+      {%- assign dm = edec | minus: sdec | times: 12 | round | plus: 1 -%}
+      {%- assign dy = dm | divided_by: 12 -%}
+      {%- assign drem = dm | modulo: 12 -%}
+      {%- assign yl = "yrs" -%}{%- if dy == 1 -%}{%- assign yl = "yr" -%}{%- endif -%}
+      {%- assign ml = "mos" -%}{%- if drem == 1 -%}{%- assign ml = "mo" -%}{%- endif -%}
+      {%- capture dur -%}{%- if dy > 0 -%}{{ dy }} {{ yl }}{%- endif -%}{%- if dy > 0 and drem > 0 -%}{{ ' ' }}{%- endif -%}{%- if drem > 0 -%}{{ drem }} {{ ml }}{%- endif -%}{%- endcapture -%}
+    {%- endif -%}
     <div class="tl-entry {{ side }} {{ acc }}" style="top:{{ toppx }}px;height:{{ hpx }}px">
       <span class="tl-dot"></span>
       <span class="tl-bar"></span>
       <div class="tl-card">
         {%- if e.logo -%}<img class="tl-logo" src="{{ e.logo | relative_url }}" alt="{{ e.org }}" onerror="this.onerror=null;this.src='{{ '/assets/images/logo.png' | relative_url }}'">{%- endif -%}
         <div class="tl-info">
-          <span class="tl-dates mono">{{ start_label }} - {{ end_label }}</span>
+          <span class="tl-dates mono">{{ start_label }} - {{ end_label }}{%- assign durt = dur | strip -%}{%- if durt != "" %} · {{ durt }}{%- endif -%}</span>
           <h3>{{ e.title }}</h3>
           <div class="tl-org">{{ e.org }}</div>
           {%- if e.description -%}<p>{{ e.description }}</p>{%- endif -%}

@@ -5,6 +5,10 @@
 .timeline .tl-year{position:absolute;left:50%;transform:translate(-50%,-50%);
   background:var(--bg);padding:3px 10px;font-family:var(--mono);font-size:.68rem;
   color:var(--muted);z-index:5;border-radius:6px}
+.timeline .tl-now{position:absolute;right:calc(50% + 20px);transform:translateY(-50%);
+  background:var(--accent);color:var(--bg);font-family:var(--mono);font-size:.64rem;
+  font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  padding:3px 10px;border-radius:999px;z-index:3}
 
 .timeline .tl-entry{position:absolute;left:0;right:0}
 .timeline .tl-bar{position:absolute;left:50%;transform:translateX(-50%);top:0;
@@ -14,14 +18,16 @@
 
 .timeline .tl-card{position:absolute;top:0;width:calc(50% - 40px);
   background:var(--card);border:1px solid var(--line);border-radius:12px;
-  padding:14px 16px;display:flex;gap:12px;align-items:flex-start}
+  padding:14px 16px;display:flex;gap:12px;align-items:flex-start;
+  transition:transform .15s ease,border-color .15s ease}
+.timeline .tl-card:hover{transform:translateY(-3px);border-color:rgba(192,132,252,.5)}
 .timeline .tl-right .tl-card{left:calc(50% + 34px)}
 .timeline .tl-left .tl-card{left:0}
 
-/* horizontal connector from the axis to each card */
-.timeline .tl-card::before{content:"";position:absolute;top:16px;height:2px;background:var(--line)}
-.timeline .tl-right .tl-card::before{right:100%;width:34px}
-.timeline .tl-left .tl-card::before{left:100%;width:40px}
+/* horizontal connector from the axis to each card (stops short of the axis) */
+.timeline .tl-card::before{content:"";position:absolute;top:16px;height:2px;background:rgba(192,132,252,.45)}
+.timeline .tl-right .tl-card::before{right:100%;width:22px}
+.timeline .tl-left .tl-card::before{left:100%;width:28px}
 
 .timeline .tl-logo{width:40px;height:40px;object-fit:contain;border-radius:8px;
   background:#fff;padding:4px;flex:none;margin:0}
@@ -32,7 +38,7 @@
 
 @media(max-width:700px){
   .timeline{height:auto !important;margin-top:1rem}
-  .timeline::before,.timeline .tl-year,.timeline .tl-bar,.timeline .tl-dot{display:none}
+  .timeline::before,.timeline .tl-year,.timeline .tl-bar,.timeline .tl-dot,.timeline .tl-now{display:none}
   .timeline .tl-card::before{display:none}
   .timeline .tl-entry{position:static !important;height:auto !important;margin-bottom:14px}
   .timeline .tl-card{position:static !important;width:auto;left:auto;border-left:4px solid var(--accent)}
