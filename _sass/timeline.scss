@@ -13,7 +13,7 @@
 .timeline .tl-entry{position:absolute;left:0;right:0}
 .timeline .tl-bar{position:absolute;left:50%;transform:translateX(-50%);top:0;
   width:6px;height:100%;border-radius:6px;background:var(--accent);opacity:.9}
-.timeline .tl-dot{position:absolute;left:50%;transform:translateX(-50%);top:11px;
+.timeline .tl-dot{position:absolute;left:50%;transform:translateX(-50%);top:-5px;
   width:12px;height:12px;border-radius:50%;background:var(--accent);border:3px solid var(--bg);z-index:1}
 
 .timeline .tl-card{position:absolute;top:0;width:calc(50% - 40px);
@@ -24,8 +24,8 @@
 .timeline .tl-right .tl-card{left:calc(50% + 34px)}
 .timeline .tl-left .tl-card{left:0}
 
-/* horizontal connector from the axis to each card (stops short of the axis) */
-.timeline .tl-card::before{content:"";position:absolute;top:16px;height:2px;background:rgba(192,132,252,.45)}
+/* horizontal connector at the top of each bar (end date), for consistent alignment */
+.timeline .tl-card::before{content:"";position:absolute;top:0;height:2px;background:rgba(192,132,252,.45)}
 .timeline .tl-right .tl-card::before{right:100%;width:22px}
 .timeline .tl-left .tl-card::before{left:100%;width:28px}
 
