@@ -1,0 +1,14 @@
+---
+layout: default
+---
+<section class="wrap section">
+  <div class="sec-head"><h2>Writing</h2></div>
+  {% assign posts = site.posts | where_exp: "p", "p.archived != true" %}
+  {% if posts.size > 0 %}
+    <div class="posts">
+      {% for post in posts %}{% include post-card.html post=post %}{% endfor %}
+    </div>
+  {% else %}
+    {% include empty-state.html message="No posts yet. Check back soon." %}
+  {% endif %}
+</section>

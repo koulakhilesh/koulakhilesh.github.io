@@ -1,0 +1,9 @@
+---
+layout: default
+---
+<article class="wrap post-single">
+  <p class="mono">{{ page.date | date: "%d %b %Y" }}{% for t in page.tags %} · #{{ t }}{% endfor %}</p>
+  <h1 class="post-title">{{ page.title }}</h1>
+  <div class="prose">{{ content }}</div>
+  <p class="post-back"><a href="{{ '/writing/' | relative_url }}">← all posts</a></p>
+</article>

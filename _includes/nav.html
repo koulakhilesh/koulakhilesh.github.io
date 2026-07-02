@@ -1,0 +1,21 @@
+<nav class="site-nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <img class="brand-logo" src="{{ '/assets/images/logo.png' | relative_url }}" alt="">
+      <span>~/akhilesh</span>
+    </a>
+    <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="nav-links">
+      {% for item in site.data.navigation.main %}
+        {% unless item.url == "/" %}
+          {% assign active = false %}
+          {% if page.url == item.url %}{% assign active = true %}{% elsif item.url != "/" and page.url contains item.url %}{% assign active = true %}{% endif %}
+          <a href="{{ item.url | relative_url }}" class="{% if item.cta %}nav-cta{% endif %}{% if active %} active{% endif %}"{% if active %} aria-current="page"{% endif %}>{{ item.title }}</a>
+        {% endunless %}
+      {% endfor %}
+      {% include theme-toggle.html %}
+    </div>
+  </div>
+</nav>

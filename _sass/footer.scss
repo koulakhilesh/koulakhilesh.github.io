@@ -1,0 +1,6 @@
+.site-footer{border-top:1px solid var(--line);padding:48px 0 60px;margin-top:64px}
+.foot-in{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+.foot-brand{font-family:var(--disp);font-weight:700;font-size:1.2rem}
+.foot-links{display:flex;gap:20px;font-family:var(--mono);font-size:.78rem;color:var(--muted)}
+.foot-links a:hover{color:var(--accent)}
+.foot-copy{margin-top:18px;font-family:var(--mono);font-size:.7rem;color:var(--muted);opacity:.7}

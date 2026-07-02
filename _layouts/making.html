@@ -1,0 +1,10 @@
+---
+layout: default
+---
+<article class="wrap post-single">
+  <p class="mono">{{ page.kind | default: "making" }}{% if page.date %} · {{ page.date | date: "%b %Y" }}{% endif %}</p>
+  <h1 class="post-title">{{ page.title }}</h1>
+  {% if page.image %}<img class="making-hero" src="{{ page.image | relative_url }}" alt="{{ page.title }}">{% endif %}
+  <div class="prose">{{ content }}</div>
+  <p class="post-back"><a href="{{ '/making/' | relative_url }}">← all making</a></p>
+</article>

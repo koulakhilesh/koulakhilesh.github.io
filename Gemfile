@@ -1,34 +1,22 @@
 source "https://rubygems.org"
 
-# Hello! This is where you manage which Jekyll version is used to run.
-# When you want to use a different version, change it below, save the
-# file and run `bundle install`. Run Jekyll with `bundle exec`, like so:
-#
-#     bundle exec jekyll serve
-#
-# This will help ensure the proper Jekyll version is running.
-# Happy Jekylling!
+# Local build pinned to the Jekyll version GitHub Pages uses (Ruby 2.6 compatible).
+# The deployed site is built by GitHub Pages' own toolchain; we only rely on core
+# features plus GitHub-Pages-whitelisted plugins, so local and remote stay consistent.
+gem "jekyll", "~> 3.9.5"
 
-# uncomment for github-pages
-gem "github-pages", group: :jekyll_plugins
-gem "jekyll-include-cache", group: :jekyll_plugins
-
-# To upgrade, run `bundle update`.
-# # uncomment for local serving
-# gem "jekyll", "~> 4.2"
-# gem "minimal-mistakes-jekyll"
-# gem "jekyll-include-cache", group: :jekyll_plugins
-
-
-# The following plugins are automatically loaded by the theme-gem:
-#   gem "jekyll-paginate"
-#   gem "jekyll-sitemap"
-#   gem "jekyll-gist"
-#   gem "jekyll-feed"
-#   gem "jekyll-include-cache"
-#
-# If you have any other plugins, put them here!
-# Cf. https://jekyllrb.com/docs/plugins/installation/
+# GitHub-Pages-whitelisted plugins
 group :jekyll_plugins do
-    gem "jekyll-archives"
-  end
+  gem "jekyll-feed", "~> 0.15"
+  gem "jekyll-seo-tag", "~> 2.8"
+  gem "jekyll-sitemap", "~> 1.4"
+end
+
+# GFM markdown (fenced code blocks, tables)
+gem "kramdown-parser-gfm", "~> 1.1"
+
+# webrick for `jekyll serve`
+gem "webrick", "~> 1.7"
+
+# Pin native deps to versions compatible with system Ruby 2.6
+gem "ffi", "~> 1.15.5"

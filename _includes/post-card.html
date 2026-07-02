@@ -1,0 +1,7 @@
+<a class="post" href="{{ include.post.url | relative_url }}">
+  <span class="date">{{ include.post.date | date: "%Y · %m" }}</span>
+  <div>
+    <h3>{{ include.post.title }}</h3>
+    <p>{% for t in include.post.tags %}<span class="tag">#{{ t }}</span>{% endfor %}{{ include.post.excerpt | strip_html | truncate: 90 }}</p>
+  </div>
+</a>

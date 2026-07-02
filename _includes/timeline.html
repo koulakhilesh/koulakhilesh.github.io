@@ -1,0 +1,64 @@
+{%- assign t = site.data.timeline -%}
+{%- assign per = t.per_year -%}
+{%- assign sy0 = t.start_year -%}
+{%- assign ey0 = t.end_year -%}
+{%- assign months = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec" | split: "," -%}
+{%- assign nowy = 'now' | date: '%Y' | plus: 0 -%}
+{%- assign nowm = 'now' | date: '%m' | plus: 0 -%}
+{%- assign origin = ey0 -%}
+{%- if nowy >= ey0 -%}{%- assign origin = nowy | plus: 1 -%}{%- endif -%}
+{%- assign span = origin | minus: sy0 -%}
+{%- assign total = span | times: per | plus: 40 -%}
+<div class="timeline" style="height:{{ total }}px">
+  {%- for y in (sy0..ey0) -%}
+    {%- assign ytop = origin | minus: y | times: per -%}
+    <div class="tl-year" style="top:{{ ytop }}px">{{ y }}</div>
+  {%- endfor -%}
+  {%- assign nowfrac = nowm | minus: 1 | divided_by: 12.0 -%}
+  {%- assign nowdec = nowy | plus: nowfrac -%}
+  {%- assign nowtop = origin | minus: nowdec | times: per -%}
+  <div class="tl-now" style="top:{{ nowtop }}px">Now</div>
+  {%- assign spine_h = nowdec | minus: sy0 | times: per -%}
+  <div class="tl-spine" style="top:{{ nowtop }}px;height:{{ spine_h }}px"></div>
+
+  {%- for e in t.entries -%}
+    {%- assign sm = e.start_month | default: 1 -%}
+    {%- assign sfrac = sm | minus: 1 | divided_by: 12.0 -%}
+    {%- assign sdec = e.start_year | plus: sfrac -%}
+    {%- if e.start_month -%}{%- assign smi = sm | minus: 1 -%}{%- assign start_label = months[smi] | append: " " | append: e.start_year -%}{%- else -%}{%- assign start_label = e.start_year -%}{%- endif -%}
+    {%- if e.end_year -%}
+      {%- assign em = e.end_month | default: 12 -%}
+      {%- assign efrac = em | minus: 1 | divided_by: 12.0 -%}
+      {%- assign edec = e.end_year | plus: efrac -%}
+      {%- if e.end_month -%}{%- assign emi = em | minus: 1 -%}{%- assign end_label = months[emi] | append: " " | append: e.end_year -%}{%- else -%}{%- assign end_label = e.end_year -%}{%- endif -%}
+    {%- else -%}
+      {%- assign efrac = nowm | minus: 1 | divided_by: 12.0 -%}
+      {%- assign edec = nowy | plus: efrac -%}
+      {%- assign end_label = "Present" -%}
+    {%- endif -%}
+    {%- assign toppx = origin | minus: edec | times: per -%}
+    {%- assign hpx = edec | minus: sdec | times: per -%}
+    {%- assign parity = forloop.index | modulo: 2 -%}
+    {%- if parity == 1 -%}{%- assign side = "tl-right" -%}{%- assign acc = "tl-a" -%}{%- else -%}{%- assign side = "tl-left" -%}{%- assign acc = "tl-b" -%}{%- endif -%}
+    {%- assign dur = "" -%}
+    {%- if e.start_month -%}
+      {%- assign dm = edec | minus: sdec | times: 12 | round | plus: 1 -%}
+      {%- assign dy = dm | divided_by: 12 -%}
+      {%- assign drem = dm | modulo: 12 -%}
+      {%- assign yl = "yrs" -%}{%- if dy == 1 -%}{%- assign yl = "yr" -%}{%- endif -%}
+      {%- assign ml = "mos" -%}{%- if drem == 1 -%}{%- assign ml = "mo" -%}{%- endif -%}
+      {%- capture dur -%}{%- if dy > 0 -%}{{ dy }} {{ yl }}{%- endif -%}{%- if dy > 0 and drem > 0 -%}{{ ' ' }}{%- endif -%}{%- if drem > 0 -%}{{ drem }} {{ ml }}{%- endif -%}{%- endcapture -%}
+    {%- endif -%}
+    <div class="tl-entry {{ side }} {{ acc }}" style="top:{{ toppx }}px;height:{{ hpx }}px">
+      <div class="tl-card">
+        {%- if e.logo -%}<img class="tl-logo" src="{{ e.logo | relative_url }}" alt="{{ e.org }}" onerror="this.onerror=null;this.src='{{ '/assets/images/logo.png' | relative_url }}'">{%- endif -%}
+        <div class="tl-info">
+          <span class="tl-dates mono">{{ start_label }} - {{ end_label }}{%- assign durt = dur | strip -%}{%- if durt != "" %} · {{ durt }}{%- endif -%}</span>
+          <h3>{{ e.title }}</h3>
+          <div class="tl-org">{{ e.org }}</div>
+          {%- if e.description -%}<p>{{ e.description }}</p>{%- endif -%}
+        </div>
+      </div>
+    </div>
+  {%- endfor -%}
+</div>

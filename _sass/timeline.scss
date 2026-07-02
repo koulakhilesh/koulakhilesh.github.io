@@ -1,0 +1,41 @@
+.timeline{position:relative;left:50%;transform:translateX(-50%);width:min(880px,94vw);margin:1.5rem 0 .5rem}
+.timeline .tl-spine{position:absolute;left:50%;transform:translateX(-50%);
+  width:6px;border-radius:6px;background:var(--accent);opacity:.9;z-index:0}
+
+.timeline .tl-year{position:absolute;right:calc(50% + 10px);transform:translateY(-50%);
+  font-family:var(--mono);font-size:.68rem;color:var(--muted);z-index:5}
+.timeline .tl-now{position:absolute;right:calc(50% + 20px);transform:translateY(-50%);
+  background:var(--accent);color:var(--bg);font-family:var(--mono);font-size:.64rem;
+  font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  padding:3px 10px;border-radius:999px;z-index:3}
+
+.timeline .tl-entry{position:absolute;left:0;right:0}
+
+.timeline .tl-card{position:absolute;top:0;
+  background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:14px 16px;display:flex;gap:12px;align-items:flex-start;
+  transition:transform .15s ease,border-color .15s ease}
+.timeline .tl-card:hover{transform:translateY(-3px);border-color:rgba(192,132,252,.5)}
+.timeline .tl-right .tl-card{left:calc(50% + 46px);right:12px}
+.timeline .tl-left .tl-card{left:12px;right:calc(50% + 46px)}
+
+/* small pointer tab from each card toward the axis (always at the card, never near a year label) */
+.timeline .tl-card::before{content:"";position:absolute;top:26px;width:0;height:0;
+  border-top:8px solid transparent;border-bottom:8px solid transparent;z-index:1}
+.timeline .tl-right .tl-card::before{left:-8px;border-right:8px solid var(--card)}
+.timeline .tl-left .tl-card::before{right:-8px;border-left:8px solid var(--card)}
+
+.timeline .tl-logo{width:40px;height:40px;object-fit:contain;border-radius:8px;
+  background:#fff;padding:4px;flex:none;margin:0}
+.timeline .tl-dates{display:block;color:var(--muted);margin-bottom:4px}
+.timeline .tl-info h3{font-family:var(--disp);font-size:1rem;margin:0 0 2px;line-height:1.25}
+.timeline .tl-org{color:var(--muted);font-size:.86rem;margin-bottom:6px}
+.timeline .tl-info p{margin:0;font-size:.86rem;color:var(--muted);line-height:1.5}
+
+@media(max-width:700px){
+  .timeline{height:auto !important;width:auto;left:auto;transform:none;margin-top:1rem}
+  .timeline .tl-spine,.timeline .tl-year,.timeline .tl-now{display:none}
+  .timeline .tl-card::before{display:none}
+  .timeline .tl-entry{position:static !important;height:auto !important;margin-bottom:14px}
+  .timeline .tl-card{position:static !important;width:auto;left:auto;right:auto;border-left:4px solid var(--accent)}
+}

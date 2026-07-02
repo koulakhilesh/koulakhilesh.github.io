@@ -1,13 +1,14 @@
 ---
+layout: page
 permalink: /about/
-title: "About"
-excerpt: "Little about me."
-last_modified_at: 2021-10-27T20:00:00+01:00
-toc: true
+title: About
 ---
 
-## Hello there
+<img class="avatar" src="{{ '/assets/images/bio-photo.jpeg' | relative_url }}" alt="Akhilesh Koul">
 
-I'm Akhilesh, a passionate individual who thrives on the intersection of technology, creativity, and exploration.
+Hi, I'm Akhilesh, a data scientist in London. I like data, automation, and coding,
+tinker with DIY projects, and run and cycle for fun.
 
+## Experience & Education
 
+{% include timeline.html %}

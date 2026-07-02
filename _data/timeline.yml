@@ -1,0 +1,71 @@
+# One merged timeline (experience + education) shown on the About page.
+# - Axis shows every year, evenly spaced. Entries are placed by month
+#   (month 7 = July sits halfway between two year marks).
+# - Entries alternate left/right of the centre axis and alternate accent
+#   colour, so nothing overlaps and durations are easy to read.
+# - Omit start_month/end_month for year-only entries (labels show just the year).
+# - Leave end_year blank for an ongoing entry (shows "Present").
+# - per_year = pixels between year marks. Drop logos in assets/images/logos/
+#   (falls back to logo.png until then).
+# - List newest first for clean left/right alternation.
+
+start_year: 2010
+end_year: 2026
+per_year: 90
+
+entries:
+  - title: "Senior Data Scientist"
+    org: "Shell"
+    logo: "/assets/images/logos/shell.png"
+    start_year: 2023
+    start_month: 4
+    end_year:                               # Present
+    description: "Energy trading and battery management through automation, improved asset health, and a microservice architecture."
+
+  - title: "Data Scientist"
+    org: "Limejump"
+    logo: "/assets/images/logos/limejump.png"
+    start_year: 2022
+    start_month: 12
+    end_year: 2023
+    end_month: 3
+    description: "Energy trading and battery management with advanced analytics and Demand Response market operations."
+
+  - title: "Research Associate"
+    org: "Energy Research Institute @ NTU (ERI@N)"
+    logo: "/assets/images/logos/erian.png"
+    start_year: 2019
+    start_month: 10
+    end_year: 2022
+    end_month: 11
+    description: "Energy storage optimization and battery safety research; data-driven load and price forecasting."
+
+  - title: "M.Eng. Electrical & Electronics Engineering"
+    org: "Nanyang Technological University, Singapore"
+    logo: "/assets/images/logos/ntu.png"
+    start_year: 2018
+    end_year: 2020
+
+  - title: "Assistant Manager"
+    org: "Jio"
+    logo: "/assets/images/logos/jio.png"
+    start_year: 2014
+    start_month: 8
+    end_year: 2017
+    end_month: 1
+    description: "Supported the transition to 4G in the IP Multimedia Core Network Subsystem and maintained telecom networks in the NOC."
+
+  - title: "B.Tech. Electrical & Electronics Engineering"
+    org: "National Institute of Technology, Srinagar"
+    logo: "/assets/images/logos/nit.png"
+    start_year: 2010
+    end_year: 2014
+
+  - title: "Project Intern"
+    org: "Indian Institute of Science (IISc)"
+    logo: "/assets/images/logos/iisc.png"
+    start_year: 2013
+    start_month: 1
+    end_year: 2013
+    end_month: 2
+    description: "Digital image processing and computer vision with OpenCV."

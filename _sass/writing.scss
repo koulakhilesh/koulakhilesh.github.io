@@ -1,0 +1,18 @@
+.post-single{padding:64px 0;max-width:720px}
+.prose img.avatar{width:132px;height:132px;border-radius:50%;object-fit:cover;border:1px solid var(--line);margin:0 0 22px}
+.post-title{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,4vw,2.8rem);margin:.4rem 0 1.4rem}
+.prose{font-family:var(--body);font-size:1.06rem;line-height:1.75}
+.prose h2{font-family:var(--disp);margin-top:2rem}
+.prose h3{font-family:var(--serif)}
+.prose a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.prose pre{background:var(--bg2);padding:16px;border-radius:10px;overflow:auto;border:1px solid var(--line)}
+.prose code{font-family:var(--mono);font-size:.9em}
+.prose blockquote{border-left:3px solid var(--amber);margin:1.5rem 0;padding-left:18px;
+  color:var(--muted);font-family:var(--serif)}
+.prose img{border-radius:12px;margin:1.5rem 0}
+.prose table{width:100%;border-collapse:collapse;margin:1.5rem 0}
+.prose th,.prose td{border:1px solid var(--line);padding:8px 12px;text-align:left}
+.making-hero{border-radius:14px;margin:0 0 1.6rem}
+.proj-links{display:flex;gap:12px;margin:0 0 1.6rem}
+.post-back{margin-top:3rem;font-family:var(--mono);font-size:.78rem}
+.post-back a:hover{color:var(--accent)}
