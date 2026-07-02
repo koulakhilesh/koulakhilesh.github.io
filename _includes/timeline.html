@@ -48,7 +48,6 @@
       {%- capture dur -%}{%- if dy > 0 -%}{{ dy }} {{ yl }}{%- endif -%}{%- if dy > 0 and drem > 0 -%}{{ ' ' }}{%- endif -%}{%- if drem > 0 -%}{{ drem }} {{ ml }}{%- endif -%}{%- endcapture -%}
     {%- endif -%}
     <div class="tl-entry {{ side }} {{ acc }}" style="top:{{ toppx }}px;height:{{ hpx }}px">
-      <span class="tl-dot"></span>
       <span class="tl-bar"></span>
       <div class="tl-card">
         {%- if e.logo -%}<img class="tl-logo" src="{{ e.logo | relative_url }}" alt="{{ e.org }}" onerror="this.onerror=null;this.src='{{ '/assets/images/logo.png' | relative_url }}'">{%- endif -%}
