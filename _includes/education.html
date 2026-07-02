@@ -1,0 +1,12 @@
+<ul class="edu">
+{%- for ed in site.data.education -%}
+  <li class="edu-item">
+    {%- if ed.logo -%}<img class="edu-logo" src="{{ ed.logo | relative_url }}" alt="{{ ed.school }}" onerror="this.onerror=null;this.src='{{ '/assets/images/logo.png' | relative_url }}'">{%- endif -%}
+    <div class="edu-info">
+      <h3>{{ ed.school }}</h3>
+      <div class="edu-degree">{{ ed.degree }}</div>
+      <span class="edu-years mono">{{ ed.years }}</span>
+    </div>
+  </li>
+{%- endfor -%}
+</ul>

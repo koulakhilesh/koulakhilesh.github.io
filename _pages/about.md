@@ -12,3 +12,7 @@ tinker with DIY projects, and run and cycle for fun.
 ## Experience
 
 {% include timeline.html %}
+
+## Education
+
+{% include education.html %}

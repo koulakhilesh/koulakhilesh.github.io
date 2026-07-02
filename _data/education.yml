@@ -1,0 +1,12 @@
+# Education shown on the About page (simple list, not on the timeline).
+# Drop logos in assets/images/logos/ (falls back to logo.png until then).
+
+- school: "Nanyang Technological University, Singapore"
+  logo: "/assets/images/logos/ntu.png"
+  degree: "M.Eng., Electrical and Electronics Engineering"
+  years: "2018-2020"
+
+- school: "National Institute of Technology, Srinagar"
+  logo: "/assets/images/logos/nit.png"
+  degree: "B.Tech., Electrical and Electronics Engineering"
+  years: "2010-2014"

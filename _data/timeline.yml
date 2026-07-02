@@ -1,37 +1,55 @@
-# Vertical proportional timeline shown on the About page.
+# Vertical proportional timeline shown on the About page (Experience only).
 # - Axis shows every year from start_year to end_year, evenly spaced.
 # - Each entry is placed by its month, so month 7 (July) sits halfway between two year marks.
-# - per_year = pixels between year marks (increase for more spacing).
+# - per_year = pixels between year marks (increase for more spacing / less overlap).
 # - Leave end_year blank for an ongoing entry (shows "Present").
-# - Drop logos in assets/images/logos/ and point `logo:` at them.
+# - Drop logos in assets/images/logos/ (falls back to logo.png until then).
 
-start_year: 2016
+start_year: 2013
 end_year: 2026
 per_year: 150
 
 entries:
-  - title: "Data Scientist"
-    org: "Company A"
-    logo: "/assets/images/logo.png"        # placeholder — replace with real logo
+  - title: "Senior Data Scientist"
+    org: "Shell"
+    logo: "/assets/images/logos/shell.png"
     start_year: 2023
-    start_month: 6
-    end_year:                               # blank = Present
-    description: "Placeholder. What you work on here."
+    start_month: 4
+    end_year:                               # Present
+    description: "Energy trading and battery management through automation, improved asset health with timely notifications, and a microservice architecture."
 
-  - title: "Data Analyst"
-    org: "Company B"
-    logo: "/assets/images/logo.png"
-    start_year: 2020
-    start_month: 9
+  - title: "Data Scientist"
+    org: "Limejump"
+    logo: "/assets/images/logos/limejump.png"
+    start_year: 2022
+    start_month: 12
     end_year: 2023
-    end_month: 5
-    description: "Placeholder. What you did here."
+    end_month: 3
+    description: "Energy trading and battery management with advanced analytics, automated State of Energy processes, and Demand Response market operations."
 
-  - title: "MSc Data Science"
-    org: "University C"
-    logo: "/assets/images/logo.png"
-    start_year: 2016
+  - title: "Research Associate"
+    org: "Energy Research Institute @ NTU (ERI@N)"
+    logo: "/assets/images/logos/erian.png"
+    start_year: 2019
+    start_month: 10
+    end_year: 2022
+    end_month: 11
+    description: "Energy storage optimization and battery safety research; data-driven load and price forecasting; contributed to Singapore's first energy storage test-bed. (Project Officer, then Research Associate.)"
+
+  - title: "Assistant Manager"
+    org: "Jio"
+    logo: "/assets/images/logos/jio.png"
+    start_year: 2014
     start_month: 8
-    end_year: 2020
-    end_month: 6
-    description: "Placeholder. Degree and focus."
+    end_year: 2017
+    end_month: 1
+    description: "Supported the transition to 4G in the IP Multimedia Core Network Subsystem and maintained telecom networks in the NOC."
+
+  - title: "Project Intern"
+    org: "Indian Institute of Science (IISc)"
+    logo: "/assets/images/logos/iisc.png"
+    start_year: 2013
+    start_month: 1
+    end_year: 2013
+    end_month: 2
+    description: "Digital image processing and computer vision with OpenCV."

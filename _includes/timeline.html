@@ -39,7 +39,7 @@
       <span class="tl-dot"></span>
       <span class="tl-bar"></span>
       <div class="tl-card">
-        {%- if e.logo -%}<img class="tl-logo" src="{{ e.logo | relative_url }}" alt="{{ e.org }}">{%- endif -%}
+        {%- if e.logo -%}<img class="tl-logo" src="{{ e.logo | relative_url }}" alt="{{ e.org }}" onerror="this.onerror=null;this.src='{{ '/assets/images/logo.png' | relative_url }}'">{%- endif -%}
         <div class="tl-info">
           <span class="tl-dates mono">{{ start_label }} - {{ end_label }}</span>
           <h3>{{ e.title }}</h3>
