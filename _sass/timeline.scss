@@ -1,39 +1,38 @@
 .timeline{position:relative;margin:1.5rem 0 .5rem}
-.timeline::before{content:"";position:absolute;left:64px;top:0;bottom:0;width:2px;background:var(--line)}
+.timeline::before{content:"";position:absolute;left:50%;transform:translateX(-50%);
+  top:0;bottom:0;width:2px;background:var(--line)}
 
-.timeline .tl-year{position:absolute;left:0;width:52px;text-align:right;
-  font-family:var(--mono);font-size:.72rem;color:var(--muted);transform:translateY(-50%)}
-.timeline .tl-year::after{content:"";position:absolute;right:-18px;top:50%;width:10px;height:1px;background:var(--line)}
+.timeline .tl-year{position:absolute;left:50%;transform:translate(-50%,-50%);
+  background:var(--bg);padding:2px 8px;font-family:var(--mono);font-size:.68rem;
+  color:var(--muted);z-index:2;border-radius:5px}
 
 .timeline .tl-entry{position:absolute;left:0;right:0}
-.timeline .tl-bar{position:absolute;left:61px;top:0;width:6px;height:100%;
-  background:var(--accent);border-radius:6px;opacity:.85}
-.timeline .tl-dot{position:absolute;left:58px;top:-6px;width:12px;height:12px;border-radius:50%;
-  background:var(--accent);border:3px solid var(--bg)}
+.timeline .tl-bar{position:absolute;left:50%;transform:translateX(-50%);top:0;
+  width:6px;height:100%;border-radius:6px;opacity:.9}
+.timeline .tl-dot{position:absolute;left:50%;transform:translateX(-50%);top:-5px;
+  width:12px;height:12px;border-radius:50%;border:3px solid var(--bg);z-index:2}
+.timeline .tl-a .tl-bar,.timeline .tl-a .tl-dot{background:var(--accent)}
+.timeline .tl-b .tl-bar,.timeline .tl-b .tl-dot{background:var(--amber)}
 
-.timeline .tl-card{margin-left:92px;background:var(--card);border:1px solid var(--line);
-  border-radius:12px;padding:15px 17px;display:flex;gap:14px;align-items:flex-start}
-.timeline .tl-logo{width:44px;height:44px;object-fit:contain;border-radius:8px;
+.timeline .tl-card{position:absolute;top:0;width:calc(50% - 40px);
+  background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:14px 16px;display:flex;gap:12px;align-items:flex-start}
+.timeline .tl-right .tl-card{left:calc(50% + 34px)}
+.timeline .tl-left .tl-card{left:0}
+.timeline .tl-a .tl-card{border-color:rgba(192,132,252,.35)}
+.timeline .tl-b .tl-card{border-color:rgba(245,184,65,.35)}
+
+.timeline .tl-logo{width:40px;height:40px;object-fit:contain;border-radius:8px;
   background:#fff;padding:4px;flex:none;margin:0}
-.timeline .tl-dates{display:block;color:var(--muted);margin-bottom:5px}
-.timeline .tl-info h3{font-family:var(--disp);font-size:1.05rem;margin:0 0 2px}
-.timeline .tl-org{color:var(--muted);font-size:.9rem;margin-bottom:6px}
-.timeline .tl-info p{margin:0;font-size:.9rem;color:var(--muted);line-height:1.5}
+.timeline .tl-dates{display:block;color:var(--muted);margin-bottom:4px}
+.timeline .tl-info h3{font-family:var(--disp);font-size:1rem;margin:0 0 2px;line-height:1.25}
+.timeline .tl-org{color:var(--muted);font-size:.86rem;margin-bottom:6px}
+.timeline .tl-info p{margin:0;font-size:.86rem;color:var(--muted);line-height:1.5}
 
-@media(max-width:600px){
-  .timeline::before{left:44px}
-  .timeline .tl-year{width:34px;font-size:.66rem}
-  .timeline .tl-year::after{right:-14px;width:8px}
-  .timeline .tl-bar{left:41px}
-  .timeline .tl-dot{left:38px}
-  .timeline .tl-card{margin-left:68px;flex-direction:column;gap:10px}
+@media(max-width:700px){
+  .timeline{height:auto !important;margin-top:1rem}
+  .timeline::before,.timeline .tl-year,.timeline .tl-bar,.timeline .tl-dot{display:none}
+  .timeline .tl-entry{position:static !important;height:auto !important;margin-bottom:14px}
+  .timeline .tl-card{position:static !important;width:auto;left:auto;border-left:4px solid var(--accent)}
+  .timeline .tl-b .tl-card{border-left-color:var(--amber)}
 }
-
-.edu{list-style:none;padding:0;margin:1rem 0;display:flex;flex-direction:column;gap:14px}
-.edu .edu-item{display:flex;gap:14px;align-items:flex-start;background:var(--card);
-  border:1px solid var(--line);border-radius:12px;padding:15px 17px}
-.edu .edu-logo{width:44px;height:44px;object-fit:contain;border-radius:8px;
-  background:#fff;padding:4px;flex:none;margin:0}
-.edu .edu-info h3{font-family:var(--disp);font-size:1.05rem;margin:0 0 3px}
-.edu .edu-degree{color:var(--muted);font-size:.9rem;margin-bottom:5px}
-.edu .edu-years{color:var(--muted)}
