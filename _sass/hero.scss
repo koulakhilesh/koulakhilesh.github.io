@@ -12,19 +12,18 @@
 .socials{margin-left:6px;display:flex;gap:14px;color:var(--muted);font-family:var(--mono);font-size:.8rem}
 .socials a:hover{color:var(--red)}
 
-/* Bauhaus composition in the right grid field, Riso-overprinted */
-.hero-fig{position:relative}
-.hero-fig span{position:absolute}
-.fig-c-y{width:min(58%,220px);aspect-ratio:1;border-radius:50%;background:var(--yellow);right:6%;top:14%}
-.fig-tri{right:2%;top:32%;width:0;height:0;
-  border-left:96px solid transparent;border-right:96px solid transparent;
-  border-bottom:170px solid var(--red);mix-blend-mode:var(--blend)}
-.fig-c-b{width:120px;height:120px;border-radius:50%;background:var(--blue);
-  right:44%;bottom:16%;mix-blend-mode:var(--blend)}
+/* Bauhaus composition (blue circle, yellow triangle, red square), Riso-overprinted */
+.hero-fig{margin:0;position:relative;display:flex;flex-direction:column;
+  justify-content:center;align-items:flex-start;padding:48px 0}
+.hero-fig .bauhaus{width:min(100%,380px);height:auto;overflow:visible}
+.bauhaus .y{fill:var(--yellow);mix-blend-mode:var(--blend)}
+.bauhaus .b{fill:var(--blue);mix-blend-mode:var(--blend)}
+.bauhaus .r{fill:var(--red);mix-blend-mode:var(--blend)}
+.bauhaus .ring{fill:none;stroke:var(--ink);stroke-width:3;mix-blend-mode:var(--blend)}
+.bauhaus .k{fill:var(--ink)}
 
 @media(max-width:820px){
   .hero-grid{grid-template-columns:1fr;min-height:0}
   .hero-main{padding:56px 0 44px}
-  .hero-fig{min-height:240px}
-  .fig-c-y{top:24%}
+  .hero-fig{padding:8px 0 40px;align-items:center}
 }

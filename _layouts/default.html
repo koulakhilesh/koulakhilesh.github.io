@@ -5,6 +5,8 @@
   {% include nav.html %}
   <main id="main">{{ content }}</main>
   {% include footer.html %}
+  <button id="to-top" class="to-top" type="button" aria-label="Back to top" hidden>↑</button>
+  {% include search.html %}
   <script src="{{ '/assets/js/theme.js' | relative_url }}" defer></script>
 </body>
 </html>
