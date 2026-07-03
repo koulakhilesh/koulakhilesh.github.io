@@ -1,7 +1,26 @@
+/* ============================================================
+   Swiss × Bauhaus × Riso design tokens
+   Swiss grid + type · Bauhaus primaries · Riso spot inks
+   Default (:root) = warm dark paper. [data-theme=light] = paper.
+   ============================================================ */
 :root{
-  --bg:#0E0F12; --bg2:#15171C; --card:#16181E; --line:rgba(255,255,255,.09);
-  --ink:#E9E7E1; --muted:#9BA0A8; --accent:#C084FC; --amber:#F5B841;
-  --disp:'Space Grotesk',sans-serif; --serif:'Newsreader',Georgia,serif;
-  --mono:'JetBrains Mono',monospace; --body:'Inter',sans-serif;
-  --wrap:1080px; --gutter:24px;
+  /* surfaces (dark) */
+  --bg:#14120E; --bg2:#1B1712; --card:#1D1914;
+  --line:rgba(244,241,233,.15); --line2:rgba(244,241,233,.30);
+  --ink:#F1EEE7; --muted:#9C948A;
+
+  /* riso spot inks */
+  --red:#F24333; --blue:#5B90F5; --yellow:#FFC21A;
+  --accent:var(--red); --amber:var(--yellow);
+  --blend:screen;            /* overprint mode for dark */
+
+  /* type */
+  --disp:'Libre Franklin',system-ui,sans-serif;  /* Swiss grotesque */
+  --alt:'Archivo',system-ui,sans-serif;
+  --mono:'JetBrains Mono',monospace;
+  --body:'Inter',system-ui,sans-serif;
+  --serif:'Newsreader',Georgia,serif;            /* prose */
+
+  /* grid */
+  --wrap:1120px; --gutter:32px; --gap:24px;
 }
