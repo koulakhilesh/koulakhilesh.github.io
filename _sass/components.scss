@@ -46,12 +46,13 @@
   font-family:var(--mono);font-size:.78rem;letter-spacing:.06em}
 
 /* ---------- Back-to-top ---------- */
+/* The yellow chip is light in both themes, so keep its ink dark for contrast. */
 .to-top{position:fixed;right:24px;bottom:24px;z-index:40;width:46px;height:46px;
-  border:2px solid var(--ink);background:var(--yellow);color:var(--ink);cursor:pointer;
-  font-size:1.15rem;line-height:1;box-shadow:4px 4px 0 var(--ink);
+  border:2px solid #171410;background:var(--yellow);color:#171410;cursor:pointer;
+  font-size:1.15rem;line-height:1;box-shadow:4px 4px 0 #171410;
   transition:transform .14s ease,box-shadow .14s ease}
 .to-top[hidden]{display:none}
-.to-top:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.to-top:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 #171410}
 
 /* ---------- 404 ---------- */
 .error404{text-align:center;padding:72px 0 96px;display:flex;flex-direction:column;align-items:center;gap:14px}
