@@ -15,7 +15,11 @@
           <a href="{{ item.url | relative_url }}" class="{% if item.cta %}nav-cta{% endif %}{% if active %} active{% endif %}"{% if active %} aria-current="page"{% endif %}>{{ item.title }}</a>
         {% endunless %}
       {% endfor %}
-      <button id="search-toggle" class="icon-btn" type="button" aria-label="Search" title="Search ( / )"><span aria-hidden="true">⌕</span></button>
+      <button id="search-toggle" class="icon-btn search-trigger" type="button" aria-label="Search" title="Search ( / )">
+        <span class="st-ic" aria-hidden="true">⌕</span>
+        <span class="st-label">Search</span>
+        <span class="st-key" aria-hidden="true">/</span>
+      </button>
       {% include theme-toggle.html %}
     </div>
   </div>

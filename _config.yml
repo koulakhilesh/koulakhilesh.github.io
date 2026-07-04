@@ -49,7 +49,8 @@ home:
   making_preview: 4
 
 # "// Now" card on the homepage. Leave empty to show a placeholder.
-now: []
+now:
+  - Building <a href="/projects/the-gita-project/">The Gita Project</a>, a verse-by-verse study of the Bhagavad Gita
 #  - Working on a side project
 #  - Learning something new
 #  - Reading a good book

@@ -8,6 +8,16 @@
   display:inline-flex;align-items:center;justify-content:center}
 .icon-btn:hover{color:var(--ink);border-color:var(--ink)}
 
+/* Nav search trigger, styled as a search field */
+.search-trigger{width:auto;min-width:210px;justify-content:flex-start;gap:8px;
+  padding:0 8px 0 12px;border-radius:8px;font-size:.9rem}
+.search-trigger .st-ic{font-size:1.05rem;line-height:1}
+.search-trigger .st-label{flex:1;text-align:left;font-family:var(--body)}
+.search-trigger .st-key{border:1px solid var(--line2);border-radius:5px;
+  padding:1px 7px;font-size:.72rem;font-family:var(--mono);line-height:1.5}
+.search-trigger:hover .st-key{border-color:var(--ink)}
+@media(max-width:720px){.search-trigger{width:100%}}
+
 /* ---------- Search overlay ---------- */
 .search{position:fixed;inset:0;z-index:60;display:flex;justify-content:center;align-items:flex-start}
 .search[hidden]{display:none}
