@@ -13,7 +13,7 @@
 .search[hidden]{display:none}
 .search-backdrop{position:absolute;inset:0;
   background:color-mix(in srgb,var(--ink) 42%,transparent);backdrop-filter:blur(2px)}
-.search-panel{position:relative;margin-top:12vh;width:min(640px,92vw);
+.search-panel{position:relative;margin-top:12vh;width:min(780px,94vw);
   background:var(--card);border:2px solid var(--ink);box-shadow:8px 8px 0 var(--ink)}
 .search-bar{display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid var(--line)}
 .search-ic{font-size:1.3rem;color:var(--muted);line-height:1}
