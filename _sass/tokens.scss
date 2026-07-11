@@ -24,3 +24,6 @@
   /* grid */
   --wrap:1120px; --gutter:32px; --gap:24px;
 }
+
+/* tighter side gutter on small phones for more content width */
+@media(max-width:480px){:root{--gutter:20px}}
