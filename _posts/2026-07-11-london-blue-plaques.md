@@ -2,7 +2,7 @@
 title: "Who London remembers: 1,036 blue plaques and the very small city inside the city"
 date: 2026-07-11
 tags: [Data Science, London, History, Plotly, Web Scraping]
-excerpt: "I scraped every English Heritage blue plaque in London to ask who gets remembered and where. The answer is a surprisingly tiny, surprisingly male, surprisingly literary corner of the map — and the shape of it says something uncomfortable."
+excerpt: "I scraped every English Heritage blue plaque in London to ask who gets remembered and where. The answer is a surprisingly tiny, surprisingly male, surprisingly literary corner of the map, and the shape of it says something uncomfortable."
 toc: true
 ---
 
@@ -27,17 +27,17 @@ toc: true
 </svg>
 </div>
 
-There's a game I play on walks. Spot a blue plaque, cover the name with my thumb, and guess who lived there. I'm almost always wrong, and that's the point — a blue plaque is a tiny act of civic memory, a decision that *this* person, in *this* building, is worth stopping a stranger in the street for. I'd walked past dozens before it occurred to me to ask the obvious question: who makes that list, and what does the whole list look like at once?
+There's a game I play on walks. Spot a blue plaque, cover the name with my thumb, and guess who lived there. I'm almost always wrong, and that's the point: a blue plaque is a tiny act of civic memory, a decision that *this* person, in *this* building, is worth stopping a stranger in the street for. I'd walked past dozens before it occurred to me to ask the obvious question: who makes that list, and what does the whole list look like at once?
 
-English Heritage runs the scheme, and their website will show you the plaques twelve at a time. I wanted all of them on one screen. So I scraped the lot — **1,036 plaques** — and went looking for the shape of London's memory. What I found is that the shape itself is the story.
+English Heritage runs the scheme, and their website will show you the plaques twelve at a time. I wanted all of them on one screen. So I scraped the lot, all **1,036 plaques**, and went looking for the shape of London's memory. What I found is that the shape itself is the story.
 
 ## What the data is
 
-Every plaque has a page: a name, an address, a category, the exact words on the ceramic, and a pin on a map. The listing is served by a quiet little search API, and each plaque's coordinates are tucked into the map code on its own page. Two passes — one for the list, one to open all 1,036 detail pages — and it folds into a single tidy table.
+Every plaque has a page: a name, an address, a category, the exact words on the ceramic, and a pin on a map. The listing is served by a quiet little search API, and each plaque's coordinates are tucked into the map code on its own page. Two passes (one for the list, one to open all 1,036 detail pages) and it folds into a single tidy table.
 
 > **Data & licence.** Plaque data scraped in July 2026 from the [English Heritage blue plaques](https://www.english-heritage.org.uk/visit/blue-plaques/) site (listing API + individual plaque pages). The content belongs to English Heritage; this is a personal, non-commercial analysis of publicly visible information, with attribution. The full scraper and analysis notebook live in my [CodePlayground repo](https://github.com/koulakhilesh/CodePlayground/blob/main/london-blue-plaques/blue_plaques_analysis.ipynb).
 
-Before trusting any of it, I checked how complete each field was. Names, boroughs, coordinates, inscriptions and categories all came back at basically 100%. Birth and death years covered 96% of entries — 990 of the plaques commemorate a specific *person* (the rest mark buildings and events). One thing I *couldn't* get: the date each plaque went up. It isn't published anywhere on the site, which quietly kills the question I most wanted to ask — how long after death does recognition arrive? Some questions the data just won't answer, and it's more honest to say so than to fudge it.
+Before trusting any of it, I checked how complete each field was. Names, boroughs, coordinates, inscriptions and categories all came back at basically 100%. Birth and death years covered 96% of entries: 990 of the plaques commemorate a specific *person* (the rest mark buildings and events). One thing I *couldn't* get: the date each plaque went up. It isn't published anywhere on the site, which quietly kills the question I most wanted to ask: how long after death does recognition arrive? Some questions the data just won't answer, and it's more honest to say so than to fudge it.
 
 ## First, put them all on the map
 
@@ -53,7 +53,7 @@ No aggregation, no cleverness. Just drop all 1,035 plaques-with-coordinates onto
   </figcaption>
 </figure>
 
-You don't need statistics to see it. There's a dense, glowing core in the centre and west, and then the rest of London — enormous, populous, historic London — thins out to scattered dots. My first thought was that I'd made a mistake. I hadn't. London's official memory really is packed into a small footprint. *(Just how tightly packed, statistically, is the subject of [the sequel to this post](#a-companion-piece) — where the same points become a geometry problem.)*
+You don't need statistics to see it. There's a dense, glowing core in the centre and west, and then the rest of London, enormous, populous, historic London, thins out to scattered dots. My first thought was that I'd made a mistake. I hadn't. London's official memory really is packed into a small footprint. *(Just how tightly packed, statistically, is the subject of [the sequel to this post](#a-companion-piece), where the same points become a geometry problem.)*
 
 ## Three boroughs hold two-thirds of it
 
@@ -74,7 +74,7 @@ I counted, and the concentration is even starker than the map suggests.
   </div>
 </div>
 
-**Just three boroughs — Westminster, Kensington & Chelsea, and Camden — hold 69% of every blue plaque in London.** Westminster alone has 334, nearly a third of the whole scheme. Meanwhile Barking & Dagenham, Sutton and the City of London manage one apiece.
+**Just three boroughs, Westminster, Kensington & Chelsea, and Camden, hold 69% of every blue plaque in London.** Westminster alone has 334, nearly a third of the whole scheme. Meanwhile Barking & Dagenham, Sutton and the City of London manage one apiece.
 
 <figure class="chart-embed" style="margin:1.8rem 0;">
   <iframe src="{{ '/assets/plaques/by-borough.html' | relative_url }}"
@@ -98,7 +98,7 @@ Zoom in past the borough line and the clustering gets almost comically specific.
   </figcaption>
 </figure>
 
-And each borough remembers a *different kind* of person. Westminster's plaques lean towards **politicians**; Kensington & Chelsea and Camden lean towards **writers and artists**. Westminster remembers power; Chelsea remembers art. That's not a coincidence — it's the first hint of the feedback loop I'll come back to.
+And each borough remembers a *different kind* of person. Westminster's plaques lean towards **politicians**; Kensington & Chelsea and Camden lean towards **writers and artists**. Westminster remembers power; Chelsea remembers art. That's not a coincidence: it's the first hint of the feedback loop I'll come back to.
 
 Some of this is honest history: the West End and Bloomsbury *were* where the writers, scientists and statesmen of a certain era clustered, near the salons and institutions and each other. But some of it is self-fulfilling. Plaques mark the grand, surviving townhouses of central London, and grand surviving townhouses are exactly where well-documented, well-connected, plaque-worthy lives happened. The map isn't just showing where remarkable people lived. It's showing where the *kind* of person the scheme was built to remember lived.
 
@@ -116,13 +116,13 @@ Sort the plaques by what the person is remembered *for*, and London reveals itse
   </figcaption>
 </figure>
 
-Literature comes first, then politics and administration, then the fine arts and music. It's a portrait of what a culture chooses to enshrine: the people who left *documents* — books, laws, paintings, scores — the kind of legacy that keeps a name legible a century later.
+Literature comes first, then politics and administration, then the fine arts and music. It's a portrait of what a culture chooses to enshrine: the people who left *documents* (books, laws, paintings, scores), the kind of legacy that keeps a name legible a century later.
 
 ## The gap isn't flat
 
-Here's the number the scheme itself is quietly self-conscious about. There's no gender field in the data, so I inferred it from first names (with an offline name-to-gender library) and honorifics like *Sir* and *Dame*. It's imperfect — 122 names it couldn't resolve, and it will misfire on some — so I only report the share among names it *could* resolve. Even so, the result is stark: **fewer than one in five commemorated people are women.**
+Here's the number the scheme itself is quietly self-conscious about. There's no gender field in the data, so I inferred it from first names (with an offline name-to-gender library) and honorifics like *Sir* and *Dame*. It's imperfect: 122 names it couldn't resolve, and it will misfire on some, so I only report the share among names it *could* resolve. Even so, the result is stark: **fewer than one in five commemorated people are women.**
 
-But the single figure hides the interesting part. Split the women's share by *field* and it swings wildly — from near-parity in one category to an absolute, unbroken zero in others.
+But the single figure hides the interesting part. Split the women's share by *field* and it swings wildly, from near-parity in one category to an absolute, unbroken zero in others.
 
 <div style="display:flex;gap:1rem;flex-wrap:wrap;margin:1.6rem 0;">
   <div style="flex:1;min-width:120px;text-align:center;padding:1.1rem .6rem;border:1px solid var(--line);border-radius:12px;">
@@ -149,7 +149,7 @@ But the single figure hides the interesting part. Split the women's share by *fi
   </figcaption>
 </figure>
 
-Women appear most in **philanthropy and reform** (close to half) and on the **stage** — theatre, film, dance. They all but vanish from **politics** (3%) and hit a flat **zero** in engineering, industry and invention. The pattern isn't really about the plaques; it's about which doors were open to women in the first place, preserved in ceramic. The honorifics say the same thing more bluntly — 174 knighted *Sirs* to 25 *Dames*.
+Women appear most in **philanthropy and reform** (close to half) and on the **stage**: theatre, film, dance. They all but vanish from **politics** (3%) and hit a flat **zero** in engineering, industry and invention. The pattern isn't really about the plaques; it's about which doors were open to women in the first place, preserved in ceramic. The honorifics say the same thing more bluntly: 174 knighted *Sirs* to 25 *Dames*.
 
 There is one hopeful thread. Stack the commemorated people by their birth decade and the pink band, however thin, grows as you move toward the present.
 
@@ -163,11 +163,11 @@ There is one hopeful thread. Stack the commemorated people by their birth decade
   </figcaption>
 </figure>
 
-Among people born in the mid-1700s the female share was under 5%; among those born around 1900 it's up past 30%. The scheme is trying to correct, and English Heritage has said as much publicly. You can watch that intention arrive, one decade at a time — but you're watching it climb out of a very deep hole.
+Among people born in the mid-1700s the female share was under 5%; among those born around 1900 it's up past 30%. The scheme is trying to correct, and English Heritage has said as much publicly. You can watch that intention arrive, one decade at a time, but you're watching it climb out of a very deep hole.
 
 ## What the walls actually say
 
-The inscriptions are their own small corpus. Throw all 1,036 into a pile and count the words, and the most common ones read like a poem about the dataset in miniature: *poet, writer, painter, novelist, artist* — and, sitting right among them, *Sir*.
+The inscriptions are their own small corpus. Throw all 1,036 into a pile and count the words, and the most common ones read like a poem about the dataset in miniature: *poet, writer, painter, novelist, artist*, and, sitting right among them, *Sir*.
 
 <figure class="chart-embed" style="margin:1.8rem 0;">
   <iframe src="{{ '/assets/plaques/inscription-words.html' | relative_url }}"
@@ -179,7 +179,7 @@ The inscriptions are their own small corpus. Throw all 1,036 into a pile and cou
   </figcaption>
 </figure>
 
-There's also a quiet grammar to how each plaque relates its person to its building. Nearly every one states a verb — and one verb runs away with it.
+There's also a quiet grammar to how each plaque relates its person to its building. Nearly every one states a verb, and one verb runs away with it.
 
 <figure class="chart-embed" style="margin:1.8rem 0;">
   <iframe src="{{ '/assets/plaques/inscription-verbs.html' | relative_url }}"
@@ -191,7 +191,7 @@ There's also a quiet grammar to how each plaque relates its person to its buildi
   </figcaption>
 </figure>
 
-**724 plaques — seven in ten — simply say "lived here."** Not born, not died, not worked. Lived. The blue plaque is fundamentally a marker of *domesticity made historic*: this ordinary front door held an extraordinary ordinary life. And almost all of them say it on the same object — 88% of the plaques are the familiar ceramic roundel, with a stubborn handful in bronze, stone or slate.
+**724 plaques, seven in ten, simply say "lived here."** Not born, not died, not worked. Lived. The blue plaque is fundamentally a marker of *domesticity made historic*: this ordinary front door held an extraordinary ordinary life. And almost all of them say it on the same object: 88% of the plaques are the familiar ceramic roundel, with a stubborn handful in bronze, stone or slate.
 
 ## How long did they live?
 
@@ -207,16 +207,16 @@ A small, humane detour. For the 990 people, birth and death years give a distrib
   </figcaption>
 </figure>
 
-The median is **72**, with a long tail into the nineties — Sir Robert Mayer made it to 106. Which makes a certain grim sense: the surest route onto a wall of long-term public memory is to do enough, for long enough, to be remembered. But the left tail is where the heartbreak lives — a cluster who died in their twenties and got a plaque anyway: John Keats at 26, the sculptor Gaudier-Brzeska at 24, the SOE agent Violette Szabo at 24. Fame usually rewards patience. Just occasionally it rewards a comet.
+The median is **72**, with a long tail into the nineties: Sir Robert Mayer made it to 106. Which makes a certain grim sense: the surest route onto a wall of long-term public memory is to do enough, for long enough, to be remembered. But the left tail is where the heartbreak lives: a cluster who died in their twenties and got a plaque anyway: John Keats at 26, the sculptor Gaudier-Brzeska at 24, the SOE agent Violette Szabo at 24. Fame usually rewards patience. Just occasionally it rewards a comet.
 
 ## Memory isn't merit
 
-Put the threads together and they all point the same way. The geography (a tiny central core), the gender (fewer than one in five, and zero in whole professions), the categories (writers and statesmen), the honorifics (Sirs outnumbering Dames seven to one) — these aren't four separate findings. They're four views of a single filter.
+Put the threads together and they all point the same way. The geography (a tiny central core), the gender (fewer than one in five, and zero in whole professions), the categories (writers and statesmen), the honorifics (Sirs outnumbering Dames seven to one), these aren't four separate findings. They're four views of a single filter.
 
-Blue plaques don't really mark where *remarkable* people lived. They mark where the **documented, connected, establishment** class lived — and that class was central, male, literary and titled. The filter is self-reinforcing: grand surviving houses in Zone 1 are both where those lives happened and where a plaque can be hung today, so the memory keeps pooling in the same square mile.
+Blue plaques don't really mark where *remarkable* people lived. They mark where the **documented, connected, establishment** class lived, and that class was central, male, literary and titled. The filter is self-reinforcing: grand surviving houses in Zone 1 are both where those lives happened and where a plaque can be hung today, so the memory keeps pooling in the same square mile.
 
-None of this is a knock on the plaques. I still play the guessing game, and I still lose. But a wall of memory is also a mirror, and it's worth occasionally asking who's reflected in it and who isn't — the outer boroughs, the women who never got the door opened, the engineers who built the city and got nothing.
+None of this is a knock on the plaques. I still play the guessing game, and I still lose. But a wall of memory is also a mirror, and it's worth occasionally asking who's reflected in it and who isn't: the outer boroughs, the women who never got the door opened, the engineers who built the city and got nothing.
 
 ### A companion piece
 
-That's the *human* story. There's also a purely *mathematical* one hiding in the same 1,035 dots — how clustered London's memory is (provably), what territory each plaque owns, and the shortest possible walking tour of the whole city. I pulled that apart in a second post: **[The geometry of memory →]({{ '/writing/the-geometry-of-londons-blue-plaques/' | relative_url }})**. If you'd rather poke at the data yourself, the [scraper and notebook](https://github.com/koulakhilesh/CodePlayground/blob/main/london-blue-plaques/blue_plaques_analysis.ipynb) are one afternoon of pandas and Plotly. Go find the plaque nobody put up.
+That's the *human* story. There's also a purely *mathematical* one hiding in the same 1,035 dots: how clustered London's memory is (provably), what territory each plaque owns, and the shortest possible walking tour of the whole city. I pulled that apart in a second post: **[The geometry of memory →]({{ '/writing/the-geometry-of-londons-blue-plaques/' | relative_url }})**. If you'd rather poke at the data yourself, the [scraper and notebook](https://github.com/koulakhilesh/CodePlayground/blob/main/london-blue-plaques/blue_plaques_analysis.ipynb) are one afternoon of pandas and Plotly. Go find the plaque nobody put up.
