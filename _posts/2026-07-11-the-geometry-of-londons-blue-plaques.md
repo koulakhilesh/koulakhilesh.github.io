@@ -31,7 +31,7 @@ In [the first half of this]({{ '/writing/london-blue-plaques/' | relative_url }}
 
 But "you can see it" is not the same as "it's true." This post is the data scientist's follow-up: take the same 1,035 geolocated plaques and treat them as a **spatial point pattern** and an **optimisation problem**. Can I *prove* the clustering? What territory does each plaque own? Where are the hotspots, found by an algorithm, not my eyeballs? And, for fun, what's the shortest walking tour of the whole city?
 
-> **Method note.** Everything below works in the **British National Grid (EPSG:27700)**, so distances and areas are in real metres, not degrees. Code lives in the [geospatial notebook](https://github.com/koulakhilesh/CodePlayground/blob/main/london-blue-plaques/blue_plaques_geospatial.ipynb); data credit and licence are in [part one]({{ '/writing/london-blue-plaques/' | relative_url }}).
+> **Method note.** The 1,035 plaque locations were scraped in July 2026 from the [English Heritage blue plaques](https://www.english-heritage.org.uk/visit/blue-plaques/) site, as a personal, non-commercial analysis with attribution (the full licence note is in [part one]({{ '/writing/london-blue-plaques/' | relative_url }})). Everything below works in the **British National Grid (EPSG:27700)**, so distances and areas are in real metres, not degrees. Code lives in the [geospatial notebook](https://github.com/koulakhilesh/CodePlayground/blob/main/london-blue-plaques/blue_plaques_geospatial.ipynb).
 
 ## Is it clustered? Prove it.
 
@@ -172,7 +172,7 @@ The recipe is two moves. First, a **nearest-neighbour** heuristic: start somewhe
   </figcaption>
 </figure>
 
-Nearest-neighbour alone gives a **219 km** tour with tell-tale crossings. A pass of 2-opt untangles it down to **180 km**, an 18% saving for a couple of dozen lines of Python, and the visual proof is that the crossings are gone. That's the everyday magic of local search: a dumb first guess plus a simple "is this knot removable?" rule gets you most of the way to optimal.
+Nearest-neighbour alone gives a **219 km** tour with tell-tale crossings. A pass of 2-opt untangles it down to **180 km**, an 18% saving for a couple of dozen lines of Python, and the visual proof is that the crossings are gone. That is the whole point of local search: a dumb first guess, plus a simple "is this knot removable?" rule, gets you most of the way to optimal.
 
 ## What the geometry taught me
 
