@@ -9,13 +9,13 @@ toc: true
 <div style="text-align:center;margin:2rem 0 2.4rem;">
 <svg width="188" height="188" viewBox="0 0 200 200" role="img" aria-label="A stylised blue plaque reading 1,035 points, the geometry of memory, 2026">
   <defs>
-    <path id="arcTop2" d="M 42 100 A 58 58 0 0 1 158 100" fill="none"/>
+    <path id="arcTop2" d="M 36 100 A 64 64 0 0 1 164 100" fill="none"/>
     <path id="arcBot2" d="M 46 100 A 54 54 0 0 0 154 100" fill="none"/>
   </defs>
   <circle cx="100" cy="100" r="94" fill="#1c5fb0"/>
   <circle cx="100" cy="100" r="94" fill="none" stroke="#0e3f80" stroke-width="4"/>
   <circle cx="100" cy="100" r="78" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.85"/>
-  <text fill="#fff" font-family="Georgia, serif" font-size="11.5" letter-spacing="2" text-anchor="middle">
+  <text fill="#fff" font-family="Georgia, serif" font-size="10" letter-spacing="0.8" text-anchor="middle">
     <textPath href="#arcTop2" startOffset="50%">THE GEOMETRY OF MEMORY</textPath>
   </text>
   <text fill="#fff" font-family="Georgia, serif" font-size="12.5" letter-spacing="3" text-anchor="middle">
