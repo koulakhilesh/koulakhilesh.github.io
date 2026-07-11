@@ -9,6 +9,3 @@ main:
     url: "/projects/"
   - title: "Making"
     url: "/making/"
-  - title: "Contact"
-    url: "/contact/"
-    cta: true

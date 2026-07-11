@@ -1,6 +1,7 @@
 ---
 title: "London's reservoirs have a heartbeat (and the drought you remember isn't the one that ran them driest)"
 date: 2026-07-04
+thumbnail: /assets/thumbs/reservoirs.png
 tags: [Data Science, London, Open Data, Plotly, Water]
 excerpt: "37 years of daily reservoir readings, one chart at a time, and a small surprise hiding in the numbers everyone thinks they remember."
 toc: true

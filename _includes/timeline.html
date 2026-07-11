@@ -51,7 +51,7 @@
     {%- endif -%}
     <div class="tl-entry {{ side }} {{ acc }}" style="top:{{ toppx }}px;height:{{ hpx }}px">
       <div class="tl-card">
-        {%- if e.logo -%}<img class="tl-logo" src="{{ e.logo | relative_url }}" alt="{{ e.org }}" onerror="this.onerror=null;this.src='{{ '/assets/images/logo.png' | relative_url }}'">{%- endif -%}
+        {%- if e.logo -%}<img class="tl-logo" src="{{ e.logo | relative_url }}" alt="{{ e.org }}" onerror="this.onerror=null;this.remove()">{%- endif -%}
         <div class="tl-info">
           <span class="tl-dates mono">{{ start_label }} - {{ end_label }}{%- assign durt = dur | strip -%}{%- if durt != "" %} · {{ durt }}{%- endif -%}</span>
           <h3>{{ e.title }}</h3>

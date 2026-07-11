@@ -25,6 +25,9 @@
 .post:hover{padding-left:12px}
 .post:hover h3{color:var(--red)}
 .post .date{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:var(--muted);padding-top:5px}
+.post-aside{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.post.has-thumb{align-items:center}
+.post-thumb{width:96px;height:96px;border-radius:12px;display:block}
 .post h3{font-family:var(--disp);font-weight:500;font-size:clamp(1.15rem,2.3vw,1.5rem);
   margin:0 0 6px;letter-spacing:-.01em;transition:color .15s}
 .post p{color:var(--muted);font-size:.9rem;margin:0}

@@ -1,5 +1,6 @@
 ---
 title: "Understanding the Battery Module in OpenEnergy"
+thumbnail: /assets/thumbs/openenergy.svg
 archived: true
 categories:
   - OpenEnergy

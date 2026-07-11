@@ -1,5 +1,6 @@
 ---
 title: "Understanding the OpenEnergy Project"
+thumbnail: /assets/thumbs/openenergy.svg
 archived: true
 categories:
   - OpenEnergy
