@@ -1,6 +1,6 @@
 ---
 title: "The geometry of London's blue plaques: Voronoi, clustering, and a travelling-salesman tour"
-date: 2026-07-11
+date: 2026-07-11 09:00:00
 tags: [Data Science, Geospatial, Optimization, Plotly, London]
 excerpt: "A companion piece that treats 1,035 blue plaques as a spatial point pattern and an optimisation problem: proving the clustering with statistics, carving London into nearest-plaque territories, and hand-rolling a travelling-salesman tour of every borough."
 toc: true
