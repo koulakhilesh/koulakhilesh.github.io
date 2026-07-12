@@ -1,0 +1,52 @@
+/* ============================================================
+   Lab — interactive toys page (sorting, minesweeper, snake)
+   ============================================================ */
+.lab-lede{font-family:var(--serif);font-size:1.12rem;line-height:1.6;color:var(--muted);margin:0 0 2rem}
+.lab-lede code{font-family:var(--mono);font-size:.86em;color:var(--accent)}
+
+.lab{display:grid;gap:22px;grid-template-columns:1fr}
+@media(min-width:820px){.lab{grid-template-columns:1fr 1fr}}
+.lab-card{border:1px solid var(--line2);border-radius:14px;background:var(--card);padding:18px}
+.lab-card--wide{grid-column:1/-1}
+
+.lab-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.lab-head h3{font-family:var(--disp)!important;font-weight:600;font-size:1.05rem;margin:0;letter-spacing:-.01em}
+.lab-controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.lab-controls button{font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;
+  padding:6px 11px;border:1px solid var(--line2);background:none;color:var(--muted);cursor:pointer;border-radius:6px;
+  transition:color .15s,border-color .15s}
+.lab-controls button:hover,.lab-controls button.on{color:var(--ink);border-color:var(--ink)}
+.lab-stat{font-family:var(--mono);font-size:.72rem;color:var(--muted);min-width:64px;text-align:right}
+
+.lab-stage{display:flex;justify-content:center;align-items:center}
+.lab-stage canvas{display:block;max-width:100%;border-radius:6px}
+.lab-note{font-family:var(--mono);font-size:.66rem;letter-spacing:.05em;color:var(--muted);
+  margin:.9rem 0 0;text-align:center}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;vertical-align:middle;margin:0 2px}
+.dot.y{background:var(--yellow)}
+.dot.r{background:var(--red)}
+
+/* minesweeper */
+.mines-grid{display:grid;grid-template-columns:repeat(var(--w),1fr);gap:3px;width:100%;max-width:320px;margin:0 auto}
+.mine-cell{aspect-ratio:1;border:1px solid var(--line2);background:var(--bg2);cursor:pointer;
+  font-family:var(--mono);font-size:.82rem;font-weight:700;color:var(--ink);
+  display:flex;align-items:center;justify-content:center;padding:0;border-radius:3px;
+  transition:background .1s}
+.mine-cell:hover{border-color:var(--line)}
+.mine-cell.rev{background:var(--bg);border-color:var(--line);cursor:default}
+.mine-cell.mine-hit{background:var(--red);color:var(--bg)}
+.mine-cell.flag{color:var(--red)}
+
+/* reaction–diffusion renders a tiny grid upscaled — keep it crisp */
+.lab-stage canvas.pixelated{image-rendering:pixelated;width:100%}
+/* pathfinding: draw walls */
+#lab-path canvas{cursor:crosshair}
+
+/* tic-tac-toe */
+.ttt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;width:220px;max-width:100%;margin:0 auto}
+.ttt-cell{aspect-ratio:1;border:1px solid var(--line2);background:var(--bg2);border-radius:6px;cursor:pointer;
+  font-family:var(--disp);font-weight:700;font-size:1.9rem;color:var(--ink);
+  display:flex;align-items:center;justify-content:center;padding:0}
+.ttt-cell:hover{border-color:var(--ink)}
+.ttt-cell.x{color:var(--blue)}
+.ttt-cell.o{color:var(--red)}
