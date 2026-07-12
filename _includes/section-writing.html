@@ -1,7 +1,7 @@
 {% assign posts = site.posts | where_exp: "p", "p.archived != true" %}
 {% if posts.size > 0 %}
 <section class="wrap section">
-  <div class="sec-head"><h2>Latest writing</h2><a href="{{ '/writing/' | relative_url }}">all posts →</a></div>
+  <div class="sec-head"><h2>Latest writing</h2><a href="{{ '/writing/' | relative_url }}">all writing →</a></div>
   <div class="posts">
     {% for post in posts limit: site.home.featured_posts %}{% include post-card.html post=post %}{% endfor %}
   </div>

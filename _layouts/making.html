@@ -1,10 +1,39 @@
 ---
 layout: default
 ---
-<article class="wrap post-single">
-  <p class="mono">{{ page.kind | default: "making" }}{% if page.date %} · {{ page.date | date: "%b %Y" }}{% endif %}</p>
-  <h1 class="post-title">{{ page.title }}</h1>
-  {% if page.image %}<img class="making-hero" src="{{ page.image | relative_url }}" alt="{{ page.title }}">{% endif %}
-  <div class="prose">{{ content }}</div>
-  <p class="post-back"><a href="{{ '/making/' | relative_url }}">← all making</a></p>
+<article class="making">
+  {% if page.image %}
+  <div class="making-cover"><img src="{{ page.image | relative_url }}" alt="{{ page.title }}"></div>
+  {% endif %}
+
+  <div class="wrap making-body">
+    <p class="making-meta mono"><span class="making-kind">{{ page.kind | default: "making" }}</span>{% if page.date %} · {{ page.date | date: "%b %Y" }}{% endif %}</p>
+    <h1 class="making-title">{{ page.title }}</h1>
+    {% if page.summary %}<p class="making-lede">{{ page.summary }}</p>{% endif %}
+
+    <div class="prose">{{ content }}</div>
+
+    {% if page.gallery %}
+    <div class="making-grid">
+      {% for img in page.gallery %}
+      <a class="making-grid-item" href="{{ img | relative_url }}"><img src="{{ img | relative_url }}" alt="" loading="lazy"></a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+
+  {%- assign items = site.making -%}
+  {%- assign idx = 0 -%}
+  {%- for m in items -%}{%- if m.url == page.url -%}{%- assign idx = forloop.index0 -%}{%- endif -%}{%- endfor -%}
+  {%- assign last = items.size | minus: 1 -%}
+  {%- assign pidx = idx | minus: 1 -%}
+  {%- assign nidx = idx | plus: 1 -%}
+  {% if items.size > 1 %}
+  <nav class="making-nav wrap">
+    {% if idx > 0 %}{% assign prev = items[pidx] %}<a class="nn-prev" href="{{ prev.url | relative_url }}"><span class="nn-label">← Previous</span>{{ prev.title }}</a>{% endif %}
+    {% if idx < last %}{% assign next = items[nidx] %}<a class="nn-next" href="{{ next.url | relative_url }}"><span class="nn-label">Next →</span>{{ next.title }}</a>{% endif %}
+  </nav>
+  {% endif %}
+
+  <a class="making-back" href="{{ '/making/' | relative_url }}">← all making</a>
 </article>

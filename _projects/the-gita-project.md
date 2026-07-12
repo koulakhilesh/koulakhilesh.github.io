@@ -1,7 +1,14 @@
 ---
 title: The Gita Project
 summary: A verse-by-verse digital study of the Bhagavad Gita. Work in progress.
+category: Study
+year: 2026
+role: Solo build
+status: In progress
 stack: [Markdown, Data Science]
+metrics:
+  - { value: "18", label: "chapters" }
+  - { value: "700", label: "shlokas" }
 featured: false
 ---
 

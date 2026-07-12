@@ -1,0 +1,67 @@
+/* ============================================================
+   Project detail — portfolio layout (distinct from posts)
+   Hero · spec rail · metrics · grouped stack · related writing
+   ============================================================ */
+
+/* ---- Status badge (shared by detail + index cards) ---- */
+.status{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);
+  font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
+  padding:4px 10px;border:1px solid var(--line2);border-radius:999px;color:var(--muted)}
+.status::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.status--in-progress{color:var(--yellow)}
+.status--shipped{color:var(--blue)}
+.status--archived{color:var(--muted)}
+
+/* ---- Hero ---- */
+.project-hero{padding:56px 0 8px}
+.project-hero-in{display:grid;grid-template-columns:1fr;gap:28px;align-items:center}
+@media(min-width:820px){.project-hero-in{grid-template-columns:1.4fr .8fr;gap:48px}}
+.proj-eyebrow{color:var(--red);letter-spacing:.14em;margin:0 0 .6rem}
+.project-title{font-family:var(--disp);font-weight:600;
+  font-size:clamp(2.1rem,4.4vw,3.1rem);letter-spacing:-.02em;line-height:1.05;margin:0}
+.project-lede{font-family:var(--serif);font-size:1.15rem;line-height:1.6;
+  color:var(--muted);margin:1.1rem 0 0;max-width:52ch}
+.proj-actions{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:1.6rem}
+
+/* graphic fallback when no cover image */
+.project-hero-graphic{display:flex;align-items:center;justify-content:center;
+  gap:20px;min-height:180px;border:1px solid var(--line2);border-radius:14px;
+  background:var(--card);padding:28px}
+.project-hero-graphic .g{display:block}
+.project-hero-graphic .c{width:72px;height:72px;border-radius:50%;background:var(--blue)}
+.project-hero-graphic .s{width:64px;height:64px;background:var(--red)}
+.project-hero-graphic .t{width:0;height:0;border-left:38px solid transparent;
+  border-right:38px solid transparent;border-bottom:68px solid var(--yellow)}
+.project-hero-media img{width:100%;border-radius:14px;border:1px solid var(--line2);
+  object-fit:cover;display:block}
+
+/* ---- Metrics row ---- */
+.proj-metrics{display:flex;gap:1rem;flex-wrap:wrap;margin:2.2rem 0 .5rem;
+  padding-top:1.8rem;border-top:1px solid var(--line)}
+.metric{flex:1;min-width:120px;text-align:center;padding:1.1rem .6rem;
+  border:1px solid var(--line2);border-radius:12px;background:var(--card)}
+.metric-value{font-size:2.1rem;font-weight:700;color:var(--blue);line-height:1}
+.metric-label{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;
+  color:var(--muted);margin-top:.45rem}
+
+/* ---- Body: sticky spec rail + prose ---- */
+.project-body{display:grid;grid-template-columns:1fr;gap:32px;padding-top:40px;padding-bottom:24px}
+@media(min-width:900px){.project-body{grid-template-columns:220px 1fr;gap:56px}}
+.project-prose{max-width:720px}
+
+.project-rail{font-size:.9rem}
+@media(min-width:900px){.project-rail{position:sticky;top:90px;align-self:start}}
+.project-rail .spec{margin:0 0 1.6rem;display:grid;gap:.9rem}
+.project-rail .spec dt{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);margin:0}
+.project-rail .spec dd{margin:.15rem 0 0;font-family:var(--disp);font-weight:500}
+.rail-label{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 .55rem}
+.rail-stack,.rail-links{padding-top:1.2rem;border-top:1px solid var(--line)}
+.rail-links ul{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
+.rail-links a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+
+/* ---- Related writing ---- */
+.proj-related{list-style:none;margin:1rem 0 0;padding:0;display:grid;gap:.65rem}
+.proj-related a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.proj-related .mono{color:var(--muted);font-size:.8rem}

@@ -1,14 +1,89 @@
 ---
 layout: default
 ---
-<article class="wrap post-single">
-  <p class="mono">Project{% for s in page.stack %} · {{ s }}{% endfor %}</p>
-  <h1 class="post-title">{{ page.title }}</h1>
-  {% if page.links.repo or page.links.demo %}
-  <p class="proj-links">
-    {% if page.links.repo %}<a class="btn btn-ghost" href="{{ page.links.repo }}">Code</a>{% endif %}
-    {% if page.links.demo %}<a class="btn btn-primary" href="{{ page.links.demo }}">Live</a>{% endif %}
-  </p>{% endif %}
-  <div class="prose">{{ content }}</div>
-  <p class="post-back"><a href="{{ '/projects/' | relative_url }}">← all projects</a></p>
+<article class="project">
+
+  <header class="project-hero wrap">
+    <div class="project-hero-in">
+      <div class="project-hero-text">
+        <p class="proj-eyebrow mono">Project{% if page.category %} · {{ page.category }}{% endif %}</p>
+        <h1 class="project-title">{{ page.title }}</h1>
+        {% if page.summary %}<p class="project-lede">{{ page.summary }}</p>{% endif %}
+        <div class="proj-actions">
+          {% if page.status %}<span class="status status--{{ page.status | slugify }}">{{ page.status }}</span>{% endif %}
+          {% if page.links.demo %}<a class="btn btn-primary" href="{{ page.links.demo }}">Live demo</a>{% endif %}
+          {% if page.links.repo %}<a class="btn btn-ghost" href="{{ page.links.repo }}">Code</a>{% endif %}
+          {% if page.links.docs %}<a class="btn btn-ghost" href="{{ page.links.docs }}">Docs</a>{% endif %}
+        </div>
+      </div>
+      <div class="project-hero-media">
+        {% if page.cover %}
+          <img src="{{ page.cover | relative_url }}" alt="{{ page.title }}">
+        {% else %}
+          <div class="project-hero-graphic" aria-hidden="true">
+            <span class="g c"></span><span class="g s"></span><span class="g t"></span>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </header>
+
+  {% if page.metrics %}
+  <div class="wrap">
+    <div class="proj-metrics">
+      {% for m in page.metrics %}
+      <div class="metric">
+        <div class="metric-value">{{ m.value }}</div>
+        <div class="metric-label">{{ m.label }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="wrap project-body">
+    <aside class="project-rail">
+      <dl class="spec">
+        {% if page.year %}<div><dt>Year</dt><dd>{{ page.year }}</dd></div>{% endif %}
+        {% if page.role %}<div><dt>Role</dt><dd>{{ page.role }}</dd></div>{% endif %}
+        {% if page.status %}<div><dt>Status</dt><dd>{{ page.status }}</dd></div>{% endif %}
+        {% if page.category %}<div><dt>Category</dt><dd>{{ page.category }}</dd></div>{% endif %}
+      </dl>
+      {% if page.stack %}
+      <div class="rail-stack">
+        <p class="rail-label mono">Stack</p>
+        <div class="stack">{% for s in page.stack %}<span class="pill">{{ s }}</span>{% endfor %}</div>
+      </div>
+      {% endif %}
+      {% if page.links.repo or page.links.demo or page.links.docs %}
+      <div class="rail-links">
+        <p class="rail-label mono">Links</p>
+        <ul>
+          {% if page.links.demo %}<li><a href="{{ page.links.demo }}">Live demo ↗</a></li>{% endif %}
+          {% if page.links.repo %}<li><a href="{{ page.links.repo }}">Source code ↗</a></li>{% endif %}
+          {% if page.links.docs %}<li><a href="{{ page.links.docs }}">Docs ↗</a></li>{% endif %}
+        </ul>
+      </div>
+      {% endif %}
+    </aside>
+
+    <div class="prose project-prose">
+      {{ content }}
+
+      {% if page.related_tag %}
+        {% assign related = site.posts | where_exp: "p", "p.tags contains page.related_tag" %}
+        {% if related.size > 0 %}
+        <hr>
+        <h2>Related writing</h2>
+        <ul class="proj-related">
+        {% for p in related limit: 6 %}
+          <li><a href="{{ p.url | relative_url }}">{{ p.title }}</a><span class="mono"> · {{ p.date | date: "%b %Y" }}</span></li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="wrap"><p class="post-back"><a href="{{ '/projects/' | relative_url }}">← all projects</a></p></div>
 </article>
