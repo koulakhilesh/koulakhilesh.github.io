@@ -10,7 +10,14 @@
 .lab-card--wide{grid-column:1/-1}
 
 .lab-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
-.lab-head h3{font-family:var(--disp)!important;font-weight:600;font-size:1.05rem;margin:0;letter-spacing:-.01em}
+.lab-head h3{font-family:var(--disp)!important;font-weight:600;font-size:1.05rem;margin:0;letter-spacing:-.01em;
+  display:flex;align-items:center;gap:10px}
+/* Bauhaus primitive before each title — canonical circle=blue, square=red, triangle=yellow */
+.lab-head h3::before{content:"";width:13px;height:13px;flex:none;display:inline-block}
+.lab-card:nth-child(3n+1) .lab-head h3::before{background:var(--blue);border-radius:50%}
+.lab-card:nth-child(3n+2) .lab-head h3::before{background:var(--red)}
+.lab-card:nth-child(3n+3) .lab-head h3::before{width:0;height:0;background:none;
+  border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:13px solid var(--yellow)}
 .lab-controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .lab-controls button{font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;
   padding:6px 11px;border:1px solid var(--line2);background:none;color:var(--muted);cursor:pointer;border-radius:6px;
@@ -50,3 +57,21 @@
 .ttt-cell:hover{border-color:var(--ink)}
 .ttt-cell.x{color:var(--blue)}
 .ttt-cell.o{color:var(--red)}
+
+/* puzzle of the day */
+.lab-stage--text{display:block}
+.daily{max-width:640px;margin:0 auto;text-align:center}
+.daily-q{font-family:var(--serif);font-size:1.16rem;line-height:1.5;margin:.3rem 0 1.3rem;color:var(--ink)}
+.daily-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.daily-input{font-family:var(--mono);font-size:.85rem;padding:8px 12px;border:1px solid var(--line2);
+  background:var(--bg2);color:var(--ink);border-radius:6px;width:170px}
+#daily-reveal{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;
+  padding:8px 16px;border:1px solid var(--ink);background:none;color:var(--ink);cursor:pointer;border-radius:6px;
+  transition:background .15s,color .15s}
+#daily-reveal:hover{background:var(--ink);color:var(--bg)}
+.daily-a{margin:1.3rem auto 0;max-width:600px;font-size:.95rem;color:var(--muted);line-height:1.55}
+.daily-a strong{color:var(--ink)}
+.daily-verdict{font-weight:600}
+.daily-verdict.ok{color:var(--blue)}
+.daily-verdict.meh{color:var(--yellow)}
+.daily-verdict.no{color:var(--red)}
