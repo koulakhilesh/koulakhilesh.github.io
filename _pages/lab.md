@@ -89,7 +89,7 @@ title: Lab
       </div>
     </div>
     <div class="lab-stage" id="lab-mines"></div>
-    <p class="lab-note">Left-click to dig · right-click to flag. The numbers count the mines touching that cell.</p>
+    <p class="lab-note">Tap to dig · long-press (or right-click) to flag. The numbers count the mines touching that cell.</p>
   </section>
 
   <section class="lab-card">
@@ -101,7 +101,7 @@ title: Lab
       </div>
     </div>
     <div class="lab-stage" id="lab-snake"><canvas></canvas></div>
-    <p class="lab-note">Arrow keys or WASD. No walls — slip off one edge and you'll come back on the other.</p>
+    <p class="lab-note">Arrow keys, WASD, or swipe. No walls — slip off one edge and you'll come back on the other.</p>
   </section>
 
   <section class="lab-card lab-card--wide">

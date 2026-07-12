@@ -93,9 +93,15 @@
     }
     function lose() { over = true; for (var y = 0; y < H; y++) for (var x = 0; x < W; x++) { var c = grid[y][x]; if (c.mine && !c.rev) { c.el.classList.add("rev"); c.el.textContent = "●"; } } stat.textContent = "Boom 💥"; }
     function setStat() { stat.textContent = (M - flags) + " mines"; }
+    var suppressClick = false, lpTimer = null;
+    function cellOf(e) { var el = e.target.closest(".mine-cell"); return el ? grid[+el.dataset.y][+el.dataset.x] : null; }
+    function toggleFlag(c) { if (!c || c.rev || over) return; c.flag = !c.flag; c.el.classList.toggle("flag", c.flag); c.el.textContent = c.flag ? "⚑" : ""; flags += c.flag ? 1 : -1; setStat(); }
 
-    stage.addEventListener("click", function (e) { var el = e.target.closest(".mine-cell"); if (!el) return; reveal(grid[+el.dataset.y][+el.dataset.x]); });
-    stage.addEventListener("contextmenu", function (e) { var el = e.target.closest(".mine-cell"); if (!el) return; e.preventDefault(); var c = grid[+el.dataset.y][+el.dataset.x]; if (c.rev || over) return; c.flag = !c.flag; c.el.classList.toggle("flag", c.flag); c.el.textContent = c.flag ? "⚑" : ""; flags += c.flag ? 1 : -1; setStat(); });
+    stage.addEventListener("click", function (e) { if (suppressClick) { suppressClick = false; return; } var c = cellOf(e); if (c) reveal(c); });
+    stage.addEventListener("contextmenu", function (e) { var c = cellOf(e); if (!c) return; e.preventDefault(); toggleFlag(c); });
+    stage.addEventListener("touchstart", function (e) { var c = cellOf(e); if (!c) return; lpTimer = setTimeout(function () { lpTimer = null; suppressClick = true; toggleFlag(c); if (navigator.vibrate) navigator.vibrate(15); }, 450); }, { passive: true });
+    stage.addEventListener("touchend", function () { if (lpTimer) { clearTimeout(lpTimer); lpTimer = null; } });
+    stage.addEventListener("touchmove", function () { if (lpTimer) { clearTimeout(lpTimer); lpTimer = null; } });
     if (reset) reset.addEventListener("click", build);
     build();
   }
@@ -139,6 +145,9 @@
       if (nd) { e.preventDefault(); if (nd.x !== -dir.x && nd.y !== -dir.y) ndir = nd; }
     });
     window.addEventListener("resize", function () { fit(); draw(); });
+    var tsx = 0, tsy = 0;
+    canvas.addEventListener("touchstart", function (e) { var t = e.touches[0]; tsx = t.clientX; tsy = t.clientY; }, { passive: true });
+    canvas.addEventListener("touchmove", function (e) { if (!running) return; var t = e.touches[0], dx = t.clientX - tsx, dy = t.clientY - tsy; if (Math.abs(dx) < 18 && Math.abs(dy) < 18) return; e.preventDefault(); var nd = Math.abs(dx) > Math.abs(dy) ? { x: dx > 0 ? 1 : -1, y: 0 } : { x: 0, y: dy > 0 ? 1 : -1 }; if (nd.x !== -dir.x && nd.y !== -dir.y) ndir = nd; tsx = t.clientX; tsy = t.clientY; }, { passive: false });
     fit(); reset();
   }
 
@@ -221,7 +230,7 @@
     var scale = 5, W, H, cols, rows, A, B, A2, B2, img, feed = 0.0545, kill = 0.062, dA = 1, dB = 0.5;
     var bgc = hexRgb(ink("--bg", "#14120E")), fgc = hexRgb(ink("--blue", "#5B90F5"));
     function fit() { W = Math.min(stage.clientWidth, 620); H = Math.round(W * 0.5); cols = Math.floor(W / scale); rows = Math.floor(H / scale); canvas.style.width = W + "px"; canvas.style.height = H + "px"; canvas.width = cols; canvas.height = rows; A = new Float32Array(cols * rows); B = new Float32Array(cols * rows); A2 = new Float32Array(cols * rows); B2 = new Float32Array(cols * rows); img = ctx.createImageData(cols, rows); seed(); }
-    function seed() { for (var i = 0; i < A.length; i++) { A[i] = 1; B[i] = 0; } var cx = cols >> 1, cy = rows >> 1; for (var y = -6; y <= 6; y++) for (var x = -6; x <= 6; x++) { var gx = (cx + x + cols) % cols, gy = (cy + y + rows) % rows; if (Math.random() < 0.9) B[gy * cols + gx] = 1; } if (reduce) { for (var s = 0; s < 320; s++) step(); render(); } }
+    function seed() { for (var i = 0; i < A.length; i++) { A[i] = 1; B[i] = 0; } var cx = cols >> 1, cy = rows >> 1; for (var y = -6; y <= 6; y++) for (var x = -6; x <= 6; x++) { var gx = (cx + x + cols) % cols, gy = (cy + y + rows) % rows; if (Math.random() < 0.9) B[gy * cols + gx] = 1; } if (reduce) { for (var s = 0; s < 320; s++) step(); } render(); }
     function step() {
       for (var y = 0; y < rows; y++) for (var x = 0; x < cols; x++) {
         var i = y * cols + x, xm = (x - 1 + cols) % cols, xp = (x + 1) % cols, ym = (y - 1 + rows) % rows, yp = (y + 1) % rows;

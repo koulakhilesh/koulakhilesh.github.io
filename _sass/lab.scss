@@ -46,8 +46,9 @@
 
 /* reaction–diffusion renders a tiny grid upscaled — keep it crisp */
 .lab-stage canvas.pixelated{image-rendering:pixelated;width:100%}
-/* pathfinding: draw walls */
-#lab-path canvas{cursor:crosshair}
+/* pathfinding + snake: draw / swipe without the page scrolling */
+#lab-path canvas{cursor:crosshair;touch-action:none}
+#lab-snake canvas{touch-action:none}
 
 /* tic-tac-toe */
 .ttt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;width:220px;max-width:100%;margin:0 auto}
