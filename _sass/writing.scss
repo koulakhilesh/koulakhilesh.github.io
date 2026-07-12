@@ -18,3 +18,11 @@
 .proj-links{display:flex;gap:12px;margin:0 0 1.6rem}
 .post-back{margin-top:3rem;font-family:var(--mono);font-size:.78rem}
 .post-back a:hover{color:var(--accent)}
+
+/* Content pages (About): section heading like the index pages, but keep the
+   prose text at a readable measure while the timeline/images run full-width */
+/* Content pages (About): section heading like the index pages, but a single
+   centered column so the heading, text and timeline share one left axis */
+.page{max-width:880px}
+.page-prose > p,.page-prose > ul,.page-prose > ol{text-align:justify;hyphens:auto}
+.page-prose .timeline{width:100%;left:0;transform:none;margin-inline:0}
