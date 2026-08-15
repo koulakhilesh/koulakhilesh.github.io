@@ -13,6 +13,16 @@ author:
   github: "koulakhilesh"
   linkedin: "akhilesh-koul"
 
+# Shown at the foot of every post (set `ai_disclaimer: false` in a post's
+# front matter to hide it there). Markdown is allowed.
+ai_disclaimer: >-
+  **On how this was made.** The underlying data is public and belongs to its
+  original sources — see the method/licence note in each post — and is used
+  here for personal, non-commercial analysis; it isn't mine. The code,
+  analysis, and writing were produced with the help of a generative-AI
+  assistant, working from my direction; I reviewed the results and checked the
+  figures against the source data. Any errors are mine.
+
 # Build
 markdown: kramdown
 kramdown:

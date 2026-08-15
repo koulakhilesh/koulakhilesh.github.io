@@ -18,6 +18,15 @@
 .proj-links{display:flex;gap:12px;margin:0 0 1.6rem}
 .post-back{margin-top:3rem;font-family:var(--mono);font-size:.78rem}
 .post-back a:hover{color:var(--accent)}
+.ai-disclaimer{margin:3rem 0 0;padding:14px 18px;border:1px solid var(--line);
+  border-radius:10px;background:var(--bg2);color:var(--muted);
+  font-family:var(--mono);font-size:.78rem;line-height:1.65}
+.ai-disclaimer p{margin:0}
+.ai-disclaimer strong{color:var(--red)}
+.ai-badge{margin:-.6rem 0 1.6rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em}
+.ai-badge a{display:inline-block;padding:3px 10px;border:1px solid var(--line);
+  border-radius:999px;color:var(--muted);text-decoration:none}
+.ai-badge a:hover{color:var(--accent);border-color:var(--accent)}
 
 /* Content pages (About): section heading like the index pages, but keep the
    prose text at a readable measure while the timeline/images run full-width */
