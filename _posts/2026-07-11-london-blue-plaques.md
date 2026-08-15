@@ -1,6 +1,7 @@
 ---
-title: "Who London remembers: 1,036 blue plaques and the very small city inside the city"
+title: "Who London remembers: 1,037 blue plaques and the very small city inside the city"
 date: 2026-07-11 10:00:00
+last_modified_at: 2026-08-15 10:00:00
 thumbnail: /assets/thumbs/blue-plaques.png
 tags: [Data Science, London, History, Plotly, Web Scraping]
 excerpt: "I scraped every English Heritage blue plaque in London to ask who gets remembered and where. The answer is a surprisingly tiny, surprisingly male, surprisingly literary corner of the map, and the shape of it says something uncomfortable."
@@ -8,7 +9,7 @@ toc: true
 ---
 
 <div style="text-align:center;margin:2rem 0 2.4rem;">
-<svg width="188" height="188" viewBox="0 0 200 200" role="img" aria-label="A stylised blue plaque reading 1,036 blue plaques, analysed here, 2026">
+<svg width="188" height="188" viewBox="0 0 200 200" role="img" aria-label="A stylised blue plaque reading 1,037 blue plaques, analysed here, 2026">
   <defs>
     <path id="arcTop" d="M 42 100 A 58 58 0 0 1 158 100" fill="none"/>
     <path id="arcBot" d="M 46 100 A 54 54 0 0 0 154 100" fill="none"/>
@@ -22,7 +23,7 @@ toc: true
   <text fill="#fff" font-family="Georgia, serif" font-size="12.5" letter-spacing="3" text-anchor="middle">
     <textPath href="#arcBot" startOffset="50%">2026</textPath>
   </text>
-  <text x="100" y="90" fill="#fff" font-family="Georgia, serif" font-size="30" font-weight="700" text-anchor="middle">1,036</text>
+  <text x="100" y="90" fill="#fff" font-family="Georgia, serif" font-size="30" font-weight="700" text-anchor="middle">1,037</text>
   <text x="100" y="113" fill="#fff" font-family="Georgia, serif" font-size="14" letter-spacing="3.5" text-anchor="middle">BLUE</text>
   <text x="100" y="131" fill="#fff" font-family="Georgia, serif" font-size="14" letter-spacing="3.5" text-anchor="middle">PLAQUES</text>
 </svg>
@@ -30,19 +31,19 @@ toc: true
 
 There's a game I play on walks. Spot a blue plaque, cover the name with my thumb, and guess who lived there. I'm almost always wrong, and that's the point: a blue plaque is a tiny act of civic memory, a decision that *this* person, in *this* building, is worth stopping a stranger in the street for. I'd walked past dozens before it occurred to me to ask the obvious question: who makes that list, and what does the whole list look like at once?
 
-English Heritage runs the scheme, and their website will show you the plaques twelve at a time. I wanted all of them on one screen. So I scraped the lot, all **1,036 plaques**, and went looking for the shape of London's memory. What I found is that the shape itself is the story.
+English Heritage runs the scheme, and their website will show you the plaques twelve at a time. I wanted all of them on one screen. So I scraped the lot, all **1,037 plaques**, and went looking for the shape of London's memory. What I found is that the shape itself is the story.
 
 ## What the data is
 
-Every plaque has a page: a name, an address, a category, the exact words on the ceramic, and a pin on a map. The listing is served by a quiet little search API, and each plaque's coordinates are tucked into the map code on its own page. Two passes (one for the list, one to open all 1,036 detail pages) and it folds into a single tidy table.
+Every plaque has a page: a name, an address, a category, the exact words on the ceramic, and a pin on a map. The listing is served by a quiet little search API, and each plaque's coordinates are tucked into the map code on its own page. Two passes (one for the list, one to open all 1,037 detail pages) and it folds into a single tidy table.
 
-> **Data & licence.** Plaque data scraped in July 2026 from the [English Heritage blue plaques](https://www.english-heritage.org.uk/visit/blue-plaques/) site (listing API + individual plaque pages). The content belongs to English Heritage; this is a personal, non-commercial analysis of publicly visible information, with attribution. The full scraper and analysis notebook live in my [CodePlayground repo](https://github.com/koulakhilesh/CodePlayground/blob/main/london-blue-plaques/blue_plaques_analysis.ipynb).
+> **Data & licence.** Plaque data scraped in August 2026 from the [English Heritage blue plaques](https://www.english-heritage.org.uk/visit/blue-plaques/) site (listing API + individual plaque pages). The content belongs to English Heritage; this is a personal, non-commercial analysis of publicly visible information, with attribution. The full scraper and analysis notebook live in my [CodePlayground repo](https://github.com/koulakhilesh/CodePlayground/blob/main/london-blue-plaques/blue_plaques_analysis.ipynb).
 
-Before trusting any of it, I checked how complete each field was. Names, boroughs, coordinates, inscriptions and categories all came back at basically 100%. Birth and death years covered 96% of entries: 990 of the plaques commemorate a specific *person* (the rest mark buildings and events). One thing I *couldn't* get: the date each plaque went up. It isn't published anywhere on the site, which quietly kills the question I most wanted to ask: how long after death does recognition arrive? Some questions the data just won't answer, and it's more honest to say so than to fudge it.
+Before trusting any of it, I checked how complete each field was. Names, boroughs, coordinates, inscriptions and categories all came back at basically 100%. Birth and death years covered 96% of entries: 991 of the plaques commemorate a specific *person* (the rest mark buildings and events). One thing I *couldn't* get: the date each plaque went up. It isn't published anywhere on the site, which quietly kills the question I most wanted to ask: how long after death does recognition arrive? Some questions the data just won't answer, and it's more honest to say so than to fudge it.
 
 ## First, put them all on the map
 
-No aggregation, no cleverness. Just drop all 1,035 plaques-with-coordinates onto London and colour them by category.
+No aggregation, no cleverness. Just drop all 1,036 plaques-with-coordinates onto London and colour them by category.
 
 <figure class="chart-embed" style="margin:1.8rem 0;">
   <iframe src="{{ '/assets/plaques/plaque-map.html' | relative_url }}"
@@ -50,7 +51,7 @@ No aggregation, no cleverness. Just drop all 1,035 plaques-with-coordinates onto
           loading="lazy"
           style="width:100%;height:640px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
   <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    All 1,035 plaques with coordinates. Hover any dot for the name, borough and category; drag to pan, scroll to zoom.
+    All 1,036 plaques with coordinates. Hover any dot for the name, borough and category; drag to pan, scroll to zoom.
   </figcaption>
 </figure>
 
@@ -168,7 +169,7 @@ Among people born in the mid-1700s the female share was under 5%; among those bo
 
 ## What the walls actually say
 
-The inscriptions are their own small corpus. Throw all 1,036 into a pile and count the words, and the most common ones read like a poem about the dataset in miniature: *poet, writer, painter, novelist, artist*, and, sitting right among them, *Sir*.
+The inscriptions are their own small corpus. Throw all 1,037 into a pile and count the words, and the most common ones read like a poem about the dataset in miniature: *poet, writer, painter, novelist, artist*, and, sitting right among them, *Sir*.
 
 <figure class="chart-embed" style="margin:1.8rem 0;">
   <iframe src="{{ '/assets/plaques/inscription-words.html' | relative_url }}"
@@ -176,7 +177,7 @@ The inscriptions are their own small corpus. Throw all 1,036 into a pile and cou
           loading="lazy"
           style="width:100%;height:560px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
   <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    The most common words across all 1,036 inscriptions, filler words removed.
+    The most common words across all 1,037 inscriptions, filler words removed.
   </figcaption>
 </figure>
 
@@ -188,15 +189,15 @@ There's also a quiet grammar to how each plaque relates its person to its buildi
           loading="lazy"
           style="width:100%;height:430px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
   <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    Relationship to the address, counted across all inscriptions. "Lived here" appears on 724 of them.
+    Relationship to the address, counted across all inscriptions. "Lived here" appears on 725 of them.
   </figcaption>
 </figure>
 
-**724 plaques, seven in ten, simply say "lived here."** Not born, not died, not worked. Lived. The blue plaque is fundamentally a marker of *domesticity made historic*: this ordinary front door held an extraordinary ordinary life. And almost all of them say it on the same object: 88% of the plaques are the familiar ceramic roundel, with a stubborn handful in bronze, stone or slate.
+**725 plaques, seven in ten, simply say "lived here."** Not born, not died, not worked. Lived. The blue plaque is fundamentally a marker of *domesticity made historic*: this ordinary front door held an extraordinary ordinary life. And almost all of them say it on the same object: 88% of the plaques are the familiar ceramic roundel, with a stubborn handful in bronze, stone or slate.
 
 ## How long did they live?
 
-A small, humane detour. For the 990 people, birth and death years give a distribution of lifespans.
+A small, humane detour. For the 991 people, birth and death years give a distribution of lifespans.
 
 <figure class="chart-embed" style="margin:1.8rem 0;">
   <iframe src="{{ '/assets/plaques/lifespans.html' | relative_url }}"
@@ -220,4 +221,4 @@ None of this is a knock on the plaques. I still play the guessing game, and I st
 
 ### A companion piece
 
-That's the *human* story. There's also a purely *mathematical* one hiding in the same 1,035 dots: how clustered London's memory is (provably), what territory each plaque owns, and the shortest possible walking tour of the whole city. I pulled that apart in a second post: **[The geometry of memory →]({{ '/writing/the-geometry-of-londons-blue-plaques/' | relative_url }})**. If you'd rather poke at the data yourself, the [scraper and notebook](https://github.com/koulakhilesh/CodePlayground/blob/main/london-blue-plaques/blue_plaques_analysis.ipynb) are one afternoon of pandas and Plotly. Go find the plaque nobody put up.
+That's the *human* story. There's also a purely *mathematical* one hiding in the same 1,036 dots: how clustered London's memory is (provably), what territory each plaque owns, and the shortest possible walking tour of the whole city. I pulled that apart in a second post: **[The geometry of memory →]({{ '/writing/the-geometry-of-londons-blue-plaques/' | relative_url }})**. If you'd rather poke at the data yourself, the [scraper and notebook](https://github.com/koulakhilesh/CodePlayground/blob/main/london-blue-plaques/blue_plaques_analysis.ipynb) are one afternoon of pandas and Plotly. Go find the plaque nobody put up.

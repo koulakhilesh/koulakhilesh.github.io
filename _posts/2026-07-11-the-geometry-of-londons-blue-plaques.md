@@ -1,14 +1,15 @@
 ---
 title: "The geometry of London's blue plaques: Voronoi, clustering, and a travelling-salesman tour"
 date: 2026-07-11 09:00:00
+last_modified_at: 2026-08-15 09:00:00
 thumbnail: /assets/thumbs/geometry.png
 tags: [Data Science, Geospatial, Optimization, Plotly, London]
-excerpt: "A companion piece that treats 1,035 blue plaques as a spatial point pattern and an optimisation problem: proving the clustering with statistics, carving London into nearest-plaque territories, and hand-rolling a travelling-salesman tour of every borough."
+excerpt: "A companion piece that treats 1,036 blue plaques as a spatial point pattern and an optimisation problem: proving the clustering with statistics, carving London into nearest-plaque territories, and hand-rolling a travelling-salesman tour of every borough."
 toc: true
 ---
 
 <div style="text-align:center;margin:2rem 0 2.4rem;">
-<svg width="188" height="188" viewBox="0 0 200 200" role="img" aria-label="A stylised blue plaque reading 1,035 points, the geometry of memory, 2026">
+<svg width="188" height="188" viewBox="0 0 200 200" role="img" aria-label="A stylised blue plaque reading 1,036 points, the geometry of memory, 2026">
   <defs>
     <path id="arcTop2" d="M 36 100 A 64 64 0 0 1 164 100" fill="none"/>
     <path id="arcBot2" d="M 46 100 A 54 54 0 0 0 154 100" fill="none"/>
@@ -22,7 +23,7 @@ toc: true
   <text fill="#fff" font-family="Georgia, serif" font-size="12.5" letter-spacing="3" text-anchor="middle">
     <textPath href="#arcBot2" startOffset="50%">2026</textPath>
   </text>
-  <text x="100" y="90" fill="#fff" font-family="Georgia, serif" font-size="30" font-weight="700" text-anchor="middle">1,035</text>
+  <text x="100" y="90" fill="#fff" font-family="Georgia, serif" font-size="30" font-weight="700" text-anchor="middle">1,036</text>
   <text x="100" y="113" fill="#fff" font-family="Georgia, serif" font-size="14" letter-spacing="3.5" text-anchor="middle">POINTS</text>
   <text x="100" y="131" fill="#fff" font-family="Georgia, serif" font-size="14" letter-spacing="3.5" text-anchor="middle">ON A MAP</text>
 </svg>
@@ -30,9 +31,9 @@ toc: true
 
 In [the first half of this]({{ '/writing/london-blue-plaques/' | relative_url }}) I scraped every English Heritage blue plaque in London and asked *who* gets remembered. The headline was that London's memory is astonishingly concentrated: you could see it just by dropping the dots on a map.
 
-But "you can see it" is not the same as "it's true." This post is the data scientist's follow-up: take the same 1,035 geolocated plaques and treat them as a **spatial point pattern** and an **optimisation problem**. Can I *prove* the clustering? What territory does each plaque own? Where are the hotspots, found by an algorithm, not my eyeballs? And, for fun, what's the shortest walking tour of the whole city?
+But "you can see it" is not the same as "it's true." This post is the data scientist's follow-up: take the same 1,036 geolocated plaques and treat them as a **spatial point pattern** and an **optimisation problem**. Can I *prove* the clustering? What territory does each plaque own? Where are the hotspots, found by an algorithm, not my eyeballs? And, for fun, what's the shortest walking tour of the whole city?
 
-> **Method note.** The 1,035 plaque locations were scraped in July 2026 from the [English Heritage blue plaques](https://www.english-heritage.org.uk/visit/blue-plaques/) site, as a personal, non-commercial analysis with attribution (the full licence note is in [part one]({{ '/writing/london-blue-plaques/' | relative_url }})). Everything below works in the **British National Grid (EPSG:27700)**, so distances and areas are in real metres, not degrees. Code lives in the [geospatial notebook](https://github.com/koulakhilesh/CodePlayground/blob/main/london-blue-plaques/blue_plaques_geospatial.ipynb).
+> **Method note.** The 1,036 plaque locations were scraped in August 2026 from the [English Heritage blue plaques](https://www.english-heritage.org.uk/visit/blue-plaques/) site, as a personal, non-commercial analysis with attribution (the full licence note is in [part one]({{ '/writing/london-blue-plaques/' | relative_url }})). Everything below works in the **British National Grid (EPSG:27700)**, so distances and areas are in real metres, not degrees. Code lives in the [geospatial notebook](https://github.com/koulakhilesh/CodePlayground/blob/main/london-blue-plaques/blue_plaques_geospatial.ipynb).
 
 ## Is it clustered? Prove it.
 
@@ -124,7 +125,7 @@ I don't want to *decide* where the clusters are: that's cheating. So I handed th
   </figcaption>
 </figure>
 
-It lands exactly where you'd expect: one giant blob over Westminster, another over Kensington & Chelsea, satellites in Bloomsbury and Hampstead, but the point is that it *found* them. A quarter of all London's plaques fall into just the two largest clusters.
+It lands exactly where you'd expect: one giant blob over Westminster, another over Kensington & Chelsea, satellites in Bloomsbury and Hampstead, but the point is that it *found* them. Half of all London's plaques fall into just the two largest clusters.
 
 ## The memory network
 
@@ -136,7 +137,7 @@ A different lens from graph theory: what's the shortest possible set of links th
           loading="lazy"
           style="width:100%;height:640px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
   <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    The minimum spanning tree over all 1,035 plaques: 371 km of shortest-possible links.
+    The minimum spanning tree over all 1,036 plaques: 371 km of shortest-possible links.
   </figcaption>
 </figure>
 
