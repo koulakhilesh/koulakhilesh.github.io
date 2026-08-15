@@ -4,12 +4,9 @@ layout: default
 <article class="wrap post-single">
   <p class="mono">{% if page.last_modified_at %}Originally published {{ page.date | date: "%d %b %Y" }} · Last updated {{ page.last_modified_at | date: "%d %b %Y" }}{% else %}{{ page.date | date: "%d %b %Y" }}{% endif %}{% for t in page.tags %} · #{{ t }}{% endfor %}</p>
   <h1 class="post-title">{{ page.title }}</h1>
-  {% if site.ai_disclaimer and page.ai_disclaimer != false %}
-  <p class="ai-badge"><a href="#ai-note">AI-assisted · human-reviewed</a></p>
-  {% endif %}
   <div class="prose">{{ content }}</div>
   {% if site.ai_disclaimer and page.ai_disclaimer != false %}
-  <aside id="ai-note" class="ai-disclaimer">{{ site.ai_disclaimer | markdownify }}</aside>
+  <aside class="ai-disclaimer">{{ site.ai_disclaimer | markdownify }}</aside>
   {% endif %}
   <p class="post-back"><a href="{{ '/writing/' | relative_url }}">← all posts</a></p>
 </article>
