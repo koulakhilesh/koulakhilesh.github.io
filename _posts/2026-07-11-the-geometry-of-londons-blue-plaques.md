@@ -141,7 +141,7 @@ A different lens from graph theory: what's the shortest possible set of links th
   </figcaption>
 </figure>
 
-The whole tree is **371 km** long, but look at how the "wire" is spent. It's dense and short in the centre, where neighbours are 100 m apart, and it throws long lonely spans out to the isolated plaques on the fringe. The tree's geometry is the inequality of the scheme, drawn as a circuit.
+The whole tree is **371 km** long, but look at how the "wire" is spent. It's dense and short in the centre, where neighbours are 100 m apart, and it throws long lonely spans out to the isolated plaques on the fringe.
 
 ## The Grand Tour: a travelling salesman in London
 

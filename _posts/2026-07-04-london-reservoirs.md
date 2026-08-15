@@ -1,6 +1,7 @@
 ---
 title: "London's reservoirs have a heartbeat (and the drought you remember isn't the one that ran them driest)"
 date: 2026-07-04
+last_modified_at: 2026-08-15
 thumbnail: /assets/thumbs/reservoirs.png
 tags: [Data Science, London, Open Data, Plotly, Water]
 excerpt: "37 years of daily reservoir readings, one chart at a time, and a small surprise hiding in the numbers everyone thinks they remember."
@@ -54,11 +55,11 @@ Before slicing or summarising anything, it pays to be a little dumb and just plo
           loading="lazy"
           style="width:100%;height:470px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
   <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    Every daily reading, 1989–2026. Drag to zoom into a year, double-click to reset.
+    Every daily reading, 1989-2026. Drag to zoom into a year, double-click to reset.
   </figcaption>
 </figure>
 
-There it is: a **sawtooth**. Up through the winter, down through the summer, over and over for close to four decades. Your eye catches the deep dips: the mid-1990s, a rough patch around 2005–06, and yes, 2022. Those are the droughts. But hold that thought about 2022, because the daily view is too noisy to rank them. For that we need to fold time.
+There it is: a **sawtooth**. Up through the winter, down through the summer, over and over for close to four decades. Your eye catches the deep dips: the mid-1990s, a rough patch around 2005-06, and yes, 2022. Those are the droughts. But hold that thought about 2022, because the daily view is too noisy to rank them. For that we need to fold time.
 
 ## The heartbeat: what an average year looks like
 
@@ -102,7 +103,7 @@ This is the bit that made me sit up. I'd arrived to the *story* of 2022 rather t
 | 1990     |          48% |
 | 2022     |          50% |
 
-2022, the drought I'd been assured was the worst, comes in **fifth**. The brutal squeeze was **1996–97**, a slow two-year drawdown that pulled the Thames group down to 42%. For the Lower Lee, the deepest year was **1991** (48%), with 1992 close behind. The droughts that ran London's reservoirs driest happened in the *early-to-mid nineties*, and most of us have forgotten them.
+2022, the drought I'd been assured was the worst, comes in **fifth**. The brutal squeeze was **1996-97**, a slow two-year drawdown that pulled the Thames group down to 42%. For the Lower Lee, the deepest year was **1991** (48%), with 1992 close behind. The droughts that ran London's reservoirs driest happened in the *early-to-mid nineties*, and most of us have forgotten them.
 
 Memory is a headline. The data is a diary. When they disagree, I know which one I trust.
 
@@ -116,7 +117,7 @@ None of this means 2022 wasn't a real drought. It was. "Real drought" and "worst
           loading="lazy"
           style="width:100%;height:470px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
   <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    2022 (orange) against the 1989–2026 daily range (grey band) and the typical year (dashed).
+    2022 (orange) against the 1989-2026 daily range (grey band) and the typical year (dashed).
   </figcaption>
 </figure>
 
@@ -126,7 +127,7 @@ You can watch the story unfold across the year. 2022 starts out ordinary, then p
 
 - **Water has a heartbeat.** Fill in winter, draw down to an autumn low, then do it again the next year. Once you see the rhythm, it shows up everywhere.
 - **The Lower Thames runs fuller than the Lower Lee.** Same pattern, year after year. It's baked into how the two systems work.
-- **The drought you remember isn't the worst one.** 2022 made the news. 1996–97 set the record. The loud year sticks; the deep years fade.
+- **The drought you remember isn't the worst one.** 2022 made the news. 1996-97 set the record. The loud year sticks; the deep years fade.
 - **Complete data is a gift.** The cleaning step was dull, so every surprise waited in the findings instead.
 
 If you want to poke at it yourself (different reservoir, different year, your own definition of "drought"), the whole thing is a single [Jupyter notebook](https://github.com/koulakhilesh/CodePlayground/blob/main/london-reservoir-levels/reservoir_analysis.ipynb) with pandas and Plotly. Grab the CSV from the London Datastore, drop it in, and go looking for your own wrong memory. That's the fun part.

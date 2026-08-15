@@ -193,7 +193,7 @@ There's also a quiet grammar to how each plaque relates its person to its buildi
   </figcaption>
 </figure>
 
-**725 plaques, seven in ten, simply say "lived here."** Not born, not died, not worked. Lived. The blue plaque is fundamentally a marker of *domesticity made historic*: this ordinary front door held an extraordinary ordinary life. And almost all of them say it on the same object: 88% of the plaques are the familiar ceramic roundel, with a stubborn handful in bronze, stone or slate.
+**725 plaques, seven in ten, simply say "lived here."** Not born, not died, not worked. Lived. The blue plaque is a marker of *domesticity made historic*: this ordinary front door held an extraordinary ordinary life. And almost all of them say it on the same object: 88% of the plaques are the familiar ceramic roundel, with a stubborn handful in bronze, stone or slate.
 
 ## How long did they live?
 
