@@ -4,7 +4,7 @@ permalink: /lab/
 title: Lab
 ---
 
-<p class="lab-lede">Half notebook, half playground: small things I build to understand ideas by making them move — a puzzle that changes daily, algorithms you can watch think, and a few games worth five idle minutes. More to come. <em>Psst:</em> type <code>life</code> or <code>ant</code> anywhere on the site, or try the Konami code.</p>
+<p class="lab-lede">Half notebook, half playground: small things I build to understand ideas by making them move. A puzzle that changes daily, algorithms you can watch think, and a few games worth five idle minutes. More to come. <em>Psst:</em> type <code>life</code> or <code>ant</code> anywhere on the site, or try the Konami code.</p>
 
 <div class="lab">
 
@@ -37,7 +37,7 @@ title: Lab
       </div>
     </div>
     <div class="lab-stage" id="lab-sort"><canvas></canvas></div>
-    <p class="lab-note" id="sort-note">Quicksort · watching it think — comparing <span class="dot y"></span> swapping <span class="dot r"></span></p>
+    <p class="lab-note" id="sort-note">Quicksort · watching it think · comparing <span class="dot y"></span> swapping <span class="dot r"></span></p>
   </section>
 
   <section class="lab-card lab-card--wide">
@@ -77,7 +77,7 @@ title: Lab
       </div>
     </div>
     <div class="lab-stage" id="lab-ttt"></div>
-    <p class="lab-note">You're X. The AI plays perfect minimax — the best you'll manage is a draw.</p>
+    <p class="lab-note">You're X. The AI plays perfect minimax, so the best you'll manage is a draw.</p>
   </section>
 
   <section class="lab-card">
@@ -101,12 +101,12 @@ title: Lab
       </div>
     </div>
     <div class="lab-stage" id="lab-snake"><canvas></canvas></div>
-    <p class="lab-note">Arrow keys, WASD, or swipe. No walls — slip off one edge and you'll come back on the other.</p>
+    <p class="lab-note">Arrow keys, WASD, or swipe. No walls: slip off one edge and you'll come back on the other.</p>
   </section>
 
   <section class="lab-card lab-card--wide">
     <div class="lab-head">
-      <h3>Reaction–diffusion</h3>
+      <h3>Reaction-diffusion</h3>
       <div class="lab-controls" id="rd-controls">
         <button data-feed="0.0545" data-kill="0.062" class="on">Coral</button>
         <button data-feed="0.0367" data-kill="0.0649">Mitosis</button>
@@ -115,7 +115,7 @@ title: Lab
       </div>
     </div>
     <div class="lab-stage" id="lab-rd"><canvas class="pixelated"></canvas></div>
-    <p class="lab-note">Two chemicals, diffusing and reacting — Turing's idea of how a leopard gets its spots.</p>
+    <p class="lab-note">Two chemicals, diffusing and reacting: Turing's idea of how a leopard gets its spots.</p>
   </section>
 
 </div>

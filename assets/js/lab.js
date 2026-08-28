@@ -1,5 +1,5 @@
 /* ============================================================
-   Lab — interactive toys (loaded only on /lab/)
+   Lab: interactive toys (loaded only on /lab/)
    • Sorting visualizer (bubble / quick / merge) in Riso inks
    • Minesweeper on the Swiss grid
    • Snake in Bauhaus tiles
@@ -59,7 +59,7 @@
       if (b.dataset.algo) {
         algo = b.dataset.algo;
         [].forEach.call(controls.querySelectorAll("[data-algo]"), function (x) { x.classList.toggle("on", x === b); });
-        if (note) note.firstChild.nodeValue = b.textContent + "sort · watching it think — comparing ";
+        if (note) note.firstChild.nodeValue = b.textContent + "sort · watching it think · comparing ";
         run();
       }
     });
@@ -221,7 +221,7 @@
     fit(); seed();
   }
 
-  /* ---------------- Reaction–diffusion (Gray–Scott) ---------------- */
+  /* ---------------- Reaction-diffusion (Gray-Scott) ---------------- */
   function initRD() {
     var stage = document.getElementById("lab-rd"); if (!stage) return;
     var canvas = stage.querySelector("canvas"), ctx = canvas.getContext("2d");
@@ -281,13 +281,13 @@
     function C(n, k) { if (k < 0 || k > n) return 0; k = Math.min(k, n - k); var r = 1; for (var i = 0; i < k; i++) r = r * (n - i) / (i + 1); return Math.round(r); }
     function disp(x) { return x.kind === "pct" ? ("≈ " + (Math.round(x.val * 10) / 10) + "%") : ("" + x.val); }
     var templates = [
-      function () { var n = ri(18, 40), p = 1; for (var i = 0; i < n; i++) p *= (365 - i) / 365; return { q: "In a room of " + n + " people, what's the probability that at least two share a birthday?", kind: "pct", val: (1 - p) * 100, why: "1 − (365·364·…) / 365^" + n + ". The birthday paradox — it already passes 50% at just 23 people." }; },
-      function () { var n = ri(3, 12); return { q: "You roll a fair die " + n + " times. What's the probability of at least one six?", kind: "pct", val: (1 - Math.pow(5 / 6, n)) * 100, why: "1 − (5/6)^" + n + " — compute the chance of *no* six, then subtract from 1." }; },
+      function () { var n = ri(18, 40), p = 1; for (var i = 0; i < n; i++) p *= (365 - i) / 365; return { q: "In a room of " + n + " people, what's the probability that at least two share a birthday?", kind: "pct", val: (1 - p) * 100, why: "1 − (365·364·…) / 365^" + n + ". The birthday paradox: it already passes 50% at just 23 people." }; },
+      function () { var n = ri(3, 12); return { q: "You roll a fair die " + n + " times. What's the probability of at least one six?", kind: "pct", val: (1 - Math.pow(5 / 6, n)) * 100, why: "1 − (5/6)^" + n + ". Compute the chance of *no* six, then subtract from 1." }; },
       function () { var n = ri(6, 12), k = ri(2, n - 2); return { q: "Flip a fair coin " + n + " times. What's the probability of exactly " + k + " heads?", kind: "pct", val: C(n, k) / Math.pow(2, n) * 100, why: "C(" + n + "," + k + ") / 2^" + n + " = " + C(n, k) + "/" + Math.pow(2, n) + "." }; },
-      function () { var r = ri(3, 8), b = ri(3, 8); return { q: "A bag holds " + r + " red and " + b + " blue balls. You draw two without replacement — probability both are red?", kind: "pct", val: (r / (r + b)) * ((r - 1) / (r + b - 1)) * 100, why: "(" + r + "/" + (r + b) + ") × (" + (r - 1) + "/" + (r + b - 1) + ")." }; },
+      function () { var r = ri(3, 8), b = ri(3, 8); return { q: "A bag holds " + r + " red and " + b + " blue balls. You draw two without replacement: probability both are red?", kind: "pct", val: (r / (r + b)) * ((r - 1) / (r + b - 1)) * 100, why: "(" + r + "/" + (r + b) + ") × (" + (r - 1) + "/" + (r + b - 1) + ")." }; },
       function () { var n = ri(6, 14), k = ri(2, 5); return { q: "How many ways can you choose " + k + " items from " + n + ", if order doesn't matter?", kind: "int", val: C(n, k), why: "C(" + n + "," + k + ") = " + n + "! / (" + k + "! · " + (n - k) + "!)." }; },
       function () { var n = ri(4, 7); return { q: "How many ways can you arrange " + n + " distinct books on a shelf?", kind: "int", val: fact(n), why: n + "! = " + n + " × " + (n - 1) + " × … × 1." }; },
-      function () { var n = ri(5, 12); return { q: n + " people each shake hands once with everyone else. How many handshakes happen?", kind: "int", val: C(n, 2), why: "C(" + n + ",2) = " + n + "·" + (n - 1) + "/2 — one shake per pair." }; }
+      function () { var n = ri(5, 12); return { q: n + " people each shake hands once with everyone else. How many handshakes happen?", kind: "int", val: C(n, 2), why: "C(" + n + ",2) = " + n + "·" + (n - 1) + "/2, one shake per pair." }; }
     ];
     var t = templates[Math.floor(rng() * templates.length)]();
     qEl.textContent = t.q;
