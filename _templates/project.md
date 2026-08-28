@@ -6,7 +6,7 @@ summary: A scheduler that maximises revenue across energy markets under battery 
 category: Data Science          # shown in the hero eyebrow + spec rail
 year: 2026                      # spec rail
 role: Solo build                # spec rail (e.g. "Solo build", "Team of 3")
-status: In progress             # In progress | Shipped | Archived  → coloured badge
+status: In progress             # In progress | Complete | Shipped | Archived  → coloured badge
 
 stack: [Python, PuLP, pandas]   # tech pills (hero rail + index card)
 

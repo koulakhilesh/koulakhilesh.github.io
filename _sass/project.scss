@@ -9,6 +9,7 @@
   padding:4px 10px;border:1px solid var(--line2);border-radius:999px;color:var(--muted)}
 .status::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
 .status--in-progress{color:var(--yellow)}
+.status--complete{color:var(--accent)}
 .status--shipped{color:var(--blue)}
 .status--archived{color:var(--muted)}
 
