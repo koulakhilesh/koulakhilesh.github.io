@@ -1,6 +1,6 @@
-<a class="post{% if include.post.thumbnail %} has-thumb{% endif %}" href="{{ include.post.url | relative_url }}">
+<a class="post{% if include.post.glyph or include.post.thumbnail %} has-thumb{% endif %}" href="{{ include.post.url | relative_url }}">
   <div class="post-aside">
-    {% if include.post.thumbnail %}<img class="post-thumb" src="{{ include.post.thumbnail | relative_url }}" alt="" loading="lazy" width="96" height="96">{% endif %}
+    {% if include.post.glyph %}{% include glyph.html name=include.post.glyph %}{% elsif include.post.thumbnail %}<img class="post-thumb" src="{{ include.post.thumbnail | relative_url }}" alt="" loading="lazy" width="96" height="96">{% endif %}
     <span class="date">{{ include.post.date | date: "%Y · %m" }}</span>
   </div>
   <div>

@@ -3,15 +3,13 @@ title: "The shape of the Gita: mapping 700 verses with a knowledge graph"
 date: 2026-08-28
 last_modified_at: 2026-08-28
 thumbnail: /assets/thumbs/gita.svg
+glyph: gita-map
 tags: [Data Science, NLP, Knowledge Graph, Neo4j, Plotly]
 excerpt: "I turned all 700 verses of the Bhagavad Gita into a knowledge graph and a set of embeddings, then asked what the text looks like when you map it: where its regions are, which verses sit at the centre, and how its three voices each speak a measurably different language."
 toc: true
 ---
 
-<div style="text-align:center;margin:2rem 0 2.4rem;">
-  <img src="{{ '/assets/thumbs/gita.svg' | relative_url }}" width="184" height="184"
-       alt="A minimal emblem: Krishna's peacock feather crossed with Arjuna's arrow" loading="lazy">
-</div>
+<div class="glyph-hero">{% include glyph.html name="gita-map" %}</div>
 
 The Bhagavad Gita is a conversation of about 700 verses, 18 chapters, one battlefield. I have been building a verse-by-verse digital edition of it as [The Gita Project]({{ '/projects/the-gita-project/' | relative_url }}), and once every verse had its Sanskrit, a transliteration, a word-by-word gloss, and an English translation, a different question started nagging at me. Not *what does it say*, which people have argued about for two thousand years, but a smaller and more answerable one: **what does the text look like when you map it?**
 

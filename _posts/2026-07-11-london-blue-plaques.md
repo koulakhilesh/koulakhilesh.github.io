@@ -3,6 +3,7 @@ title: "Who London remembers: 1,037 blue plaques and the very small city inside 
 date: 2026-07-11 10:00:00
 last_modified_at: 2026-08-15 10:00:00
 thumbnail: /assets/thumbs/blue-plaques.png
+glyph: plaques
 tags: [Data Science, London, History, Plotly, Web Scraping]
 excerpt: "I scraped every English Heritage blue plaque in London to ask who gets remembered and where. The answer is a surprisingly tiny, surprisingly male, surprisingly literary corner of the map, and the shape of it says something uncomfortable."
 toc: true

@@ -3,15 +3,13 @@ title: "The words the Gita repeats: counting its Sanskrit vocabulary"
 date: 2026-08-28
 last_modified_at: 2026-08-28
 thumbnail: /assets/thumbs/gita.svg
+glyph: gita-words
 tags: [Data Science, NLP, Linguistics, Sanskrit, Plotly]
 excerpt: "The first two posts leaned on the English translation. This one counts the Sanskrit: 3,340 words from the word-by-word glosses, where they follow the same frequency laws as any language, and where the count quietly tells you what the text is actually about."
 toc: true
 ---
 
-<div style="text-align:center;margin:2rem 0 2.4rem;">
-  <img src="{{ '/assets/thumbs/gita.svg' | relative_url }}" width="184" height="184"
-       alt="A minimal emblem: Krishna's peacock feather crossed with Arjuna's arrow" loading="lazy">
-</div>
+<div class="glyph-hero">{% include glyph.html name="gita-words" %}</div>
 
 The [map]({{ '/writing/the-shape-of-the-gita/' | relative_url }}) and the [build]({{ '/writing/building-a-knowledge-graph-of-the-gita/' | relative_url }}) both leaned on the English translation, because that is what the embeddings are made from. But the graph also carries the other half of every verse: the word-by-word Sanskrit gloss, normalized into **3,340 Sanskrit terms**. This post does the least glamorous thing you can do to a vocabulary, which is count it, and finds that the counting says more than I expected.
 

@@ -15,6 +15,6 @@ layout: null
 {{ sep }}{"title":{{ m.title | jsonify }},"url":{{ m.url | relative_url | jsonify }},"type":"Making","summary":{{ m.summary | default: m.excerpt | default: "" | strip_html | strip_newlines | truncate: 140 | jsonify }}}
 {%- assign sep = "," -%}
 {% endfor -%}
-{{ sep }}{"title":"About","url":{{ "/about/" | relative_url | jsonify }},"type":"Page","summary":"About Akhilesh Koul — data scientist, maker, runner."}
+{{ sep }}{"title":"About","url":{{ "/about/" | relative_url | jsonify }},"type":"Page","summary":"About Akhilesh Koul, data scientist, maker, runner."}
 ,{"title":"Contact","url":{{ "/contact/" | relative_url | jsonify }},"type":"Page","summary":"Get in touch."}
 ]

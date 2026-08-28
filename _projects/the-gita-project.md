@@ -5,7 +5,7 @@ category: Study
 year: 2026
 role: Solo build
 status: Complete
-stack: [Markdown, Data Science]
+stack: [Markdown, Python, Neo4j, spaCy, Plotly]
 metrics:
   - { value: "18", label: "chapters" }
   - { value: "700", label: "shlokas" }
