@@ -22,19 +22,20 @@
   --r-0:0; --r-1:4px; --r-round:50%;
 
   /* type scale */
-  --fs-xs:.72rem; --fs-sm:.85rem; --fs-base:1rem; --fs-lg:1.25rem; --fs-xl:1.75rem;
+  --fs-2xs:.64rem; --fs-xs:.72rem; --fs-sm:.85rem; --fs-base:1rem; --fs-prose:1.06rem;
+  --fs-lg:1.25rem; --fs-xl:1.75rem;
   --fs-2xl:clamp(2rem,4vw,2.75rem); --fs-3xl:clamp(2.4rem,5vw,3.25rem);
   --blend:screen;            /* overprint mode for dark */
 
-  /* type */
-  --disp:'Libre Franklin',system-ui,sans-serif;  /* Swiss grotesque */
-  --alt:'Archivo',system-ui,sans-serif;
-  --mono:'JetBrains Mono',monospace;
-  --body:'Inter',system-ui,sans-serif;
-  --serif:'Newsreader',Georgia,serif;            /* prose */
+  /* type: three families only */
+  --disp:'Libre Franklin',system-ui,sans-serif;  /* headings, UI */
+  --body:'Libre Franklin',system-ui,sans-serif;  /* body text */
+  --mono:'JetBrains Mono',monospace;             /* dates, labels, tags */
+  --serif:'Newsreader',Georgia,serif;            /* ledes, quotes, prose subheads */
 
   /* grid */
   --wrap:1120px; --gutter:32px; --gap:24px;
+  --cols:12; --col-gap:var(--gap);
 }
 
 /* tighter side gutter on small phones for more content width */

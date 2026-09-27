@@ -4,6 +4,7 @@ date: 2026-07-11 09:00:00
 last_modified_at: 2026-08-15 09:00:00
 thumbnail: /assets/thumbs/geometry.png
 glyph: geometry
+image: /assets/social/the-geometry-of-londons-blue-plaques.png
 series: "London's blue plaques"
 series_part: 2
 tags: [Data Science, Geospatial, Optimization, Plotly, London]
@@ -42,18 +43,18 @@ But "you can see it" is not the same as "it's true." This post is the data scien
 
 Before any picture, a statistic. The eye is easily fooled, so the honest first move is a test. The **Clark-Evans index** compares the average distance from each plaque to its *nearest* neighbour against what you'd expect if the same number of plaques were scattered at random across the same area. Below 1 means clustered; above 1 means spread out; a big *z*-score means it's not luck.
 
-<div style="display:flex;gap:1rem;flex-wrap:wrap;margin:1.6rem 0;">
-  <div style="flex:1;min-width:120px;text-align:center;padding:1.1rem .6rem;border:1px solid var(--line);border-radius:12px;">
-    <div style="font-size:2.1rem;font-weight:700;color:#1c5fb0;line-height:1;">0.54</div>
-    <div style="font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:.4rem;">Clark-Evans R (1 = random)</div>
+<div class="stats">
+  <div class="stat">
+    <div class="stat-value">0.54</div>
+    <div class="stat-label">Clark-Evans R (1 = random)</div>
   </div>
-  <div style="flex:1;min-width:120px;text-align:center;padding:1.1rem .6rem;border:1px solid var(--line);border-radius:12px;">
-    <div style="font-size:2.1rem;font-weight:700;color:#1c5fb0;line-height:1;">-28</div>
-    <div style="font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:.4rem;">z-score (|z|&gt;2 is significant)</div>
+  <div class="stat">
+    <div class="stat-value">-28</div>
+    <div class="stat-label">z-score (|z|&gt;2 is significant)</div>
   </div>
-  <div style="flex:1;min-width:120px;text-align:center;padding:1.1rem .6rem;border:1px solid var(--line);border-radius:12px;">
-    <div style="font-size:2.1rem;font-weight:700;color:#1c5fb0;line-height:1;">100<span style="font-size:1.1rem;"> m</span></div>
-    <div style="font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:.4rem;">median nearest neighbour</div>
+  <div class="stat">
+    <div class="stat-value">100<span class="stat-unit"> m</span></div>
+    <div class="stat-label">median nearest neighbour</div>
   </div>
 </div>
 
@@ -79,18 +80,18 @@ The same information, smoothed into a continuous surface: a kernel-style density
 
 I don't want to *decide* where the clusters are: that's cheating. So I handed the job to **DBSCAN**, a density-based clustering algorithm: any group of at least six plaques all within 350 metres of one another becomes a cluster; everything else is "scattered." Told only the coordinates, it recovers the hotspots on its own.
 
-<div style="display:flex;gap:1rem;flex-wrap:wrap;margin:1.6rem 0;">
-  <div style="flex:1;min-width:120px;text-align:center;padding:1.1rem .6rem;border:1px solid var(--line);border-radius:12px;">
-    <div style="font-size:2.1rem;font-weight:700;color:#1c5fb0;line-height:1;">14</div>
-    <div style="font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:.4rem;">hotspots discovered</div>
+<div class="stats">
+  <div class="stat">
+    <div class="stat-value">14</div>
+    <div class="stat-label">hotspots discovered</div>
   </div>
-  <div style="flex:1;min-width:120px;text-align:center;padding:1.1rem .6rem;border:1px solid var(--line);border-radius:12px;">
-    <div style="font-size:2.1rem;font-weight:700;color:#1c5fb0;line-height:1;">287</div>
-    <div style="font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:.4rem;">plaques in the biggest (Westminster)</div>
+  <div class="stat">
+    <div class="stat-value">287</div>
+    <div class="stat-label">plaques in the biggest (Westminster)</div>
   </div>
-  <div style="flex:1;min-width:120px;text-align:center;padding:1.1rem .6rem;border:1px solid var(--line);border-radius:12px;">
-    <div style="font-size:2.1rem;font-weight:700;color:#1c5fb0;line-height:1;">232</div>
-    <div style="font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:.4rem;">in the second (Kensington)</div>
+  <div class="stat">
+    <div class="stat-value">232</div>
+    <div class="stat-label">in the second (Kensington)</div>
   </div>
 </div>
 
@@ -112,18 +113,18 @@ Finally, the classic. Pick one representative plaque per borough (the one neares
 
 The recipe is two moves. First, a **nearest-neighbour** heuristic: start somewhere, always walk to the closest unvisited borough. It's greedy and it leaves ugly crossings. Then **2-opt**: repeatedly find two edges that cross, snip them, and reconnect the other way, which always shortens the tour, until no swap helps.
 
-<div style="display:flex;gap:1rem;flex-wrap:wrap;margin:1.6rem 0;">
-  <div style="flex:1;min-width:120px;text-align:center;padding:1.1rem .6rem;border:1px solid var(--line);border-radius:12px;">
-    <div style="font-size:2.1rem;font-weight:700;color:#c2185b;line-height:1;">219<span style="font-size:1.1rem;"> km</span></div>
-    <div style="font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:.4rem;">greedy nearest-neighbour tour</div>
+<div class="stats">
+  <div class="stat">
+    <div class="stat-value stat-value--alt">219<span class="stat-unit"> km</span></div>
+    <div class="stat-label">greedy nearest-neighbour tour</div>
   </div>
-  <div style="flex:1;min-width:120px;text-align:center;padding:1.1rem .6rem;border:1px solid var(--line);border-radius:12px;">
-    <div style="font-size:2.1rem;font-weight:700;color:#1c5fb0;line-height:1;">180<span style="font-size:1.1rem;"> km</span></div>
-    <div style="font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:.4rem;">after 2-opt</div>
+  <div class="stat">
+    <div class="stat-value">180<span class="stat-unit"> km</span></div>
+    <div class="stat-label">after 2-opt</div>
   </div>
-  <div style="flex:1;min-width:120px;text-align:center;padding:1.1rem .6rem;border:1px solid var(--line);border-radius:12px;">
-    <div style="font-size:2.1rem;font-weight:700;color:#1c5fb0;line-height:1;">18%</div>
-    <div style="font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:.4rem;">shorter, for a few lines of code</div>
+  <div class="stat">
+    <div class="stat-value">18%</div>
+    <div class="stat-label">shorter, for a few lines of code</div>
   </div>
 </div>
 

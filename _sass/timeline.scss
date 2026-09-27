@@ -1,41 +1,19 @@
-.timeline{position:relative;left:50%;transform:translateX(-50%);width:min(880px,94vw);margin:1.5rem 0 .5rem}
-.timeline .tl-spine{position:absolute;left:50%;transform:translateX(-50%);
-  width:6px;border-radius:var(--r-0);background:var(--accent);opacity:.9;z-index:0}
-
-.timeline .tl-year{position:absolute;right:calc(50% + 10px);transform:translateY(-50%);
-  font-family:var(--mono);font-size:.68rem;color:var(--muted);z-index:5}
-.timeline .tl-now{position:absolute;right:calc(50% + 20px);transform:translateY(-50%);
-  background:var(--accent);color:var(--bg);font-family:var(--mono);font-size:.64rem;
-  font-weight:600;letter-spacing:.04em;text-transform:uppercase;
-  padding:3px 10px;border-radius:var(--r-1);z-index:3}
-
-.timeline .tl-entry{position:absolute;left:0;right:0}
-
-.timeline .tl-card{position:absolute;top:0;
-  background:var(--card);border:1px solid var(--line);border-radius:var(--r-0);
-  padding:14px 16px;display:flex;gap:12px;align-items:flex-start;
-  transition:transform .15s ease,border-color .15s ease}
-.timeline .tl-card:hover{transform:translateY(-3px);border-color:var(--ink)}
-.timeline .tl-right .tl-card{left:calc(50% + 46px);right:12px}
-.timeline .tl-left .tl-card{left:12px;right:calc(50% + 46px)}
-
-/* small pointer tab from each card toward the axis (always at the card, never near a year label) */
-.timeline .tl-card::before{content:"";position:absolute;top:26px;width:0;height:0;
-  border-top:8px solid transparent;border-bottom:8px solid transparent;z-index:1}
-.timeline .tl-right .tl-card::before{left:-8px;border-right:8px solid var(--card)}
-.timeline .tl-left .tl-card::before{right:-8px;border-left:8px solid var(--card)}
-
-.timeline .tl-logo{width:40px;height:40px;object-fit:contain;border-radius:var(--r-0);
-  background:#fff;padding:4px;flex:none;margin:0}
-.timeline .tl-dates{display:block;color:var(--muted);margin-bottom:4px}
-.timeline .tl-info h3{font-family:var(--disp);font-size:1rem;margin:0 0 2px;line-height:1.25}
-.timeline .tl-org{color:var(--muted);font-size:.86rem;margin-bottom:6px}
-.timeline .tl-info p{margin:0;font-size:.86rem;color:var(--muted);line-height:1.5}
+/* About: experience and education as one Swiss list (newest first).
+   Mark before each title: red square = work, blue circle = education. */
+.cv{list-style:none;margin:1.5rem 0 .5rem;padding:0;border-top:1px solid var(--line2)}
+.cv .cv-item{display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));gap:6px var(--col-gap);
+  margin:0;padding:18px 0;border-bottom:1px solid var(--line)}
+.cv .cv-when{grid-column:span 3;margin:0;font-size:var(--fs-xs);line-height:1.6;color:var(--muted)}
+.cv .cv-dur{display:block;letter-spacing:.06em;text-transform:none}
+.cv .cv-what{grid-column:span 9}
+.cv .cv-title{font-family:var(--disp);font-size:var(--fs-base);font-weight:600;line-height:1.3;
+  margin:0 0 2px;display:flex;align-items:center;gap:10px}
+.cv-title::before{content:"";width:10px;height:10px;flex:none;mix-blend-mode:var(--blend)}
+.cv-item--work .cv-title::before{background:var(--red)}
+.cv-item--education .cv-title::before{background:var(--blue);border-radius:var(--r-round)}
+.cv .cv-org{margin:0;font-size:var(--fs-sm);color:var(--muted)}
+.cv .cv-desc{margin:6px 0 0;font-size:var(--fs-sm);line-height:1.5;color:var(--muted)}
 
 @media(max-width:700px){
-  .timeline{height:auto !important;width:auto;left:auto;transform:none;margin-top:1rem}
-  .timeline .tl-spine,.timeline .tl-year,.timeline .tl-now{display:none}
-  .timeline .tl-card::before{display:none}
-  .timeline .tl-entry{position:static !important;height:auto !important;margin-bottom:14px}
-  .timeline .tl-card{position:static !important;width:auto;left:auto;right:auto;border-left:4px solid var(--accent)}
+  .cv .cv-when,.cv .cv-what{grid-column:1/-1}
 }

@@ -4,6 +4,7 @@ date: 2026-09-26
 last_modified_at: 2026-09-26
 thumbnail: /assets/thumbs/tube.png
 glyph: tube-wave
+image: /assets/social/london-tube-crowding.png
 tags: [Data Science, London, Open Data, Plotly, Transport]
 excerpt: "TfL publishes a 'typical day' of passenger flow for every Tube station, in 15-minute slices. I pulled it for 269 stations and asked whether you can watch the crowd move. You can: the morning rush reaches the centre last, stations split cleanly into home and work, and on the Central line you can see a train fill up across east London and empty out in the City."
 toc: true

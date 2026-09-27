@@ -7,6 +7,6 @@
     <p class="post-meta mono">{{ pc.date | date: "%Y · %m" }}{% if pc.series %}{% assign pc_series = site.posts | where: "series", pc.series | where_exp: "p", "p.archived != true" %} · Part {{ pc.series_part }} of {{ pc_series.size }} · {{ pc.series }}{% endif %}</p>
     <h3>{{ pc.title }}</h3>
     <p class="post-excerpt">{% if include.feature %}{{ pc.excerpt | strip_html }}{% else %}{{ pc.excerpt | strip_html | truncatewords: 28 }}{% endif %}</p>
-    {% if pc.tags.size > 0 %}<p class="post-tags">{% for t in pc.tags %}<span class="tag">#{{ t }}</span>{% endfor %}</p>{% endif %}
+    {% if pc.tags.size > 0 %}<p class="post-tags">{% for t in pc.tags %}<span class="tag">#{{ t | remove: " " }}</span>{% endfor %}</p>{% endif %}
   </div>
 </a>

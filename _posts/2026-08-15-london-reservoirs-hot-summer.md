@@ -4,6 +4,7 @@ date: 2026-08-15
 last_modified_at: 2026-08-15
 thumbnail: /assets/thumbs/reservoirs.png
 glyph: reservoirs-low
+image: /assets/social/london-reservoirs-hot-summer.png
 series: "London's reservoirs"
 series_part: 2
 tags: [Data Science, London, Open Data, Plotly, Water]

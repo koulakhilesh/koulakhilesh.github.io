@@ -1,8 +1,8 @@
 .site-footer{border-top:1px solid var(--line);padding:40px 0 56px;margin-top:0;position:relative;z-index:2}
 .foot-in{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
-.foot-brand{font-family:var(--disp);font-weight:700;font-size:1.1rem;letter-spacing:-.01em}
-.foot-links{display:flex;gap:22px;font-family:var(--mono);font-size:.7rem;
+.foot-brand{font-family:var(--disp);font-weight:700;font-size:var(--fs-lg);letter-spacing:-.01em}
+.foot-links{display:flex;gap:22px;font-family:var(--mono);font-size:var(--fs-xs);
   letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .foot-links a:hover{color:var(--c-action)}
-.foot-copy{margin-top:18px;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;
+.foot-copy{margin-top:18px;font-family:var(--mono);font-size:var(--fs-xs);letter-spacing:.12em;
   text-transform:uppercase;color:var(--muted);opacity:.75}

@@ -4,6 +4,7 @@ date: 2026-08-28
 last_modified_at: 2026-08-28
 thumbnail: /assets/thumbs/gita.svg
 glyph: gita-words
+image: /assets/social/the-words-the-gita-repeats.png
 series: "The Gita"
 series_part: 3
 tags: [Data Science, NLP, Linguistics, Sanskrit, Plotly]

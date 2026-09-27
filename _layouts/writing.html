@@ -9,7 +9,7 @@ layout: default
     {% assign series_names = posts | map: "series" | compact | uniq %}
     {% if series_names.size > 0 %}
     <div class="series-strip">
-      <p class="mono">Series</p>
+      <h2 class="mono">Series</h2>
       <ul>
         {% for s in series_names %}{% assign parts = posts | where: "series", s | sort: "series_part" %}
         <li><span class="series-name">{{ s }}</span><span class="mono"> · {{ parts.size }} {% if parts.size == 1 %}part{% else %}parts{% endif %}</span>
@@ -21,7 +21,7 @@ layout: default
     {% endif %}
     {% assign by_year = posts | group_by_exp: "p", "p.date | date: '%Y'" %}
     {% for year in by_year %}
-    <h3 class="year">{{ year.name }}</h3>
+    <h2 class="year">{{ year.name }}</h2>
     <div class="posts">{% for post in year.items %}{% include post-card.html post=post %}{% endfor %}</div>
     {% endfor %}
   {% else %}

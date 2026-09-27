@@ -1,22 +1,12 @@
-# One merged timeline (experience + education) shown on the About page.
-# - Axis shows every year, evenly spaced. Entries are placed by month
-#   (month 7 = July sits halfway between two year marks).
-# - Entries alternate left/right of the centre axis and alternate accent
-#   colour, so nothing overlaps and durations are easy to read.
-# - Omit start_month/end_month for year-only entries (labels show just the year).
-# - Leave end_year blank for an ongoing entry (shows "Present").
-# - per_year = pixels between year marks. Drop logos in assets/images/logos/
-#   (falls back to logo.png until then).
-# - List newest first for clean left/right alternation.
-
-start_year: 2010
-end_year: 2026
-per_year: 90
+# Experience and education, shown on the About page as one list, newest first.
+# - kind: work (red square) or education (blue circle).
+# - Omit start_month/end_month for year-only entries.
+# - Leave end_year blank for an ongoing entry (shows "Present" and no duration).
 
 entries:
   - title: "Senior Data Scientist"
     org: "Shell"
-    logo: "/assets/images/logos/shell.png"
+    kind: work
     start_year: 2023
     start_month: 4
     end_year:                               # Present
@@ -24,7 +14,7 @@ entries:
 
   - title: "Data Scientist"
     org: "Limejump"
-    logo: "/assets/images/logos/limejump.png"
+    kind: work
     start_year: 2022
     start_month: 12
     end_year: 2023
@@ -33,7 +23,7 @@ entries:
 
   - title: "Research Associate"
     org: "Energy Research Institute @ NTU (ERI@N)"
-    logo: "/assets/images/logos/erian.png"
+    kind: work
     start_year: 2019
     start_month: 10
     end_year: 2022
@@ -42,13 +32,13 @@ entries:
 
   - title: "M.Eng. Electrical & Electronics Engineering"
     org: "Nanyang Technological University, Singapore"
-    logo: "/assets/images/logos/ntu.png"
+    kind: education
     start_year: 2018
     end_year: 2020
 
   - title: "Assistant Manager"
     org: "Jio"
-    logo: "/assets/images/logos/jio.png"
+    kind: work
     start_year: 2014
     start_month: 8
     end_year: 2017
@@ -57,13 +47,13 @@ entries:
 
   - title: "B.Tech. Electrical & Electronics Engineering"
     org: "National Institute of Technology, Srinagar"
-    logo: "/assets/images/logos/nit.png"
+    kind: education
     start_year: 2010
     end_year: 2014
 
   - title: "Project Intern"
     org: "Indian Institute of Science (IISc)"
-    logo: "/assets/images/logos/iisc.png"
+    kind: work
     start_year: 2013
     start_month: 1
     end_year: 2013

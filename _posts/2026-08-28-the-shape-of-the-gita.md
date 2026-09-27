@@ -4,6 +4,7 @@ date: 2026-08-28
 last_modified_at: 2026-08-28
 thumbnail: /assets/thumbs/gita.svg
 glyph: gita-map
+image: /assets/social/the-shape-of-the-gita.png
 series: "The Gita"
 series_part: 1
 tags: [Data Science, NLP, Knowledge Graph, Neo4j, Plotly]
@@ -55,18 +56,18 @@ I want to be careful about what this means. PageRank rewards a verse for echoing
 
 The Gita is a dialogue, and the graph knows who speaks each verse. Four voices carry it, but the floor is not shared evenly at all.
 
-<div style="display:flex;gap:1rem;flex-wrap:wrap;margin:1.6rem 0;">
-  <div style="flex:1;min-width:120px;text-align:center;padding:1.1rem .6rem;border:1px solid var(--line);border-radius:12px;">
-    <div style="font-size:2.1rem;font-weight:700;color:#1c5fb0;line-height:1;">82<span style="font-size:1.1rem;">%</span></div>
-    <div style="font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:.4rem;">spoken by Krishna (574 verses)</div>
+<div class="stats">
+  <div class="stat">
+    <div class="stat-value">82<span class="stat-unit">%</span></div>
+    <div class="stat-label">spoken by Krishna (574 verses)</div>
   </div>
-  <div style="flex:1;min-width:120px;text-align:center;padding:1.1rem .6rem;border:1px solid var(--line);border-radius:12px;">
-    <div style="font-size:2.1rem;font-weight:700;color:#1c5fb0;line-height:1;">12<span style="font-size:1.1rem;">%</span></div>
-    <div style="font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:.4rem;">Arjuna (86 verses)</div>
+  <div class="stat">
+    <div class="stat-value">12<span class="stat-unit">%</span></div>
+    <div class="stat-label">Arjuna (86 verses)</div>
   </div>
-  <div style="flex:1;min-width:120px;text-align:center;padding:1.1rem .6rem;border:1px solid var(--line);border-radius:12px;">
-    <div style="font-size:2.1rem;font-weight:700;color:#1c5fb0;line-height:1;">6<span style="font-size:1.1rem;">%</span></div>
-    <div style="font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:.4rem;">Sanjaya, the narrator (40 verses)</div>
+  <div class="stat">
+    <div class="stat-value">6<span class="stat-unit">%</span></div>
+    <div class="stat-label">Sanjaya, the narrator (40 verses)</div>
   </div>
 </div>
 

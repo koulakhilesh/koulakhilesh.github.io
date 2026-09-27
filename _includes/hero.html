@@ -1,7 +1,7 @@
 {%- assign hero_posts = site.posts | where_exp: "p", "p.archived != true" -%}
 {%- assign hero_latest = hero_posts | first -%}
 <header class="hero">
-  <div class="wrap hero-grid">
+  <div class="wrap hero-grid grid-12">
     <div class="hero-main">
       <p class="mono kicker">{{ site.author.role }}</p>
       <h1 class="hero-h">Code &amp; kilometers.<br><span class="accent">{{ site.tagline }}</span></h1>

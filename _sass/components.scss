@@ -4,17 +4,17 @@
 
 /* Icon button (nav search trigger) */
 .icon-btn{background:none;border:1px solid var(--line2);color:var(--muted);
-  width:34px;height:34px;cursor:pointer;line-height:1;font-size:1rem;
+  width:34px;height:34px;cursor:pointer;line-height:1;font-size:var(--fs-base);
   display:inline-flex;align-items:center;justify-content:center}
 .icon-btn:hover{color:var(--ink);border-color:var(--ink)}
 
 /* Nav search trigger, styled as a search field */
 .search-trigger{width:auto;min-width:210px;justify-content:flex-start;gap:8px;
-  padding:0 8px 0 12px;border-radius:var(--r-1);font-size:.9rem}
-.search-trigger .st-ic{font-size:1.05rem;line-height:1}
+  padding:0 8px 0 12px;border-radius:var(--r-1);font-size:var(--fs-sm)}
+.search-trigger .st-ic{font-size:var(--fs-base);line-height:1}
 .search-trigger .st-label{flex:1;text-align:left;font-family:var(--body)}
 .search-trigger .st-key{border:1px solid var(--line2);border-radius:var(--r-1);
-  padding:1px 7px;font-size:.72rem;font-family:var(--mono);line-height:1.5}
+  padding:1px 7px;font-size:var(--fs-xs);font-family:var(--mono);line-height:1.5}
 .search-trigger:hover .st-key{border-color:var(--ink)}
 @media(max-width:720px){.search-trigger{width:100%}}
 
@@ -26,10 +26,10 @@
 .search-panel{position:relative;margin-top:12vh;width:min(780px,94vw);
   background:var(--card);border:2px solid var(--ink);box-shadow:8px 8px 0 var(--ink)}
 .search-bar{display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid var(--line)}
-.search-ic{font-size:1.3rem;color:var(--muted);line-height:1}
-#search-input{flex:1;border:0;background:none;font-family:var(--disp);font-size:1.1rem;
+.search-ic{font-size:var(--fs-lg);color:var(--muted);line-height:1}
+#search-input{flex:1;border:0;background:none;font-family:var(--disp);font-size:var(--fs-lg);
   color:var(--ink);outline:none}
-.search-close{font-family:var(--mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.12em;
+.search-close{font-family:var(--mono);font-size:var(--fs-2xs);text-transform:uppercase;letter-spacing:.12em;
   border:1px solid var(--line2);background:none;color:var(--muted);padding:5px 8px;cursor:pointer}
 .search-close:hover{color:var(--ink);border-color:var(--ink)}
 .search-results{list-style:none;margin:0;padding:6px;max-height:56vh;overflow:auto}
@@ -37,25 +37,25 @@
   padding:12px 14px;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line)}
 .search-item:last-child a{border-bottom:0}
 .search-item a:hover,.search-item a:focus{background:var(--bg2);outline:none}
-.s-type{grid-row:1/3;align-self:start;margin-top:2px;font-family:var(--mono);font-size:.58rem;
+.s-type{grid-row:1/3;align-self:start;margin-top:2px;font-family:var(--mono);font-size:var(--fs-2xs);
   text-transform:uppercase;letter-spacing:.1em;color:var(--c-action);
   border:1px solid var(--line2);padding:3px 6px;height:max-content}
-.s-title{font-family:var(--disp);font-weight:600;font-size:1rem;letter-spacing:-.01em}
-.s-sum{color:var(--muted);font-size:.82rem}
+.s-title{font-family:var(--disp);font-weight:600;font-size:var(--fs-base);letter-spacing:-.01em}
+.s-sum{color:var(--muted);font-size:var(--fs-sm)}
 .search-empty{margin:0;padding:22px 18px;color:var(--muted);
-  font-family:var(--mono);font-size:.78rem;letter-spacing:.06em}
+  font-family:var(--mono);font-size:var(--fs-xs);letter-spacing:.06em}
 
 /* ---------- Back-to-top ---------- */
 /* The yellow chip is light in both themes, so keep its ink dark for contrast. */
 .to-top{position:fixed;right:24px;bottom:24px;z-index:40;width:46px;height:46px;
   border:2px solid #171410;background:var(--yellow);color:#171410;cursor:pointer;
-  font-size:1.15rem;line-height:1;box-shadow:4px 4px 0 #171410;
+  font-size:var(--fs-lg);line-height:1;box-shadow:4px 4px 0 #171410;
   transition:transform .14s ease,box-shadow .14s ease}
 .to-top[hidden]{display:none}
 .to-top:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 #171410}
 
 /* ---------- 404 ---------- */
-.error404{text-align:center;padding:72px 0 96px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.error404{text-align:center;padding-top:72px;padding-bottom:96px;display:flex;flex-direction:column;align-items:center;gap:14px}
 .err-bauhaus{width:min(66%,280px);height:auto;margin-bottom:6px}
 .err-bauhaus .y{fill:var(--yellow);mix-blend-mode:var(--blend)}
 .err-bauhaus .b{fill:var(--blue);mix-blend-mode:var(--blend)}
@@ -64,5 +64,5 @@
 .err-bauhaus .k{fill:var(--ink)}
 .err-code{font-family:var(--disp);font-weight:600;font-size:clamp(4rem,16vw,9rem);
   line-height:.9;letter-spacing:-.04em;margin:0}
-.err-msg{color:var(--muted);font-family:var(--disp);font-size:1.2rem;margin:0}
+.err-msg{color:var(--muted);font-family:var(--disp);font-size:var(--fs-lg);margin:0}
 .error404 .btns{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;margin-top:8px}

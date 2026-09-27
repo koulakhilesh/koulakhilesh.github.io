@@ -4,7 +4,7 @@
 .prose img.avatar{width:132px;height:132px;border-radius:var(--r-round);object-fit:cover;border:1px solid var(--line);margin:0 0 22px}
 .post-title{font-family:var(--disp);font-weight:600;font-size:clamp(2rem,4vw,2.8rem);
   margin:.6rem 0 1.4rem;padding-bottom:1.2rem;border-bottom:1px solid var(--line);letter-spacing:-.02em}
-.prose{font-family:var(--body);font-size:1.06rem;line-height:1.75}
+.prose{font-family:var(--body);font-size:var(--fs-prose);line-height:1.75}
 .prose h2{font-family:var(--disp);margin-top:2rem}
 .prose h3{font-family:var(--serif)}
 .prose a{color:var(--c-link);text-decoration:underline;text-underline-offset:3px}
@@ -17,11 +17,11 @@
 .prose th,.prose td{border:1px solid var(--line);padding:8px 12px;text-align:left}
 .making-hero{border-radius:var(--r-0);margin:0 0 1.6rem}
 .proj-links{display:flex;gap:12px;margin:0 0 1.6rem}
-.post-back{margin-top:3rem;font-family:var(--mono);font-size:.78rem}
+.post-back{margin-top:3rem;font-family:var(--mono);font-size:var(--fs-xs)}
 .post-back a:hover{color:var(--accent)}
 .ai-disclaimer{margin:3rem 0 0;padding:14px 18px;border:1px solid var(--line);
   border-radius:var(--r-0);background:var(--bg2);color:var(--muted);
-  font-family:var(--mono);font-size:.78rem;line-height:1.65}
+  font-family:var(--mono);font-size:var(--fs-xs);line-height:1.65}
 .ai-disclaimer p{margin:0}
 .ai-disclaimer strong{color:var(--c-action)}
 
@@ -35,12 +35,9 @@
   text-transform:uppercase;color:var(--muted);margin-bottom:4px}
 .series-nav .sn-next{margin-left:auto;text-align:right}
 
-/* Content pages (About): section heading like the index pages, but keep the
-   prose text at a readable measure while the timeline/images run full-width */
 /* Content pages (About): section heading like the index pages, but a single
    centered column so the heading, text and timeline share one left axis */
 .page{max-width:880px}
-.page-prose .timeline{width:100%;left:0;transform:none;margin-inline:0}
 
 /* Chart embed — see _includes/chart.html. Plotly charts are light, so the frame stays white. */
 .chart{margin:1.8rem 0}
@@ -48,3 +45,12 @@
 .chart iframe.chart--dark{background:#111}
 .chart figcaption{font-family:var(--mono);font-size:var(--fs-xs);color:var(--muted);
   margin-top:.6rem;text-align:center;line-height:1.5}
+
+/* Number boxes in posts (plaques, geometry, shape of the Gita) */
+.stats{display:flex;gap:1rem;flex-wrap:wrap;margin:1.6rem 0}
+.stat{flex:1;min-width:120px;text-align:center;padding:1.1rem .6rem;
+  border:1px solid var(--line);border-radius:var(--r-0)}
+.stat-value{font-family:var(--disp);font-size:var(--fs-xl);font-weight:700;color:var(--blue);line-height:1}
+.stat-value--alt{color:var(--red-ink)}
+.stat-unit{font-size:var(--fs-base)}
+.stat-label{font-family:var(--mono);font-size:var(--fs-xs);color:var(--muted);margin-top:.4rem}

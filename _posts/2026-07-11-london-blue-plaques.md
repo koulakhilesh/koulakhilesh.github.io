@@ -4,6 +4,7 @@ date: 2026-07-11 10:00:00
 last_modified_at: 2026-08-15 10:00:00
 thumbnail: /assets/thumbs/blue-plaques.png
 glyph: plaques
+image: /assets/social/london-blue-plaques.png
 series: "London's blue plaques"
 series_part: 1
 tags: [Data Science, London, History, Plotly, Web Scraping]
@@ -56,18 +57,18 @@ You don't need statistics to see it. There's a dense, glowing core in the centre
 
 I counted, and the concentration is even starker than the map suggests.
 
-<div style="display:flex;gap:1rem;flex-wrap:wrap;margin:1.6rem 0;">
-  <div style="flex:1;min-width:120px;text-align:center;padding:1.1rem .6rem;border:1px solid var(--line);border-radius:12px;">
-    <div style="font-size:2.1rem;font-weight:700;color:#1c5fb0;line-height:1;">69%</div>
-    <div style="font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:.4rem;">in just 3 boroughs</div>
+<div class="stats">
+  <div class="stat">
+    <div class="stat-value">69%</div>
+    <div class="stat-label">in just 3 boroughs</div>
   </div>
-  <div style="flex:1;min-width:120px;text-align:center;padding:1.1rem .6rem;border:1px solid var(--line);border-radius:12px;">
-    <div style="font-size:2.1rem;font-weight:700;color:#1c5fb0;line-height:1;">31<span style="font-size:1.1rem;">/33</span></div>
-    <div style="font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:.4rem;">boroughs with any plaque</div>
+  <div class="stat">
+    <div class="stat-value">31<span class="stat-unit">/33</span></div>
+    <div class="stat-label">boroughs with any plaque</div>
   </div>
-  <div style="flex:1;min-width:120px;text-align:center;padding:1.1rem .6rem;border:1px solid var(--line);border-radius:12px;">
-    <div style="font-size:2.1rem;font-weight:700;color:#1c5fb0;line-height:1;">10</div>
-    <div style="font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:.4rem;">on Cheyne Walk alone</div>
+  <div class="stat">
+    <div class="stat-value">10</div>
+    <div class="stat-label">on Cheyne Walk alone</div>
   </div>
 </div>
 
@@ -97,18 +98,18 @@ Here's the number the scheme itself is quietly self-conscious about. There's no 
 
 But the single figure hides the interesting part. Split the women's share by *field* and it swings wildly, from near-parity in one category to an absolute, unbroken zero in others.
 
-<div style="display:flex;gap:1rem;flex-wrap:wrap;margin:1.6rem 0;">
-  <div style="flex:1;min-width:120px;text-align:center;padding:1.1rem .6rem;border:1px solid var(--line);border-radius:12px;">
-    <div style="font-size:2.1rem;font-weight:700;color:#c2185b;line-height:1;">17.5%</div>
-    <div style="font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:.4rem;">women overall</div>
+<div class="stats">
+  <div class="stat">
+    <div class="stat-value stat-value--alt">17.5%</div>
+    <div class="stat-label">women overall</div>
   </div>
-  <div style="flex:1;min-width:120px;text-align:center;padding:1.1rem .6rem;border:1px solid var(--line);border-radius:12px;">
-    <div style="font-size:2.1rem;font-weight:700;color:#c2185b;line-height:1;">0%</div>
-    <div style="font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:.4rem;">women in engineering, industry &amp; invention</div>
+  <div class="stat">
+    <div class="stat-value stat-value--alt">0%</div>
+    <div class="stat-label">women in engineering, industry &amp; invention</div>
   </div>
-  <div style="flex:1;min-width:120px;text-align:center;padding:1.1rem .6rem;border:1px solid var(--line);border-radius:12px;">
-    <div style="font-size:2.1rem;font-weight:700;color:#1c5fb0;line-height:1;">174<span style="font-size:1.1rem;">:25</span></div>
-    <div style="font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:.4rem;">Sirs to Dames</div>
+  <div class="stat">
+    <div class="stat-value">174<span class="stat-unit">:25</span></div>
+    <div class="stat-label">Sirs to Dames</div>
   </div>
 </div>
 

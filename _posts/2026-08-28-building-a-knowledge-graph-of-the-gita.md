@@ -4,6 +4,7 @@ date: 2026-08-28
 last_modified_at: 2026-08-28
 thumbnail: /assets/thumbs/gita.svg
 glyph: gita-graph
+image: /assets/social/building-a-knowledge-graph-of-the-gita.png
 series: "The Gita"
 series_part: 2
 tags: [Data Science, NLP, Knowledge Graph, Neo4j, spaCy]

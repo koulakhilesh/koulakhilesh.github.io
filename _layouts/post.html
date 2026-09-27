@@ -12,7 +12,7 @@ layout: default
   {% if page.series %}{% include series-nav.html mode="label" %}{% endif %}
   <div class="prose">{{ content }}</div>
   {% if page.series %}{% include series-nav.html mode="nav" %}{% endif %}
-  {% if page.tags.size > 0 %}<p class="post-tags">{% for t in page.tags %}<span class="tag">#{{ t }}</span>{% endfor %}</p>{% endif %}
+  {% if page.tags.size > 0 %}<p class="post-tags">{% for t in page.tags %}<span class="tag">#{{ t | remove: " " }}</span>{% endfor %}</p>{% endif %}
   {% if site.ai_disclaimer and page.ai_disclaimer != false %}
   <aside class="ai-disclaimer">{{ site.ai_disclaimer | markdownify }}</aside>
   {% endif %}
