@@ -4,6 +4,8 @@ date: 2026-07-11 09:00:00
 last_modified_at: 2026-08-15 09:00:00
 thumbnail: /assets/thumbs/geometry.png
 glyph: geometry
+series: "London's blue plaques"
+series_part: 2
 tags: [Data Science, Geospatial, Optimization, Plotly, London]
 excerpt: "A companion piece that treats 1,036 blue plaques as a spatial point pattern and an optimisation problem: proving the clustering with statistics, carving London into nearest-plaque territories, and hand-rolling a travelling-salesman tour of every borough."
 toc: true
@@ -57,29 +59,13 @@ Before any picture, a statistic. The eye is easily fooled, so the honest first m
 
 The index comes out at **R = 0.54**, with a *z*-score of about **-28**. In plain terms: plaques sit roughly *half* as far from their nearest neighbour as random scattering would predict, and the chance of that happening by luck is essentially nil. The median plaque has another plaque just **100 metres** away. Here's the distribution behind the number:
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/plaques/nn-distances.html' | relative_url }}"
-          title="Distribution of nearest-neighbour distances between plaques"
-          loading="lazy"
-          style="width:100%;height:400px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    Distance from each plaque to its nearest neighbour. The spike near zero is the signature of clustering.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/plaques/nn-distances.html" title="Distribution of nearest-neighbour distances between plaques" height=400 caption="Distance from each plaque to its nearest neighbour. The spike near zero is the signature of clustering." %}
 
 ## Your nearest plaque: a Voronoi map
 
 Statistics proven, now the pretty part. A **Voronoi diagram** carves the plane into one cell per plaque, where every point in a cell is closer to *that* plaque than to any other, the plaque's "catchment area." Colour each cell by its size and the density story becomes visceral.
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/plaques/voronoi.html' | relative_url }}"
-          title="Voronoi diagram of London's blue plaques, coloured by cell area"
-          loading="lazy"
-          style="width:100%;height:640px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    Each cell is the territory of one plaque; darker means smaller. The centre is a mosaic of tiny tiles; the edges are single plaques owning whole boroughs.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/plaques/voronoi.html" title="Voronoi diagram of London's blue plaques, coloured by cell area" height=640 caption="Each cell is the territory of one plaque; darker means smaller. The centre is a mosaic of tiny tiles; the edges are single plaques owning whole boroughs." %}
 
 In the West End the cells are so small they blur into a mosaic, a plaque every hundred metres, each owning a scrap of pavement. Out toward Bromley or Croydon a lone plaque can own kilometres in every direction. The *area* of your nearest-plaque territory is, in effect, an inverse density map, and it screams the same thing the dots did, now with an area attached to it.
 
@@ -87,15 +73,7 @@ In the West End the cells are so small they blur into a mosaic, a plaque every h
 
 The same information, smoothed into a continuous surface: a kernel-style density heatmap. No borough lines, no cells, just where memory glows hottest.
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/plaques/density.html' | relative_url }}"
-          title="Density heatmap of London's blue plaques"
-          loading="lazy"
-          style="width:100%;height:620px;border:1px solid var(--line);border-radius:12px;background:#111;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    A density surface over the plaques. One bright ridge runs from Bloomsbury through Mayfair to Chelsea.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/plaques/density.html" title="Density heatmap of London's blue plaques" height=620 bg="dark" caption="A density surface over the plaques. One bright ridge runs from Bloomsbury through Mayfair to Chelsea." %}
 
 ## Hotspots, found by algorithm
 
@@ -116,15 +94,7 @@ I don't want to *decide* where the clusters are: that's cheating. So I handed th
   </div>
 </div>
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/plaques/hotspots.html' | relative_url }}"
-          title="DBSCAN clustering of blue plaques into hotspots"
-          loading="lazy"
-          style="width:100%;height:640px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    Blue dots belong to a hotspot; grey dots are scattered. DBSCAN found 14 clusters knowing only the coordinates.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/plaques/hotspots.html" title="DBSCAN clustering of blue plaques into hotspots" height=640 caption="Blue dots belong to a hotspot; grey dots are scattered. DBSCAN found 14 clusters knowing only the coordinates." %}
 
 It lands exactly where you'd expect: one giant blob over Westminster, another over Kensington & Chelsea, satellites in Bloomsbury and Hampstead, but the point is that it *found* them. Half of all London's plaques fall into just the two largest clusters.
 
@@ -132,15 +102,7 @@ It lands exactly where you'd expect: one giant blob over Westminster, another ov
 
 A different lens from graph theory: what's the shortest possible set of links that connects *every* plaque into one network, with no loops? That's a **minimum spanning tree**, and drawn on the map it looks like the nervous system of London's memory.
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/plaques/memory-network.html' | relative_url }}"
-          title="Minimum spanning tree connecting all blue plaques"
-          loading="lazy"
-          style="width:100%;height:640px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    The minimum spanning tree over all 1,036 plaques: 371 km of shortest-possible links.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/plaques/memory-network.html" title="Minimum spanning tree connecting all blue plaques" height=640 caption="The minimum spanning tree over all 1,036 plaques: 371 km of shortest-possible links." %}
 
 The whole tree is **371 km** long, but look at how the "wire" is spent. It's dense and short in the centre, where neighbours are 100 m apart, and it throws long lonely spans out to the isolated plaques on the fringe.
 
@@ -165,15 +127,7 @@ The recipe is two moves. First, a **nearest-neighbour** heuristic: start somewhe
   </div>
 </div>
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/plaques/grand-tour.html' | relative_url }}"
-          title="Optimised travelling-salesman tour through all 31 boroughs"
-          loading="lazy"
-          style="width:100%;height:640px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    The optimised loop through one plaque per borough: 180 km, no crossings. Hover a node for its borough.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/plaques/grand-tour.html" title="Optimised travelling-salesman tour through all 31 boroughs" height=640 caption="The optimised loop through one plaque per borough: 180 km, no crossings. Hover a node for its borough." %}
 
 Nearest-neighbour alone gives a **219 km** tour with tell-tale crossings. A pass of 2-opt untangles it down to **180 km**, an 18% saving for a couple of dozen lines of Python, and the visual proof is that the crossings are gone. That is the whole point of local search: a dumb first guess, plus a simple "is this knot removable?" rule, gets you most of the way to optimal.
 

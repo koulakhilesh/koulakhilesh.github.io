@@ -1,10 +1,18 @@
 ---
 layout: default
 ---
+{%- assign d_pub = page.date | date: "%Y-%m-%d" -%}
+{%- assign d_mod = page.last_modified_at | date: "%Y-%m-%d" -%}
+{%- assign words = content | strip_html | number_of_words -%}
+{%- assign read_mins = words | plus: 219 | divided_by: 220 -%}
+{%- if read_mins < 1 %}{% assign read_mins = 1 %}{% endif -%}
 <article class="wrap post-single">
-  <p class="mono">{% if page.last_modified_at %}Originally published {{ page.date | date: "%d %b %Y" }} · Last updated {{ page.last_modified_at | date: "%d %b %Y" }}{% else %}{{ page.date | date: "%d %b %Y" }}{% endif %}{% for t in page.tags %} · #{{ t }}{% endfor %}</p>
+  <p class="post-meta mono">{{ page.date | date: "%d %b %Y" }} · {{ read_mins }} min read{% if page.last_modified_at and d_mod != d_pub %} · Updated {{ page.last_modified_at | date: "%d %b %Y" }}{% endif %}</p>
   <h1 class="post-title">{{ page.title }}</h1>
+  {% if page.series %}{% include series-nav.html mode="label" %}{% endif %}
   <div class="prose">{{ content }}</div>
+  {% if page.series %}{% include series-nav.html mode="nav" %}{% endif %}
+  {% if page.tags.size > 0 %}<p class="post-tags">{% for t in page.tags %}<span class="tag">#{{ t }}</span>{% endfor %}</p>{% endif %}
   {% if site.ai_disclaimer and page.ai_disclaimer != false %}
   <aside class="ai-disclaimer">{{ site.ai_disclaimer | markdownify }}</aside>
   {% endif %}

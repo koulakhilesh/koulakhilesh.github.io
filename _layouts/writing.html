@@ -3,11 +3,27 @@ layout: default
 ---
 <section class="wrap section">
   <div class="sec-head"><h2>Writing</h2></div>
+  <p class="writing-intro">Data stories and notes, mostly about London and open data.</p>
   {% assign posts = site.posts | where_exp: "p", "p.archived != true" %}
   {% if posts.size > 0 %}
-    <div class="posts">
-      {% for post in posts %}{% include post-card.html post=post %}{% endfor %}
+    {% assign series_names = posts | map: "series" | compact | uniq %}
+    {% if series_names.size > 0 %}
+    <div class="series-strip">
+      <p class="mono">Series</p>
+      <ul>
+        {% for s in series_names %}{% assign parts = posts | where: "series", s | sort: "series_part" %}
+        <li><span class="series-name">{{ s }}</span><span class="mono"> · {{ parts.size }} {% if parts.size == 1 %}part{% else %}parts{% endif %}</span>
+          <ol>{% for sp in parts %}<li><a href="{{ sp.url | relative_url }}">{{ sp.title }}</a></li>{% endfor %}</ol>
+        </li>
+        {% endfor %}
+      </ul>
     </div>
+    {% endif %}
+    {% assign by_year = posts | group_by_exp: "p", "p.date | date: '%Y'" %}
+    {% for year in by_year %}
+    <h3 class="year">{{ year.name }}</h3>
+    <div class="posts">{% for post in year.items %}{% include post-card.html post=post %}{% endfor %}</div>
+    {% endfor %}
   {% else %}
     {% include empty-state.html message="No posts yet. Check back soon." %}
   {% endif %}

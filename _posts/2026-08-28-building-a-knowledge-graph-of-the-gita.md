@@ -4,6 +4,8 @@ date: 2026-08-28
 last_modified_at: 2026-08-28
 thumbnail: /assets/thumbs/gita.svg
 glyph: gita-graph
+series: "The Gita"
+series_part: 2
 tags: [Data Science, NLP, Knowledge Graph, Neo4j, spaCy]
 excerpt: "The companion to the map: how 700 markdown verse files became a graph of 5,314 nodes and nearly 22,000 relationships, deterministically and rebuildably, with the English translation and the Sanskrit word meanings both wired in."
 toc: true
@@ -41,29 +43,13 @@ Two vocabularies are still just words. The next layer turns them into ideas, and
 
 Because every verse now carries themes, you can ask which ideas keep company. This is node similarity over the shared verses: two themes score highly when they tend to appear in the same verses.
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/gita/analysis_theme_correlation.html' | relative_url }}"
-          title="Heatmap of which Gita themes co-occur, measured by Jaccard similarity over shared verses"
-          loading="lazy"
-          style="width:100%;height:620px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    Which themes travel together, by how many verses they share. Brighter means more overlap.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/gita/analysis_theme_correlation.html" title="Heatmap of which Gita themes co-occur, measured by Jaccard similarity over shared verses" height=620 caption="Which themes travel together, by how many verses they share. Brighter means more overlap." %}
 
 ## The cast, the conches, and the glories
 
 The nicest part to build was the narrative layer, because it is pulled straight out of the glosses rather than curated by hand. Scan the word meanings for known names and you recover the **cast**: 18 characters, from Arjuna and Krishna down to minor warriors, joined to the verses that name them by **310** links.
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/gita/analysis_character_network.html' | relative_url }}"
-          title="Co-occurrence network of characters named in the Gita"
-          loading="lazy"
-          style="width:100%;height:640px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    Two characters are linked when a verse names them together. Node size is centrality in that network.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/gita/analysis_character_network.html" title="Co-occurrence network of characters named in the Gita" height=640 caption="Two characters are linked when a verse names them together. Node size is centrality in that network." %}
 
 Two smaller entity layers come from the same glosses. Chapter 1 names six war-conches, and the graph knows which warrior blows each one:
 
@@ -88,15 +74,7 @@ One deliberate piece of friction here: those similarity edges are the only part 
 
 Stack all of that up and you get the graph. Here is its backbone, everything except the two dense word layers, which would otherwise drown the picture:
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/gita/gita_graph_backbone.html' | relative_url }}"
-          title="The structural backbone of the Gita knowledge graph"
-          loading="lazy"
-          style="width:100%;height:680px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    Text, chapters, verses, speakers, themes, concepts, characters, conches, and the similarity web between verses. The word layers are hidden here.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/gita/gita_graph_backbone.html" title="The structural backbone of the Gita knowledge graph" height=680 caption="Text, chapters, verses, speakers, themes, concepts, characters, conches, and the similarity web between verses. The word layers are hidden here." %}
 
 The one principle that kept the whole thing honest is that every node and edge has a **provenance**, and it is always one of four kinds. It is a *seed* (a hand-curated constant, like the chapter names or the theme definitions), something *extracted* directly from a verse (the speaker, the epithets, the Sanskrit terms, the conches), something *derived* deterministically from what was extracted (the themes and concepts), or something *computed* by the pinned model (the embeddings and the similarity). Nothing in the graph is a guess dressed as a fact, and if you disagree with a link you can always trace it back to the verse it came from.
 

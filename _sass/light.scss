@@ -4,9 +4,10 @@
 [data-theme="light"]{
   --bg:#F4F1E9; --bg2:#ECE8DD; --card:#FBFAF5;
   --line:rgba(23,20,16,.16); --line2:rgba(23,20,16,.30);
-  --ink:#171410; --muted:#7A7368;
+  --ink:#171410; --muted:#686157;
   --red:#F24333; --blue:#1961E0; --yellow:#FFC21A;
+  --red-ink:#BF2D1E;
   --blend:multiply;          /* true overprint on paper */
 }
 [data-theme="light"] .site-nav{background:color-mix(in srgb,var(--bg) 82%,transparent)}
-[data-theme="light"] .btn-primary{color:var(--red)}
+[data-theme="light"] .btn-primary{color:var(--c-action)}

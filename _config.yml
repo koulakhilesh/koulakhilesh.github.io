@@ -60,7 +60,6 @@ home:
 
 # "// Now" card on the homepage. Leave empty to show a placeholder.
 now:
-  - Building The Gita Project, a verse-by-verse study of the Bhagavad Gita
   - Working on an Agentic LifeOS
 #  - Working on a side project
 #  - Learning something new
@@ -84,3 +83,4 @@ exclude:
   - vendor
   - .superpowers
   - docs
+  - scripts

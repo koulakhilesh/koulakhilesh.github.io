@@ -21,15 +21,7 @@ Most crowding charts I've seen answer "where is it busy?" I wanted to know wheth
 
 First, the whole network added together. Every station, every line, 15 minutes at a time.
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/tube/daily-flow.html' | relative_url }}"
-          title="Total passenger flow across all Tube stations through a typical day"
-          loading="lazy"
-          style="width:100%;height:460px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    Network flow per 15-minute slice. The gap between 02:00 and 05:00 is missing data, not an empty network.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/tube/daily-flow.html" title="Total passenger flow across all Tube stations through a typical day" height=460 caption="Network flow per 15-minute slice. The gap between 02:00 and 05:00 is missing data, not an empty network." %}
 
 It's the familiar two-humped camel. The busiest slice of the day is **08:15** (210,474 flow units across the network); the evening peak at **17:45** is about 5% lower (200,336). The evening hump is wider, though, and holds slightly more of the day: **28.1%** of all flow falls between 16:00 and 19:00, against **26.3%** between 07:00 and 10:00. Those six rush hours carry **54.4%** of the flow in a dataset that covers 21 hours.
 
@@ -45,39 +37,15 @@ My first version of this ranking had **Brixton in second place**. Brixton is bus
 
 Here's the network hour by hour. Press play.
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/tube/hourly-map.html' | relative_url }}"
-          title="Animated map of station flow across London, hour by hour"
-          loading="lazy"
-          style="width:100%;height:620px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    Average flow per 15 minutes at each station, one frame per hour from 05:00 to 01:00. Bigger and brighter means busier.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/tube/hourly-map.html" title="Animated map of station flow across London, hour by hour" height=620 caption="Average flow per 15 minutes at each station, one frame per hour from 05:00 to 01:00. Bigger and brighter means busier." %}
 
 It's pretty, but by volume the centre dominates every frame, so the animation mostly shows the city breathing in and out. To see *movement* I needed timing rather than size. For each station I found its busiest 15-minute slice between 05:00 and 11:00, then coloured the map by that time.
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/tube/morning-peak-map.html' | relative_url }}"
-          title="Map of Tube stations coloured by the time of their busiest morning slice"
-          loading="lazy"
-          style="width:100%;height:620px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    Stations with at least 5,000 flow units a day (203 of them), coloured by when their morning peak hits. Dot size is daily flow.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/tube/morning-peak-map.html" title="Map of Tube stations coloured by the time of their busiest morning slice" height=620 caption="Stations with at least 5,000 flow units a day (203 of them), coloured by when their morning peak hits. Dot size is daily flow." %}
 
 Now the map shows a direction. The earliest stations are all a long way out: Dagenham Heathway, Kingsbury and Queensbury peak at 06:30, Barking and East Ham at 06:45. The centre is dark, peaking around 08:30. Plotted against distance, it's a clear slope:
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/tube/peak-vs-distance.html' | relative_url }}"
-          title="Busiest morning slice against distance from Charing Cross"
-          loading="lazy"
-          style="width:100%;height:460px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    Each dot is a station. Further out, the morning peaks earlier. Hover for names.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/tube/peak-vs-distance.html" title="Busiest morning slice against distance from Charing Cross" height=460 caption="Each dot is a station. Further out, the morning peaks earlier. Hover for names." %}
 
 | Distance from Charing Cross | Stations | Median morning peak | Median evening peak |
 |---|---|---|---|
@@ -96,15 +64,7 @@ The evening column is the one I didn't expect. I assumed the wave would run in r
 
 The timing hints at something simpler: some stations are busiest in the morning and others in the evening. Dividing each station's evening peak by its morning peak splits the network almost cleanly.
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/tube/home-work.html' | relative_url }}"
-          title="Evening peak divided by morning peak for each station, against distance from the centre"
-          loading="lazy"
-          style="width:100%;height:480px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    Above the dashed line, the evening is busier; below it, the morning. Log scale. Dot size is daily flow.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/tube/home-work.html" title="Evening peak divided by morning peak for each station, against distance from the centre" height=480 caption="Above the dashed line, the evening is busier; below it, the morning. Log scale. Dot size is daily flow." %}
 
 At the bottom are the home stations. At **Elm Park**, 23 km out on the District line, the evening peak is a tenth of the morning peak. **Pinner** and **Queensbury** are close behind. At the top are the work stations: **Goodge Street**'s evening peak is 10.5 times its morning peak, with **Mansion House**, **Temple** and **Chancery Lane** not far off. Across all 203 stations the correlation between this ratio (on a log scale) and distance is **−0.6**.
 
@@ -118,15 +78,7 @@ Two more measures pick out different types of station: the share of a station's 
 
 The median station takes **8.3%** of its daily flow after 20:00. **Covent Garden** takes **32.3%**, **Leicester Square** 30.5%, **Piccadilly Circus** 25.9%. That's the West End, as you'd guess. At the other end, the median station does **56.3%** of its business in the rush hours, while **Heathrow Terminal 5** does 35.8% and **Terminals 2 & 3** 36.9%. Planes don't keep office hours.
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/tube/station-types.html' | relative_url }}"
-          title="Daily flow profiles of four station types, each scaled to its own peak"
-          loading="lazy"
-          style="width:100%;height:470px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    Each line is scaled to that station's own busiest slice, so the shapes can be compared regardless of size.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/tube/station-types.html" title="Daily flow profiles of four station types, each scaled to its own peak" height=470 caption="Each line is scaled to that station's own busiest slice, so the shapes can be compared regardless of size." %}
 
 Four stations, four shapes. Elm Park spikes once in the morning. Goodge Street spikes once in the evening. Leicester Square builds slowly through the day and stays high late. Heathrow is roughly flat, a long plateau with no rush hour at all.
 
@@ -136,15 +88,7 @@ Station flow shows where people get on and off. The second dataset shows what ha
 
 Here is the westbound Central line in the morning, from Epping through east London, the City and into the West End.
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/tube/central-line.html' | relative_url }}"
-          title="Heatmap of train loading on the westbound Central line from Epping to Marble Arch, 06:00 to 10:30"
-          loading="lazy"
-          style="width:100%;height:640px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    Rows run down the line from Epping to Marble Arch; columns are departure times. Darker means a fuller train.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/tube/central-line.html" title="Heatmap of train loading on the westbound Central line from Epping to Marble Arch, 06:00 to 10:30" height=640 caption="Rows run down the line from Epping to Marble Arch; columns are departure times. Darker means a fuller train." %}
 
 Read the 08:15 column from top to bottom. A train leaving Epping is at band 1. By Leytonstone it's at 4, by Stratford 5, and leaving **Bethnal Green** and **Liverpool Street** it hits **6**, the top of the scale. Then it empties: 5 leaving Bank, 4 at St Paul's and Chancery Lane, and by Holborn it's down to 2, where it stays all the way to Marble Arch. The crowd boards across east London and gets off in the City. On the West End stretch, from Tottenham Court Road to Marble Arch, the train never goes above band 2 all morning.
 

@@ -1,21 +1,21 @@
 .timeline{position:relative;left:50%;transform:translateX(-50%);width:min(880px,94vw);margin:1.5rem 0 .5rem}
 .timeline .tl-spine{position:absolute;left:50%;transform:translateX(-50%);
-  width:6px;border-radius:6px;background:var(--accent);opacity:.9;z-index:0}
+  width:6px;border-radius:var(--r-0);background:var(--accent);opacity:.9;z-index:0}
 
 .timeline .tl-year{position:absolute;right:calc(50% + 10px);transform:translateY(-50%);
   font-family:var(--mono);font-size:.68rem;color:var(--muted);z-index:5}
 .timeline .tl-now{position:absolute;right:calc(50% + 20px);transform:translateY(-50%);
   background:var(--accent);color:var(--bg);font-family:var(--mono);font-size:.64rem;
   font-weight:600;letter-spacing:.04em;text-transform:uppercase;
-  padding:3px 10px;border-radius:999px;z-index:3}
+  padding:3px 10px;border-radius:var(--r-1);z-index:3}
 
 .timeline .tl-entry{position:absolute;left:0;right:0}
 
 .timeline .tl-card{position:absolute;top:0;
-  background:var(--card);border:1px solid var(--line);border-radius:12px;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-0);
   padding:14px 16px;display:flex;gap:12px;align-items:flex-start;
   transition:transform .15s ease,border-color .15s ease}
-.timeline .tl-card:hover{transform:translateY(-3px);border-color:rgba(192,132,252,.5)}
+.timeline .tl-card:hover{transform:translateY(-3px);border-color:var(--ink)}
 .timeline .tl-right .tl-card{left:calc(50% + 46px);right:12px}
 .timeline .tl-left .tl-card{left:12px;right:calc(50% + 46px)}
 
@@ -25,7 +25,7 @@
 .timeline .tl-right .tl-card::before{left:-8px;border-right:8px solid var(--card)}
 .timeline .tl-left .tl-card::before{right:-8px;border-left:8px solid var(--card)}
 
-.timeline .tl-logo{width:40px;height:40px;object-fit:contain;border-radius:8px;
+.timeline .tl-logo{width:40px;height:40px;object-fit:contain;border-radius:var(--r-0);
   background:#fff;padding:4px;flex:none;margin:0}
 .timeline .tl-dates{display:block;color:var(--muted);margin-bottom:4px}
 .timeline .tl-info h3{font-family:var(--disp);font-size:1rem;margin:0 0 2px;line-height:1.25}

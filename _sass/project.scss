@@ -6,18 +6,17 @@
 /* ---- Status badge (shared by detail + index cards) ---- */
 .status{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);
   font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
-  padding:4px 10px;border:1px solid var(--line2);border-radius:999px;color:var(--muted)}
-.status::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
-.status--in-progress{color:var(--yellow)}
-.status--complete{color:var(--accent)}
-.status--shipped{color:var(--blue)}
-.status--archived{color:var(--muted)}
+  padding:4px 10px;border:1px solid var(--line2);border-radius:var(--r-1);color:var(--ink)}
+.status::before{content:"";width:7px;height:7px;border-radius:var(--r-round);background:var(--c-progress)}
+.status--complete::before{background:var(--c-done)}
+.status--shipped::before{background:var(--c-done)}
+.status--archived::before{background:var(--muted)}
 
 /* ---- Hero ---- */
 .project-hero{padding:56px 0 8px}
 .project-hero-in{display:grid;grid-template-columns:1fr;gap:28px;align-items:center}
 @media(min-width:820px){.project-hero-in{grid-template-columns:1.4fr .8fr;gap:48px}}
-.proj-eyebrow{color:var(--red);letter-spacing:.14em;margin:0 0 .6rem}
+.proj-eyebrow{color:var(--c-action);letter-spacing:.14em;margin:0 0 .6rem}
 .project-title{font-family:var(--disp);font-weight:600;
   font-size:clamp(2.1rem,4.4vw,3.1rem);letter-spacing:-.02em;line-height:1.05;margin:0}
 .project-lede{font-family:var(--serif);font-size:1.15rem;line-height:1.6;
@@ -26,21 +25,21 @@
 
 /* graphic fallback when no cover image */
 .project-hero-graphic{display:flex;align-items:center;justify-content:center;
-  gap:20px;min-height:180px;border:1px solid var(--line2);border-radius:14px;
+  gap:20px;min-height:180px;border:1px solid var(--line2);border-radius:var(--r-0);
   background:var(--card);padding:28px}
 .project-hero-graphic .g{display:block}
-.project-hero-graphic .c{width:72px;height:72px;border-radius:50%;background:var(--blue)}
+.project-hero-graphic .c{width:72px;height:72px;border-radius:var(--r-round);background:var(--blue)}
 .project-hero-graphic .s{width:64px;height:64px;background:var(--red)}
 .project-hero-graphic .t{width:0;height:0;border-left:38px solid transparent;
   border-right:38px solid transparent;border-bottom:68px solid var(--yellow)}
-.project-hero-media img{width:100%;border-radius:14px;border:1px solid var(--line2);
+.project-hero-media img{width:100%;border-radius:var(--r-0);border:1px solid var(--line2);
   object-fit:cover;display:block}
 
 /* ---- Metrics row ---- */
 .proj-metrics{display:flex;gap:1rem;flex-wrap:wrap;margin:2.2rem 0 .5rem;
   padding-top:1.8rem;border-top:1px solid var(--line)}
 .metric{flex:1;min-width:120px;text-align:center;padding:1.1rem .6rem;
-  border:1px solid var(--line2);border-radius:12px;background:var(--card)}
+  border:1px solid var(--line2);border-radius:var(--r-0);background:var(--card)}
 .metric-value{font-size:2.1rem;font-weight:700;color:var(--blue);line-height:1}
 .metric-label{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;
   color:var(--muted);margin-top:.45rem}
@@ -60,9 +59,9 @@
   color:var(--muted);margin:0 0 .55rem}
 .rail-stack,.rail-links{padding-top:1.2rem;border-top:1px solid var(--line)}
 .rail-links ul{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
-.rail-links a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.rail-links a{color:var(--c-link);text-decoration:underline;text-underline-offset:3px}
 
 /* ---- Related writing ---- */
 .proj-related{list-style:none;margin:1rem 0 0;padding:0;display:grid;gap:.65rem}
-.proj-related a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.proj-related a{color:var(--c-link);text-decoration:underline;text-underline-offset:3px}
 .proj-related .mono{color:var(--muted);font-size:.8rem}

@@ -12,16 +12,15 @@
   transition:opacity .6s ease,transform .6s ease}
 .reveal .section.in{opacity:1;transform:none}
 /* staggered children */
-.reveal .facet,.reveal .proj,.reveal .post,.reveal .shot{opacity:0;transform:translateY(14px)}
-.reveal .section.in .facet,.reveal .section.in .proj,
-.reveal .section.in .post,.reveal .section.in .shot{opacity:1;transform:none}
-.reveal .section.in :is(.facet,.proj,.post,.shot):nth-child(2){transition-delay:.07s}
-.reveal .section.in :is(.facet,.proj,.post,.shot):nth-child(3){transition-delay:.14s}
-.reveal .section.in :is(.facet,.proj,.post,.shot):nth-child(4){transition-delay:.21s}
-.reveal .section.in :is(.facet,.proj,.post,.shot):nth-child(5){transition-delay:.28s}
+.reveal .proj,.reveal .post,.reveal .shot{opacity:0;transform:translateY(14px)}
+.reveal .section.in .proj,.reveal .section.in .post,.reveal .section.in .shot{opacity:1;transform:none}
+.reveal .section.in :is(.proj,.post,.shot):nth-child(2){transition-delay:.07s}
+.reveal .section.in :is(.proj,.post,.shot):nth-child(3){transition-delay:.14s}
+.reveal .section.in :is(.proj,.post,.shot):nth-child(4){transition-delay:.21s}
+.reveal .section.in :is(.proj,.post,.shot):nth-child(5){transition-delay:.28s}
 @media (prefers-reduced-motion: reduce){
   .reveal .section,
-  .reveal .facet,.reveal .proj,.reveal .post,.reveal .shot{opacity:1!important;transform:none!important}
+  .reveal .proj,.reveal .post,.reveal .shot{opacity:1!important;transform:none!important}
 }
 .sec-head{display:flex;align-items:baseline;gap:18px;
   margin-bottom:40px;padding-bottom:18px;border-bottom:1px solid var(--line)}
@@ -29,17 +28,17 @@
   margin:0;letter-spacing:-.02em}
 .sec-head a{margin-left:auto;font-family:var(--mono);font-size:.72rem;
   letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
-.sec-head a:hover{color:var(--red)}
+.sec-head a:hover{color:var(--c-action)}
 
 .empty{border:1px solid var(--line);padding:34px;color:var(--muted)}
-.empty .mono{display:block;margin-bottom:8px;color:var(--red)}
+.empty .mono{display:block;margin-bottom:8px;color:var(--c-action)}
 .empty p{margin:0;font-size:.92rem}
 
 /* Underline buttons — Swiss, functional */
 .btn{font-family:var(--mono);font-weight:500;font-size:.78rem;text-transform:uppercase;
   letter-spacing:.1em;padding-bottom:4px;display:inline-block;
   border-bottom:2px solid var(--ink);transition:color .18s,border-color .18s}
-.btn-primary{color:var(--red);border-color:var(--red)}
+.btn-primary{color:var(--c-action);border-color:var(--red)}
 .btn-primary:hover{color:var(--muted);border-color:var(--muted)}
 .btn-ghost{color:var(--ink);border-color:var(--ink)}
 .btn-ghost:hover{color:var(--muted);border-color:var(--muted)}

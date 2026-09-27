@@ -1,33 +1,50 @@
 .post-single{padding:64px var(--gutter);max-width:720px}
-.post-single > .mono{color:var(--red);letter-spacing:.14em}
-.prose img.avatar{width:132px;height:132px;border-radius:50%;object-fit:cover;border:1px solid var(--line);margin:0 0 22px}
+.post-single .post-meta{color:var(--c-action);letter-spacing:.14em;margin:0}
+.post-single .post-tags{margin:2.4rem 0 0}
+.prose img.avatar{width:132px;height:132px;border-radius:var(--r-round);object-fit:cover;border:1px solid var(--line);margin:0 0 22px}
 .post-title{font-family:var(--disp);font-weight:600;font-size:clamp(2rem,4vw,2.8rem);
   margin:.6rem 0 1.4rem;padding-bottom:1.2rem;border-bottom:1px solid var(--line);letter-spacing:-.02em}
 .prose{font-family:var(--body);font-size:1.06rem;line-height:1.75}
 .prose h2{font-family:var(--disp);margin-top:2rem}
 .prose h3{font-family:var(--serif)}
-.prose a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
-.prose pre{background:var(--bg2);padding:16px;border-radius:10px;overflow:auto;border:1px solid var(--line)}
+.prose a{color:var(--c-link);text-decoration:underline;text-underline-offset:3px}
+.prose pre{background:var(--bg2);padding:16px;border-radius:var(--r-0);overflow:auto;border:1px solid var(--line)}
 .prose code{font-family:var(--mono);font-size:.9em}
 .prose blockquote{border-left:3px solid var(--amber);margin:1.5rem 0;padding-left:18px;
   color:var(--muted);font-family:var(--serif)}
-.prose img{border-radius:12px;margin:1.5rem 0}
+.prose img{border-radius:var(--r-0);margin:1.5rem 0}
 .prose table{width:100%;border-collapse:collapse;margin:1.5rem 0}
 .prose th,.prose td{border:1px solid var(--line);padding:8px 12px;text-align:left}
-.making-hero{border-radius:14px;margin:0 0 1.6rem}
+.making-hero{border-radius:var(--r-0);margin:0 0 1.6rem}
 .proj-links{display:flex;gap:12px;margin:0 0 1.6rem}
 .post-back{margin-top:3rem;font-family:var(--mono);font-size:.78rem}
 .post-back a:hover{color:var(--accent)}
 .ai-disclaimer{margin:3rem 0 0;padding:14px 18px;border:1px solid var(--line);
-  border-radius:10px;background:var(--bg2);color:var(--muted);
+  border-radius:var(--r-0);background:var(--bg2);color:var(--muted);
   font-family:var(--mono);font-size:.78rem;line-height:1.65}
 .ai-disclaimer p{margin:0}
-.ai-disclaimer strong{color:var(--red)}
+.ai-disclaimer strong{color:var(--c-action)}
+
+/* Series — label under the title, prev/next at the end */
+.series-label{margin:-.6rem 0 1.6rem;color:var(--muted)}
+.series-nav{display:flex;justify-content:space-between;gap:16px;margin:3rem 0 0;
+  padding-top:20px;border-top:1px solid var(--line)}
+.series-nav a{max-width:47%;font-family:var(--disp);font-weight:500;color:var(--ink);transition:color .15s}
+.series-nav a:hover{color:var(--c-action)}
+.series-nav .nn-label{display:block;font-family:var(--mono);font-size:var(--fs-xs);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.series-nav .sn-next{margin-left:auto;text-align:right}
 
 /* Content pages (About): section heading like the index pages, but keep the
    prose text at a readable measure while the timeline/images run full-width */
 /* Content pages (About): section heading like the index pages, but a single
    centered column so the heading, text and timeline share one left axis */
 .page{max-width:880px}
-.page-prose > p,.page-prose > ul,.page-prose > ol{text-align:justify;hyphens:auto}
 .page-prose .timeline{width:100%;left:0;transform:none;margin-inline:0}
+
+/* Chart embed — see _includes/chart.html. Plotly charts are light, so the frame stays white. */
+.chart{margin:1.8rem 0}
+.chart iframe{display:block;width:100%;border:1px solid var(--line);border-radius:var(--r-0);background:#fff}
+.chart iframe.chart--dark{background:#111}
+.chart figcaption{font-family:var(--mono);font-size:var(--fs-xs);color:var(--muted);
+  margin-top:.6rem;text-align:center;line-height:1.5}

@@ -22,4 +22,6 @@ metrics, links, related_tag, cover) with inline notes — delete the lines you d
   graphic when there's no `cover`. Set `related_tag` to auto-list matching posts.
 - For **making**, `kind` can be `writeup` or `gallery`; add an `image:` path to give it a
   thumbnail in the gallery.
+- For **charts**, always use `{% include chart.html … %}` (see `docs/design-philosophy.md`), and for
+  multi-part posts set `series:` and `series_part:`.
 - Until you add real content, each section on the site shows a tidy empty-state placeholder.

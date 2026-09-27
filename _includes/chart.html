@@ -1,0 +1,7 @@
+{%- assign chart_h = include.height | default: 460 -%}
+<figure class="chart">
+  <iframe src="{{ include.src | relative_url }}" title="{{ include.title | escape }}" loading="lazy"{% if include.bg == "dark" %} class="chart--dark"{% endif %} style="height:{{ chart_h }}px"></iframe>
+  {%- if include.caption %}
+  <figcaption>{{ include.caption }}</figcaption>
+  {%- endif %}
+</figure>

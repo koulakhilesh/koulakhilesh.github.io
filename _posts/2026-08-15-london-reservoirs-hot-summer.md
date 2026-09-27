@@ -4,6 +4,8 @@ date: 2026-08-15
 last_modified_at: 2026-08-15
 thumbnail: /assets/thumbs/reservoirs.png
 glyph: reservoirs-low
+series: "London's reservoirs"
+series_part: 2
 tags: [Data Science, London, Open Data, Plotly, Water]
 excerpt: "Six weeks after the first reservoir post I added June and July 2026, the start of what the Met Office says may be the UK's warmest summer on record. The Lower Thames is now at its lowest level for the date in 37 years, but the drawdown that got it there wasn't the fastest. A short, data-first follow-up."
 toc: true
@@ -19,15 +21,7 @@ Then the summer came. The Met Office now says a [record-warm UK summer is increa
 
 No cleverness here. I extended the sawtooth by two months and shaded 2026 so the newest readings stand out against four decades.
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/reservoirs/daily-2026.html' | relative_url }}"
-          title="London reservoir levels, 1989 to 2026, with 2026 highlighted"
-          loading="lazy"
-          style="width:100%;height:470px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    Every daily reading, 1989-2026; the 2026 window is shaded. Drag to zoom into the tail.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/reservoirs/daily-2026.html" title="London reservoir levels, 1989 to 2026, with 2026 highlighted" height=470 caption="Every daily reading, 1989-2026; the 2026 window is shaded. Drag to zoom into the tail." %}
 
 Zoom into the right-hand edge and the shape is clear: after peaking in spring, both lines fall through June and July. The orange Lower Thames line keeps going, sliding to **72%** by 31 July (the Lower Lee ends at **82%**). That's a real drop, but a real drop isn't a finding. The daily view can't tell me whether 72% is alarming or ordinary for late July. For that I need to compare 2026 against its own history.
 
@@ -35,15 +29,7 @@ Zoom into the right-hand edge and the shape is clear: after peaking in spring, b
 
 The honest test is the same one that flagged 2022 in the first post: plot 2026 on top of the **normal band**. The grey envelope is the full day-by-day min-to-max of every *other* year (1989-2025); the dashed line is the typical year. If 2026 sits inside the band, it's within normal. If it rides the edge, it isn't.
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/reservoirs/normal-band-2026.html' | relative_url }}"
-          title="2026 reservoir levels against the 37-year normal band, both groups"
-          loading="lazy"
-          style="width:100%;height:640px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    2026 (coloured) against the 1989-2025 daily range (grey) and the typical year (dashed), for each group.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/reservoirs/normal-band-2026.html" title="2026 reservoir levels against the 37-year normal band, both groups" height=640 caption="2026 (coloured) against the 1989-2025 daily range (grey) and the typical year (dashed), for each group." %}
 
 Here the two groups part ways, and this is the actual story.
 
@@ -57,15 +43,7 @@ So the headline the slogan wanted, "record heat empties the reservoirs," is half
 
 A hot, dry summer should show up as **speed**: how far the reservoirs fall between late spring and mid-summer. So for every year I measured the June-to-July drawdown (average level in the last week of May minus the last week of July) and ranked them.
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/reservoirs/summer-drawdown.html' | relative_url }}"
-          title="Steepest May-to-July reservoir drawdowns by year, Lower Thames"
-          loading="lazy"
-          style="width:100%;height:470px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    Lower Thames: the size of the late-May-to-late-July fall, by year. 2026 is in red.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/reservoirs/summer-drawdown.html" title="Steepest May-to-July reservoir drawdowns by year, Lower Thames" height=470 caption="Lower Thames: the size of the late-May-to-late-July fall, by year. 2026 is in red." %}
 
 And here the data complicates the neat narrative. The Lower Thames fell about **17 points** this summer, steep enough to rank **5th-fastest** of 38 summers, but not the record. **2022** fell faster (about 24 points), and so did several other years. The Lower Lee's 13-point fall ranks 7th; its record belongs to **2018** (about 22 points). A summer the Met Office thinks may be the warmest on record did **not** produce the fastest drawdown on record.
 

@@ -4,6 +4,8 @@ date: 2026-07-04
 last_modified_at: 2026-08-15
 thumbnail: /assets/thumbs/reservoirs.png
 glyph: reservoirs
+series: "London's reservoirs"
+series_part: 1
 tags: [Data Science, London, Open Data, Plotly, Water]
 excerpt: "37 years of daily reservoir readings, one chart at a time, and a small surprise hiding in the numbers everyone thinks they remember."
 toc: true
@@ -34,15 +36,7 @@ The dataset never says *where* these reservoirs are; "Lower Lee" and "Lower Tham
 
 To draw them, I pulled the reservoir outlines straight from OpenStreetMap and coloured each polygon by its group. There are no coordinates in the levels CSV, so this is a separate open-data layer stitched on top.
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/reservoirs/reservoir-map.html' | relative_url }}"
-          title="Map of the Lower Lee and Lower Thames reservoir groups"
-          loading="lazy"
-          style="width:100%;height:520px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    The two groups sit in opposite corners of London: the Lower Lee (green) in the north-east, the Lower Thames (orange) out to the south-west. Hover any reservoir for its name.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/reservoirs/reservoir-map.html" title="Map of the Lower Lee and Lower Thames reservoir groups" height=520 caption="The two groups sit in opposite corners of London: the Lower Lee (green) in the north-east, the Lower Thames (orange) out to the south-west. Hover any reservoir for its name." %}
 
 > **Map data.** Reservoir outlines and basemap © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors, licensed under the Open Database Licence (ODbL). Fetched via the Overpass API in the analysis notebook.
 
@@ -50,15 +44,7 @@ To draw them, I pulled the reservoir outlines straight from OpenStreetMap and co
 
 Before slicing or summarising anything, it pays to be a little dumb and just plot *every single day*. No aggregation, no smoothing. Just drop all 13,665 points on a chart and see what the shape tells you.
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/reservoirs/daily-levels.html' | relative_url }}"
-          title="London reservoir levels, daily, 1989 to 2026"
-          loading="lazy"
-          style="width:100%;height:470px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    Every daily reading, 1989-2026. Drag to zoom into a year, double-click to reset.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/reservoirs/daily-levels.html" title="London reservoir levels, daily, 1989 to 2026" height=470 caption="Every daily reading, 1989-2026. Drag to zoom into a year, double-click to reset." %}
 
 There it is: a **sawtooth**. Up through the winter, down through the summer, over and over for close to four decades. Your eye catches the deep dips: the mid-1990s, a rough patch around 2005-06, and yes, 2022. Those are the droughts. But hold that thought about 2022, because the daily view is too noisy to rank them. For that we need to fold time.
 
@@ -68,15 +54,7 @@ If every year follows near enough the same fill-and-drain rhythm, then I should 
 
 So I averaged every January together, every February together, and so on. The shaded bands show the full range each month has ever spanned; the solid lines are the averages:
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/reservoirs/average-year.html' | relative_url }}"
-          title="The average London water year, by month"
-          loading="lazy"
-          style="width:100%;height:460px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    All 37 years folded onto one 12-month clock. Hover any month to compare the two groups.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/reservoirs/average-year.html" title="The average London water year, by month" height=460 caption="All 37 years folded onto one 12-month clock. Hover any month to compare the two groups." %}
 
 The Lower Thames peaks in **late winter** (think February, when it's been raining for months and nobody's watering a garden) and bottoms out around **September to October**, right before the autumn rains kick in and start the refill. The Lower Lee does the same dance but sits a few points lower the whole way round. That gap between the two groups isn't random jitter; it's there in almost every year. Two reservoir systems, same city, different personalities.
 
@@ -84,15 +62,7 @@ The Lower Thames peaks in **late winter** (think February, when it's been rainin
 
 Here's where I went back for 2022. The fairest single number for "how bad was that year" is the **annual minimum**: the lowest the reservoirs fell at the worst moment of that year. Short bars are the scary years.
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/reservoirs/annual-minimum.html' | relative_url }}"
-          title="Lowest reservoir level reached each year"
-          loading="lazy"
-          style="width:100%;height:460px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    The lowest point each year. Hover for exact values; 2026 is a partial year (to May).
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/reservoirs/annual-minimum.html" title="Lowest reservoir level reached each year" height=460 caption="The lowest point each year. Hover for exact values; 2026 is a partial year (to May)." %}
 
 This is the bit that made me sit up. I'd arrived to the *story* of 2022 rather than the summer itself, so I had no yardstick of my own to check it against. The numbers were my only witness. For the **Lower Thames**, the driest years on record are:
 
@@ -112,15 +82,7 @@ Memory is a headline. The data is a diary. When they disagree, I know which one 
 
 None of this means 2022 wasn't a real drought. It was. "Real drought" and "worst on record" are two different claims, though, and the honest way to tell them apart is to draw the year against its own history. Here's 2022 for the Lower Thames, plotted on top of the **normal band**: the grey envelope is the full min-to-max range every *other* year has ever traced, day by day, and the dashed line is the typical year.
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/reservoirs/drought-2022-band.html' | relative_url }}"
-          title="2022 reservoir levels versus the 37-year normal band"
-          loading="lazy"
-          style="width:100%;height:470px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    2022 (orange) against the 1989-2026 daily range (grey band) and the typical year (dashed).
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/reservoirs/drought-2022-band.html" title="2022 reservoir levels versus the 37-year normal band" height=470 caption="2022 (orange) against the 1989-2026 daily range (grey band) and the typical year (dashed)." %}
 
 You can watch the story unfold across the year. 2022 starts out ordinary, then peels away from the typical line through that hot, dry summer and rides along the **bottom edge** of the band by autumn, low for the time of year, hugging the record floor without breaking it. That's what a bad year looks like when it isn't the record. The normal band is, to me, the single most honest chart in the whole notebook, because it answers the one question that matters: *how unusual was this?*
 

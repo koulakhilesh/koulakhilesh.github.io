@@ -4,6 +4,8 @@ date: 2026-08-28
 last_modified_at: 2026-08-28
 thumbnail: /assets/thumbs/gita.svg
 glyph: gita-map
+series: "The Gita"
+series_part: 1
 tags: [Data Science, NLP, Knowledge Graph, Neo4j, Plotly]
 excerpt: "I turned all 700 verses of the Bhagavad Gita into a knowledge graph and a set of embeddings, then asked what the text looks like when you map it: where its regions are, which verses sit at the centre, and how its three voices each speak a measurably different language."
 toc: true
@@ -21,29 +23,13 @@ So I loaded all of it into a graph database, gave every verse a numeric fingerpr
 
 Every verse is a point in 768-dimensional space. That is impossible to look at, so I squashed it down to two dimensions with t-SNE, where verses that mean similar things end up near each other. Then I coloured each point by the community a graph algorithm (Louvain) finds in the similarity network, and labelled each region by the theme that is most distinctive to it.
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/gita/map_verse_annotated.html' | relative_url }}"
-          title="A t-SNE map of all 701 Gita verses, coloured by semantic community and labelled by each region's most distinctive theme"
-          loading="lazy"
-          style="width:100%;height:700px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    Every dot is a verse. Nearby dots mean similar things. Colours are the semantic communities; labels name each region's most distinctive theme. Hover a point for its verse number and text.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/gita/map_verse_annotated.html" title="A t-SNE map of all 701 Gita verses, coloured by semantic community and labelled by each region's most distinctive theme" height=700 caption="Every dot is a verse. Nearby dots mean similar things. Colours are the semantic communities; labels name each region's most distinctive theme. Hover a point for its verse number and text." %}
 
 The algorithm splits the text into **47 communities**, and it is a genuinely tight partition: **77%** of all similarity links fall inside a community rather than between communities, and the modularity score is **0.69**. A second, independent algorithm (Leiden) recovers a closely matching split of 49 groups, so this is not an artefact of one method.
 
 The communities also do not respect the chapter numbers, which is the part I keep returning to. Colour the exact same map by chapter instead, and the colours smear across the whole plane rather than forming 18 neat blocks:
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/gita/map_verse_chapters.html' | relative_url }}"
-          title="The same verse map coloured by chapter number, showing that chapters do not form tidy clusters"
-          loading="lazy"
-          style="width:100%;height:700px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    The same 701 verses, now coloured 1 to 18 by chapter. If chapters were self-contained topics, you would see 18 blocks. You do not.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/gita/map_verse_chapters.html" title="The same verse map coloured by chapter number, showing that chapters do not form tidy clusters" height=700 caption="The same 701 verses, now coloured 1 to 18 by chapter. If chapters were self-contained topics, you would see 18 blocks. You do not." %}
 
 The largest semantic communities each span ten to sixteen different chapters. The Gita returns to its core ideas again and again, in different chapters, in language similar enough that a machine groups them without ever being told what a chapter is. The chapter divisions organise the reading; the topics ignore them.
 
@@ -51,15 +37,7 @@ The largest semantic communities each span ten to sixteen different chapters. Th
 
 Naming a cluster is harder than finding it, because the obvious method fails. If you just ask which theme is heaviest in each community, almost every region comes back "karma", because action is discussed nearly everywhere. So instead I measured **lift**: how much more a theme appears in a community than in the text overall. That surfaces what makes a region distinctive rather than what is simply common.
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/gita/map_community_theme_signature.html' | relative_url }}"
-          title="Heatmap of theme share for each of the largest verse communities"
-          loading="lazy"
-          style="width:100%;height:560px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    The theme signature of each of the eight largest communities. Read a column top to bottom to see what that region dwells on.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/gita/map_community_theme_signature.html" title="Heatmap of theme share for each of the largest verse communities" height=560 caption="The theme signature of each of the eight largest communities. Read a column top to bottom to see what that region dwells on." %}
 
 Pick the verse nearest each community's centre and the regions come into focus. The biggest community, 90 verses, is a **devotion** cluster; its centre is 12.6, *"But to those who worship Me, renouncing all actions in Me…"*. A second region of 73 verses is pure **karma-yoga**; its centre is 3.30, *"Renouncing all actions in Me, with the mind centered on the Self…"*. A third, 44 verses, is about the **senses and the mind**, centred on 2.55, *"When a man completely casts off, O Arjuna, all the desires of the mind…"*.
 
@@ -69,15 +47,7 @@ One honest caveat before anyone reads too much into it: these are *semantic* clu
 
 If verses are a network, some sit closer to the middle than others. PageRank, the algorithm that made Google, scores a verse highly when many other well-connected verses resemble it. Run it on the similarity network and the single most central verse in the whole Gita is **12.6**, followed by **12.7**, both from Chapter 12, the *Bhakti Yoga* chapter on devotion.
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/gita/analysis_pagerank_top_verses.html' | relative_url }}"
-          title="The fifteen verses with the highest PageRank in the Gita similarity network"
-          loading="lazy"
-          style="width:100%;height:560px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    The verses most central to the semantic web. Chapter 12's devotional summations sit at the top.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/gita/analysis_pagerank_top_verses.html" title="The fifteen verses with the highest PageRank in the Gita similarity network" height=560 caption="The verses most central to the semantic web. Chapter 12's devotional summations sit at the top." %}
 
 I want to be careful about what this means. PageRank rewards a verse for echoing many others, so the "centre" is really the text's most *representative* language, the lines that restate its recurring promise most plainly. That does not make them the most important verses. It only means that if you had to pick the ones the rest of the book most sounds like, the machine points at Chapter 12's devotional summations.
 
@@ -100,24 +70,11 @@ The Gita is a dialogue, and the graph knows who speaks each verse. Four voices c
   </div>
 </div>
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/gita/speaker_share.html' | relative_url }}"
-          title="Verses spoken by each voice in the Gita"
-          loading="lazy"
-          style="width:100%;height:340px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-</figure>
+{% include chart.html src="/assets/gita/speaker_share.html" title="Verses spoken by each voice in the Gita" height=340 %}
 
 The interesting question is not who talks most, it is whether they talk *differently*. To test that I used **keyness**, the standard corpus-linguistics measure: for each speaker, a log-likelihood test flags the words they use far more often than the other voices do. It is the same idea behind "signature words". The result splits the three main speakers cleanly, and it reads like the story itself.
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/gita/speaker_keyness.html' | relative_url }}"
-          title="Signature words for each speaker, ranked by Dunning log-likelihood keyness"
-          loading="lazy"
-          style="width:100%;height:560px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    Content words each voice over-uses relative to the others, by log-likelihood.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/gita/speaker_keyness.html" title="Signature words for each speaker, ranked by Dunning log-likelihood keyness" height=560 caption="Content words each voice over-uses relative to the others, by log-likelihood." %}
 
 **Krishna** speaks the language of the teacher: his signature words are *action, self, sacrifice, knowledge, attachment, intellect*. **Arjuna**, the warrior having a breakdown at the edge of a war he does not want to fight, over-uses *kill, family, battle, destruction*, and, tellingly, *mouth* and *tooth*, the vocabulary of his terrifying vision of the divine in Chapter 11. **Sanjaya**, the narrator relaying the scene to a blind king, deals in *son, conch, archer, army, king*, the furniture of the battlefield he is describing. Nobody labelled these voices by role; a frequency test pulled the teacher, the panicking student, and the war reporter apart on its own.
 

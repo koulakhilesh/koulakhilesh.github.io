@@ -1,3 +1,5 @@
+{%- assign hero_posts = site.posts | where_exp: "p", "p.archived != true" -%}
+{%- assign hero_latest = hero_posts | first -%}
 <header class="hero">
   <div class="wrap hero-grid">
     <div class="hero-main">
@@ -5,8 +7,8 @@
       <h1 class="hero-h">Code &amp; kilometers.<br><span class="accent">{{ site.tagline }}</span></h1>
       <p class="hero-sub">Hi, I'm Akhilesh, a data scientist who likes automation, coding, and building things on the side.</p>
       <div class="hero-btns">
-        <a href="{{ '/writing/' | relative_url }}" class="btn btn-primary">Read the blog</a>
-        <a href="{{ '/projects/' | relative_url }}" class="btn btn-ghost">See projects</a>
+        {% if hero_latest %}<a href="{{ hero_latest.url | relative_url }}" class="btn btn-primary">Read the latest</a>{% endif %}
+        <a href="{{ '/writing/' | relative_url }}" class="btn btn-ghost">All writing</a>
       </div>
     </div>
     <div class="hero-fig" aria-hidden="true">

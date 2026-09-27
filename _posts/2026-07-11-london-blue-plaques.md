@@ -4,6 +4,8 @@ date: 2026-07-11 10:00:00
 last_modified_at: 2026-08-15 10:00:00
 thumbnail: /assets/thumbs/blue-plaques.png
 glyph: plaques
+series: "London's blue plaques"
+series_part: 1
 tags: [Data Science, London, History, Plotly, Web Scraping]
 excerpt: "I scraped every English Heritage blue plaque in London to ask who gets remembered and where. The answer is a surprisingly tiny, surprisingly male, surprisingly literary corner of the map, and the shape of it says something uncomfortable."
 toc: true
@@ -46,15 +48,7 @@ Before trusting any of it, I checked how complete each field was. Names, borough
 
 No aggregation, no cleverness. Just drop all 1,036 plaques-with-coordinates onto London and colour them by category.
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/plaques/plaque-map.html' | relative_url }}"
-          title="Every London blue plaque, mapped and coloured by category"
-          loading="lazy"
-          style="width:100%;height:640px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    All 1,036 plaques with coordinates. Hover any dot for the name, borough and category; drag to pan, scroll to zoom.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/plaques/plaque-map.html" title="Every London blue plaque, mapped and coloured by category" height=640 caption="All 1,036 plaques with coordinates. Hover any dot for the name, borough and category; drag to pan, scroll to zoom." %}
 
 You don't need statistics to see it. There's a dense, glowing core in the centre and west, and then the rest of London, enormous, populous, historic London, thins out to scattered dots. My first thought was that I'd made a mistake. I hadn't. London's official memory really is packed into a small footprint. *(Just how tightly packed, statistically, is the subject of [the sequel to this post](#a-companion-piece), where the same points become a geometry problem.)*
 
@@ -79,27 +73,11 @@ I counted, and the concentration is even starker than the map suggests.
 
 **Just three boroughs, Westminster, Kensington & Chelsea, and Camden, hold 69% of every blue plaque in London.** Westminster alone has 334, nearly a third of the whole scheme. Meanwhile Barking & Dagenham, Sutton and the City of London manage one apiece.
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/plaques/by-borough.html' | relative_url }}"
-          title="Blue plaques by London borough"
-          loading="lazy"
-          style="width:100%;height:520px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    Plaques per borough (top 15). The top three dwarf everything else.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/plaques/by-borough.html" title="Blue plaques by London borough" height=520 caption="Plaques per borough (top 15). The top three dwarf everything else." %}
 
 Zoom in past the borough line and the clustering gets almost comically specific. The single most-plaqued street in London is **Cheyne Walk** in Chelsea, with ten; the densest postcode district is **NW3, Hampstead**, with sixty-nine.
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/plaques/top-streets.html' | relative_url }}"
-          title="London's most-plaqued streets"
-          loading="lazy"
-          style="width:100%;height:520px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    The most-plaqued streets. Bedford Square, Gower Street and Queen Anne's Gate follow Chelsea's riverside.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/plaques/top-streets.html" title="London's most-plaqued streets" height=520 caption="The most-plaqued streets. Bedford Square, Gower Street and Queen Anne's Gate follow Chelsea's riverside." %}
 
 And each borough remembers a *different kind* of person. Westminster's plaques lean towards **politicians**; Kensington & Chelsea and Camden lean towards **writers and artists**. Westminster remembers power; Chelsea remembers art. That's not a coincidence: it's the first hint of the feedback loop I'll come back to.
 
@@ -109,15 +87,7 @@ Some of this is honest history: the West End and Bloomsbury *were* where the wri
 
 Sort the plaques by what the person is remembered *for*, and London reveals itself as, above all, a city of writers.
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/plaques/by-category.html' | relative_url }}"
-          title="Blue plaques by primary category"
-          loading="lazy"
-          style="width:100%;height:520px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    Primary category per plaque (top 15). Literature leads, ahead of politics, fine arts and music.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/plaques/by-category.html" title="Blue plaques by primary category" height=520 caption="Primary category per plaque (top 15). Literature leads, ahead of politics, fine arts and music." %}
 
 Literature comes first, then politics and administration, then the fine arts and music. It's a portrait of what a culture chooses to enshrine: the people who left *documents* (books, laws, paintings, scores), the kind of legacy that keeps a name legible a century later.
 
@@ -142,29 +112,13 @@ But the single figure hides the interesting part. Split the women's share by *fi
   </div>
 </div>
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/plaques/female-by-field.html' | relative_url }}"
-          title="Share of women commemorated, by field"
-          loading="lazy"
-          style="width:100%;height:540px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    Female share by category (fields with at least 15 plaques). The dashed line is the 17.5% overall average.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/plaques/female-by-field.html" title="Share of women commemorated, by field" height=540 caption="Female share by category (fields with at least 15 plaques). The dashed line is the 17.5% overall average." %}
 
 Women appear most in **philanthropy and reform** (close to half) and on the **stage**: theatre, film, dance. They all but vanish from **politics** (3%) and hit a flat **zero** in engineering, industry and invention. The pattern isn't really about the plaques; it's about which doors were open to women in the first place, preserved in ceramic. The honorifics say the same thing more bluntly: 174 knighted *Sirs* to 25 *Dames*.
 
 There is one hopeful thread. Stack the commemorated people by their birth decade and the pink band, however thin, grows as you move toward the present.
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/plaques/gender-by-decade.html' | relative_url }}"
-          title="Commemorated people by birth decade and inferred gender"
-          loading="lazy"
-          style="width:100%;height:460px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    People commemorated, stacked by birth decade and inferred gender. Watch the recent decades.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/plaques/gender-by-decade.html" title="Commemorated people by birth decade and inferred gender" height=460 caption="People commemorated, stacked by birth decade and inferred gender. Watch the recent decades." %}
 
 Among people born in the mid-1700s the female share was under 5%; among those born around 1900 it's up past 30%. The scheme is trying to correct, and English Heritage has said as much publicly. You can watch that intention arrive, one decade at a time, but you're watching it climb out of a very deep hole.
 
@@ -172,27 +126,11 @@ Among people born in the mid-1700s the female share was under 5%; among those bo
 
 The inscriptions are their own small corpus. Throw all 1,037 into a pile and count the words, and the most common ones read like a poem about the dataset in miniature: *poet, writer, painter, novelist, artist*, and, sitting right among them, *Sir*.
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/plaques/inscription-words.html' | relative_url }}"
-          title="Most common words in blue plaque inscriptions"
-          loading="lazy"
-          style="width:100%;height:560px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    The most common words across all 1,037 inscriptions, filler words removed.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/plaques/inscription-words.html" title="Most common words in blue plaque inscriptions" height=560 caption="The most common words across all 1,037 inscriptions, filler words removed." %}
 
 There's also a quiet grammar to how each plaque relates its person to its building. Nearly every one states a verb, and one verb runs away with it.
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/plaques/inscription-verbs.html' | relative_url }}"
-          title="What the plaques say the person did at the address"
-          loading="lazy"
-          style="width:100%;height:430px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    Relationship to the address, counted across all inscriptions. "Lived here" appears on 725 of them.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/plaques/inscription-verbs.html" title="What the plaques say the person did at the address" height=430 caption='Relationship to the address, counted across all inscriptions. "Lived here" appears on 725 of them.' %}
 
 **725 plaques, seven in ten, simply say "lived here."** Not born, not died, not worked. Lived. The blue plaque is a marker of *domesticity made historic*: this ordinary front door held an extraordinary ordinary life. And almost all of them say it on the same object: 88% of the plaques are the familiar ceramic roundel, with a stubborn handful in bronze, stone or slate.
 
@@ -200,15 +138,7 @@ There's also a quiet grammar to how each plaque relates its person to its buildi
 
 A small, humane detour. For the 991 people, birth and death years give a distribution of lifespans.
 
-<figure class="chart-embed" style="margin:1.8rem 0;">
-  <iframe src="{{ '/assets/plaques/lifespans.html' | relative_url }}"
-          title="Age at death of the commemorated"
-          loading="lazy"
-          style="width:100%;height:430px;border:1px solid var(--line);border-radius:12px;background:#fff;"></iframe>
-  <figcaption style="font-family:var(--mono);font-size:.78rem;color:var(--muted);margin-top:.6rem;text-align:center;">
-    Age at death, filtered to plausible values. The median is 72.
-  </figcaption>
-</figure>
+{% include chart.html src="/assets/plaques/lifespans.html" title="Age at death of the commemorated" height=430 caption="Age at death, filtered to plausible values. The median is 72." %}
 
 The median is **72**, with a long tail into the nineties: Sir Robert Mayer made it to 106. Which makes a certain grim sense: the surest route onto a wall of long-term public memory is to do enough, for long enough, to be remembered. But the left tail is where the heartbreak lives: a cluster who died in their twenties and got a plaque anyway: John Keats at 26, the sculptor Gaudier-Brzeska at 24, the SOE agent Violette Szabo at 24. Fame usually rewards patience. Just occasionally it rewards a comet.
 

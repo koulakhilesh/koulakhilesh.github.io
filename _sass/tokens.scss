@@ -11,7 +11,19 @@
 
   /* riso spot inks */
   --red:#F24333; --blue:#5B90F5; --yellow:#FFC21A;
-  --accent:var(--red); --amber:var(--yellow);
+  --red-ink:#F24333;         /* text-safe red for small text; fills keep --red */
+  --accent:var(--red-ink); --amber:var(--yellow);
+
+  /* semantic roles (see docs/design-philosophy.md) */
+  --c-action:var(--red-ink); --c-link:var(--blue);
+  --c-done:var(--blue); --c-progress:var(--yellow);
+
+  /* corners: square cards, 4px controls, round dots */
+  --r-0:0; --r-1:4px; --r-round:50%;
+
+  /* type scale */
+  --fs-xs:.72rem; --fs-sm:.85rem; --fs-base:1rem; --fs-lg:1.25rem; --fs-xl:1.75rem;
+  --fs-2xl:clamp(2rem,4vw,2.75rem); --fs-3xl:clamp(2.4rem,5vw,3.25rem);
   --blend:screen;            /* overprint mode for dark */
 
   /* type */

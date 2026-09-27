@@ -1,0 +1,16 @@
+{%- assign sn_posts = site.posts | where: "series", page.series | sort: "series_part" -%}
+{%- if include.mode == "label" -%}
+<p class="series-label mono">Part {{ page.series_part }} of {{ sn_posts.size }} · {{ page.series }}</p>
+{%- else -%}
+{%- assign sn_prev = nil -%}{%- assign sn_next = nil -%}
+{%- assign sn_want_prev = page.series_part | minus: 1 -%}
+{%- assign sn_want_next = page.series_part | plus: 1 -%}
+{%- for sp in sn_posts -%}
+  {%- if sp.series_part == sn_want_prev %}{% assign sn_prev = sp %}{% endif -%}
+  {%- if sp.series_part == sn_want_next %}{% assign sn_next = sp %}{% endif -%}
+{%- endfor -%}
+<nav class="series-nav" aria-label="{{ page.series | escape }} series">
+  {% if sn_prev %}<a class="sn-prev" href="{{ sn_prev.url | relative_url }}"><span class="nn-label">← Part {{ sn_prev.series_part }}</span>{{ sn_prev.title }}</a>{% endif %}
+  {% if sn_next %}<a class="sn-next" href="{{ sn_next.url | relative_url }}"><span class="nn-label">Part {{ sn_next.series_part }} →</span>{{ sn_next.title }}</a>{% endif %}
+</nav>
+{%- endif -%}

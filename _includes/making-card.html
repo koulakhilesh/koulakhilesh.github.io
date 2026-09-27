@@ -1,3 +1,7 @@
-<a class="shot" href="{{ include.item.url | relative_url }}"{% if include.item.image %} style="background-image:url('{{ include.item.image | relative_url }}');background-size:cover;background-position:center"{% endif %}>
-  <span>{{ include.item.title }}</span>
+{%- assign mk = include.item -%}
+{%- assign mk_img = mk.image | strip -%}
+{%- assign mk_shape = mk.title | size | modulo: 3 -%}
+<a class="shot{% if mk_img == "" %} shot--ph shot--ph-{{ mk_shape }}{% endif %}" href="{{ mk.url | relative_url }}"{% if mk_img != "" %} style="background-image:url('{{ mk_img | relative_url }}');background-size:cover;background-position:center"{% endif %}>
+  {% if mk_img == "" %}<span class="shot-ph" aria-hidden="true"></span>{% endif %}
+  <span class="shot-title">{{ mk.title }}</span>
 </a>

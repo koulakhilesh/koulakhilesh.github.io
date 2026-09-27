@@ -9,7 +9,7 @@
 
 .making-body{max-width:760px;padding-top:40px;padding-bottom:8px}
 .making-meta{color:var(--muted);letter-spacing:.1em;margin:0 0 .6rem}
-.making-kind{color:var(--red);text-transform:uppercase}
+.making-kind{color:var(--c-action);text-transform:uppercase}
 .making-title{font-family:var(--disp);font-weight:600;
   font-size:clamp(1.9rem,3.6vw,2.6rem);letter-spacing:-.02em;line-height:1.08;margin:0}
 .making-lede{font-family:var(--serif);font-size:1.12rem;line-height:1.6;
@@ -18,7 +18,7 @@
 /* optional multi-image gallery inside a single entry */
 .making-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:2rem 0}
 @media(min-width:700px){.making-grid{grid-template-columns:repeat(3,1fr)}}
-.making-grid-item{aspect-ratio:1;overflow:hidden;border:1px solid var(--line2);border-radius:8px}
+.making-grid-item{aspect-ratio:1;overflow:hidden;border:1px solid var(--line2);border-radius:var(--r-0)}
 .making-grid-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s ease}
 .making-grid-item:hover img{transform:scale(1.05)}
 

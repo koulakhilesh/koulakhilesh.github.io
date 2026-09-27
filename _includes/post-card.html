@@ -1,10 +1,12 @@
-<a class="post{% if include.post.glyph or include.post.thumbnail %} has-thumb{% endif %}" href="{{ include.post.url | relative_url }}">
+{%- assign pc = include.post -%}
+<a class="post{% if include.feature %} post--feature{% endif %}{% if pc.glyph or pc.thumbnail %} has-thumb{% endif %}" href="{{ pc.url | relative_url }}">
   <div class="post-aside">
-    {% if include.post.glyph %}{% include glyph.html name=include.post.glyph %}{% elsif include.post.thumbnail %}<img class="post-thumb" src="{{ include.post.thumbnail | relative_url }}" alt="" loading="lazy" width="96" height="96">{% endif %}
-    <span class="date">{{ include.post.date | date: "%Y · %m" }}</span>
+    {% if pc.glyph %}{% include glyph.html name=pc.glyph %}{% elsif pc.thumbnail %}<img class="post-thumb" src="{{ pc.thumbnail | relative_url }}" alt="" loading="lazy" width="96" height="96">{% endif %}
   </div>
-  <div>
-    <h3>{{ include.post.title }}</h3>
-    <p>{% for t in include.post.tags %}<span class="tag">#{{ t }}</span>{% endfor %}{{ include.post.excerpt | strip_html | truncate: 90 }}</p>
+  <div class="post-body">
+    <p class="post-meta mono">{{ pc.date | date: "%Y · %m" }}{% if pc.series %}{% assign pc_series = site.posts | where: "series", pc.series | where_exp: "p", "p.archived != true" %} · Part {{ pc.series_part }} of {{ pc_series.size }} · {{ pc.series }}{% endif %}</p>
+    <h3>{{ pc.title }}</h3>
+    <p class="post-excerpt">{% if include.feature %}{{ pc.excerpt | strip_html }}{% else %}{{ pc.excerpt | strip_html | truncatewords: 28 }}{% endif %}</p>
+    {% if pc.tags.size > 0 %}<p class="post-tags">{% for t in pc.tags %}<span class="tag">#{{ t }}</span>{% endfor %}</p>{% endif %}
   </div>
 </a>
