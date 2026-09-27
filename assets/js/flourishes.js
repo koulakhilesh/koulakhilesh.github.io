@@ -64,8 +64,8 @@
     el.style.cssText =
       "position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:9999;" +
       "background:" + ink("--card", "#1D1914") + ";color:" + ink("--ink", "#F1EEE7") +
-      ";border:1px solid " + ink("--line2", "rgba(255,255,255,.3)") + ";border-radius:999px;" +
-      "padding:8px 16px;font-family:'JetBrains Mono',monospace;font-size:.72rem;" +
+      ";border:1px solid " + ink("--line2", "rgba(255,255,255,.3)") + ";border-radius:var(--r-1);" +
+      "padding:8px 16px;font-family:'JetBrains Mono',monospace;font-size:var(--fs-xs);" +
       "letter-spacing:.08em;text-transform:uppercase;opacity:0;transition:opacity .2s";
     document.body.appendChild(el);
     requestAnimationFrame(function () { el.style.opacity = "1"; });
@@ -144,12 +144,12 @@
 
     var caption = document.createElement("p");
     caption.textContent = cfg.caption + (reduce ? " (Paused: reduced motion.)" : "");
-    caption.style.cssText = "position:fixed;left:50%;bottom:22px;transform:translateX(-50%);margin:0;font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:" + ink("--muted", "#9C948A") + ";pointer-events:none;text-align:center;padding:0 16px";
+    caption.style.cssText = "position:fixed;left:50%;bottom:22px;transform:translateX(-50%);margin:0;font-family:'JetBrains Mono',monospace;font-size:var(--fs-xs);letter-spacing:.08em;text-transform:uppercase;color:" + ink("--muted", "#9C948A") + ";pointer-events:none;text-align:center;padding:0 16px";
     wrap.appendChild(caption);
 
     var close = document.createElement("button");
     close.type = "button"; close.setAttribute("aria-label", "Close"); close.textContent = "×";
-    close.style.cssText = "position:fixed;top:16px;right:18px;width:40px;height:40px;line-height:1;background:none;border:1px solid " + ink("--line2", "rgba(255,255,255,.3)") + ";color:" + ink("--ink", "#F1EEE7") + ";font-size:22px;cursor:pointer;border-radius:4px";
+    close.style.cssText = "position:fixed;top:16px;right:18px;width:40px;height:40px;line-height:1;background:none;border:1px solid " + ink("--line2", "rgba(255,255,255,.3)") + ";color:" + ink("--ink", "#F1EEE7") + ";font-size:var(--fs-lg);cursor:pointer;border-radius:var(--r-1)";
     wrap.appendChild(close);
     var opener = document.activeElement;
     document.body.appendChild(wrap);

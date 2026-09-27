@@ -1,5 +1,5 @@
 /* ============================================================
-   Lab: puzzle of the day + k-means (post companions come later)
+   Lab: post companions, k-means, puzzle of the day
    ============================================================ */
 .lab-lede{font-family:var(--serif);font-size:var(--fs-lg);line-height:1.6;color:var(--muted);margin:0 0 2rem}
 .lab-lede code{font-family:var(--mono);font-size:.86em;color:var(--accent)}
@@ -10,13 +10,13 @@
 .lab-card--wide{grid-column:1/-1}
 
 .lab-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
-.lab-head h3{font-family:var(--disp)!important;font-weight:600;font-size:var(--fs-base);margin:0;letter-spacing:-.01em;
+.lab-head h2{font-family:var(--disp)!important;font-weight:600;font-size:var(--fs-base);margin:0!important;letter-spacing:-.01em;
   display:flex;align-items:center;gap:10px}
 /* Bauhaus primitive before each title — canonical circle=blue, square=red, triangle=yellow */
-.lab-card .lab-head h3::before{content:"";width:13px;height:13px;flex:none;display:inline-block;mix-blend-mode:var(--blend)}
-.lab-card:nth-child(3n+1) .lab-head h3::before{background:var(--blue);border-radius:var(--r-round)}
-.lab-card:nth-child(3n+2) .lab-head h3::before{background:var(--red)}
-.lab-card:nth-child(3n+3) .lab-head h3::before{width:0;height:0;background:none;
+.lab-card .lab-head h2::before{content:"";width:13px;height:13px;flex:none;display:inline-block;mix-blend-mode:var(--blend)}
+.lab-card:nth-child(3n+1) .lab-head h2::before{background:var(--blue);border-radius:var(--r-round)}
+.lab-card:nth-child(3n+2) .lab-head h2::before{background:var(--red)}
+.lab-card:nth-child(3n+3) .lab-head h2::before{width:0;height:0;background:none;
   border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:13px solid var(--yellow)}
 .lab-controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .lab-controls button{font-family:var(--mono);font-size:var(--fs-2xs);letter-spacing:.08em;text-transform:uppercase;
@@ -49,4 +49,20 @@
 .daily-verdict.ok{color:var(--blue)}
 .daily-verdict.meh{color:var(--yellow)}
 .daily-verdict.no{color:var(--c-action)}
+
+/* post companions */
+.lab-stage--chart{display:block}
+.lab-stage--chart canvas{cursor:crosshair}
+.lab-stage--chart canvas:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.lab-picker input{font-family:var(--mono);font-size:var(--fs-sm);padding:6px 10px;border:1px solid var(--line2);
+  background:var(--bg2);color:var(--ink);border-radius:var(--r-1);width:min(240px,60vw)}
+.lab-hover{font-family:var(--mono);font-size:var(--fs-xs);color:var(--muted);margin:.5rem 0 0;min-height:1.3em}
+.lab-readout{display:grid;grid-template-columns:max-content 1fr;gap:6px 16px;margin:1rem 0 0;font-size:var(--fs-sm)}
+@media(min-width:820px){.lab-readout{grid-template-columns:max-content 1fr max-content 1fr}}
+.lab-readout dt{font-family:var(--mono);font-size:var(--fs-2xs);letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);align-self:center}
+.lab-readout dd{margin:0;color:var(--ink)}
+.lab-source{font-family:var(--mono);font-size:var(--fs-2xs);letter-spacing:.05em;color:var(--muted);
+  margin:.4rem 0 0;text-align:center}
+.lab-error{font-family:var(--mono);font-size:var(--fs-xs);color:var(--c-action);margin:0 0 .5rem}
 

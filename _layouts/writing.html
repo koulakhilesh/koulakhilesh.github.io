@@ -2,7 +2,7 @@
 layout: default
 ---
 <section class="wrap section">
-  <div class="sec-head"><h2>Writing</h2></div>
+  <div class="sec-head"><h1>Writing</h1></div>
   <p class="writing-intro">Data stories and notes, mostly about London and open data.</p>
   {% assign posts = site.posts | where_exp: "p", "p.archived != true" %}
   {% if posts.size > 0 %}

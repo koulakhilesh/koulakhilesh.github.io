@@ -24,7 +24,7 @@
 }
 .sec-head{display:flex;align-items:baseline;gap:18px;
   margin-bottom:40px;padding-bottom:18px;border-bottom:1px solid var(--line)}
-.sec-head h2{font-family:var(--disp);font-weight:600;font-size:clamp(1.5rem,3vw,2rem);
+.sec-head h1,.sec-head h2{font-family:var(--disp);font-weight:600;font-size:clamp(1.5rem,3vw,2rem);
   margin:0;letter-spacing:-.02em}
 .sec-head a{margin-left:auto;font-family:var(--mono);font-size:var(--fs-xs);
   letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}

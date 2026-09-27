@@ -69,6 +69,8 @@ The timing hints at something simpler: some stations are busiest in the morning 
 
 At the bottom are the home stations. At **Elm Park**, 23 km out on the District line, the evening peak is a tenth of the morning peak. **Pinner** and **Queensbury** are close behind. At the top are the work stations: **Goodge Street**'s evening peak is 10.5 times its morning peak, with **Mansion House**, **Temple** and **Chancery Lane** not far off. Across all 203 stations the correlation between this ratio (on a log scale) and distance is **−0.6**.
 
+*Try it: [look up any station's day in the Lab →]({{ '/lab/#tube-day' | relative_url }})*
+
 The exceptions are the fun part. **Canary Wharf**, 7.5 km out, sits among the central stations at 5.1: a second business district doing exactly what the City does. And a handful of stations beyond 20 km are busier in the evening than the morning: **Heathrow** and **Uxbridge**, which are destinations in their own right rather than places people commute from.
 
 That home/work split is also why I think the flow numbers lean towards people *entering* stations. If the sum counted entries and exits equally, a home station would be busy twice a day, not once. It's still an inference, though.

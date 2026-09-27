@@ -2,7 +2,7 @@
 .post-single .post-meta{color:var(--c-action);letter-spacing:.14em;margin:0}
 .post-single .post-tags{margin:2.4rem 0 0}
 .prose img.avatar{width:132px;height:132px;border-radius:var(--r-round);object-fit:cover;border:1px solid var(--line);margin:0 0 22px}
-.post-title{font-family:var(--disp);font-weight:600;font-size:clamp(2rem,4vw,2.8rem);
+.post-title{font-family:var(--disp);font-weight:600;font-size:var(--fs-2xl);
   margin:.6rem 0 1.4rem;padding-bottom:1.2rem;border-bottom:1px solid var(--line);letter-spacing:-.02em}
 .prose{font-family:var(--body);font-size:var(--fs-prose);line-height:1.75}
 .prose h2{font-family:var(--disp);margin-top:2rem}

@@ -70,6 +70,8 @@ Statistics proven, now the pretty part. A **Voronoi diagram** carves the plane i
 
 In the West End the cells are so small they blur into a mosaic, a plaque every hundred metres, each owning a scrap of pavement. Out toward Bromley or Croydon a lone plaque can own kilometres in every direction. The *area* of your nearest-plaque territory is, in effect, an inverse density map, and it screams the same thing the dots did, now with an area attached to it.
 
+*Try it: [break the clustering yourself in the Lab's Voronoi playground →]({{ '/lab/#plaque-voronoi' | relative_url }})*
+
 ## The heat of memory
 
 The same information, smoothed into a continuous surface: a kernel-style density heatmap. No borough lines, no cells, just where memory glows hottest.
