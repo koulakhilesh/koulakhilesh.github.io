@@ -13,7 +13,7 @@
   var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   var MAX = 300000, MIN = 500, KEY = "migration-best", PORTRAIT_BELOW = 600;
   // Which side of its site each date label sits on, so neighbouring labels don't collide.
-  var SIDE = { levant: "sw", americas: "se" };
+  var SIDE = { levant: "sw", americas: "se" }, SIDE_PORTRAIT = { europe: "nw" };
   var W = null, M = null, cur = 0, done = 0, phase = "load", guesses = [], scores = [], anim = 1;
   var ctx, base, cw = 0, ch = 0, k = 1, portrait = false;
 
@@ -108,7 +108,8 @@
     if (fill) { ctx.fillStyle = fill; ctx.fill(); }
     if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw || 1; ctx.stroke(); }
   }
-  function tag(p, text, colour, side) {
+  function tag(p, text, colour, id) {
+    var side = (portrait && SIDE_PORTRAIT[id]) || SIDE[id];
     var left = side === "sw" || side === "nw", below = side === "sw" || side === "se";
     ctx.font = "500 11px 'JetBrains Mono', monospace";
     var w = ctx.measureText(text).width;
@@ -133,12 +134,12 @@
     dot(pt(M.origin.xy[0], M.origin.xy[1]), 6, null, inkC, 1.5);
     for (i = 0; i < done; i++) {
       p = pt(M.stops[i].xy[0], M.stops[i].xy[1]);
-      dot(p, 2.6, inkC); tag(p, shortRange(M.stops[i]), inkC, SIDE[M.stops[i].id]);
+      dot(p, 2.6, inkC); tag(p, shortRange(M.stops[i]), inkC, M.stops[i].id);
     }
     if (phase === "ask" || phase === "reveal") {
       p = pt(s.xy[0], s.xy[1]);
       dot(p, phase === "ask" ? 9 : 4, phase === "ask" ? null : red, red, 1.8);
-      if (phase === "reveal" && anim >= 1) tag(p, shortRange(s), red, SIDE[s.id]);
+      if (phase === "reveal" && anim >= 1) tag(p, shortRange(s), red, s.id);
     }
   }
   function play() {
@@ -196,6 +197,7 @@
     var wait = $("mig-wait"); wait.hidden = false;
     if (cur === 0) { wait.textContent = M.origin.text + " "; var src = document.createElement("span"); links(src, M.origin.cite); wait.appendChild(src); }
     else wait.textContent = "Make a guess to see the evidence.";
+    say("Stop " + (cur + 1) + " of " + M.stops.length + ". " + s.q);
     dots(); describe(); draw();
   }
   function reveal(e) {
@@ -282,7 +284,7 @@
     clearTimeout(timer);
     timer = setTimeout(function () {
       if (!W || stage.clientWidth === lastW) return;
-      lastW = stage.clientWidth; fit(); draw();
+      lastW = stage.clientWidth; fit(); draw(); describe();
     }, 150);
   });
   new MutationObserver(function () { if (W) { fit(); draw(); } })

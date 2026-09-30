@@ -2,6 +2,7 @@
 layout: page
 permalink: /lab/migration/
 title: When did we get here?
+image: /assets/social/lab-migration.png
 description: A game on Buckminster Fuller's world map. Follow Homo sapiens out of Africa, guess when people first reached each place, then see what the evidence says.
 ---
 
