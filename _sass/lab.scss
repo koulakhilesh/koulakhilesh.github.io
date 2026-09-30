@@ -66,3 +66,46 @@
   margin:.4rem 0 0;text-align:center}
 .lab-error{font-family:var(--mono);font-size:var(--fs-xs);color:var(--c-action);margin:0 0 .5rem}
 
+/* link from /lab/ to the migration game */
+.prose .lab-feature{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;align-items:center;margin:0 0 22px;padding:18px;
+  border:1px solid var(--line2);border-radius:var(--r-0);background:var(--card);color:var(--ink);text-decoration:none;
+  transition:border-color .15s}
+.prose .lab-feature:hover,.prose .lab-feature:focus-visible{border-color:var(--ink)}
+.lab-feature::before{content:"";grid-row:1/span 4;width:0;height:0;mix-blend-mode:var(--blend);
+  border-left:20px solid transparent;border-right:20px solid transparent;border-bottom:34px solid var(--yellow)}
+.lab-feature-kicker{font-size:var(--fs-2xs);letter-spacing:.08em;text-transform:uppercase;color:var(--red-ink)}
+.lab-feature-title{font-family:var(--disp);font-weight:600;font-size:var(--fs-lg);letter-spacing:-.01em}
+.lab-feature-text{color:var(--muted);font-size:var(--fs-sm)}
+.lab-feature-go{grid-column:2;font-size:var(--fs-2xs);letter-spacing:.08em;text-transform:uppercase;color:var(--c-link)}
+
+/* migration game (/lab/migration/) */
+.mig-stage{border:1px solid var(--line2);border-radius:var(--r-0);overflow:hidden;line-height:0}
+.mig-stage canvas{display:block;width:100%}
+.mig-panel{display:grid;gap:18px 32px;margin-top:18px}
+@media(min-width:820px){.mig-panel{grid-template-columns:5fr 7fr}}
+.mig-step{font-size:var(--fs-2xs);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 .5rem}
+.mig-dots{display:flex;gap:6px;list-style:none;margin:0 0 .9rem;padding:0}
+.mig-dots li{width:10px;height:10px;border:1px solid var(--line2);border-radius:var(--r-0)}
+.mig-dots li.done{background:var(--blue);border-color:var(--blue);mix-blend-mode:var(--blend)}
+.mig-dots li.now{border-color:var(--red-ink);border-width:2px}
+.prose .mig-q{font-family:var(--serif);font-weight:500;font-size:var(--fs-lg);line-height:1.35;margin:0 0 1rem}
+.mig-form input[type=range]{width:100%;accent-color:var(--red-ink);margin:0}
+.mig-scale{display:flex;justify-content:space-between;font-size:var(--fs-2xs);color:var(--muted);margin-top:4px}
+.prose .mig-value{font-family:var(--disp);font-weight:600;font-size:var(--fs-lg);line-height:1.25;letter-spacing:-.01em;margin:.6rem 0 .9rem}
+.mig-go,.mig-next{font-family:var(--mono);font-size:var(--fs-2xs);letter-spacing:.08em;text-transform:uppercase;
+  padding:9px 18px;border:1px solid var(--c-action);background:var(--c-action);color:var(--bg);cursor:pointer;
+  border-radius:var(--r-1)}
+.mig-go:disabled{opacity:.4;cursor:default}
+.mig-go:focus-visible,.mig-next:focus-visible,.mig-form input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.mig-answer{border-top:1px solid var(--line2);padding-top:14px}
+@media(min-width:820px){.mig-answer{border-top:0;border-left:1px solid var(--line2);padding:0 0 0 24px}}
+.prose .mig-wait,.prose .mig-note{color:var(--muted);font-size:var(--fs-sm);line-height:1.55}
+.prose .mig-readout{margin:0 0 .9rem;grid-template-columns:max-content 1fr}
+.prose .mig-site{font-family:var(--serif);font-size:var(--fs-base);margin:0 0 .5rem}
+.prose .mig-cite{font-family:var(--mono);font-size:var(--fs-2xs);letter-spacing:.03em;color:var(--muted);margin:0 0 1rem}
+.prose .mig-total{font-family:var(--disp);font-weight:600;font-size:var(--fs-xl);margin:0 0 .6rem}
+.mig-scores{columns:2;font-family:var(--mono);font-size:var(--fs-xs);color:var(--muted);margin:0 0 .8rem;padding-left:1.2rem}
+.mig-best,.mig-shared{font-size:var(--fs-xs);color:var(--muted)}
+.mig-shared{word-break:break-word}
+.mig ~ .lab-source{margin-top:2rem}
+

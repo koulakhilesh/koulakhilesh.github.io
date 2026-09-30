@@ -4,7 +4,16 @@ permalink: /lab/
 title: Lab
 ---
 
-<p class="lab-lede">Half notebook, half playground: small things I build to understand an idea by making it move. The first two are companions to posts, so you can ask the data your own question. Below them are a clustering algorithm you can watch settle and a puzzle that changes daily. <em>Psst:</em> type <code>life</code>, <code>langton</code> or <code>turing</code> anywhere on the site, or try the Konami code.</p>
+<p class="lab-lede">Half notebook, half playground: small things I build to understand an idea by making it move. The first two cards are companions to posts, so you can ask the data your own question. Below them are a clustering algorithm you can watch settle and a puzzle that changes daily. <em>Psst:</em> type <code>life</code>, <code>langton</code> or <code>turing</code> anywhere on the site, or try the Konami code.</p>
+
+<div class="lab-feature-wrap">
+<a class="lab-feature" href="{{ '/lab/migration/' | relative_url }}">
+  <span class="lab-feature-kicker mono">New · a game</span>
+  <span class="lab-feature-title">When did we get here?</span>
+  <span class="lab-feature-text">Follow our species out of Africa on Buckminster Fuller's world map, and guess when people first reached eight places.</span>
+  <span class="lab-feature-go mono">Play →</span>
+</a>
+</div>
 
 <div class="lab">
 
