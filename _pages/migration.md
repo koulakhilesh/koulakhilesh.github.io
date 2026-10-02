@@ -10,14 +10,14 @@ description: A game on Buckminster Fuller's world map. Follow Homo sapiens out o
 
 <div class="mig" id="mig">
   <div class="mig-stage" id="mig-stage" data-world="{{ '/assets/lab/fuller-world.json' | relative_url }}" data-stops="{{ '/assets/lab/migration.json' | relative_url }}">
-    <canvas role="img" aria-label="Loading the map" aria-describedby="mig-status"></canvas>
+    <canvas role="img" aria-label="Loading the map"></canvas>
   </div>
 
   <div class="mig-panel">
     <div class="mig-ask">
-      <p class="mig-step mono" id="mig-step">Loading…</p>
+      <p class="mig-step mono" id="mig-step">&nbsp;</p>
       <ol class="mig-dots" id="mig-dots" aria-hidden="true"></ol>
-      <h2 class="mig-q" id="mig-q">&nbsp;</h2>
+      <h2 class="mig-q" id="mig-q">Loading the map…</h2>
       <form class="mig-form" id="mig-form" hidden>
         <label class="sr-only" for="mig-guess">Your guess, in years ago</label>
         <input type="range" id="mig-guess" min="0" max="1000" step="1" value="500">

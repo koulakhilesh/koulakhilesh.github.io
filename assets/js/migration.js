@@ -10,11 +10,11 @@
   var canvas = stage.querySelector("canvas");
   var $ = function (id) { return document.getElementById(id); };
   var form = $("mig-form"), slider = $("mig-guess"), go = $("mig-go"), next = $("mig-next");
-  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)");
   var MAX = 300000, MIN = 500, KEY = "migration-best", PORTRAIT_BELOW = 600;
   // Which side of its site each date label sits on, so neighbouring labels don't collide.
   var SIDE = { levant: "sw", americas: "se" }, SIDE_PORTRAIT = { europe: "nw" };
-  var W = null, M = null, cur = 0, done = 0, phase = "load", guesses = [], scores = [], anim = 1;
+  var W = null, M = null, cur = 0, done = 0, phase = "load", guesses = [], scores = [], anim = 1, animId = 0;
   var ctx, base, cw = 0, ch = 0, k = 1, portrait = false;
 
   function ink(v, f) { var c = getComputedStyle(document.documentElement).getPropertyValue(v).trim(); return c || f; }
@@ -22,8 +22,11 @@
   function yearsAt(v) { return MAX * Math.pow(MIN / MAX, v / 1000); }
   function round2(y) { var p = Math.pow(10, Math.floor(Math.log(y) / Math.LN10) - 1); return Math.round(y / p) * p; }
   function guessNow() { return round2(yearsAt(+slider.value)); }
-  function range(s) { return fmt(s.lo) + "–" + fmt(s.hi) + " years ago"; }
-  function shortRange(s) { return s.hi >= 10000 ? s.lo / 1000 + "–" + s.hi / 1000 + "k" : fmt(s.lo) + "–" + fmt(s.hi); }
+  function range(s) { return fmt(s.lo) + "–" + fmt(s.hi) + " years ago" + (s.ce ? " (about " + s.ce[0] + "–" + s.ce[1] + " CE)" : ""); }
+  function shortRange(s) {
+    if (s.ce) return s.ce[0] + "–" + s.ce[1] + " CE";
+    return s.hi >= 10000 ? s.lo / 1000 + "–" + s.hi / 1000 + "k" : fmt(s.lo) + "–" + fmt(s.hi);
+  }
   function score(g, s) {
     if (g >= s.lo && g <= s.hi) return 100;
     var d = Math.abs(Math.log(g / (g > s.hi ? s.hi : s.lo))) / Math.log(5);
@@ -31,9 +34,15 @@
   }
   function verdict(g, s) {
     if (g >= s.lo && g <= s.hi) return "Inside the evidence range";
-    return g > s.hi ? (g / s.hi).toFixed(1) + "× too early" : (s.lo / g).toFixed(1) + "× too late";
+    var r = g > s.hi ? g / s.hi : s.lo / g;
+    return r.toFixed(r < 1.1 ? 2 : 1) + (g > s.hi ? "× too early" : "× too late");
   }
-  function store(v) { try { if (v === undefined) return +localStorage.getItem(KEY) || 0; localStorage.setItem(KEY, v); } catch (e) { return 0; } }
+  function store(v) {
+    try {
+      if (v === undefined) return Math.min(100, Math.max(0, +localStorage.getItem(KEY) || 0));
+      localStorage.setItem(KEY, v);
+    } catch (e) { return 0; }
+  }
 
   /* ---------------- drawing ---------------- */
   function pt(x, y) { return portrait ? [y * k, (W.w - x) * k] : [x * k, y * k]; }
@@ -66,6 +75,7 @@
     c.beginPath(); for (i = 0; i < W.grat.length; i++) trace(c, W.grat[i]); c.stroke();
     c.globalCompositeOperation = "source-over"; c.globalAlpha = 1;
     c.beginPath(); for (i = 0; i < W.land.length; i++) trace(c, W.land[i], true);
+    for (i = 0; i < (W.lakes || []).length; i++) trace(c, W.lakes[i], true);
     c.fillStyle = ink("--card", "#FBFAF5"); c.fill("evenodd");
     c.strokeStyle = ink("--line2", "rgba(23,20,16,.3)"); c.lineWidth = 0.5; c.stroke();
     c.font = "600 11px 'Libre Franklin', system-ui, sans-serif";
@@ -125,7 +135,7 @@
   }
   function draw() {
     if (!W || !M) return;
-    var inkC = ink("--ink", "#171410"), red = ink("--red", "#F24333"), i, s, p;
+    var inkC = ink("--ink", "#171410"), red = ink("--red", "#F24333"), redText = ink("--red-ink", "#BF2D1E"), i, s, p;
     ctx.clearRect(0, 0, cw, ch);
     ctx.drawImage(base, 0, 0, cw, ch);
     for (i = 0; i < done; i++) drawRoute(M.stops[i], 1, inkC, 1.4);
@@ -139,19 +149,20 @@
     if (phase === "ask" || phase === "reveal") {
       p = pt(s.xy[0], s.xy[1]);
       dot(p, phase === "ask" ? 9 : 4, phase === "ask" ? null : red, red, 1.8);
-      if (phase === "reveal" && anim >= 1) tag(p, shortRange(s), red, s.id);
+      if (phase === "reveal" && anim >= 1) tag(p, shortRange(s), redText, s.id);
     }
   }
   function play() {
-    if (reduce) { anim = 1; draw(); return; }
-    var t0 = null;
+    var id = ++animId, t0 = null;
+    if (reduce.matches) { anim = 1; draw(); return; }
     anim = 0;
     requestAnimationFrame(function step(now) {
+      if (id !== animId || phase !== "reveal") return;
       if (t0 === null) t0 = now;
       var t = Math.min(1, (now - t0) / 1100);
       anim = 1 - Math.pow(1 - t, 3);
       draw();
-      if (t < 1 && phase === "reveal") requestAnimationFrame(step);
+      if (t < 1) requestAnimationFrame(step);
     });
   }
 
@@ -191,7 +202,7 @@
     phase = "ask";
     $("mig-step").textContent = "Stop " + (cur + 1) + " of " + M.stops.length + " · " + s.name;
     $("mig-q").textContent = s.q;
-    form.hidden = false; slider.disabled = false; go.disabled = false;
+    form.hidden = false; slider.disabled = false; go.disabled = false; go.hidden = false;
     slider.value = 500; showValue();
     $("mig-result").hidden = true; $("mig-end").hidden = true;
     var wait = $("mig-wait"); wait.hidden = false;
@@ -205,7 +216,7 @@
     if (phase !== "ask") return;
     var s = M.stops[cur], g = guessNow(), sc = score(g, s);
     guesses[cur] = g; scores[cur] = sc;
-    phase = "reveal"; slider.disabled = true; go.disabled = true;
+    phase = "reveal"; slider.disabled = true; go.disabled = true; go.hidden = true;
     var rows = [["Your guess", "about " + fmt(g) + " years ago"],
                 ["Evidence", range(s) + (s.contested ? " (debated)" : "")],
                 ["Score", sc + " / 100"], ["Verdict", verdict(g, s)]];
@@ -220,10 +231,11 @@
     links($("mig-cite"), s.cite);
     next.textContent = cur < M.stops.length - 1 ? "Next stop" : "See your score";
     $("mig-wait").hidden = true; $("mig-result").hidden = false;
-    say(s.name + ": " + sc + " out of 100. The evidence says " + range(s) + ".");
-    play(); next.focus();
+    say(s.name + ": " + sc + " out of 100, " + verdict(g, s).toLowerCase() + ". The evidence says " + range(s) + ".");
+    play(); next.focus({ preventScroll: true });
   }
   function advance() {
+    if (phase !== "reveal") return;
     done = cur + 1;
     if (cur < M.stops.length - 1) { cur++; ask(); slider.focus(); }
     else finish();
@@ -246,7 +258,7 @@
     $("mig-best").textContent = "Your best: " + best + " / 100";
     $("mig-shared").textContent = "";
     $("mig-share").setAttribute("data-text", "When did we get here? " + total +
-      "/100 on Fuller's map. " + location.href.split("#")[0]);
+      "/100 on Fuller's map. " + location.origin + location.pathname);
     dots(); describe(); draw();
     say("Finished. You scored " + total + " out of 100.");
     $("mig-share").focus();
@@ -263,23 +275,36 @@
   function load(url) {
     return fetch(url).then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); });
   }
+  var lastW = 0, timer;
   Promise.all([load(stage.getAttribute("data-world")), load(stage.getAttribute("data-stops"))]).then(function (d) {
     W = d[0]; M = d[1];
+    var year = new Date().getFullYear();
+    // Recent stops are dated in CE, so "years ago" is worked out from today's date.
+    M.stops.forEach(function (s) { if (s.ce) { s.lo = year - s.ce[1]; s.hi = year - s.ce[0]; } });
+    lastW = stage.clientWidth;
     fit(); ask();
-  }, function () {
+  }).catch(function () {
     var p = document.createElement("p");
-    p.className = "lab-error"; p.textContent = "Couldn't load the map data.";
-    stage.insertBefore(p, canvas); canvas.setAttribute("aria-label", p.textContent);
-    $("mig-step").textContent = "";
+    p.className = "lab-error"; p.textContent = "Couldn't load the map data. Try reloading the page.";
+    stage.parentNode.insertBefore(p, stage); canvas.setAttribute("aria-label", p.textContent);
+    $("mig-step").textContent = ""; $("mig-q").textContent = ""; form.hidden = true;
+    say(p.textContent);
   });
 
   form.addEventListener("submit", reveal);
   slider.addEventListener("input", showValue);
-  slider.addEventListener("keydown", function (e) { if (e.key === "Enter") reveal(e); });
+  slider.addEventListener("keydown", function (e) {
+    if (e.key !== "Enter") return;
+    e.preventDefault();
+    if (!e.repeat) reveal();
+  });
+  // A held Enter must not run on through Lock in, Next stop and the next question.
+  [go, next].forEach(function (b) {
+    b.addEventListener("keydown", function (e) { if (e.key === "Enter" && e.repeat) e.preventDefault(); });
+  });
   next.addEventListener("click", advance);
   $("mig-again").addEventListener("click", restart);
   $("mig-share").addEventListener("click", share);
-  var lastW = 0, timer;
   window.addEventListener("resize", function () {
     clearTimeout(timer);
     timer = setTimeout(function () {
