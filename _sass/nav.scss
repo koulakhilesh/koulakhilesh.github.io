@@ -1,3 +1,6 @@
+.skip-link{position:fixed;top:8px;left:8px;z-index:100;transform:translateY(-150%);
+  padding:8px 12px;background:var(--bg);color:var(--ink);border:2px solid var(--accent)}
+.skip-link:focus{transform:translateY(0)}
 .site-nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(10px);
   background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid var(--line)}
 .nav-in{display:flex;align-items:center;gap:28px;height:66px}

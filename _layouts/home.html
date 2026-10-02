@@ -5,10 +5,10 @@ layout: default
 {%- assign lead = fp | first -%}
 <div class="wrap front">
   <header class="masthead">
-    <h1 class="masthead-name">{{ site.author.name }} · <span>Data, printed</span></h1>
-    <p class="masthead-issue">No. {{ fp.size }} · {{ site.time | date: "%-d %b %Y" }}</p>
+    <h1 class="masthead-name"><span>Data scientist · London</span></h1>
+    <p class="masthead-issue">{{ fp.size }} posts{% if lead %} · latest {{ lead.date | date: "%-d %b %Y" }}{% endif %}</p>
   </header>
-  <p class="masthead-intro">Data scientist. Code &amp; kilometers: I write about open data, mostly London, and build small tools to understand it.</p>
+  <p class="masthead-intro">I write about open data, mostly London, and build tools to understand it.</p>
 
   {% if lead %}{% assign lead_ink = lead.ink | default: "red" %}
   <section class="front-lead grid-12" aria-labelledby="front-lead-title">
@@ -26,27 +26,29 @@ layout: default
   </section>
   {% endif %}
 
-  {% if fp.size > 1 %}
-  <div class="front-label"><h2>Also in the notebook</h2><a href="{{ '/writing/' | relative_url }}">all writing →</a></div>
-  <div class="also">
-    {% for p in fp offset: 1 limit: 6 %}
-    <a class="also-item" href="{{ p.url | relative_url }}">
-      <div class="also-tile tint-{{ p.ink | default: 'red' }}">{% if p.glyph %}{% include glyph.html name=p.glyph %}{% endif %}</div>
-      <p class="kick mono">{% include kicker.html post=p %}</p>
-      <h3>{{ p.title }}</h3>
-      <p class="also-date mono">{{ p.date | date: "%-d %b %Y" }}</p>
-    </a>
-    {% endfor %}
-  </div>
+  {%- assign recent = fp[1] -%}
+  {% if recent %}
+  <section class="recent-writing" aria-labelledby="recent-writing-title">
+    <div class="front-label"><h2 id="recent-writing-title">Recent writing</h2><a href="{{ '/writing/' | relative_url }}">Browse archive →</a></div>
+    <div class="recent-writing-grid">
+      {% for p in fp offset: 1 limit: 4 %}{% include post-card.html post=p %}{% endfor %}
+    </div>
+  </section>
   {% endif %}
 
-  <div class="front-label"><h2>From the Lab</h2><a href="{{ '/lab/' | relative_url }}">the Lab →</a></div>
+  <div class="front-label"><h2>Lab experiments</h2><a href="{{ '/lab/' | relative_url }}">Explore the Lab →</a></div>
   <div class="labstrip grid-12">
     <a class="labstrip-main" href="{{ '/lab/migration/' | relative_url }}">
       <img src="{{ '/assets/social/lab-migration.png' | relative_url }}" alt="" width="1200" height="630" loading="lazy">
       <p class="kick mono">A game</p>
       <h3>When did we get here?</h3>
       <p>Follow our species out of Africa on Buckminster Fuller's world map, and guess when people first reached eight places.</p>
+    </a>
+    <div class="labstrip-side">
+    <a href="{{ '/lab/#parkrun-drop' | relative_url }}">
+      <p class="kick mono">With the parkrun posts</p>
+      <h3>Drop a parkrun</h3>
+      <p>Start a new event anywhere in London and count who it brings within 2 km.</p>
     </a>
     <a href="{{ '/lab/#tube-day' | relative_url }}">
       <p class="kick mono">With the Tube post</p>
@@ -58,13 +60,7 @@ layout: default
       <h3>Voronoi playground</h3>
       <p>London's blue plaques, and what no clustering looks like.</p>
     </a>
+    </div>
   </div>
 
-  <div class="front-label"><h2>Also here</h2></div>
-  <div class="rest">
-    {% assign front_series = fp | map: "series" | compact | uniq %}
-    {% if front_series.size > 0 %}<a href="{{ '/writing/' | relative_url }}"><b class="mono">Series</b>{{ front_series | join: " · " }}</a>{% endif %}
-    <a href="{{ '/making/' | relative_url }}"><b class="mono">Making</b>Things I build away from the keyboard.</a>
-    <div><b class="mono">Now</b>{% if site.now.size > 0 %}{{ site.now | join: " · " }}{% else %}Nothing to report right now.{% endif %}</div>
-  </div>
 </div>

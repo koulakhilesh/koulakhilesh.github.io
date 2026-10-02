@@ -21,7 +21,7 @@
         if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
       });
     },{rootMargin:'0px 0px -8% 0px',threshold:.08});
-    document.querySelectorAll('.section').forEach(function(el){io.observe(el);});
+    document.querySelectorAll('.section,.recent-writing').forEach(function(el){io.observe(el);});
   }
 
   /* Back-to-top */

@@ -1,6 +1,6 @@
 # Site
 title: "Akhilesh Koul"
-tagline: "Tech, tinkering & tales."
+tagline: "Open data, mostly London"
 description: "Akhilesh Koul, a data scientist and maker. Writing, lab experiments, and DIY."
 url: "https://koulakhilesh.github.io"
 baseurl: ""
@@ -52,13 +52,6 @@ defaults:
     values: { layout: "making" }
 
 # "Now" line on the homepage. Leave empty to show a placeholder.
-now:
-  - Working on an Agentic LifeOS
-  - Reading The Unbearable Lightness of Being
-#  - Working on a side project
-#  - Learning something new
-#  - Reading a good book
-
 plugins:
   - jekyll-feed
   - jekyll-seo-tag

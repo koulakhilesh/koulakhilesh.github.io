@@ -8,12 +8,12 @@
 .section{padding-top:56px;padding-bottom:64px;border-top:1px solid var(--line)}
 
 /* Scroll-reveal (only active once JS adds .reveal to <html>) */
-.reveal .section{opacity:0;transform:translateY(16px);
+.reveal .section,.reveal .recent-writing{opacity:0;transform:translateY(16px);
   transition:opacity .6s ease,transform .6s ease}
-.reveal .section.in{opacity:1;transform:none}
+.reveal .section.in,.reveal .recent-writing.in{opacity:1;transform:none}
 /* staggered children */
 .reveal .post,.reveal .shot{opacity:0;transform:translateY(14px)}
-.reveal .section.in .post,.reveal .section.in .shot{opacity:1;transform:none}
+.reveal .section.in .post,.reveal .section.in .shot,.reveal .recent-writing.in .post{opacity:1;transform:none}
 .reveal .section.in :is(.post,.shot):nth-child(2){transition-delay:.07s}
 .reveal .section.in :is(.post,.shot):nth-child(3){transition-delay:.14s}
 .reveal .section.in :is(.post,.shot):nth-child(4){transition-delay:.21s}
