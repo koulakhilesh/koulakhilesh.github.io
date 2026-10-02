@@ -7,6 +7,10 @@ glyph: plaques
 image: /assets/social/london-blue-plaques.png
 series: "London's blue plaques"
 series_part: 1
+ink: blue
+pull:
+  value: "69%"
+  label: "of London's blue plaques are in just three boroughs"
 tags: [Data Science, London, History, Plotly, Web Scraping]
 excerpt: "I scraped every English Heritage blue plaque in London to ask who gets remembered and where. The answer is a surprisingly tiny, surprisingly male, surprisingly literary corner of the map, and the shape of it says something uncomfortable."
 toc: true

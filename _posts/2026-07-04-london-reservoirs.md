@@ -7,6 +7,10 @@ glyph: reservoirs
 image: /assets/social/london-reservoirs.png
 series: "London's reservoirs"
 series_part: 1
+ink: blue
+pull:
+  value: "42%"
+  label: "the Lower Thames at its lowest, in 1996: the driest year in the record. 2022 comes fifth"
 tags: [Data Science, London, Open Data, Plotly, Water]
 excerpt: "37 years of daily reservoir readings, one chart at a time, and a small surprise hiding in the numbers everyone thinks they remember."
 toc: true

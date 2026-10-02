@@ -5,12 +5,19 @@ last_modified_at: 2026-09-26
 thumbnail: /assets/thumbs/tube.png
 glyph: tube-wave
 image: /assets/social/london-tube-crowding.png
+ink: red
+kicker: "London · Transport"
+dek: "TfL publishes a 'typical day' of passenger flow for every Tube station, in 15-minute slices. I pulled it for 269 stations and asked whether you can watch the crowd move."
+pull:
+  value: "316,602"
+  label: "flow units at Oxford Circus on a typical day, the busiest of 269 stations"
+lab:
+  url: /lab/#tube-day
+  label: "Try your station in the Lab"
 tags: [Data Science, London, Open Data, Plotly, Transport]
 excerpt: "TfL publishes a 'typical day' of passenger flow for every Tube station, in 15-minute slices. I pulled it for 269 stations and asked whether you can watch the crowd move. You can: the morning rush reaches the centre last, stations split cleanly into home and work, and on the Central line you can see a train fill up across east London and empty out in the City."
 toc: true
 ---
-
-<div class="glyph-hero">{% include glyph.html name="tube-wave" %}</div>
 
 TfL publishes something I didn't know existed until recently: a "typical day" of crowding for every Underground station, broken into 15-minute slices, for every line that stops there. It isn't live data, just a model of an ordinary day. It covers the whole network, though, and it comes with a second dataset that estimates how full each train is as it leaves each station.
 

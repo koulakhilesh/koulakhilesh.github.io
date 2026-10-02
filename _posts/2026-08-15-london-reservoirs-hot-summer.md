@@ -7,6 +7,11 @@ glyph: reservoirs-low
 image: /assets/social/london-reservoirs-hot-summer.png
 series: "London's reservoirs"
 series_part: 2
+ink: blue
+dek: "Six weeks after the first reservoir post I added June and July 2026, the start of what the Met Office says may be the UK's warmest summer on record. The Lower Thames is now at its lowest level for the date in 37 years, but the drawdown that got it there wasn't the fastest."
+pull:
+  value: "72%"
+  label: "the Lower Thames on 31 July 2026, its lowest for the date in 37 years"
 tags: [Data Science, London, Open Data, Plotly, Water]
 excerpt: "Six weeks after the first reservoir post I added June and July 2026, the start of what the Met Office says may be the UK's warmest summer on record. The Lower Thames is now at its lowest level for the date in 37 years, but the drawdown that got it there wasn't the fastest. A short, data-first follow-up."
 toc: true

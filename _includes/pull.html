@@ -1,0 +1,3 @@
+{%- if include.pull.value -%}
+<div class="pull pull--{{ include.ink | default: 'red' }}"><span class="pull-value">{{ include.pull.value }}</span><span class="pull-label">{{ include.pull.label }}</span></div>
+{%- endif -%}

@@ -1,9 +1,9 @@
 .post-single{padding:64px var(--gutter);max-width:720px}
-.post-single .post-meta{color:var(--c-action);letter-spacing:.14em;margin:0}
+.cover + .post-single{padding-top:2.4rem}
 .post-single .post-tags{margin:2.4rem 0 0}
 .prose img.avatar{width:132px;height:132px;border-radius:var(--r-round);object-fit:cover;border:1px solid var(--line);margin:0 0 22px}
-.post-title{font-family:var(--disp);font-weight:600;font-size:var(--fs-2xl);
-  margin:.6rem 0 1.4rem;padding-bottom:1.2rem;border-bottom:1px solid var(--line);letter-spacing:-.02em}
+.post-title{font-family:var(--disp);font-weight:700;font-size:var(--fs-4xl);line-height:1.02;
+  margin:0 0 1.1rem;letter-spacing:-.03em}
 .prose{font-family:var(--body);font-size:var(--fs-prose);line-height:1.75}
 .prose h2{font-family:var(--disp);margin-top:2rem}
 .prose h3{font-family:var(--serif)}
@@ -25,8 +25,7 @@
 .ai-disclaimer p{margin:0}
 .ai-disclaimer strong{color:var(--c-action)}
 
-/* Series — label under the title, prev/next at the end */
-.series-label{margin:-.6rem 0 1.6rem;color:var(--muted)}
+/* Series: label in the cover (styled with .kick in front.scss), prev/next at the end */
 .series-nav{display:flex;justify-content:space-between;gap:16px;margin:3rem 0 0;
   padding-top:20px;border-top:1px solid var(--line)}
 .series-nav a{max-width:47%;font-family:var(--disp);font-weight:500;color:var(--ink);transition:color .15s}

@@ -25,6 +25,8 @@
   --fs-2xs:.64rem; --fs-xs:.72rem; --fs-sm:.85rem; --fs-base:1rem; --fs-prose:1.06rem;
   --fs-lg:1.25rem; --fs-xl:1.75rem;
   --fs-2xl:clamp(2rem,4vw,2.75rem); --fs-3xl:clamp(2.4rem,5vw,3.25rem);
+  --fs-4xl:clamp(2.2rem,5.2vw,4.2rem);   /* cover and lead headlines */
+  --fs-num:clamp(2.6rem,6.2vw,4.6rem);   /* pull numbers */
   --blend:screen;            /* overprint mode for dark */
 
   /* type: three families only */

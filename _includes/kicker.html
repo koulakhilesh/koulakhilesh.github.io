@@ -1,0 +1,7 @@
+{%- assign kp = include.post -%}
+{%- if kp.series -%}
+{%- assign kp_parts = site.posts | where: "series", kp.series | where_exp: "p", "p.archived != true" -%}
+Part {{ kp.series_part }} of {{ kp_parts.size }} · {{ kp.series }}
+{%- elsif kp.archived -%}Archive
+{%- else -%}{{ kp.kicker | default: "Writing" }}
+{%- endif -%}

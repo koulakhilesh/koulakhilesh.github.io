@@ -7,12 +7,14 @@ glyph: gita-graph
 image: /assets/social/building-a-knowledge-graph-of-the-gita.png
 series: "The Gita"
 series_part: 2
+ink: yellow
+pull:
+  value: "5,314"
+  label: "nodes and 21,947 relationships, each traceable to a verse file"
 tags: [Data Science, NLP, Knowledge Graph, Neo4j, spaCy]
 excerpt: "The companion to the map: how 700 markdown verse files became a graph of 5,314 nodes and nearly 22,000 relationships, deterministically and rebuildably, with the English translation and the Sanskrit word meanings both wired in."
 toc: true
 ---
-
-<div class="glyph-hero">{% include glyph.html name="gita-graph" %}</div>
 
 [The shape of the Gita]({{ '/writing/the-shape-of-the-gita/' | relative_url }}) showed the pictures: a map of 700 verses, the regions the text falls into, the way its three voices each use different words. This post is the plumbing underneath those pictures. Before you can ask a text a statistical question you have to turn it into something a machine can hold, and I wanted that step to be honest: nothing appearing from nowhere, and the whole thing rebuildable from the source with one command.
 

@@ -7,12 +7,14 @@ glyph: gita-words
 image: /assets/social/the-words-the-gita-repeats.png
 series: "The Gita"
 series_part: 3
+ink: yellow
+pull:
+  value: "3,340"
+  label: "Sanskrit terms from the word-by-word glosses; 56% appear in exactly one verse"
 tags: [Data Science, NLP, Linguistics, Sanskrit, Plotly]
 excerpt: "The first two posts leaned on the English translation. This one counts the Sanskrit: 3,340 words from the word-by-word glosses, where they follow the same frequency laws as any language, and where the count quietly tells you what the text is actually about."
 toc: true
 ---
-
-<div class="glyph-hero">{% include glyph.html name="gita-words" %}</div>
 
 The [map]({{ '/writing/the-shape-of-the-gita/' | relative_url }}) and the [build]({{ '/writing/building-a-knowledge-graph-of-the-gita/' | relative_url }}) both leaned on the English translation, because that is what the embeddings are made from. But the graph also carries the other half of every verse: the word-by-word Sanskrit gloss, normalized into **3,340 Sanskrit terms**. This post does the least glamorous thing you can do to a vocabulary, which is count it, and finds that the counting says more than I expected.
 

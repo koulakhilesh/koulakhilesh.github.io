@@ -51,15 +51,10 @@ defaults:
   - scope: { path: "", type: "making" }
     values: { layout: "making" }
 
-# Homepage tuning
-home:
-  featured_posts: 3
-  featured_projects: 2
-  making_preview: 4
-
-# "// Now" card on the homepage. Leave empty to show a placeholder.
+# "Now" line on the homepage. Leave empty to show a placeholder.
 now:
   - Working on an Agentic LifeOS
+  - Reading The Unbearable Lightness of Being
 #  - Working on a side project
 #  - Learning something new
 #  - Reading a good book
