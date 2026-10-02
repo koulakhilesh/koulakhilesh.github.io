@@ -16,7 +16,7 @@ excerpt: "I turned all 700 verses of the Bhagavad Gita into a knowledge graph an
 toc: true
 ---
 
-The Bhagavad Gita is a conversation of about 700 verses, 18 chapters, one battlefield. I have been building a verse-by-verse digital edition of it as [The Gita Project]({{ '/projects/the-gita-project/' | relative_url }}), and once every verse had its Sanskrit, a transliteration, a word-by-word gloss, and an English translation, a different question started nagging at me. Not *what does it say*, which people have argued about for two thousand years, but a smaller and more answerable one: **what does the text look like when you map it?**
+The Bhagavad Gita is a conversation of about 700 verses, 18 chapters, one battlefield. I have been building a verse-by-verse digital edition of it as [The Gita Project]({{ '/writing/series/the-gita/' | relative_url }}), and once every verse had its Sanskrit, a transliteration, a word-by-word gloss, and an English translation, a different question started nagging at me. Not *what does it say*, which people have argued about for two thousand years, but a smaller and more answerable one: **what does the text look like when you map it?**
 
 So I loaded all of it into a graph database, gave every verse a numeric fingerprint, and let a few standard algorithms draw the picture. This post is what came back. None of it settles a single theological argument. But the data does say some concrete things, and one of them, about how the three speakers talk, surprised me.
 

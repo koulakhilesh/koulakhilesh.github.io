@@ -13,6 +13,9 @@ dek: "Five side questions about London's 65 parkruns: which came first, what the
 pull:
   value: "594,406"
   label: "more Londoners within 2 km of a parkrun if five well-placed new events opened"
+lab:
+  url: /lab/#parkrun-drop
+  label: "Drop your own parkrun in the Lab"
 tags: [Data Science, London, Open Data, Plotly, Running]
 excerpt: "In the 10 London parkruns I could date, event IDs follow launch order. 29 of the 65 have one-word names, Stockley Country is 6.2 km from its nearest neighbour, one parkrun per letter makes an 88.3 km route, and five well-placed new events would bring 594,406 more people within 2 km of one."
 toc: true
@@ -102,6 +105,8 @@ Together that is **594,406** people, or 14.5% of the 4,100,786 who live more tha
 The boroughs connect back to the first post. Westminster and Kensington and Chelsea have no parkrun at all, and Newham, Hackney and Brent have one each. All five also appeared in the first post's list of boroughs with the most people in low-car neighbourhoods more than 2 km away: Westminster, Hackney, Newham and Brent in the top five, Kensington and Chelsea seventh. That's less of a coincidence than it sounds. A ranking by people reached tends to favour dense inner boroughs, and the same density is what made those boroughs show up before.
 
 I wouldn't read this as a list of where parkruns should open. It counts heads and nothing else. Paddington Recreation Ground is a sports ground with a running track and pitches, and parkrun can't just be dropped into one of those. A 5k in a 10-hectare park means several laps. Every one of these sites has a landowner who would have to agree, and parkrun needs a team of volunteers every Saturday. The map shows where the gaps are widest. Whether a course fits is a question for people who know the parks.
+
+*Try it: [drop your own parkrun on the map in the Lab →]({{ '/lab/#parkrun-drop' | relative_url }})*
 
 ## What I'd do next
 

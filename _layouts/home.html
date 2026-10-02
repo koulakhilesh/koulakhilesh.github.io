@@ -62,8 +62,8 @@ layout: default
 
   <div class="front-label"><h2>Also here</h2></div>
   <div class="rest">
-    {% assign proj = site.projects | first %}
-    {% if proj %}<a href="{{ proj.url | relative_url }}"><b class="mono">Projects</b>{{ proj.title }}: {{ proj.summary }}</a>{% endif %}
+    {% assign front_series = fp | map: "series" | compact | uniq %}
+    {% if front_series.size > 0 %}<a href="{{ '/writing/' | relative_url }}"><b class="mono">Series</b>{{ front_series | join: " · " }}</a>{% endif %}
     <a href="{{ '/making/' | relative_url }}"><b class="mono">Making</b>Things I build away from the keyboard.</a>
     <div><b class="mono">Now</b>{% if site.now.size > 0 %}{{ site.now | join: " · " }}{% else %}Nothing to report right now.{% endif %}</div>
   </div>

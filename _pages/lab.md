@@ -4,7 +4,7 @@ permalink: /lab/
 title: Lab
 ---
 
-<p class="lab-lede">Half notebook, half playground: small things I build to understand an idea by making it move. The first two cards are companions to posts, so you can ask the data your own question. Below them are a clustering algorithm you can watch settle and a puzzle that changes daily. <em>Psst:</em> type <code>life</code>, <code>langton</code> or <code>turing</code> anywhere on the site, or try the Konami code.</p>
+<p class="lab-lede">Half notebook, half playground: small things I build to understand an idea by making it move. The first three cards are companions to posts, so you can ask the data your own question. Below them is a puzzle that changes daily. <em>Psst:</em> type <code>life</code>, <code>langton</code> or <code>turing</code> anywhere on the site, or try the Konami code.</p>
 
 <div class="lab-feature-wrap">
 <a class="lab-feature" href="{{ '/lab/migration/' | relative_url }}">
@@ -58,18 +58,21 @@ title: Lab
     <p class="lab-related"><a href="{{ '/writing/the-geometry-of-londons-blue-plaques/' | relative_url }}">Related: The geometry of London's blue plaques →</a></p>
   </section>
 
-  <section class="lab-card lab-card--wide">
+  <section class="lab-card lab-card--wide lab-card--companion" id="parkrun-drop">
     <div class="lab-head">
-      <h2>k-means clustering</h2>
-      <div class="lab-controls" id="kmeans-controls">
-        <button data-act="new">New points</button>
-        <button data-act="step">Step</button>
-        <button data-act="run">Run</button>
+      <h2>Drop a parkrun</h2>
+      <div class="lab-controls" id="parkrun-controls">
+        <button type="button" data-act="best">Best spot</button>
+        <button type="button" data-act="picks">The post's five</button>
+        <button type="button" data-act="reset">Reset</button>
       </div>
     </div>
-    <div class="lab-stage" id="lab-kmeans"><canvas></canvas></div>
-    <p class="lab-note">Points snap to the nearest centroid; centroids drift to the mean. Watch it settle.</p>
-    <p class="lab-related"><a href="{{ '/writing/the-geometry-of-londons-blue-plaques/' | relative_url }}">Related: The geometry of London's blue plaques →</a></p>
+    <div class="lab-stage lab-stage--chart" id="lab-parkrun" data-src="{{ '/assets/lab/parkrun-lab.json' | relative_url }}"><canvas tabindex="0" role="img" aria-label="Loading parkrun data" aria-describedby="parkrun-note"></canvas></div>
+    <p class="lab-hover" id="parkrun-hover">&nbsp;</p>
+    <dl class="lab-readout" id="parkrun-readout" aria-live="polite"></dl>
+    <p class="lab-note" id="parkrun-note">Yellow dots are neighbourhoods more than 2 km (in a straight line) from a parkrun; blue dots are London's 65 events. Click the map to start a parkrun and see how many Londoners it brings within 2 km. Best spot (or Enter on the focused map) tries every neighbourhood centre, not just parks, so it can beat the post's park-only picks, but it has no idea whether a 5k course would fit.</p>
+    <p class="lab-source">parkrun events feed; ONS Census 2021 population by neighbourhood (LSOA); London Datastore boundaries. Contains National Statistics data and OS data © Crown copyright and database right.</p>
+    <p class="lab-related"><a href="{{ '/writing/london-parkrun-shape/' | relative_url }}">Related: Which parkrun came first, and can you run the alphabet? →</a></p>
   </section>
 
   <section class="lab-card lab-card--wide">

@@ -2,14 +2,13 @@
    Lab (loaded only on /lab/)
    • Your station's day: Tube flow for any station (tube-day.json)
    • Voronoi playground: London's blue plaques (plaques.json)
-   • k-means clustering you can run or step through
+   • Drop a parkrun: new events vs Londoners over 2 km away (parkrun-lab.json)
    • Puzzle of the day: a date-seeded probability question
-   Dependency-free. With reduced motion, k-means jumps to the result.
+   Dependency-free.
    ============================================================ */
 (function () {
   "use strict";
   function ink(v, f) { var c = getComputedStyle(document.documentElement).getPropertyValue(v).trim(); return c || f; }
-  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function hexRgb(h, f) {
     h = (h || "").replace("#", "");
@@ -433,29 +432,161 @@
     whenNear(stage, function () { loadJSON(stage, setup); });
   }
 
-  /* ---------------- k-means clustering ---------------- */
-  function initKmeans() {
-    var stage = document.getElementById("lab-kmeans"); if (!stage) return;
-    var canvas = stage.querySelector("canvas"), ctx = canvas.getContext("2d");
-    var controls = document.getElementById("kmeans-controls");
-    var runBtn = controls && controls.querySelector('[data-act="run"]');
-    var dpr = Math.min(window.devicePixelRatio || 1, 2), W, H = 260, K = 3, pts = [], cents = [], timer = null;
-    var inks = [ink("--blue", "#5B90F5"), ink("--red", "#F24333"), ink("--yellow", "#FFC21A")];
-    function fit() { W = stage.clientWidth; canvas.style.width = W + "px"; canvas.style.height = H + "px"; canvas.width = W * dpr; canvas.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
-    function seed() { stop(); pts = []; for (var c = 0; c < K; c++) { var cx = Math.random() * W * 0.7 + W * 0.15, cy = Math.random() * H * 0.7 + H * 0.15; for (var i = 0; i < 36; i++) pts.push({ x: cx + (Math.random() - 0.5) * 90, y: cy + (Math.random() - 0.5) * 90, c: -1 }); } cents = []; for (var k = 0; k < K; k++) cents.push({ x: Math.random() * W, y: Math.random() * H }); draw(); }
-    function step() { var changed = false, i, k; for (i = 0; i < pts.length; i++) { var best = 0, bd = 1e9; for (k = 0; k < K; k++) { var dx = pts[i].x - cents[k].x, dy = pts[i].y - cents[k].y, d = dx * dx + dy * dy; if (d < bd) { bd = d; best = k; } } if (pts[i].c !== best) { changed = true; pts[i].c = best; } } for (k = 0; k < K; k++) { var sx = 0, sy = 0, n = 0; for (i = 0; i < pts.length; i++) if (pts[i].c === k) { sx += pts[i].x; sy += pts[i].y; n++; } if (n) { cents[k].x = sx / n; cents[k].y = sy / n; } } draw(); return changed; }
-    function run() {
-      stop();
-      if (reduce) { for (var n = 0; n < 100 && step(); n++) {} return; }
-      timer = setInterval(function () { if (!step()) stop(); }, 550);
-      if (runBtn) runBtn.classList.add("on");
+  /* ---------------- Drop a parkrun (London parkrun) ---------------- */
+  function initParkrun() {
+    var stage = document.getElementById("lab-parkrun"); if (!stage) return;
+    var canvas = stage.querySelector("canvas"), controls = document.getElementById("parkrun-controls");
+    var readout = document.getElementById("parkrun-readout"), hover = document.getElementById("parkrun-hover");
+    var D = null, R = 2000, base = null, dist = null, drops = [], total = 0, farBase = 0, ctx, W, H, box, scale, resizeT;
+
+    function setup(data) {
+      D = data; R = D.radius_m;
+      var L = D.lsoa, E = D.events, n = L.x.length;
+      base = new Float64Array(n);
+      for (var i = 0; i < n; i++) {
+        var bd = Infinity;
+        for (var j = 0; j < E.x.length; j++) bd = Math.min(bd, Math.hypot(L.x[i] - E.x[j], L.y[i] - E.y[j]));
+        base[i] = bd; total += L.p[i];
+        if (bd > R) farBase += L.p[i];
+      }
+      fit(); reset();
     }
-    function stop() { if (timer) { clearInterval(timer); timer = null; } if (runBtn) runBtn.classList.remove("on"); }
-    function draw() { ctx.clearRect(0, 0, W, H); var i, k; for (i = 0; i < pts.length; i++) { ctx.fillStyle = pts[i].c < 0 ? ink("--muted", "#888") : inks[pts[i].c % 3]; ctx.globalAlpha = 0.8; ctx.beginPath(); ctx.arc(pts[i].x, pts[i].y, 3.4, 0, 7); ctx.fill(); } ctx.globalAlpha = 1; for (k = 0; k < K; k++) { ctx.fillStyle = inks[k % 3]; ctx.strokeStyle = ink("--ink", "#fff"); ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(cents[k].x, cents[k].y, 8, 0, 7); ctx.fill(); ctx.stroke(); } }
-    if (controls) controls.addEventListener("click", function (e) { var b = e.target.closest("button"); if (!b) return; if (b.dataset.act === "new") seed(); else if (b.dataset.act === "step") step(); else if (b.dataset.act === "run") run(); });
-    window.addEventListener("resize", function () { fit(); draw(); });
-    fit(); seed();
-    if (reduce) run();
+    function reset() { dist = Float64Array.from(base); drops = []; update(); }
+    function farNow() {
+      var s = 0;
+      for (var i = 0; i < dist.length; i++) if (dist[i] > R) s += D.lsoa.p[i];
+      return s;
+    }
+    function addDrop(x, y, name) {
+      var L = D.lsoa, gain = 0;
+      for (var i = 0; i < dist.length; i++) {
+        var d = Math.hypot(L.x[i] - x, L.y[i] - y);
+        if (d <= R && dist[i] > R) gain += L.p[i];
+        if (d < dist[i]) dist[i] = d;
+      }
+      drops.push({ x: Math.round(x), y: Math.round(y), gain: gain, name: name || "" });
+      update();
+    }
+    // Greedy step over every neighbourhood centre (Post 2 searched parks only).
+    function bestSpot() {
+      var L = D.lsoa, far = [], best = -1, bg = 0, i, k;
+      for (i = 0; i < dist.length; i++) if (dist[i] > R) far.push(i);
+      for (i = 0; i < L.x.length; i++) {
+        var g = 0;
+        for (k = 0; k < far.length; k++) {
+          var f = far[k], dx = L.x[f] - L.x[i], dy = L.y[f] - L.y[i];
+          if (dx * dx + dy * dy <= R * R) g += L.p[f];
+        }
+        if (g > bg) { bg = g; best = i; }
+      }
+      if (best >= 0) addDrop(L.x[best], L.y[best], "best neighbourhood centre");
+    }
+    function playPicks() {
+      reset();
+      var P = D.picks;
+      for (var i = 0; i < P.x.length; i++) addDrop(P.x[i], P.y[i], P.n[i]);
+    }
+
+    function update() { describe(); draw(); }
+    function describe() {
+      var far = farNow(), added = farBase - far, last = drops[drops.length - 1];
+      var rows = [
+        ["Over 2 km today", fmtInt(farBase) + " Londoners (" + (100 * farBase / total).toFixed(1) + "%)"],
+        ["Over 2 km now", fmtInt(far) + " (" + (100 * far / total).toFixed(1) + "%)"],
+        ["Your new parkruns", drops.length ? drops.length + ", bringing " + fmtInt(added) + " people within 2 km" : "none yet"]
+      ];
+      if (last) rows.push(["Latest", "+" + fmtInt(last.gain) + (last.name ? " · " + last.name : "")]);
+      readout.textContent = "";
+      rows.forEach(function (r) {
+        var dt = document.createElement("dt"), dd = document.createElement("dd");
+        dt.textContent = r[0]; dd.textContent = r[1];
+        readout.appendChild(dt); readout.appendChild(dd);
+      });
+      canvas.setAttribute("aria-label", "Map of London's 65 parkruns. " + fmtInt(far) + " Londoners live more than 2 km from one" +
+        (drops.length ? " after your " + drops.length + " new parkrun" + (drops.length > 1 ? "s" : "") : "") + ".");
+    }
+
+    function fit() {
+      var xs = [], ys = [];
+      D.outline.forEach(function (ring) { ring.forEach(function (p) { xs.push(p[0]); ys.push(p[1]); }); });
+      var M = 1000, b = { x0: Math.min.apply(null, xs) - M, x1: Math.max.apply(null, xs) + M,
+                          y0: Math.min.apply(null, ys) - M, y1: Math.max.apply(null, ys) + M };
+      W = stage.clientWidth;
+      var bw = b.x1 - b.x0, bh = b.y1 - b.y0;
+      H = Math.max(260, Math.min(620, Math.round(W * bh / bw)));
+      var wantW = Math.max(bw, bh * W / H), wantH = wantW * H / W, cx = (b.x0 + b.x1) / 2, cy = (b.y0 + b.y1) / 2;
+      box = { x0: cx - wantW / 2, x1: cx + wantW / 2, y0: cy - wantH / 2, y1: cy + wantH / 2 };
+      scale = W / wantW;
+      ctx = sizeCanvas(canvas, W, H);
+    }
+    function sx(x) { return (x - box.x0) * scale; }
+    function sy(y) { return (box.y1 - y) * scale; }
+
+    function draw() {
+      var L = D.lsoa, E = D.events, i;
+      var inkC = ink("--ink", "#171410"), red = ink("--red", "#F24333"), blue = ink("--blue", "#1c5fb0");
+      ctx.clearRect(0, 0, W, H);
+      ctx.fillStyle = ink("--bg2", "#eee"); ctx.strokeStyle = ink("--line2", "#999"); ctx.lineWidth = 1;
+      D.outline.forEach(function (ring) {
+        ctx.beginPath();
+        ring.forEach(function (p, k) { if (k) ctx.lineTo(sx(p[0]), sy(p[1])); else ctx.moveTo(sx(p[0]), sy(p[1])); });
+        ctx.closePath(); ctx.fill(); ctx.stroke();
+      });
+      var yellow = ink("--yellow", "#FFC21A"), muted = ink("--muted", "#686157");
+      for (i = 0; i < L.x.length; i++) {
+        var far = dist[i] > R;
+        ctx.globalAlpha = far ? 0.95 : 0.3; ctx.fillStyle = far ? yellow : muted;
+        ctx.fillRect(sx(L.x[i]) - 1.2, sy(L.y[i]) - 1.2, 2.4, 2.4);
+      }
+      ctx.globalAlpha = 1;
+      drops.forEach(function (d) {
+        ctx.beginPath(); ctx.arc(sx(d.x), sy(d.y), R * scale, 0, 7);
+        ctx.globalAlpha = 0.1; ctx.fillStyle = red; ctx.fill();
+        ctx.globalAlpha = 0.8; ctx.strokeStyle = red; ctx.setLineDash([4, 3]); ctx.stroke(); ctx.setLineDash([]);
+      });
+      ctx.globalAlpha = 1; ctx.fillStyle = blue;
+      for (i = 0; i < E.x.length; i++) { ctx.beginPath(); ctx.arc(sx(E.x[i]), sy(E.y[i]), 3.2, 0, 7); ctx.fill(); }
+      ctx.font = "11px 'JetBrains Mono', monospace"; ctx.textAlign = "left";
+      drops.forEach(function (d, k) {
+        ctx.fillStyle = red; ctx.fillRect(sx(d.x) - 4, sy(d.y) - 4, 8, 8);
+        ctx.fillStyle = inkC; ctx.fillText(String(k + 1), sx(d.x) + 6, sy(d.y) - 6);
+      });
+      var len = 5000;
+      ctx.fillStyle = ink("--card", "#fbf9f4"); ctx.fillRect(6, H - 34, len * scale + 12, 28);
+      ctx.fillStyle = inkC; ctx.fillRect(12, H - 14, len * scale, 2);
+      ctx.fillText("5 km", 12, H - 20);
+    }
+
+    function toWorld(e) {
+      var rc = canvas.getBoundingClientRect();
+      return [box.x0 + (e.clientX - rc.left) / scale, box.y1 - (e.clientY - rc.top) / scale];
+    }
+    controls.addEventListener("click", function (e) {
+      var b = e.target.closest("button"); if (!b || !D) return;
+      var act = b.getAttribute("data-act");
+      if (act === "best") bestSpot();
+      else if (act === "picks") playPicks();
+      else if (act === "reset") reset();
+    });
+    canvas.addEventListener("click", function (e) { if (D) { var w = toWorld(e); addDrop(w[0], w[1], ""); } });
+    canvas.addEventListener("keydown", function (e) {
+      if (!D || (e.key !== "Enter" && e.key !== " ")) return;
+      e.preventDefault(); bestSpot();
+    });
+    canvas.addEventListener("pointermove", function (e) {
+      if (!D) return;
+      var w = toWorld(e), E = D.events, who = "", bd = Infinity, i;
+      for (i = 0; i < E.x.length; i++) { var d = Math.hypot(E.x[i] - w[0], E.y[i] - w[1]); if (d < bd) { bd = d; who = E.n[i]; } }
+      drops.forEach(function (p, k) { var d = Math.hypot(p.x - w[0], p.y - w[1]); if (d < bd) { bd = d; who = "your parkrun " + (k + 1); } });
+      hover.textContent = "Nearest parkrun: " + who + " · " + (bd / 1000).toFixed(1) + " km in a straight line";
+    });
+    canvas.addEventListener("pointerleave", function () { hover.textContent = "\u00a0"; });
+    window.addEventListener("resize", function () {
+      clearTimeout(resizeT);
+      resizeT = setTimeout(function () { if (D && stage.clientWidth !== W) { fit(); draw(); } }, 150);
+    });
+    onTheme(function () { if (D) draw(); });
+    whenNear(stage, function () { loadJSON(stage, setup); });
   }
 
   /* ---------------- Puzzle of the day (date-seeded) ---------------- */
@@ -504,5 +635,5 @@
     input.addEventListener("keydown", function (e) { if (e.key === "Enter") reveal(); });
   }
 
-  initTube(); initVoronoi(); initKmeans(); initDaily();
+  initTube(); initVoronoi(); initParkrun(); initDaily();
 })();

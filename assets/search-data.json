@@ -7,8 +7,8 @@ layout: null
 {{ sep }}{"title":{{ p.title | jsonify }},"url":{{ p.url | relative_url | jsonify }},"type":"Writing","summary":{{ p.excerpt | strip_html | strip_newlines | truncate: 140 | jsonify }}}
 {%- assign sep = "," -%}
 {% endfor -%}
-{% for pr in site.projects -%}
-{{ sep }}{"title":{{ pr.title | jsonify }},"url":{{ pr.url | relative_url | jsonify }},"type":"Project","summary":{{ pr.summary | default: "" | strip_html | strip_newlines | truncate: 140 | jsonify }}}
+{% for sr in site.series -%}
+{{ sep }}{"title":{{ sr.title | jsonify }},"url":{{ sr.url | relative_url | jsonify }},"type":"Series","summary":{{ sr.summary | default: "" | strip_html | strip_newlines | truncate: 140 | jsonify }}}
 {%- assign sep = "," -%}
 {% endfor -%}
 {% for m in site.making -%}

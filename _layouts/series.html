@@ -1,0 +1,22 @@
+---
+layout: default
+---
+{%- assign parts = site.posts | where: "series", page.title | where_exp: "p", "p.archived != true" | sort: "series_part" -%}
+{%- assign ink = page.ink | default: "red" -%}
+{%- assign body = content | strip -%}
+<header class="cover tint-{{ ink }}">
+  <div class="wrap cover-in grid-12">
+    <div class="cover-text">
+      <p class="kick mono">Series · {{ parts.size }} {% if parts.size == 1 %}part{% else %}parts{% endif %}</p>
+      <h1 class="post-title">{{ page.title }}</h1>
+      <p class="dek">{{ page.summary }}</p>
+    </div>
+    {% if page.glyph %}<div class="cover-art">{% include glyph.html name=page.glyph %}</div>{% endif %}
+  </div>
+</header>
+<section class="wrap section series-hub">
+  {% if body != "" %}<div class="prose series-intro">{{ content }}</div>{% endif %}
+  <div class="posts">{% for p in parts %}{% include post-card.html post=p %}{% endfor %}</div>
+  {% if page.code %}<p class="series-code mono"><a href="{{ page.code }}">Code and notebooks on GitHub ↗</a></p>{% endif %}
+  <p class="post-back"><a href="{{ '/writing/' | relative_url }}">← all writing</a></p>
+</section>

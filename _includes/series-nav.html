@@ -1,6 +1,7 @@
 {%- assign sn_posts = site.posts | where: "series", page.series | sort: "series_part" -%}
 {%- if include.mode == "label" -%}
-<p class="series-label mono">Part {{ page.series_part }} of {{ sn_posts.size }} · {{ page.series }}</p>
+{%- assign sn_hub = site.series | where: "title", page.series | first -%}
+<p class="series-label mono">Part {{ page.series_part }} of {{ sn_posts.size }} · {% if sn_hub %}<a href="{{ sn_hub.url | relative_url }}">{{ page.series }}</a>{% else %}{{ page.series }}{% endif %}</p>
 {%- else -%}
 {%- assign sn_prev = nil -%}{%- assign sn_next = nil -%}
 {%- assign sn_want_prev = page.series_part | minus: 1 -%}
