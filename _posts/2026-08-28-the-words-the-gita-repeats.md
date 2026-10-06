@@ -1,6 +1,6 @@
 ---
 title: "The words the Gita repeats: counting its Sanskrit vocabulary"
-date: 2026-08-28
+date: 2026-08-28 08:00:00
 last_modified_at: 2026-08-28
 thumbnail: /assets/thumbs/gita.svg
 glyph: gita-words

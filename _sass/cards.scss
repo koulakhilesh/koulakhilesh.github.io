@@ -13,7 +13,9 @@
   margin:0 0 6px;letter-spacing:-.01em;transition:color .15s}
 .post-excerpt{color:var(--muted);font-size:var(--fs-sm);margin:0}
 .post-tags{margin:10px 0 0;display:flex;flex-wrap:wrap;gap:4px 12px}
-.tag{font-family:var(--mono);font-size:var(--fs-2xs);letter-spacing:.06em;color:var(--c-link)}
+.tag{font-family:var(--mono);font-size:var(--fs-2xs);letter-spacing:.06em;color:var(--muted)}
+button.tag{background:none;border:0;padding:4px 0;cursor:pointer;color:var(--c-link)}
+button.tag:hover{text-decoration:underline;text-underline-offset:3px}
 
 /* Writing index — intro, series strip, year headings */
 .writing-intro{margin:-16px 0 36px;color:var(--muted);max-width:60ch}
@@ -34,6 +36,10 @@
 .series-strip ol a:hover{color:var(--c-link)}
 .year{font-family:var(--mono);font-size:var(--fs-xs);font-weight:500;letter-spacing:.16em;
   color:var(--muted);margin:36px 0 4px;padding-bottom:8px;border-bottom:1px solid var(--line2)}
+.archive-list{margin-top:3rem}
+.archive-list > summary{cursor:pointer;text-transform:uppercase}
+.archive-list > summary:hover{color:var(--ink)}
+.archive-list-note{margin:12px 0 0;color:var(--muted);font-size:var(--fs-sm)}
 
 /* Data glyphs — see _includes/glyph.html for the pattern rules */
 .glyph{display:block;overflow:visible}

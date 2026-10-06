@@ -4,7 +4,7 @@ layout: null
 {% assign sep = "" -%}
 [
 {% for p in site.posts -%}
-{{ sep }}{"title":{{ p.title | jsonify }},"url":{{ p.url | relative_url | jsonify }},"type":"Writing","summary":{{ p.excerpt | strip_html | strip_newlines | truncate: 140 | jsonify }}}
+{{ sep }}{"title":{{ p.title | jsonify }},"url":{{ p.url | relative_url | jsonify }},"type":"Writing","summary":{{ p.excerpt | strip_html | strip_newlines | truncate: 140 | jsonify }},"tags":{{ p.tags | jsonify }}}
 {%- assign sep = "," -%}
 {% endfor -%}
 {% for sr in site.series -%}
@@ -15,6 +15,11 @@ layout: null
 {{ sep }}{"title":{{ m.title | jsonify }},"url":{{ m.url | relative_url | jsonify }},"type":"Making","summary":{{ m.summary | default: m.excerpt | default: "" | strip_html | strip_newlines | truncate: 140 | jsonify }}}
 {%- assign sep = "," -%}
 {% endfor -%}
-{{ sep }}{"title":"About","url":{{ "/about/" | relative_url | jsonify }},"type":"Page","summary":"About Akhilesh Koul, data scientist, maker, runner."}
-,{"title":"Contact","url":{{ "/contact/" | relative_url | jsonify }},"type":"Page","summary":"Get in touch."}
+{{ sep }}{"title":"Lab","url":{{ "/lab/" | relative_url | jsonify }},"type":"Lab","summary":"Small interactive tools built alongside the posts, plus a daily probability puzzle."}
+,{"title":"When did we get here?","url":{{ "/lab/migration/" | relative_url | jsonify }},"type":"Lab","summary":"A game: follow our species out of Africa on Buckminster Fuller's world map and guess when people first reached eight places."}
+,{"title":"Your station's day","url":{{ "/lab/#tube-day" | relative_url | jsonify }},"type":"Lab","summary":"Tube flow for any London Underground station through a typical day."}
+,{"title":"Voronoi playground","url":{{ "/lab/#plaque-voronoi" | relative_url | jsonify }},"type":"Lab","summary":"London's blue plaques as a Voronoi map, and what no clustering looks like."}
+,{"title":"Drop a parkrun","url":{{ "/lab/#parkrun-drop" | relative_url | jsonify }},"type":"Lab","summary":"Start a new parkrun anywhere in London and count who it brings within 2 km."}
+,{"title":"About","url":{{ "/about/" | relative_url | jsonify }},"type":"Page","summary":"About Akhilesh Koul, data scientist, maker, runner."}
+,{"title":"Contact","url":{{ "/about/#contact" | relative_url | jsonify }},"type":"Page","summary":"Get in touch."}
 ]

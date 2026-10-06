@@ -5,7 +5,7 @@ layout: default
 {%- assign lead = fp | first -%}
 <div class="wrap front">
   <header class="masthead">
-    <h1 class="masthead-name"><span>Data scientist · London</span></h1>
+    <h1 class="masthead-name"><span class="sr-only">Akhilesh Koul, </span><span>Data scientist · London</span></h1>
     <p class="masthead-issue">{{ fp.size }} posts{% if lead %} · latest {{ lead.date | date: "%-d %b %Y" }}{% endif %}</p>
   </header>
   <p class="masthead-intro">I write about open data, mostly London, and build tools to understand it.</p>
@@ -29,9 +29,9 @@ layout: default
   {%- assign recent = fp[1] -%}
   {% if recent %}
   <section class="recent-writing" aria-labelledby="recent-writing-title">
-    <div class="front-label"><h2 id="recent-writing-title">Recent writing</h2><a href="{{ '/writing/' | relative_url }}">Browse archive →</a></div>
+    <div class="front-label"><h2 id="recent-writing-title">Recent writing</h2><a href="{{ '/writing/' | relative_url }}">All writing →</a></div>
     <div class="recent-writing-grid">
-      {% for p in fp offset: 1 limit: 4 %}{% include post-card.html post=p %}{% endfor %}
+      {% for p in fp offset: 1 limit: 4 %}{% include post-card.html post=p hide_tags=true %}{% endfor %}
     </div>
   </section>
   {% endif %}
@@ -53,14 +53,20 @@ layout: default
     <a href="{{ '/lab/#tube-day' | relative_url }}">
       <p class="kick mono">With the Tube post</p>
       <h3>Your station's day</h3>
-      <p>Tube flow for any of 267 stations, through a typical day.</p>
+      <p>Tube flow for any station, through a typical day.</p>
     </a>
     <a href="{{ '/lab/#plaque-voronoi' | relative_url }}">
-      <p class="kick mono">With the plaques posts</p>
+      <p class="kick mono">From the blue plaques series</p>
       <h3>Voronoi playground</h3>
       <p>London's blue plaques, and what no clustering looks like.</p>
     </a>
     </div>
   </div>
+
+  {%- assign mk_latest = site.making | sort: "date" | last -%}
+  {% if mk_latest %}
+  <div class="front-label"><h2>Making</h2><a href="{{ '/making/' | relative_url }}">See all →</a></div>
+  <p class="making-strip">Builds and creative work, away from the data. Latest: <a href="{{ mk_latest.url | relative_url }}">{{ mk_latest.title }}</a>.</p>
+  {% endif %}
 
 </div>

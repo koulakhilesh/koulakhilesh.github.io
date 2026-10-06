@@ -56,7 +56,8 @@
 .recent-writing-grid .post .glyph,.recent-writing-grid .post-thumb{width:64px;height:64px;padding:6px}
 
 /* From the Lab */
-.labstrip-side{grid-column:span 6;display:grid;gap:var(--gap);align-content:start}
+.front{padding-bottom:4rem}
+.labstrip-side{grid-column:span 6;display:grid;gap:var(--gap);grid-auto-rows:1fr}
 .labstrip > .labstrip-main{grid-column:span 6}
 .labstrip a{display:block;color:var(--ink);border:1px solid var(--line2);padding:14px;background:var(--card)}
 .labstrip a:hover{border-color:var(--ink)}
@@ -64,6 +65,9 @@
 .labstrip .kick{margin:0 0 .4rem}
 .labstrip h3{font-family:var(--disp);font-weight:600;font-size:var(--fs-base);margin:0 0 .3rem}
 .labstrip p:not(.kick){font-size:var(--fs-sm);color:var(--muted);margin:0}
+
+.making-strip{font-family:var(--serif);font-size:var(--fs-base);color:var(--muted);margin:0}
+.making-strip a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
 
 /* Also here */
 .rest{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);margin:0 0 4rem}

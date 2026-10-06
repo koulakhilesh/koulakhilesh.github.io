@@ -1,0 +1,18 @@
+{%- assign nr_live = site.posts | where_exp: "p", "p.archived != true" -%}
+{%- assign nr_newer = nil -%}{%- assign nr_older = nil -%}
+{%- for p in nr_live -%}
+  {%- if p.url == page.url -%}
+    {%- assign nr_i = forloop.index0 | minus: 1 -%}
+    {%- if nr_i >= 0 %}{% assign nr_newer = nr_live[nr_i] %}{% endif -%}
+    {%- assign nr_older = nr_live[forloop.index] -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- comment -%} Send readers to the start of a series, not its middle. {%- endcomment -%}
+{%- if nr_newer.series %}{% assign nr_newer = nr_live | where: "series", nr_newer.series | where: "series_part", 1 | first %}{% endif -%}
+{%- if nr_older.series %}{% assign nr_older = nr_live | where: "series", nr_older.series | where: "series_part", 1 | first %}{% endif -%}
+{%- if nr_newer or nr_older -%}
+<nav class="series-nav" aria-label="More writing">
+  {% if nr_older %}<a class="sn-prev" href="{{ nr_older.url | relative_url }}"><span class="nn-label">← Older</span>{{ nr_older.title }}</a>{% endif %}
+  {% if nr_newer %}<a class="sn-next" href="{{ nr_newer.url | relative_url }}"><span class="nn-label">Newer →</span>{{ nr_newer.title }}</a>{% endif %}
+</nav>
+{%- endif -%}

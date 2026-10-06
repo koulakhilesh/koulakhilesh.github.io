@@ -4,9 +4,9 @@
     {% if pc.glyph %}{% include glyph.html name=pc.glyph %}{% elsif pc.thumbnail %}<img class="post-thumb" src="{{ pc.thumbnail | relative_url }}" alt="" loading="lazy" width="96" height="96">{% endif %}
   </div>
   <div class="post-body">
-    <p class="post-meta mono">{{ pc.date | date: "%Y · %m" }}{% if pc.series %}{% assign pc_series = site.posts | where: "series", pc.series | where_exp: "p", "p.archived != true" %} · Part {{ pc.series_part }} of {{ pc_series.size }} · {{ pc.series }}{% endif %}</p>
+    <p class="post-meta mono">{{ pc.date | date: "%b %Y" }}{% if pc.series %}{% assign pc_series = site.posts | where: "series", pc.series | where_exp: "p", "p.archived != true" %} · Part {{ pc.series_part }} of {{ pc_series.size }} · {{ pc.series }}{% elsif pc.kicker %} · {{ pc.kicker }}{% endif %}</p>
     <h3>{{ pc.title }}</h3>
     <p class="post-excerpt">{{ pc.excerpt | strip_html | truncatewords: 28 }}</p>
-    {% if pc.tags.size > 0 %}<p class="post-tags">{% for t in pc.tags %}<span class="tag">#{{ t | remove: " " }}</span>{% endfor %}</p>{% endif %}
+    {% if pc.tags.size > 0 and include.hide_tags != true %}<p class="post-tags">{% for t in pc.tags %}<span class="tag">#{{ t | remove: " " }}</span>{% endfor %}</p>{% endif %}
   </div>
 </a>

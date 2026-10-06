@@ -1,6 +1,6 @@
 ---
 title: "Who can get to a parkrun? London's 5k map"
-date: 2026-10-02
+date: 2026-10-02 10:00:00
 last_modified_at: 2026-10-02
 thumbnail: /assets/thumbs/parkrun.png
 glyph: parkrun-reach

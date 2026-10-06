@@ -15,6 +15,7 @@
 .prose img{border-radius:var(--r-0);margin:1.5rem 0}
 .prose table{width:100%;border-collapse:collapse;margin:1.5rem 0}
 .prose th,.prose td{border:1px solid var(--line);padding:8px 12px;text-align:left}
+@media(max-width:620px){.prose table{font-size:var(--fs-sm)}.prose th,.prose td{padding:6px 8px}}
 .making-hero{border-radius:var(--r-0);margin:0 0 1.6rem}
 .proj-links{display:flex;gap:12px;margin:0 0 1.6rem}
 .post-back{margin-top:3rem;font-family:var(--mono);font-size:var(--fs-xs)}
@@ -24,6 +25,17 @@
   font-family:var(--mono);font-size:var(--fs-xs);line-height:1.65}
 .ai-disclaimer p{margin:0}
 .ai-disclaimer strong{color:var(--c-action)}
+.archive-note{margin:0 0 2rem;padding:12px 16px;border-left:3px solid var(--amber);background:var(--bg2);
+  font-family:var(--mono);font-size:var(--fs-xs);color:var(--muted);line-height:1.6}
+.post-lab{margin:2.4rem 0 0}
+
+/* Contents list for long posts (page.toc) */
+.toc{margin:0 0 2rem;padding:12px 16px;border:1px solid var(--line);background:var(--bg2)}
+.toc summary{font-size:var(--fs-xs);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);cursor:pointer}
+.toc ol{margin:.7rem 0 0;padding-left:1.3rem;display:grid;gap:.35rem;font-size:var(--fs-sm)}
+.toc a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line2);text-underline-offset:3px}
+.toc a:hover{text-decoration-color:currentColor}
+.prose h2[id]{scroll-margin-top:84px}
 
 /* Series: label in the cover (styled with .kick in front.scss), prev/next at the end */
 .series-nav{display:flex;justify-content:space-between;gap:16px;margin:3rem 0 0;

@@ -27,8 +27,8 @@
 
 .lab-stage{display:flex;justify-content:center;align-items:center}
 .lab-stage canvas{display:block;max-width:100%;border-radius:var(--r-0)}
-.lab-note{font-family:var(--mono);font-size:var(--fs-2xs);letter-spacing:.05em;color:var(--muted);
-  margin:.9rem 0 0;text-align:center}
+.lab-note{font-family:var(--mono);font-size:var(--fs-xs);letter-spacing:.02em;line-height:1.6;color:var(--muted);
+  margin:.9rem auto 0;max-width:68ch;text-align:center}
 .lab-related{font-family:var(--mono);font-size:var(--fs-2xs);letter-spacing:.05em;margin:.5rem 0 0;text-align:center}
 .lab-related a{color:var(--c-link);text-decoration:underline;text-underline-offset:3px}
 
@@ -62,8 +62,8 @@
 .lab-readout dt{font-family:var(--mono);font-size:var(--fs-2xs);letter-spacing:.08em;text-transform:uppercase;
   color:var(--muted);align-self:center}
 .lab-readout dd{margin:0;color:var(--ink)}
-.lab-source{font-family:var(--mono);font-size:var(--fs-2xs);letter-spacing:.05em;color:var(--muted);
-  margin:.4rem 0 0;text-align:center}
+.lab-source{font-family:var(--mono);font-size:var(--fs-2xs);letter-spacing:.05em;line-height:1.6;color:var(--muted);
+  margin:.4rem auto 0;max-width:80ch;text-align:center}
 .lab-error{font-family:var(--mono);font-size:var(--fs-xs);color:var(--c-action);margin:0 0 .5rem}
 
 /* link from /lab/ to the migration game */

@@ -1,6 +1,6 @@
 ---
 title: "The shape of the Gita: mapping 700 verses with a knowledge graph"
-date: 2026-08-28
+date: 2026-08-28 10:00:00
 last_modified_at: 2026-08-28
 thumbnail: /assets/thumbs/gita.svg
 glyph: gita-map

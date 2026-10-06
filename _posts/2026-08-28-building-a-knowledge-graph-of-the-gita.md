@@ -1,6 +1,6 @@
 ---
 title: "Building a knowledge graph of the Bhagavad Gita"
-date: 2026-08-28
+date: 2026-08-28 09:00:00
 last_modified_at: 2026-08-28
 thumbnail: /assets/thumbs/gita.svg
 glyph: gita-graph

@@ -1,0 +1,17 @@
+{%- if page.toc -%}
+{%- assign toc_parts = content | split: '<h2 id="' -%}
+{%- if toc_parts.size > 3 -%}
+<nav class="toc" aria-label="Contents">
+  <details open>
+    <summary class="mono">Contents</summary>
+    <ol>
+      {%- for chunk in toc_parts offset: 1 -%}
+      {%- assign toc_id = chunk | split: '"' | first -%}
+      {%- assign toc_text = chunk | split: '</h2>' | first | remove_first: toc_id | remove_first: '">' | strip_html | strip -%}
+      <li><a href="#{{ toc_id }}">{{ toc_text }}</a></li>
+      {%- endfor -%}
+    </ol>
+  </details>
+</nav>
+{%- endif -%}
+{%- endif -%}

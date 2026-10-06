@@ -20,9 +20,12 @@ layout: default
   </div>
 </header>
 <article class="wrap post-single">
+  {% if page.archived %}<p class="archive-note">Written in {{ page.date | date: "%Y" }} and kept for reference. Some details may be out of date.</p>{% endif %}
+  {% include toc.html %}
   <div class="prose">{{ content }}</div>
-  {% if page.series %}{% include series-nav.html mode="nav" %}{% endif %}
-  {% if page.tags.size > 0 %}<p class="post-tags">{% for t in page.tags %}<span class="tag">#{{ t | remove: " " }}</span>{% endfor %}</p>{% endif %}
+  {% if page.lab %}<p class="post-lab"><a class="btn btn-ghost" href="{{ page.lab.url | relative_url }}">{{ page.lab.label }} →</a></p>{% endif %}
+  {% if page.series %}{% include series-nav.html mode="nav" %}{% elsif page.archived != true %}{% include next-read.html %}{% endif %}
+  {% if page.tags.size > 0 %}<p class="post-tags">{% for t in page.tags %}<button class="tag" type="button" data-search-q="{{ t | escape }}" aria-label="Search posts tagged {{ t | escape }}">#{{ t | remove: " " }}</button>{% endfor %}</p>{% endif %}
   {% if site.ai_disclaimer and page.ai_disclaimer != false %}
   <aside class="ai-disclaimer">{{ site.ai_disclaimer | markdownify }}</aside>
   {% endif %}

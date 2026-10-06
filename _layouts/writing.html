@@ -23,6 +23,14 @@ layout: default
     <h2 class="year">{{ year.name }}</h2>
     <div class="posts">{% for post in year.items %}{% include post-card.html post=post %}{% endfor %}</div>
     {% endfor %}
+    {% assign archived = site.posts | where: "archived", true %}
+    {% if archived.size > 0 %}
+    <details class="archive-list">
+      <summary class="year">Archive · {{ archived.size }} older {% if archived.size == 1 %}post{% else %}posts{% endif %}</summary>
+      <p class="archive-list-note">Earlier notes, kept for reference. Some details may be out of date.</p>
+      <div class="posts">{% for post in archived %}{% include post-card.html post=post %}{% endfor %}</div>
+    </details>
+    {% endif %}
   {% else %}
     {% include empty-state.html message="No posts yet. Check back soon." %}
   {% endif %}

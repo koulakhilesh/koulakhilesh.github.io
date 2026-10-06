@@ -56,4 +56,4 @@ description: A game on Buckminster Fuller's world map. Follow Homo sapiens out o
 <p class="lab-source">Map: Natural Earth land outlines (public domain) on Buckminster Fuller's projection, using Robert W. Gray's equations. Dates: the papers linked at each stop. A guess anywhere inside the evidence range scores 100; debated routes are dashed. Fuller's map cuts the oceans open, so a route can leave one edge and come back at another.</p>
 <p class="lab-related"><a href="{{ '/lab/' | relative_url }}">← Back to the Lab</a></p>
 
-<script src="{{ '/assets/js/migration.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/migration.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>

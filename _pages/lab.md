@@ -2,6 +2,7 @@
 layout: page
 permalink: /lab/
 title: Lab
+description: "Small interactive tools built alongside the posts: a Tube station's day, a blue-plaque Voronoi map, a parkrun planner, and a daily probability puzzle."
 ---
 
 <p class="lab-lede">Half notebook, half playground: small things I build to understand an idea by making it move. The first three cards are companions to posts, so you can ask the data your own question. Below them is a puzzle that changes daily. <em>Psst:</em> type <code>life</code>, <code>langton</code> or <code>turing</code> anywhere on the site, or try the Konami code.</p>
@@ -95,4 +96,4 @@ title: Lab
 
 </div>
 
-<script src="{{ '/assets/js/lab.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/lab.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
