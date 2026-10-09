@@ -42,7 +42,7 @@ TfL also publishes 114 step-free interchange records. After joining both ends to
 
 The topology archive is a snapshot of the network structure. Lift disruptions are different: they describe what TfL was reporting at a particular time. I saved the live feed on 9 October and matched station IDs and hub codes back to the Tube station list.
 
-The response contained 22 lift records. Fourteen matched Tube stations, covering 10 distinct station IDs. That is not a count of wholly inaccessible stations. A notice can describe a problem with one entrance or platform while another step-free route remains open.
+The response contained 22 lift records. Fourteen records matched Tube station identifiers, covering 10 distinct stations. That is not a count of wholly inaccessible stations. A notice can describe a problem with one entrance or platform while another step-free route remains open.
 
 Wembley Park is a clear example. TfL's feed listed two records for the same lift. One said that the lift between Wembley Way or the car park and the ticket hall was out, while the Bridge Road entrance still provided a level route and lifts remained available to all platforms. Someone could still use that entrance to reach the platforms.
 
