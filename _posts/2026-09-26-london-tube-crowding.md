@@ -1,10 +1,12 @@
 ---
 title: "How the crowd moves: a typical day on the London Underground"
 date: 2026-09-26
-last_modified_at: 2026-09-26
+last_modified_at: 2026-10-09
 thumbnail: /assets/thumbs/tube.png
 glyph: tube-wave
 image: /assets/social/london-tube-crowding.png
+series: "The London Underground"
+series_part: 1
 ink: red
 kicker: "London · Transport"
 dek: "TfL publishes a 'typical day' of passenger flow for every Tube station, in 15-minute slices. I pulled it for 269 stations and asked whether you can watch the crowd move."
@@ -124,3 +126,5 @@ Does train fullness show the same inward wave as station flow? Partly. For each 
 - **The evening doesn't run the wave in reverse.** Outer stations still peak first after work, and without labelled entries and exits I can't say why.
 
 The part I'll remember is the bug. My first chart said Brixton was the second-busiest station on the Underground, and it looked plausible enough that I nearly kept it. The station-by-station timing held up once I summed the series properly, but the ranking only became believable after I stopped trusting the first number. The [notebook is here](https://github.com/koulakhilesh/CodePlayground/blob/main/london_tube_crowding/eda_notebook.ipynb) if you want to follow your own line.
+
+A follow-up asks what TfL's step-free station data can tell us about the rest of a journey: [Is a step-free station enough?]({% post_url 2026-10-09-is-a-step-free-station-enough %}).
