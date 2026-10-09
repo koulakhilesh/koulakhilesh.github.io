@@ -116,5 +116,21 @@
   <circle class="b" cx="29" cy="13" r="2.6"/>
   <rect class="r" x="35" y="15" width="6" height="6"/>
 
+{%- when "wren-steeples" -%}
+  {%- comment -%} two steeples still standing, one church gone {%- endcomment -%}
+  <rect class="r" x="6" y="22" width="8" height="15"/>
+  <polygon class="y" points="10,6 6,22 14,22"/>
+  <rect class="r" x="19" y="26" width="8" height="11"/>
+  <polygon class="y" points="23,13 19,26 27,26"/>
+  <circle class="sb" cx="35" cy="31" r="5"/>
+
+{%- when "wren-travelled" -%}
+  {%- comment -%} fabric leaving the City for two new homes {%- endcomment -%}
+  <polyline class="sr" points="13,15 34,12"/>
+  <polyline class="sr" points="13,15 30,32"/>
+  <circle class="b" cx="13" cy="15" r="4.2"/>
+  <rect class="r" x="31" y="9" width="6" height="6"/>
+  <polygon class="y" points="30,28 25,38 35,38"/>
+
 {%- endcase -%}
 </svg>

@@ -1,0 +1,347 @@
+{
+ "start": "q_inside",
+ "checked_at": "2026-10-08",
+ "questions": {
+  "q_inside": {
+   "text": "Do you want to go inside?",
+   "yes": "q_stepfree",
+   "no": "q_city"
+  },
+  "q_city": {
+   "text": "Staying in the City?",
+   "yes": "q_garden",
+   "no": "l_moved"
+  },
+  "q_garden": {
+   "text": "Would you like somewhere to sit?",
+   "yes": "l_gardens",
+   "no": "l_towers"
+  },
+  "q_stepfree": {
+   "text": "Do you need step-free access?",
+   "yes": "l_stepfree",
+   "no": "q_weekday"
+  },
+  "q_weekday": {
+   "text": "Is it a weekday?",
+   "yes": "q_coffee",
+   "no": "q_cathedral"
+  },
+  "q_cathedral": {
+   "text": "Wren's biggest job, the cathedral?",
+   "yes": "l_stpauls",
+   "no": "l_weekend"
+  },
+  "q_coffee": {
+   "text": "Coffee with your Wren?",
+   "yes": "l_cafes",
+   "no": "q_original"
+  },
+  "q_original": {
+   "text": "Is a post-war rebuild fine?",
+   "yes": "q_spend",
+   "no": "q_lunch"
+  },
+  "q_lunch": {
+   "text": "Only got a lunch hour?",
+   "yes": "l_walk",
+   "no": "l_original"
+  },
+  "q_spend": {
+   "text": "The one that cost the most?",
+   "yes": "l_bow",
+   "no": "l_vedast"
+  }
+ },
+ "leaves": {
+  "l_moved": {
+   "id": "l_moved",
+   "title": "Follow the stone out of town",
+   "note": null,
+   "sites": [
+    {
+     "name": "St Antholin's spire top, Sydenham",
+     "why": "Moved in 1829, about 8.8 km from its City site.",
+     "url": "https://historicengland.org.uk/listing/the-list/list-entry/1079973"
+    },
+    {
+     "name": "All Hallows tower, Twickenham",
+     "why": "Re-erected in 1940, about 18.4 km away.",
+     "url": "https://historicengland.org.uk/listing/the-list/list-entry/1080836"
+    },
+    {
+     "name": "St Mary Aldermanbury, Fulton, Missouri",
+     "why": "The whole shell, shipped in the 1960s.",
+     "url": "https://www.nationalchurchillmuseum.org/history-church-of-st-mary.html"
+    }
+   ]
+  },
+  "l_gardens": {
+   "id": "l_gardens",
+   "title": "A garden in the ruins",
+   "note": null,
+   "sites": [
+    {
+     "name": "St Dunstan-in-the-East",
+     "why": "Tower and garden, daily 8am to 7pm or dusk.",
+     "url": "https://www.fotcc.org.uk/church/st-dunstan-in-the-east-tower-and-gardens-only/"
+    },
+    {
+     "name": "Christ Church Greyfriars",
+     "why": "Tower and a garden in the old nave.",
+     "url": "https://www.fotcc.org.uk/church/christchurch-newgate-otherwise-known-as-christchurch-greyfriars-tower-and-gardens-only/"
+    },
+    {
+     "name": "St Mary Aldermanbury garden",
+     "why": "Garden and remains; the stones are in Missouri.",
+     "url": "https://www.fotcc.org.uk/church/st-mary-aldermanbury-gardens-and-remains-only/"
+    },
+    {
+     "name": "St Swithin's garden",
+     "why": "Garden on the site.",
+     "url": "https://www.fotcc.org.uk/church/st-swithun-london-stone-gardens-only/"
+    }
+   ]
+  },
+  "l_towers": {
+   "id": "l_towers",
+   "title": "Just the tower, from the street",
+   "note": null,
+   "sites": [
+    {
+     "name": "St Alban's, Wood Street",
+     "why": "Tower only.",
+     "url": "https://www.fotcc.org.uk/church/st-alban-wood-street-tower-only/"
+    },
+    {
+     "name": "St Augustine Watling Street",
+     "why": "Tower only.",
+     "url": "https://www.fotcc.org.uk/church/st-augustine-with-st-faith-tower-only/"
+    },
+    {
+     "name": "St Mary Somerset",
+     "why": "Tower only.",
+     "url": "https://www.fotcc.org.uk/church/st-mary-somerset-tower-only/"
+    },
+    {
+     "name": "St Olave Old Jewry",
+     "why": "Tower only.",
+     "url": "https://www.fotcc.org.uk/church/st-olave-old-jewry-tower-only/"
+    }
+   ]
+  },
+  "l_stepfree": {
+   "id": "l_stepfree",
+   "title": "Says it is step-free",
+   "note": "The only five sites I found with a step-free statement. Read the church's own page first.",
+   "sites": [
+    {
+     "name": "St Mary Aldermary",
+     "why": "Step-free via the West door, off Bow Lane.",
+     "url": "https://www.fotcc.org.uk/church/st-mary-aldermary/"
+    },
+    {
+     "name": "St Margaret Pattens",
+     "why": "Ramp via Plantation Lane.",
+     "url": "https://www.fotcc.org.uk/church/st-margaret-pattens/"
+    },
+    {
+     "name": "St Bride's Church",
+     "why": "Step-free via the west door; largely step-free inside.",
+     "url": "https://www.fotcc.org.uk/church/st-brides-church/"
+    },
+    {
+     "name": "St James's Church, Piccadilly",
+     "why": "Ramps from Piccadilly and the courtyard.",
+     "url": "https://www.sjp.org.uk/visit-us/"
+    },
+    {
+     "name": "St Paul's Cathedral",
+     "why": "Ramps and lifts; 257 steps to the first gallery.",
+     "url": "https://www.stpauls.co.uk/"
+    }
+   ]
+  },
+  "l_stpauls": {
+   "id": "l_stpauls",
+   "title": "St Paul's Cathedral",
+   "note": null,
+   "sites": [
+    {
+     "name": "St Paul's Cathedral",
+     "why": "Sightseeing Monday to Saturday from 8.30am; cost £1,095,556 by 1716.",
+     "url": "https://www.stpauls.co.uk/"
+    }
+   ]
+  },
+  "l_weekend": {
+   "id": "l_weekend",
+   "title": "Open at the weekend",
+   "note": null,
+   "sites": [
+    {
+     "name": "St Andrew, Holborn",
+     "why": "Daily.",
+     "url": "https://www.fotcc.org.uk/church/st-andrew-holborn/"
+    },
+    {
+     "name": "St Bride's Church",
+     "why": "Saturday and Sunday.",
+     "url": "https://www.fotcc.org.uk/church/st-brides-church/"
+    },
+    {
+     "name": "St Clement Danes",
+     "why": "Saturday and Sunday, 10am to 3pm.",
+     "url": "https://stclementdanesraf.org/"
+    },
+    {
+     "name": "St James's Church, Piccadilly",
+     "why": "Saturday and Sunday.",
+     "url": "https://www.sjp.org.uk/visit-us/"
+    },
+    {
+     "name": "St Mary Aldermary",
+     "why": "Every third Saturday.",
+     "url": "https://www.fotcc.org.uk/church/st-mary-aldermary/"
+    }
+   ]
+  },
+  "l_cafes": {
+   "id": "l_cafes",
+   "title": "A church with a café",
+   "note": null,
+   "sites": [
+    {
+     "name": "St Mary Aldermary",
+     "why": "Host Café, run by the church, in the nave.",
+     "url": "https://www.fotcc.org.uk/church/st-mary-aldermary/"
+    },
+    {
+     "name": "St Nicholas Cole Abbey",
+     "why": "A café called The Wren.",
+     "url": "https://www.fotcc.org.uk/church/st-nicholas-cole-abbey/"
+    },
+    {
+     "name": "St James's Church, Piccadilly",
+     "why": "A Redemption Roasters café, in partnership with the church.",
+     "url": "https://www.sjp.org.uk/visit-us/"
+    }
+   ]
+  },
+  "l_walk": {
+   "id": "l_walk",
+   "title": "Walbrook, then Aldermary",
+   "note": "293 m between the two sites, about 4 minutes on foot; about 49 minutes with both visits.",
+   "sites": [
+    {
+     "name": "St Stephen Walbrook",
+     "why": "Weekdays 10.30am to 3.30pm. Wren's domed church.",
+     "url": "https://www.fotcc.org.uk/church/st-stephen-walbrook/"
+    },
+    {
+     "name": "St Mary Aldermary",
+     "why": "Weekdays 7.30am to 4pm, rebuilt in Gothic style.",
+     "url": "https://www.fotcc.org.uk/church/st-mary-aldermary/"
+    }
+   ]
+  },
+  "l_original": {
+   "id": "l_original",
+   "title": "Listed as surviving in original form",
+   "note": "The Wikipedia list's grouping; some were bomb-damaged and repaired. Weekday hours as published.",
+   "sites": [
+    {
+     "name": "St Stephen Walbrook",
+     "why": "Weekdays.",
+     "url": "https://www.fotcc.org.uk/church/st-stephen-walbrook/"
+    },
+    {
+     "name": "St Margaret Lothbury",
+     "why": "Weekdays from 7.15am.",
+     "url": "https://www.fotcc.org.uk/church/st-margaret-lothbury/"
+    },
+    {
+     "name": "St Margaret Pattens",
+     "why": "Weekdays from 7.30am.",
+     "url": "https://www.fotcc.org.uk/church/st-margaret-pattens/"
+    },
+    {
+     "name": "St James Garlickhythe",
+     "why": "Weekdays 10.30am to 4pm.",
+     "url": "https://www.fotcc.org.uk/church/st-james-garlickhythe/"
+    },
+    {
+     "name": "St Martin, Ludgate",
+     "why": "Weekdays, hours vary by day.",
+     "url": "https://www.fotcc.org.uk/church/st-martin-ludgate/"
+    },
+    {
+     "name": "St Peter upon Cornhill",
+     "why": "Tuesday afternoons only.",
+     "url": "https://www.fotcc.org.uk/church/st-peter-cornhill/"
+    },
+    {
+     "name": "St Benet Paul's Wharf",
+     "why": "Thursdays only.",
+     "url": "https://www.fotcc.org.uk/church/st-benet-pauls-wharf-the-welsh-church/"
+    }
+   ]
+  },
+  "l_bow": {
+   "id": "l_bow",
+   "title": "St Mary-le-Bow",
+   "note": null,
+   "sites": [
+    {
+     "name": "St Mary-le-Bow",
+     "why": "£15,421, the most of any replacement church. Interior rebuilt after the war.",
+     "url": "https://www.fotcc.org.uk/church/st-mary-le-bow/"
+    }
+   ]
+  },
+  "l_vedast": {
+   "id": "l_vedast",
+   "title": "St Vedast Foster Lane",
+   "note": null,
+   "sites": [
+    {
+     "name": "St Vedast Foster Lane",
+     "why": "£1,854 for the main body, the least of any. Interior rebuilt after the war.",
+     "url": "https://www.fotcc.org.uk/church/st-vedast/"
+    }
+   ]
+  }
+ },
+ "aside": {
+  "id": null,
+  "title": "Not today",
+  "note": "Interiors that were closed, closing, or open only by arrangement or for services when checked.",
+  "sites": [
+   {
+    "name": "St Mary Abchurch",
+    "why": "Closing for refurbishment.",
+    "url": "https://www.fotcc.org.uk/church/st-mary-abchurch/"
+   },
+   {
+    "name": "St Michael Paternoster Royal",
+    "why": "Not open to the public.",
+    "url": "https://www.fotcc.org.uk/church/st-michael-paternoster-royal/"
+   },
+   {
+    "name": "St Edmund, King and Martyr",
+    "why": "By arrangement only.",
+    "url": "https://www.fotcc.org.uk/church/st-edmund-the-king-and-martyr/"
+   },
+   {
+    "name": "St Clement Eastcheap",
+    "why": "No regular opening times.",
+    "url": "https://www.fotcc.org.uk/church/st-clement-eastcheap/"
+   },
+   {
+    "name": "Royal Hospital Chelsea chapel",
+    "why": "Sunday services only.",
+    "url": "https://chelsea-pensioners.co.uk/visit/wren-chapel-services"
+   }
+  ]
+ }
+}

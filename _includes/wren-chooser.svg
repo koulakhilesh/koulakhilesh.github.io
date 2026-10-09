@@ -1,0 +1,162 @@
+<svg class="wc-poster" viewBox="0 0 680 1668" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="wc-title wc-desc">
+<title id="wc-title">Which Wren church should you visit? A yes/no flow chart</title>
+<desc id="wc-desc">Start at the top. Yes answers follow the blue lines and no answers the red lines; each branch ends in a group of churches. The same chart is available as a step-by-step chooser below.</desc>
+<text class="wc-start" x="8" y="22">START HERE</text>
+<rect class="wc-q" x="8" y="40" width="170" height="50"/>
+<text class="wc-qt" x="18" y="61">Do you want to go</text>
+<text class="wc-qt" x="18" y="78">inside?</text>
+<rect class="wc-q" x="50" y="108" width="170" height="50"/>
+<text class="wc-qt" x="60" y="129">Do you need step-free</text>
+<text class="wc-qt" x="60" y="146">access?</text>
+<rect class="wc-l" x="352" y="108" width="320" height="145"/>
+<rect class="wc-tab" x="352" y="108" width="4" height="145"/>
+<text class="wc-lt" x="364" y="127">Says it is step-free</text>
+<text class="wc-ls" x="364" y="144">St Mary Aldermary</text>
+<text class="wc-ls" x="364" y="161">St Margaret Pattens</text>
+<text class="wc-ls" x="364" y="178">St Bride&#x27;s Church</text>
+<text class="wc-ls" x="364" y="195">St James&#x27;s Church, Piccadilly</text>
+<text class="wc-ls" x="364" y="212">St Paul&#x27;s Cathedral</text>
+<text class="wc-ln" x="364" y="229">The only five sites I found with a step-free</text>
+<text class="wc-ln" x="364" y="244">statement. Read the church&#x27;s own page first.</text>
+<path class="wc-edge wc-yes" d="M220,133.0 H332 V122 H352"/>
+<text class="wc-ans wc-yes" x="226" y="129">YES</text>
+<rect class="wc-q" x="50" y="271.0" width="170" height="33"/>
+<text class="wc-qt" x="60" y="292.0">Is it a weekday?</text>
+<rect class="wc-q" x="92" y="322.0" width="170" height="50"/>
+<text class="wc-qt" x="102" y="343.0">Coffee with your</text>
+<text class="wc-qt" x="102" y="360.0">Wren?</text>
+<rect class="wc-l" x="352" y="322.0" width="320" height="81"/>
+<rect class="wc-tab" x="352" y="322.0" width="4" height="81"/>
+<text class="wc-lt" x="364" y="341.0">A church with a café</text>
+<text class="wc-ls" x="364" y="358.0">St Mary Aldermary</text>
+<text class="wc-ls" x="364" y="375.0">St Nicholas Cole Abbey</text>
+<text class="wc-ls" x="364" y="392.0">St James&#x27;s Church, Piccadilly</text>
+<path class="wc-edge wc-yes" d="M262,347.0 H332 V336.0 H352"/>
+<text class="wc-ans wc-yes" x="268" y="343">YES</text>
+<rect class="wc-q" x="92" y="421.0" width="170" height="50"/>
+<text class="wc-qt" x="102" y="442.0">Is a post-war rebuild</text>
+<text class="wc-qt" x="102" y="459.0">fine?</text>
+<rect class="wc-q" x="134" y="489.0" width="170" height="50"/>
+<text class="wc-qt" x="144" y="510.0">The one that cost the</text>
+<text class="wc-qt" x="144" y="527.0">most?</text>
+<rect class="wc-l" x="352" y="489.0" width="320" height="64"/>
+<rect class="wc-tab" x="352" y="489.0" width="4" height="64"/>
+<text class="wc-lt" x="364" y="508.0">St Mary-le-Bow</text>
+<text class="wc-ls" x="364" y="525.0">£15,421, the most of any replacement church.</text>
+<text class="wc-ls" x="364" y="542.0">Interior rebuilt after the war.</text>
+<path class="wc-edge wc-yes" d="M304,514.0 H332 V503.0 H352"/>
+<text class="wc-ans wc-yes" x="310" y="510">YES</text>
+<rect class="wc-l" x="352" y="562.0" width="320" height="64"/>
+<rect class="wc-tab" x="352" y="562.0" width="4" height="64"/>
+<text class="wc-lt" x="364" y="581.0">St Vedast Foster Lane</text>
+<text class="wc-ls" x="364" y="598.0">£1,854 for the main body, the least of any.</text>
+<text class="wc-ls" x="364" y="615.0">Interior rebuilt after the war.</text>
+<path class="wc-edge wc-no" d="M280,539.0 V576.0 H352"/>
+<text class="wc-ans wc-no" x="286" y="572">NO</text>
+<path class="wc-edge wc-yes" d="M105,471.0 V502.0 H134"/>
+<text class="wc-ans wc-yes" x="108" y="497">YES</text>
+<rect class="wc-q" x="134" y="644.0" width="170" height="50"/>
+<text class="wc-qt" x="144" y="665.0">Only got a lunch</text>
+<text class="wc-qt" x="144" y="682.0">hour?</text>
+<rect class="wc-l" x="352" y="644.0" width="320" height="94"/>
+<rect class="wc-tab" x="352" y="644.0" width="4" height="94"/>
+<text class="wc-lt" x="364" y="663.0">Walbrook, then Aldermary</text>
+<text class="wc-ls" x="364" y="680.0">St Stephen Walbrook</text>
+<text class="wc-ls" x="364" y="697.0">St Mary Aldermary</text>
+<text class="wc-ln" x="364" y="714.0">293 m between the two sites, about 4 minutes on</text>
+<text class="wc-ln" x="364" y="729.0">foot; about 49 minutes with both visits.</text>
+<path class="wc-edge wc-yes" d="M304,669.0 H332 V658.0 H352"/>
+<text class="wc-ans wc-yes" x="310" y="665">YES</text>
+<rect class="wc-l" x="352" y="747.0" width="320" height="179"/>
+<rect class="wc-tab" x="352" y="747.0" width="4" height="179"/>
+<text class="wc-lt" x="364" y="766.0">Listed as surviving in original form</text>
+<text class="wc-ls" x="364" y="783.0">St Stephen Walbrook</text>
+<text class="wc-ls" x="364" y="800.0">St Margaret Lothbury</text>
+<text class="wc-ls" x="364" y="817.0">St Margaret Pattens</text>
+<text class="wc-ls" x="364" y="834.0">St James Garlickhythe</text>
+<text class="wc-ls" x="364" y="851.0">St Martin, Ludgate</text>
+<text class="wc-ls" x="364" y="868.0">St Peter upon Cornhill</text>
+<text class="wc-ls" x="364" y="885.0">St Benet Paul&#x27;s Wharf</text>
+<text class="wc-ln" x="364" y="902.0">The Wikipedia list&#x27;s grouping; some were bomb-</text>
+<text class="wc-ln" x="364" y="917.0">damaged and repaired. Weekday hours as published.</text>
+<path class="wc-edge wc-no" d="M280,694.0 V761.0 H352"/>
+<text class="wc-ans wc-no" x="286" y="757">NO</text>
+<path class="wc-edge wc-no" d="M105,471.0 V657.0 H134"/>
+<text class="wc-ans wc-no" x="108" y="652">NO</text>
+<path class="wc-edge wc-no" d="M122,372.0 V421.0"/>
+<text class="wc-ans wc-no" x="128" y="400">NO</text>
+<path class="wc-edge wc-yes" d="M63,304.0 V335.0 H92"/>
+<text class="wc-ans wc-yes" x="66" y="330">YES</text>
+<rect class="wc-q" x="92" y="944.0" width="170" height="50"/>
+<text class="wc-qt" x="102" y="965.0">Wren&#x27;s biggest job,</text>
+<text class="wc-qt" x="102" y="982.0">the cathedral?</text>
+<rect class="wc-l" x="352" y="944.0" width="320" height="64"/>
+<rect class="wc-tab" x="352" y="944.0" width="4" height="64"/>
+<text class="wc-lt" x="364" y="963.0">St Paul&#x27;s Cathedral</text>
+<text class="wc-ls" x="364" y="980.0">Sightseeing Monday to Saturday from 8.30am;</text>
+<text class="wc-ls" x="364" y="997.0">cost £1,095,556 by 1716.</text>
+<path class="wc-edge wc-yes" d="M262,969.0 H332 V958.0 H352"/>
+<text class="wc-ans wc-yes" x="268" y="965">YES</text>
+<rect class="wc-l" x="352" y="1017.0" width="320" height="115"/>
+<rect class="wc-tab" x="352" y="1017.0" width="4" height="115"/>
+<text class="wc-lt" x="364" y="1036.0">Open at the weekend</text>
+<text class="wc-ls" x="364" y="1053.0">St Andrew, Holborn</text>
+<text class="wc-ls" x="364" y="1070.0">St Bride&#x27;s Church</text>
+<text class="wc-ls" x="364" y="1087.0">St Clement Danes</text>
+<text class="wc-ls" x="364" y="1104.0">St James&#x27;s Church, Piccadilly</text>
+<text class="wc-ls" x="364" y="1121.0">St Mary Aldermary</text>
+<path class="wc-edge wc-no" d="M238,994.0 V1031.0 H352"/>
+<text class="wc-ans wc-no" x="244" y="1027">NO</text>
+<path class="wc-edge wc-no" d="M63,304.0 V957.0 H92"/>
+<text class="wc-ans wc-no" x="66" y="952">NO</text>
+<path class="wc-edge wc-no" d="M80,158 V271.0"/>
+<text class="wc-ans wc-no" x="86" y="218">NO</text>
+<path class="wc-edge wc-yes" d="M21,90 V121 H50"/>
+<text class="wc-ans wc-yes" x="24" y="116">YES</text>
+<rect class="wc-q" x="50" y="1150.0" width="170" height="33"/>
+<text class="wc-qt" x="60" y="1171.0">Staying in the City?</text>
+<rect class="wc-l" x="352" y="1150.0" width="320" height="81"/>
+<rect class="wc-tab" x="352" y="1150.0" width="4" height="81"/>
+<text class="wc-lt" x="364" y="1169.0">Follow the stone out of town</text>
+<text class="wc-ls" x="364" y="1186.0">St Antholin&#x27;s spire top, Sydenham</text>
+<text class="wc-ls" x="364" y="1203.0">All Hallows tower, Twickenham</text>
+<text class="wc-ls" x="364" y="1220.0">St Mary Aldermanbury, Fulton, Missouri</text>
+<path class="wc-edge wc-no" d="M220,1166.5 H332 V1164.0 H352"/>
+<text class="wc-ans wc-no" x="226" y="1162">NO</text>
+<rect class="wc-q" x="50" y="1249.0" width="170" height="50"/>
+<text class="wc-qt" x="60" y="1270.0">Would you like</text>
+<text class="wc-qt" x="60" y="1287.0">somewhere to sit?</text>
+<rect class="wc-l" x="352" y="1249.0" width="320" height="98"/>
+<rect class="wc-tab" x="352" y="1249.0" width="4" height="98"/>
+<text class="wc-lt" x="364" y="1268.0">A garden in the ruins</text>
+<text class="wc-ls" x="364" y="1285.0">St Dunstan-in-the-East</text>
+<text class="wc-ls" x="364" y="1302.0">Christ Church Greyfriars</text>
+<text class="wc-ls" x="364" y="1319.0">St Mary Aldermanbury garden</text>
+<text class="wc-ls" x="364" y="1336.0">St Swithin&#x27;s garden</text>
+<path class="wc-edge wc-yes" d="M220,1274.0 H332 V1263.0 H352"/>
+<text class="wc-ans wc-yes" x="226" y="1270">YES</text>
+<rect class="wc-l" x="352" y="1356.0" width="320" height="98"/>
+<rect class="wc-tab" x="352" y="1356.0" width="4" height="98"/>
+<text class="wc-lt" x="364" y="1375.0">Just the tower, from the street</text>
+<text class="wc-ls" x="364" y="1392.0">St Alban&#x27;s, Wood Street</text>
+<text class="wc-ls" x="364" y="1409.0">St Augustine Watling Street</text>
+<text class="wc-ls" x="364" y="1426.0">St Mary Somerset</text>
+<text class="wc-ls" x="364" y="1443.0">St Olave Old Jewry</text>
+<path class="wc-edge wc-no" d="M196,1299.0 V1370.0 H352"/>
+<text class="wc-ans wc-no" x="202" y="1366">NO</text>
+<path class="wc-edge wc-yes" d="M80,1183.0 V1249.0"/>
+<text class="wc-ans wc-yes" x="86" y="1220">YES</text>
+<path class="wc-edge wc-no" d="M21,90 V1163.0 H50"/>
+<text class="wc-ans wc-no" x="24" y="1158">NO</text>
+<rect class="wc-aside" x="8" y="1490.0" width="664" height="130"/>
+<rect class="wc-tab" x="8" y="1490.0" width="4" height="130"/>
+<text class="wc-lt" x="20" y="1509.0">Not today</text>
+<text class="wc-ls" x="20" y="1526.0">St Mary Abchurch</text>
+<text class="wc-ls" x="20" y="1543.0">St Michael Paternoster Royal</text>
+<text class="wc-ls" x="20" y="1560.0">St Edmund, King and Martyr</text>
+<text class="wc-ls" x="20" y="1577.0">St Clement Eastcheap</text>
+<text class="wc-ls" x="20" y="1594.0">Royal Hospital Chelsea chapel</text>
+<text class="wc-ln" x="20" y="1611.0">Interiors that were closed, closing, or open only by arrangement or for services when checked.</text>
+<text class="wc-src" x="8" y="1642">Data: Friends of the City Churches and church websites (checked 2026-10-08); Wikipedia (CC BY-SA 4.0); Historic</text>
+<text class="wc-src" x="8" y="1656">England (OGL v3.0).</text>
+</svg>
