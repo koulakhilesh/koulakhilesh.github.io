@@ -2,10 +2,10 @@
 layout: page
 permalink: /lab/
 title: Lab
-description: "Small interactive tools built alongside the posts: a Tube station's day, a blue-plaque Voronoi map, a parkrun planner, and a daily probability puzzle."
+description: "Small interactive tools built alongside the posts: a daily probability puzzle, a Wren church chooser, a parkrun planner, a blue-plaque Voronoi map and a Tube station's day."
 ---
 
-<p class="lab-lede">Half notebook, half playground: small things I build to understand an idea by making it move. The first three cards are companions to posts, so you can ask the data your own question. Below them is a puzzle that changes daily. <em>Psst:</em> type <code>life</code>, <code>langton</code> or <code>turing</code> anywhere on the site, or try the Konami code.</p>
+<p class="lab-lede">Half notebook, half playground: small things I build to understand an idea by making it move. First, a puzzle that changes every day. Below it, the newest first, are companions to posts, so you can ask the data your own question. <em>Psst:</em> type <code>life</code>, <code>langton</code> or <code>turing</code> anywhere on the site, or try the Konami code.</p>
 
 <div class="lab-feature-wrap">
 <a class="lab-feature" href="{{ '/lab/migration/' | relative_url }}">
@@ -18,22 +18,59 @@ description: "Small interactive tools built alongside the posts: a Tube station'
 
 <div class="lab">
 
-  <section class="lab-card lab-card--wide lab-card--companion" id="tube-day">
+  <section class="lab-card lab-card--wide" id="puzzle">
     <div class="lab-head">
-      <h2>Your station's day</h2>
-      <div class="lab-controls lab-picker">
-        <label class="sr-only" for="tube-station">Station</label>
-        <input id="tube-station" list="tube-stations" type="text" autocomplete="off" spellcheck="false" placeholder="station name" value="Oxford Circus">
-        <datalist id="tube-stations"></datalist>
-        <button type="button" id="tube-random">Random</button>
+      <h2>Puzzle of the day</h2>
+      <div class="lab-controls"><span class="lab-stat" id="daily-date"></span></div>
+    </div>
+    <div class="lab-stage lab-stage--text" id="lab-daily">
+      <div class="daily">
+        <p class="daily-kind mono" id="daily-kind">&nbsp;</p>
+        <p class="daily-q" id="daily-q">Loading today's puzzle…</p>
+        <div class="daily-actions">
+          <label class="sr-only" for="daily-input">Your answer</label>
+          <input class="daily-input" id="daily-input" type="text" inputmode="decimal" placeholder="your answer" autocomplete="off">
+          <button type="button" id="daily-reveal">Reveal</button>
+          <button type="button" id="daily-hint">Hint</button>
+        </div>
+        <p class="daily-hint-text" id="daily-hint-text" hidden></p>
+        <div class="daily-a" id="daily-a" aria-live="polite" hidden></div>
+        <figure class="daily-sim" id="daily-sim" hidden>
+          <canvas role="img" aria-label="Simulation estimate converging on the exact answer"></canvas>
+          <figcaption class="daily-sim-cap mono" id="daily-sim-cap"></figcaption>
+        </figure>
       </div>
     </div>
-    <div class="lab-stage lab-stage--chart" id="lab-tube" data-src="{{ '/assets/lab/tube-day.json' | relative_url }}"><canvas tabindex="0" role="img" aria-label="Loading station data" aria-describedby="tube-note"></canvas></div>
-    <p class="lab-hover" id="tube-hover" aria-live="off">&nbsp;</p>
-    <dl class="lab-readout" id="tube-readout" aria-live="polite"></dl>
-    <p class="lab-note" id="tube-note">Blue: the station's flow per 15 minutes. Dashed: the whole network, scaled to the same peak. Hover, or focus the chart and use the arrow keys.</p>
-    <p class="lab-source">Powered by TfL Open Data. One modelled typical day; nothing between 02:00 and 05:00. Paddington's two Tube stations are combined here, so the list has 267 names for 269 stations.</p>
-    <p class="lab-related"><a href="{{ '/writing/london-tube-crowding/' | relative_url }}">Related: How the crowd moves →</a></p>
+    <p class="lab-note">A new puzzle every day at midnight London time, the same for everyone. Puzzles come from a shuffled deck, so none repeats until the deck runs out. Type a guess (a percentage, a fraction or a number), then Reveal; where it can, the answer is checked by simulating the puzzle thousands of times.</p>
+  </section>
+
+  <section class="lab-card lab-card--wide lab-card--companion" id="wren-chooser">
+    <div class="lab-head">
+      <h2>Which Wren church?</h2>
+    </div>
+    <div class="wc wc--lab" id="wc" data-src="{{ '/assets/wren/chooser.json' | relative_url }}" aria-live="polite">
+      <p class="wc-note">Loading the chooser…</p>
+    </div>
+    <p class="lab-note">Answer yes or no to get a short list of Wren's churches to visit. Every answer is checked against the register first, so it only promises weekend hours, a café or a step-free entrance where a source published one.</p>
+    <p class="lab-source">Friends of the City Churches and church websites, checked 8 October 2026; Wikipedia (CC BY-SA 4.0); Historic England (OGL v3.0).</p>
+    <p class="lab-related"><a href="{{ '/writing/wrens-churches-travelled-and-open/' | relative_url }}">Related: Where Wren's churches went, and which you can still walk into →</a></p>
+  </section>
+
+  <section class="lab-card lab-card--wide lab-card--companion" id="parkrun-drop">
+    <div class="lab-head">
+      <h2>Drop a parkrun</h2>
+      <div class="lab-controls" id="parkrun-controls">
+        <button type="button" data-act="best">Best spot</button>
+        <button type="button" data-act="picks">The post's five</button>
+        <button type="button" data-act="reset">Reset</button>
+      </div>
+    </div>
+    <div class="lab-stage lab-stage--chart" id="lab-parkrun" data-src="{{ '/assets/lab/parkrun-lab.json' | relative_url }}"><canvas tabindex="0" role="img" aria-label="Loading parkrun data" aria-describedby="parkrun-note"></canvas></div>
+    <p class="lab-hover" id="parkrun-hover">&nbsp;</p>
+    <dl class="lab-readout" id="parkrun-readout" aria-live="polite"></dl>
+    <p class="lab-note" id="parkrun-note">Yellow dots are neighbourhoods more than 2 km (in a straight line) from a parkrun; blue dots are London's 65 events. Click the map to start a parkrun and see how many Londoners it brings within 2 km. Best spot (or Enter on the focused map) tries every neighbourhood centre, not just parks, so it can beat the post's park-only picks, but it has no idea whether a 5k course would fit.</p>
+    <p class="lab-source">parkrun events feed; ONS Census 2021 population by neighbourhood (LSOA); London Datastore boundaries. Contains National Statistics data and OS data © Crown copyright and database right.</p>
+    <p class="lab-related"><a href="{{ '/writing/london-parkrun-shape/' | relative_url }}">Related: Which parkrun came first, and can you run the alphabet? →</a></p>
   </section>
 
   <section class="lab-card lab-card--wide lab-card--companion" id="plaque-voronoi">
@@ -59,41 +96,26 @@ description: "Small interactive tools built alongside the posts: a Tube station'
     <p class="lab-related"><a href="{{ '/writing/the-geometry-of-londons-blue-plaques/' | relative_url }}">Related: The geometry of London's blue plaques →</a></p>
   </section>
 
-  <section class="lab-card lab-card--wide lab-card--companion" id="parkrun-drop">
+  <section class="lab-card lab-card--wide lab-card--companion" id="tube-day">
     <div class="lab-head">
-      <h2>Drop a parkrun</h2>
-      <div class="lab-controls" id="parkrun-controls">
-        <button type="button" data-act="best">Best spot</button>
-        <button type="button" data-act="picks">The post's five</button>
-        <button type="button" data-act="reset">Reset</button>
+      <h2>Your station's day</h2>
+      <div class="lab-controls lab-picker">
+        <label class="sr-only" for="tube-station">Station</label>
+        <input id="tube-station" list="tube-stations" type="text" autocomplete="off" spellcheck="false" placeholder="station name" value="Oxford Circus">
+        <datalist id="tube-stations"></datalist>
+        <button type="button" id="tube-random">Random</button>
       </div>
     </div>
-    <div class="lab-stage lab-stage--chart" id="lab-parkrun" data-src="{{ '/assets/lab/parkrun-lab.json' | relative_url }}"><canvas tabindex="0" role="img" aria-label="Loading parkrun data" aria-describedby="parkrun-note"></canvas></div>
-    <p class="lab-hover" id="parkrun-hover">&nbsp;</p>
-    <dl class="lab-readout" id="parkrun-readout" aria-live="polite"></dl>
-    <p class="lab-note" id="parkrun-note">Yellow dots are neighbourhoods more than 2 km (in a straight line) from a parkrun; blue dots are London's 65 events. Click the map to start a parkrun and see how many Londoners it brings within 2 km. Best spot (or Enter on the focused map) tries every neighbourhood centre, not just parks, so it can beat the post's park-only picks, but it has no idea whether a 5k course would fit.</p>
-    <p class="lab-source">parkrun events feed; ONS Census 2021 population by neighbourhood (LSOA); London Datastore boundaries. Contains National Statistics data and OS data © Crown copyright and database right.</p>
-    <p class="lab-related"><a href="{{ '/writing/london-parkrun-shape/' | relative_url }}">Related: Which parkrun came first, and can you run the alphabet? →</a></p>
-  </section>
-
-  <section class="lab-card lab-card--wide">
-    <div class="lab-head">
-      <h2>Puzzle of the day</h2>
-      <div class="lab-controls"><span class="lab-stat" id="daily-date"></span></div>
-    </div>
-    <div class="lab-stage lab-stage--text" id="lab-daily">
-      <div class="daily">
-        <p class="daily-q" id="daily-q">Loading today's puzzle…</p>
-        <div class="daily-actions">
-          <input class="daily-input" id="daily-input" type="text" inputmode="decimal" placeholder="your answer" aria-label="Your answer">
-          <button id="daily-reveal">Reveal</button>
-        </div>
-        <p class="daily-a" id="daily-a" hidden></p>
-      </div>
-    </div>
-    <p class="lab-note">A fresh probability puzzle every day, the same for everyone. Type a guess, then Reveal to check. Come back tomorrow for a new one.</p>
+    <div class="lab-stage lab-stage--chart" id="lab-tube" data-src="{{ '/assets/lab/tube-day.json' | relative_url }}"><canvas tabindex="0" role="img" aria-label="Loading station data" aria-describedby="tube-note"></canvas></div>
+    <p class="lab-hover" id="tube-hover" aria-live="off">&nbsp;</p>
+    <dl class="lab-readout" id="tube-readout" aria-live="polite"></dl>
+    <p class="lab-note" id="tube-note">Blue: the station's flow per 15 minutes. Dashed: the whole network, scaled to the same peak. Hover, or focus the chart and use the arrow keys.</p>
+    <p class="lab-source">Powered by TfL Open Data. One modelled typical day; nothing between 02:00 and 05:00. Paddington's two Tube stations are combined here, so the list has 267 names for 269 stations.</p>
+    <p class="lab-related"><a href="{{ '/writing/london-tube-crowding/' | relative_url }}">Related: How the crowd moves →</a></p>
   </section>
 
 </div>
 
 <script src="{{ '/assets/js/lab.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+<script src="{{ '/assets/js/daily-puzzle.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+<script src="{{ '/assets/js/wren-chooser.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>

@@ -64,7 +64,7 @@ Matt Brown drew [a flow chart of London's museums](https://commons.wikimedia.org
 {% include wren-chooser.svg %}
 </figure>
 
-On a phone the chart gets small, so here it is one question at a time.
+On a phone the chart gets small, so here it is one question at a time. It also lives in the [Lab]({{ '/lab/#wren-chooser' | relative_url }}).
 
 <div class="wc" id="wc" data-src="{{ '/assets/wren/chooser.json' | relative_url }}" aria-live="polite">
   <p class="wc-note">Loading the chooser…</p>
